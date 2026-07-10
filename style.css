@@ -124,3 +124,50 @@ details p{margin:10px 0 4px;font-size:.92rem;color:var(--ink-2)}
 .card .meta{font-size:.76rem;color:var(--muted)}
 footer.site{border-top:1px solid var(--grid);margin-top:60px}
 footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76rem;color:var(--muted);line-height:1.8}
+
+/* ===== Video Abstract 影片摘要 ===== */
+.videoabs{position:relative;background:#101014;border:1px solid #2c2c2a;border-radius:14px;
+  overflow:hidden;margin:26px 0;aspect-ratio:16/9}
+.videoabs svg{width:100%;height:100%;display:block;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.va-label{position:absolute;top:12px;left:16px;font-size:.7rem;letter-spacing:2px;color:#898781;
+  text-transform:uppercase;font-weight:700;z-index:3}
+.va-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;background:rgba(16,16,20,.55);border:none;cursor:pointer;z-index:4;color:#fff;transition:opacity .4s}
+.va-play .btn{width:74px;height:74px;border-radius:50%;background:#3987e5;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 8px 30px rgba(57,135,229,.45)}
+.va-play .btn svg{width:26px;height:26px;margin-left:4px}
+.va-play .t{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.05rem;letter-spacing:1px}
+.va-play .s{font-size:.75rem;color:#c3c2b7}
+.va-play:hover .btn{transform:scale(1.06)}
+.videoabs.playing .va-play{opacity:0;pointer-events:none}
+.va-replay{position:absolute;bottom:12px;right:14px;z-index:5;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);color:#c3c2b7;font-size:.72rem;padding:4px 14px;border-radius:14px;
+  cursor:pointer;opacity:0;transition:opacity .3s;font-family:inherit}
+.videoabs.done .va-replay{opacity:1}
+
+/* scenes: hidden until .playing; each scene fades in/out on its own schedule */
+.va-scene{opacity:0}
+.playing .va-s1{animation:vaShow 4.2s ease .2s forwards}
+.playing .va-s2{animation:vaShow 5.4s ease 4.2s forwards}
+.playing .va-s3{animation:vaShow 5.4s ease 9.4s forwards}
+.playing .va-s4{animation:vaShow 4.8s ease 14.6s forwards}
+.playing .va-s5{animation:vaHold 1.2s ease 19.2s forwards}
+@keyframes vaShow{0%{opacity:0}8%{opacity:1}88%{opacity:1}100%{opacity:0}}
+@keyframes vaHold{0%{opacity:0}100%{opacity:1}}
+
+.playing .va-bar{animation:vaGrow 2.2s cubic-bezier(.2,.7,.2,1) 4.8s forwards;transform-origin:left center;transform:scaleX(0)}
+@keyframes vaGrow{to{transform:scaleX(1)}}
+.playing .va-stamp{animation:vaStamp .5s ease 7.6s forwards;opacity:0;transform-origin:center}
+@keyframes vaStamp{0%{opacity:0;transform:scale(1.8)}100%{opacity:1;transform:scale(1)}}
+.playing .va-fade{animation:vaDim .8s ease 7.8s forwards}
+@keyframes vaDim{to{opacity:.28}}
+.playing .va-rise{animation:vaGrow 2.4s cubic-bezier(.2,.7,.2,1) 10s forwards;transform-origin:left center;transform:scaleX(0)}
+.playing .va-flow{stroke-dasharray:6 6;animation:vaDash 1.2s linear 14.8s 3;}
+@keyframes vaDash{to{stroke-dashoffset:-24}}
+.playing .va-cut{animation:vaCut .6s ease 17.6s forwards;opacity:0}
+@keyframes vaCut{to{opacity:1}}
+@media (prefers-reduced-motion: reduce){
+  .va-scene{animation:none !important}
+  .playing .va-s5{opacity:1}
+  .playing .va-s1,.playing .va-s2,.playing .va-s3,.playing .va-s4{opacity:0}
+}
