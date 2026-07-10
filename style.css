@@ -145,31 +145,26 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
   cursor:pointer;opacity:0;transition:opacity .3s;font-family:inherit}
 .videoabs.done .va-replay{opacity:1}
 
-/* scenes: hidden until .playing; each scene fades in/out on its own schedule */
-.va-scene{opacity:0}
-.playing .va-s1{animation:vaShow 4.2s ease .2s forwards}
-.playing .va-s2{animation:vaShow 5.4s ease 4.2s forwards}
-.playing .va-s3{animation:vaShow 5.4s ease 9.4s forwards}
-.playing .va-s4{animation:vaShow 4.8s ease 14.6s forwards}
-.playing .va-s5{animation:vaHold 1.2s ease 19.2s forwards}
-@keyframes vaShow{0%{opacity:0}8%{opacity:1}88%{opacity:1}100%{opacity:0}}
-@keyframes vaHold{0%{opacity:0}100%{opacity:1}}
-
-.playing .va-bar{animation:vaGrow 2.2s cubic-bezier(.2,.7,.2,1) 4.8s forwards;transform-origin:left center;transform:scaleX(0)}
+/* scenes — JS 時間軸以 .on 驅動 */
+.va-scene{opacity:0;transition:opacity .55s ease}
+.va-scene.on{opacity:1}
+.va-scene .grow{transform:scaleX(0);transform-origin:left center}
+.va-scene.on .grow{animation:vaGrow 1.6s cubic-bezier(.2,.7,.2,1) .4s forwards}
+.va-scene .stamp{opacity:0;transform-origin:center}
+.va-scene.on .stamp{animation:vaStamp .5s ease 2.6s forwards}
+.va-scene .late{opacity:0}
+.va-scene.on .late{animation:vaIn .6s ease 2.8s forwards}
+.va-scene .late2{opacity:0}
+.va-scene.on .late2{animation:vaIn .6s ease 5.2s forwards}
 @keyframes vaGrow{to{transform:scaleX(1)}}
-.playing .va-stamp{animation:vaStamp .5s ease 7.6s forwards;opacity:0;transform-origin:center}
 @keyframes vaStamp{0%{opacity:0;transform:scale(1.8)}100%{opacity:1;transform:scale(1)}}
-.playing .va-fade{animation:vaDim .8s ease 7.8s forwards}
-@keyframes vaDim{to{opacity:.28}}
-.playing .va-rise{animation:vaGrow 2.4s cubic-bezier(.2,.7,.2,1) 10s forwards;transform-origin:left center;transform:scaleX(0)}
-.playing .va-flow{stroke-dasharray:6 6;animation:vaDash 1.2s linear 14.8s 3;}
-@keyframes vaDash{to{stroke-dashoffset:-24}}
-.playing .va-cut{animation:vaCut .6s ease 17.6s forwards;opacity:0}
-@keyframes vaCut{to{opacity:1}}
+@keyframes vaIn{to{opacity:1}}
+.va-prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
+.va-prog span{display:block;height:100%;width:0;background:#3987e5}
 @media (prefers-reduced-motion: reduce){
-  .va-scene{animation:none !important}
-  .playing .va-s5{opacity:1}
-  .playing .va-s1,.playing .va-s2,.playing .va-s3,.playing .va-s4{opacity:0}
+  .va-scene{transition:none}
+  .va-scene .grow,.va-scene .stamp,.va-scene .late,.va-scene .late2{animation:none !important;opacity:1}
+  .va-scene .grow{transform:scaleX(1)}
 }
 
 /* ===== 語音導讀 Podcast ===== */
