@@ -1,0 +1,126 @@
+/* 鏈法醫 ChainForensics — editorial stylesheet */
+:root{
+  --plane:#f9f9f7; --surface:#fcfcfb;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --accent:#2a78d6; --accent-ink:#1c5cab;
+  --good:#0ca30c; --serious:#ec835a; --critical:#d03b3b; --warning:#fab219;
+  --seq-250:#86b6ef; --seq-400:#3987e5; --seq-450:#2a78d6;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --plane:#0d0d0d; --surface:#1a1a19;
+    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,.10);
+    --accent:#3987e5; --accent-ink:#86b6ef;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--plane);color:var(--ink);
+  font-family:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.9;font-size:17px}
+a{color:var(--accent-ink);text-decoration:none}
+a:hover{text-decoration:underline}
+.serif{font-family:"Noto Serif TC","Songti TC",serif}
+
+/* masthead */
+.masthead{border-bottom:1px solid var(--grid);background:var(--surface)}
+.masthead-inner{max-width:760px;margin:0 auto;padding:18px 20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.brand{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.35rem;letter-spacing:2px;color:var(--ink)}
+.brand a{color:inherit}
+.brand-en{font-size:.72rem;color:var(--muted);letter-spacing:3px;text-transform:uppercase}
+.tagline{margin-left:auto;font-size:.78rem;color:var(--ink-2)}
+@media(max-width:640px){.tagline{display:none}}
+
+main{max-width:760px;margin:0 auto;padding:34px 20px 80px}
+
+/* article header */
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:3px;color:var(--accent-ink);text-transform:uppercase}
+h1{font-family:"Noto Serif TC",serif;font-size:2rem;line-height:1.45;margin:10px 0 6px;font-weight:900}
+.dek{font-size:1.02rem;color:var(--ink-2);margin-bottom:18px}
+.byline{display:flex;gap:18px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);
+  border-top:1px solid var(--grid);border-bottom:1px solid var(--grid);padding:10px 0;margin-bottom:30px}
+.byline b{color:var(--ink-2);font-weight:600}
+
+h2{font-family:"Noto Serif TC",serif;font-size:1.35rem;margin:46px 0 14px;line-height:1.5;font-weight:900}
+h2 .no{color:var(--accent-ink);margin-right:8px}
+h3{font-size:1.02rem;margin:28px 0 8px;color:var(--ink)}
+p{margin:0 0 16px}
+ul,ol{padding-left:26px;margin:0 0 16px}
+li{margin-bottom:8px}
+strong{font-weight:700}
+mark{background:rgba(237,161,0,.25);color:inherit;padding:0 3px;border-radius:3px}
+
+/* quick answer */
+.quick{background:var(--surface);border:1px solid var(--grid);border-left:4px solid var(--accent);
+  border-radius:10px;padding:18px 22px;margin:0 0 34px}
+.quick .qa-label{font-size:.75rem;font-weight:700;letter-spacing:2px;color:var(--accent-ink);text-transform:uppercase;margin-bottom:6px}
+.quick p{margin-bottom:8px;font-size:.95rem}
+.quick p:last-child{margin-bottom:0}
+
+/* pull quote */
+blockquote{font-family:"Noto Serif TC",serif;font-size:1.15rem;line-height:1.9;font-weight:700;
+  border-left:4px solid var(--accent);padding:6px 22px;margin:28px 0;color:var(--ink)}
+
+/* tables */
+.tbl-wrap{overflow-x:auto;margin:18px 0}
+table{width:100%;border-collapse:collapse;font-size:.85rem;background:var(--surface)}
+th{font-size:.75rem;letter-spacing:1px;color:var(--ink-2);text-align:left;
+  border-bottom:2px solid var(--baseline);padding:8px 10px;white-space:nowrap}
+td{border-bottom:1px solid var(--grid);padding:9px 10px;vertical-align:top}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+
+/* status chips — icon + label, never color alone */
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:700;
+  padding:1px 10px;border-radius:11px;white-space:nowrap}
+.chip.dead{background:rgba(208,59,59,.12);color:var(--critical)}
+.chip.pivot{background:rgba(236,131,90,.14);color:var(--serious)}
+.chip.alive{background:rgba(12,163,12,.12);color:var(--good)}
+.chip.reg{background:rgba(42,120,214,.12);color:var(--accent-ink)}
+
+/* figures */
+figure{background:var(--surface);border:1px solid var(--grid);border-radius:12px;
+  padding:20px 20px 12px;margin:26px 0}
+figure svg{width:100%;height:auto;display:block;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+figcaption{font-size:.78rem;color:var(--muted);margin-top:10px;line-height:1.7}
+figcaption b{color:var(--ink-2)}
+.svg-ink{fill:var(--ink)} .svg-ink2{fill:var(--ink-2)} .svg-muted{fill:var(--muted)}
+.svg-grid{stroke:var(--grid)} .svg-base{stroke:var(--baseline)}
+.svg-box{fill:var(--surface);stroke:var(--baseline)}
+.svg-accentbox{fill:rgba(42,120,214,.08);stroke:var(--accent)}
+.bar{fill:var(--seq-450)}
+@media (prefers-color-scheme: dark){.bar{fill:var(--seq-400)}}
+.bar:hover{opacity:.85}
+
+/* FAQ */
+details{background:var(--surface);border:1px solid var(--grid);border-radius:10px;
+  padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;font-size:.95rem}
+details p{margin:10px 0 4px;font-size:.92rem;color:var(--ink-2)}
+
+/* sources & footer */
+.sources{font-size:.8rem;color:var(--ink-2);border-top:1px solid var(--grid);padding-top:16px;margin-top:44px}
+.sources li{margin-bottom:5px}
+.disclaimer{background:var(--surface);border:1px solid var(--grid);border-radius:10px;
+  padding:12px 18px;font-size:.78rem;color:var(--muted);margin-top:26px}
+.authorbox{display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+  border:1px solid var(--grid);border-radius:12px;padding:16px 20px;margin-top:30px}
+.authorbox .avatar{width:46px;height:46px;border-radius:50%;background:var(--accent);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;flex-shrink:0;font-family:"Noto Serif TC",serif}
+.authorbox p{font-size:.82rem;color:var(--ink-2);margin:2px 0 0}
+.authorbox b{font-size:.95rem;color:var(--ink)}
+
+/* home: article cards */
+.hero{padding:44px 0 30px}
+.hero h1{font-size:2.2rem}
+.hero .dek{max-width:56ch}
+.card{display:block;background:var(--surface);border:1px solid var(--grid);border-radius:14px;
+  padding:22px 26px;margin-bottom:16px;color:inherit;transition:border-color .15s}
+.card:hover{border-color:var(--accent);text-decoration:none}
+.card .kicker{margin-bottom:4px}
+.card h2{margin:2px 0 8px;font-size:1.3rem}
+.card p{color:var(--ink-2);font-size:.9rem;margin:0 0 10px}
+.card .meta{font-size:.76rem;color:var(--muted)}
+footer.site{border-top:1px solid var(--grid);margin-top:60px}
+footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76rem;color:var(--muted);line-height:1.8}
