@@ -151,11 +151,11 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 .va-scene .grow{transform:scaleX(0);transform-origin:left center}
 .va-scene.on .grow{animation:vaGrow 1.6s cubic-bezier(.2,.7,.2,1) .4s forwards}
 .va-scene .stamp{opacity:0;transform-origin:center}
-.va-scene.on .stamp{animation:vaStamp .5s ease 2.6s forwards}
+.va-scene.on .stamp{animation:vaStamp .5s ease 1.4s forwards}
 .va-scene .late{opacity:0}
-.va-scene.on .late{animation:vaIn .6s ease 2.8s forwards}
+.va-scene.on .late{animation:vaIn .6s ease 1.6s forwards}
 .va-scene .late2{opacity:0}
-.va-scene.on .late2{animation:vaIn .6s ease 5.2s forwards}
+.va-scene.on .late2{animation:vaIn .6s ease 2.8s forwards}
 @keyframes vaGrow{to{transform:scaleX(1)}}
 @keyframes vaStamp{0%{opacity:0;transform:scale(1.8)}100%{opacity:1;transform:scale(1)}}
 @keyframes vaIn{to{opacity:1}}
@@ -181,3 +181,13 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 .tline .who.b{background:var(--accent)}
 .tline.on{background:rgba(42,120,214,.10);color:var(--ink)}
 .tline:hover{background:rgba(42,120,214,.06)}
+
+/* 章節列（毛玻璃） */
+.va-chapters{position:absolute;left:10px;top:50%;transform:translateY(-50%);z-index:2;
+  display:flex;flex-direction:column;gap:5px;max-width:150px}
+.va-ch{font-size:.7rem;color:rgba(255,255,255,.5);padding:4px 12px;border-radius:9px;cursor:pointer;
+  border:1px solid transparent;transition:all .3s;line-height:1.5;white-space:nowrap}
+.va-ch:hover{color:#fff}
+.va-ch.on{background:rgba(255,255,255,.13);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-color:rgba(255,255,255,.28);color:#fff;font-weight:700}
+@media(max-width:680px){.va-chapters{display:none}}

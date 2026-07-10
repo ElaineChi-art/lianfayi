@@ -195,38 +195,61 @@
     </defs>
   </svg>
 
+  <div class="va-chapters" id="va-chs">
+    <div class="va-ch">0 · 片頭</div>
+    <div class="va-ch">1 · NFT 不是歌</div>
+    <div class="va-ch">2 · 5% 的承諾</div>
+    <div class="va-ch">3 · 電話簿</div>
+    <div class="va-ch">4 · 誰在扣錢</div>
+    <div class="va-ch">5 · 版稅戰爭</div>
+    <div class="va-ch">6 · 契約的邊界</div>
+    <div class="va-ch">7 · 兩種命運</div>
+    <div class="va-ch">8 · 結論</div>
+  </div>
   <div class="va-prog"><span id="va-bar"></span></div>
   <button class="va-play" id="va-play" aria-label="播放圖解影片">
     <span class="btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
     <span class="t">2 分鐘看懂：音樂 NFT 版稅是怎麼死的</span>
-    <span class="s">九幕動態圖解 · 中文旁白 🔊 · 向量動畫</span>
+    <span class="s">九幕動態圖解 · 中文旁白 🔊 · 預設 2 倍速，可調</span>
   </button>
   <button class="va-replay" id="va-replay">↻ 重播</button>
   <button class="va-replay" id="va-mute" style="opacity:1;right:auto;left:14px" aria-label="切換旁白聲音">🔊 旁白</button>
+  <button class="va-replay" id="va-speed" style="opacity:1;right:auto;left:104px" aria-label="調整播放速度">2×</button>
   <audio id="va-audio" src="../assets/va-narration.m4a" preload="auto"></audio>
 </div>
 <script>
 (function(){
   var box=document.getElementById('va'), au=document.getElementById('va-audio'),
       mute=document.getElementById('va-mute'), bar=document.getElementById('va-bar'),
-      STARTS=[0.4,9.86,22.85,33.63,51.87,67.81,84.5,101.3,116.86], TOTAL=129.2,
-      timers=[];
-  function showScene(i){
-    document.querySelectorAll('.va-scene.on').forEach(function(s){s.classList.remove('on');});
+      spd=document.getElementById('va-speed'),
+      STARTS=[0.4,9.86,22.85,33.63,51.87,67.81,84.5,101.3,116.86],
+      rates=[1,1.25,1.5,2], ri=3, cur=-1;
+  var chs=document.querySelectorAll('.va-ch');
+  function sceneAt(t){var idx=0;for(var i=0;i<STARTS.length;i++){if(t>=STARTS[i]-0.2)idx=i;else break;}return idx;}
+  function setScene(i){
+    if(i===cur)return; cur=i;
+    document.querySelectorAll('.va-scene.on').forEach(function(x){x.classList.remove('on');});
     var g=document.getElementById('vs'+i); if(g)g.classList.add('on');
+    chs.forEach(function(c,j){c.classList.toggle('on',j===i);});
   }
   function play(){
-    timers.forEach(clearTimeout); timers=[];
-    box.classList.remove('playing','done');
-    document.querySelectorAll('.va-scene.on').forEach(function(s){s.classList.remove('on');});
-    void box.offsetWidth;
+    box.classList.remove('done'); cur=-1;
     box.classList.add('playing');
-    au.currentTime=0; au.play().catch(function(){});
-    STARTS.forEach(function(t,i){ timers.push(setTimeout(function(){showScene(i);}, Math.max(0,(t-0.15)*1000))); });
-    timers.push(setTimeout(function(){box.classList.add('done');}, (TOTAL+1)*1000));
+    au.currentTime=0; au.playbackRate=rates[ri];
+    au.play().catch(function(){});
   }
   au.addEventListener('timeupdate',function(){
+    if(box.classList.contains('playing')) setScene(sceneAt(au.currentTime));
     if(au.duration) bar.style.width=(au.currentTime/au.duration*100)+'%';
+  });
+  au.addEventListener('ended',function(){box.classList.add('done');});
+  chs.forEach(function(c,i){c.addEventListener('click',function(){
+    box.classList.add('playing'); box.classList.remove('done');
+    au.currentTime=STARTS[i]; au.playbackRate=rates[ri];
+    au.play().catch(function(){});
+  });});
+  spd.addEventListener('click',function(){
+    ri=(ri+1)%rates.length; au.playbackRate=rates[ri]; spd.textContent=rates[ri]+'×';
   });
   mute.addEventListener('click',function(){
     au.muted=!au.muted;
