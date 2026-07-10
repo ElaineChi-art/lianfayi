@@ -1,9 +1,9 @@
 /* 鏈法醫 ChainForensics — editorial stylesheet */
 :root{
-  --plane:#f9f9f7; --surface:#fcfcfb;
-  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
-  --grid:#e1e0d9; --baseline:#c3c2b7; --ring:rgba(11,11,11,.10);
-  --accent:#2a78d6; --accent-ink:#1c5cab;
+  --plane:#0d0d0d; --surface:#1a1a19;
+  --ink:#f2efe6; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,.10);
+  --accent:#3987e5; --accent-ink:#86b6ef;
   --good:#0ca30c; --serious:#ec835a; --critical:#d03b3b; --warning:#fab219;
   --seq-250:#86b6ef; --seq-400:#3987e5; --seq-450:#2a78d6;
 }
