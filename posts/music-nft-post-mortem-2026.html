@@ -130,6 +130,45 @@
 })();
 </script>
 
+<div class="podcast" id="pc">
+  <div class="pc-head">
+    <span style="font-size:1.4rem">🎧</span>
+    <div>
+      <div class="pc-title">語音導讀：五分鐘，聽懂這篇驗屍報告</div>
+      <div class="pc-sub">雙人對談 · 5′07″ · 小艾（提問）×鏈法醫（解說）· 字幕逐句同步，點任一句可跳播</div>
+    </div>
+  </div>
+  <audio id="pc-audio" src="../assets/podcast.m4a" controls preload="metadata"></audio>
+  <div class="transcript" id="pc-tr"></div>
+</div>
+<script>
+window.PODCAST_TS = null;
+fetch('../assets/podcast-transcript.json').then(r=>r.json()).then(function(ts){
+  var tr=document.getElementById('pc-tr'), au=document.getElementById('pc-audio');
+  ts.forEach(function(l,i){
+    var d=document.createElement('div');
+    d.className='tline'; d.id='tl'+i;
+    d.innerHTML='<span class="who '+(l.s==='艾'?'a':'b')+'">'+l.s+'</span><span>'+l.x+'</span>';
+    d.onclick=function(){au.currentTime=l.t; au.play();};
+    tr.appendChild(d);
+  });
+  var cur=-1;
+  au.addEventListener('timeupdate',function(){
+    var t=au.currentTime, idx=-1;
+    for(var i=0;i<ts.length;i++){ if(t>=ts[i].t) idx=i; else break; }
+    if(idx!==cur){
+      if(cur>=0){var p=document.getElementById('tl'+cur); if(p)p.classList.remove('on');}
+      cur=idx;
+      if(idx>=0){var n=document.getElementById('tl'+idx);
+        if(n){n.classList.add('on');
+          n.scrollIntoView({block:'nearest',behavior:'smooth'});}}
+    }
+  });
+}).catch(function(){
+  document.getElementById('pc-tr').innerHTML='<p style="font-size:.85rem;color:var(--muted)">字幕載入需經網站瀏覽（本機直接開啟檔案時瀏覽器會擋 fetch）。音檔仍可播放。</p>';
+});
+</script>
+
 <div class="quick">
   <div class="qa-label">快速結論 Quick Answer</div>
   <p><b>音樂 NFT 沒有死，死的是「以為程式碼可以取代契約」的那一半。</b>2021 年的熱潮建立在一個誤解上：把寫在智慧合約裡的版稅資訊，當成了具有強制力的付款義務。2022–23 年的「版稅戰爭」戳破了它——交易平台一停止自願配合，創作者的分潤立刻歸零。</p>

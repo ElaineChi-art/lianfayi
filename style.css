@@ -171,3 +171,18 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
   .playing .va-s5{opacity:1}
   .playing .va-s1,.playing .va-s2,.playing .va-s3,.playing .va-s4{opacity:0}
 }
+
+/* ===== 語音導讀 Podcast ===== */
+.podcast{background:var(--surface);border:1px solid var(--grid);border-radius:14px;padding:18px 20px;margin:0 0 34px}
+.podcast .pc-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.podcast .pc-title{font-weight:700;font-size:.98rem}
+.podcast .pc-sub{font-size:.75rem;color:var(--muted)}
+.podcast audio{width:100%;margin:6px 0 12px}
+.transcript{max-height:300px;overflow-y:auto;border-top:1px solid var(--grid);padding-top:12px}
+.tline{display:flex;gap:10px;padding:7px 10px;border-radius:8px;font-size:.88rem;line-height:1.75;color:var(--ink-2);cursor:pointer}
+.tline .who{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;color:#fff;margin-top:3px}
+.tline .who.a{background:#898781}
+.tline .who.b{background:var(--accent)}
+.tline.on{background:rgba(42,120,214,.10);color:var(--ink)}
+.tline:hover{background:rgba(42,120,214,.06)}
