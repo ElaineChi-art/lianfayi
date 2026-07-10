@@ -101,21 +101,30 @@
 
   <button class="va-play" id="va-play" aria-label="播放影片摘要">
     <span class="btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    <span class="t">22 秒看懂：音樂 NFT 版稅是怎麼死的</span>
-    <span class="s">動態圖解摘要 · 無聲 · 向量動畫</span>
+    <span class="t">24 秒看懂：音樂 NFT 版稅是怎麼死的</span>
+    <span class="s">動態圖解摘要 · 含中文旁白 🔊 · 向量動畫</span>
   </button>
   <button class="va-replay" id="va-replay">↻ 重播</button>
+  <button class="va-replay" id="va-mute" style="opacity:1;right:auto;left:14px" aria-label="切換旁白聲音">🔊 旁白</button>
+  <audio id="va-audio" src="../assets/va-narration.m4a" preload="auto"></audio>
 </div>
 <script>
 (function(){
-  var box=document.getElementById('va'), t;
+  var box=document.getElementById('va'), au=document.getElementById('va-audio'),
+      mute=document.getElementById('va-mute'), t;
   function play(){
     box.classList.remove('playing','done');
     void box.offsetWidth; /* reflow 重置動畫 */
     box.classList.add('playing');
+    au.currentTime=0;
+    au.play().catch(function(){});
     clearTimeout(t);
-    t=setTimeout(function(){box.classList.add('done');},20800);
+    t=setTimeout(function(){box.classList.add('done');},24000);
   }
+  mute.addEventListener('click',function(){
+    au.muted=!au.muted;
+    mute.textContent=au.muted?'🔇 靜音':'🔊 旁白';
+  });
   document.getElementById('va-play').addEventListener('click',play);
   document.getElementById('va-replay').addEventListener('click',play);
 })();
