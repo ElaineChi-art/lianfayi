@@ -50,7 +50,7 @@ p{margin:0 0 16px}
 ul,ol{padding-left:26px;margin:0 0 16px}
 li{margin-bottom:8px}
 strong{font-weight:700}
-mark{background:rgba(237,161,0,.25);color:inherit;padding:0 3px;border-radius:3px}
+mark{background:rgba(237,161,0,.30);color:#f2efe6;padding:0 3px;border-radius:3px}
 
 /* quick answer */
 .quick{background:var(--surface);border:1px solid var(--grid);border-left:4px solid var(--accent);
@@ -89,7 +89,7 @@ figcaption b{color:var(--ink-2)}
 .svg-grid{stroke:var(--grid)} .svg-base{stroke:var(--baseline)}
 .svg-box{fill:var(--surface);stroke:var(--baseline)}
 .svg-accentbox{fill:rgba(42,120,214,.08);stroke:var(--accent)}
-.bar{fill:var(--seq-450)}
+.bar{fill:var(--seq-400)}
 @media (prefers-color-scheme: dark){.bar{fill:var(--seq-400)}}
 .bar:hover{opacity:.85}
 
@@ -191,3 +191,19 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 .va-ch.on{background:rgba(255,255,255,.13);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-color:rgba(255,255,255,.28);color:#fff;font-weight:700}
 @media(max-width:680px){.va-chapters{display:none}}
+
+/* Chartlex 式元件 */
+.tagsrow{display:flex;gap:8px;flex-wrap:wrap;margin:-16px 0 28px}
+.tagchip{font-size:.72rem;color:var(--accent-ink);background:rgba(57,135,229,.10);
+  border:1px solid rgba(57,135,229,.25);border-radius:12px;padding:2px 12px}
+.sidetoc{position:fixed;top:130px;left:calc(50% + 410px);width:210px;font-size:.8rem;
+  background:var(--surface);border:1px solid var(--grid);border-radius:12px;padding:14px 16px;line-height:2}
+.sidetoc b{display:block;font-size:.72rem;letter-spacing:2px;color:var(--muted);margin-bottom:4px}
+.sidetoc a{display:block;color:var(--ink-2);text-decoration:none}
+.sidetoc a:hover{color:var(--accent-ink)}
+@media(max-width:1290px){.sidetoc{display:none}}
+.keepread{background:var(--surface);border:1px solid var(--grid);border-radius:12px;
+  padding:14px 20px;margin-top:36px;font-size:.85rem}
+.keepread b{display:block;font-size:.72rem;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
+.keepread a{display:block;margin-bottom:4px}
+.keepread .kr-soon{color:var(--muted);font-size:.78rem}
