@@ -221,3 +221,12 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
   padding:12px 16px;font-size:.85rem;color:var(--ink-2);text-decoration:none}
 .postnav a:hover{border-color:var(--accent);color:var(--ink);text-decoration:none}
 .postnav .dir{display:block;font-size:.7rem;letter-spacing:2px;color:var(--muted);margin-bottom:2px}
+
+/* 口委提問板塊（每日專題文末，8月彙整成口試攻防清單） */
+.oralq{margin:2.4rem 0 0;padding:1.3rem 1.5rem 1rem;border:1px solid var(--baseline);border-left:4px solid var(--accent);border-radius:12px;background:rgba(57,135,229,.06)}
+.oralq>b{display:block;font-size:1rem;color:var(--accent-ink);margin-bottom:.7rem}
+.oralq ol{padding-left:1.3rem;margin:0}
+.oralq li{margin-bottom:.85rem;font-size:.92rem;line-height:1.65}
+.oralq .q{font-weight:700;color:var(--ink)}
+.oralq .a{display:block;color:var(--ink-2);font-size:.85rem;margin-top:.15rem}
+.oralq .note{font-size:.75rem;color:var(--muted);margin:.8rem 0 0}
