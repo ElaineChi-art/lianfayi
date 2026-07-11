@@ -207,3 +207,17 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 .keepread b{display:block;font-size:.72rem;letter-spacing:2px;color:var(--muted);margin-bottom:6px}
 .keepread a{display:block;margin-bottom:4px}
 .keepread .kr-soon{color:var(--muted);font-size:.78rem}
+
+/* 全站導覽：麵包屑＋上一篇/下一篇 */
+.crumbs{max-width:760px;margin:14px auto -14px;padding:0 20px;font-size:.78rem;color:var(--muted);
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.crumbs a{color:var(--ink-2)}
+.crumbs .back{border:1px solid var(--grid);border-radius:14px;padding:2px 12px;cursor:pointer;
+  background:var(--surface);color:var(--ink-2);font-size:.75rem;font-family:inherit}
+.crumbs .back:hover{color:var(--accent-ink);border-color:var(--accent)}
+.postnav{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;margin-top:34px;
+  border-top:1px solid var(--grid);padding-top:16px}
+.postnav a{flex:1;min-width:220px;background:var(--surface);border:1px solid var(--grid);border-radius:12px;
+  padding:12px 16px;font-size:.85rem;color:var(--ink-2);text-decoration:none}
+.postnav a:hover{border-color:var(--accent);color:var(--ink);text-decoration:none}
+.postnav .dir{display:block;font-size:.7rem;letter-spacing:2px;color:var(--muted);margin-bottom:2px}

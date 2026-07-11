@@ -8,6 +8,8 @@
 
 【第三步：更新首頁】編輯 index.html：維護一張 class=card 的「鏈上日報」卡片（kicker：鏈上日報・每日自動更新），連到最新一篇，描述用當日開頭那句話。卡片已存在就更新連結與描述；不存在就插在第一張文章卡後。不要動其他卡片。
 
+【導覽（每篇日報必備）】(a) masthead 下方加麵包屑：<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button><a href="../../index.html">鏈法醫</a> › <a href="latest.html">鏈上日報</a> › <span>今日日期</span></div>；(b) 文末加 <div class="postnav">：左邊「← 上一篇」連到 posts/daily/ 目錄中日期次新的那篇（掃目錄取得；若無前篇則連驗屍報告 ../music-nft-post-mortem-2026.html），右邊「📚 所有文章」連 ../../index.html；(c) 覆寫 posts/daily/latest.html 為 meta refresh 轉址到今天這篇（照現有檔案格式，只改日期）。
+
 【第四步：發布】git add -A、commit（訊息：「鏈上日報 YYYY-MM-DD」）、git push origin main。
 
 【紅線】1. 只做資料整理與學術分析：不評論政治人物與時政、不對進行中個案下結論、不給投資建議。2. 絕不編造：每一則都必須對應雷達 JSON 真實存在的條目與 URL；資料不足時寧可只寫 2 則或短版，不可虛構。3. 台灣法律用語（智慧合約、著作權、金管會）。4. 若 repo 結構與預期不符，以最小侵入方式完成，不要重寫全站。
