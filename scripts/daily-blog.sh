@@ -18,7 +18,7 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   OUT="$HOME/Desktop/📄 講座與文件/期刊日更Word"
   [ -d "$OUT" ] || OUT=$(find "$HOME/Desktop" -maxdepth 3 -type d -name "期刊日更Word" 2>/dev/null | head -1)
   [ -n "$OUT" ] || { OUT="$HOME/Desktop/期刊日更Word"; mkdir -p "$OUT"; }
-  if [ -f "$REPO/drafts/$DATE.md" ]; then
+  if [ "${MAKE_WORD:-0}" = "1" ] && [ -f "$REPO/drafts/$DATE.md" ]; then
     /opt/anaconda3/bin/pandoc "$REPO/drafts/$DATE.md" --from markdown+footnotes \
       -o "$OUT/$DATE-期刊專題.docx" && echo "Word 已輸出 → $OUT"
   fi
