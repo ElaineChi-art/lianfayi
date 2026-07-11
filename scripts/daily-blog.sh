@@ -9,8 +9,15 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   [ -z "$BIN" ] && { echo "找不到 claude 執行檔"; exit 1; }
   cd "$REPO" || exit 1
   git pull -q origin main
-  "$BIN" -p "$(cat "$REPO/scripts/daily-prompt.txt")" \
+  DATE="${FORCE_DATE:-$(date +%Y-%m-%d)}"
+  PROMPT=$(sed "s/{{DATE}}/$DATE/g" "$REPO/scripts/daily-prompt.txt")
+  "$BIN" -p "$PROMPT" \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
-      --max-turns 60
+      --max-turns 80
+  # 轉 Word：drafts/DATE.md → 桌面「期刊日更Word」
+  if [ -f "$REPO/drafts/$DATE.md" ]; then
+    /opt/anaconda3/bin/pandoc "$REPO/drafts/$DATE.md" --from markdown+footnotes \
+      -o "$HOME/Desktop/期刊日更Word/$DATE-期刊專題.docx" && echo "Word 已輸出"
+  fi
   echo "=== $(date) 結束（exit $?) ==="
 } >> "$LOG" 2>&1
