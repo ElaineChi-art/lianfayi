@@ -14,10 +14,13 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   "$BIN" -p "$PROMPT" \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
       --max-turns 80
-  # 轉 Word：drafts/DATE.md → 桌面「期刊日更Word」
+  # 轉 Word：drafts/DATE.md → 期刊日更Word（資料夾被搬走會自動尋找）
+  OUT="$HOME/Desktop/📄 講座與文件/期刊日更Word"
+  [ -d "$OUT" ] || OUT=$(find "$HOME/Desktop" -maxdepth 3 -type d -name "期刊日更Word" 2>/dev/null | head -1)
+  [ -n "$OUT" ] || { OUT="$HOME/Desktop/期刊日更Word"; mkdir -p "$OUT"; }
   if [ -f "$REPO/drafts/$DATE.md" ]; then
     /opt/anaconda3/bin/pandoc "$REPO/drafts/$DATE.md" --from markdown+footnotes \
-      -o "$HOME/Desktop/期刊日更Word/$DATE-期刊專題.docx" && echo "Word 已輸出"
+      -o "$OUT/$DATE-期刊專題.docx" && echo "Word 已輸出 → $OUT"
   fi
   echo "=== $(date) 結束（exit $?) ==="
 } >> "$LOG" 2>&1
