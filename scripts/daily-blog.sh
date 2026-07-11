@@ -15,7 +15,7 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   PROMPT=$(sed "s/{{DATE}}/$DATE/g" "$REPO/scripts/daily-prompt.txt")
   "$BIN" -p "$PROMPT" \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
-      --max-turns 80
+      --max-turns 120
   # 轉 Word：drafts/DATE.md → 期刊日更Word（資料夾被搬走會自動尋找）
   OUT="$HOME/Desktop/📄 講座與文件/期刊日更Word"
   [ -d "$OUT" ] || OUT=$(find "$HOME/Desktop" -maxdepth 3 -type d -name "期刊日更Word" 2>/dev/null | head -1)
