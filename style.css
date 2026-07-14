@@ -230,3 +230,4 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 .oralq .q{font-weight:700;color:var(--ink)}
 .oralq .a{display:block;color:var(--ink-2);font-size:.85rem;margin-top:.15rem}
 .oralq .note{font-size:.75rem;color:var(--muted);margin:.8rem 0 0}
+.oralq .hint{display:block;color:var(--accent-ink);font-size:.85rem;margin-top:.2rem}
