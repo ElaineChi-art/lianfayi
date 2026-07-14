@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-14｜鏈上授權如何運作｜鏈法醫</title>
+<meta name="description" content="從部署、鑄造、轉售到版稅回報，智慧合約在NFT生命週期裡實際做的只有三件事：記帳、轉帳、報數。逐步拆解技術流程並給每一步法律定性——鏈上沒有「授權」這個動作。鏈法醫期刊專題，方向一：授權制度。">
+<meta property="og:title" content="期刊專題 2026-07-14｜鏈上授權如何運作：從鑄造到轉售，智慧合約實際做了什麼｜鏈法醫">
+<meta property="og:description" content="智慧合約是登記簿加收銀機，不是授權書。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-14</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向一：授權制度（C-2）</div>
+<h1>鏈上授權如何運作：<br>從鑄造到轉售，智慧合約實際做了什麼</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-14</span>
+  <span>閱讀約 10 分鐘</span>
+</div>
+
+<p class="dek"><b>智慧合約在NFT生命週期裡實際做的只有三件事：記帳、轉帳、報數。本文逐步拆解從部署、鑄造、轉售到版稅回報的技術流程，並給每一步法律定性。結論先講：整個流程中，著作權法意義的「授權」從未在鏈上發生。</b></p>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>上一講畫出了鏈下授權的契約網，並留下一個問題：智慧合約想接管這張圖的哪一段？要回答它，必須先把顯微鏡對準鏈上——<mark>從鑄造到轉售，程式碼每一步實際做了什麼？</mark>行銷語言說「購買即擁有」「版稅直接寫進合約」；連工程社群都還在為此努力——本站研究雷達今日恰好收錄一篇2026年刊於 Laws 期刊的論文，題目就叫「開發一個能隨NFT移轉藝術品著作權的智慧合約」<sup>1</sup>，反面讀之，正說明現行標準做不到這件事。定性錯誤是後續一切法律爭議的根源：把登記當成授權，後面的推論就全歪了。本文的工作，就是把技術流程翻譯成法律語言，一步一定性。</p>
+
+<h2><span class="no">貳</span>背景：一顆NFT的一生，四個動作</h2>
+
+<p>先建立最低限度的技術理解。智慧合約是部署在以太坊等區塊鏈上的程式：規則寫定、公開可查、照章自動執行。NFT即由這種程式管理——以太坊官方說明頁講得很直白：NFT合約做的事，是「建立代幣、指定持有人（把代幣連結到某個地址）、給每顆代幣一個編號」<sup>2</sup>。絕大多數NFT遵循ERC-721標準<sup>3</sup>，它規定合約必須提供哪些查詢與移轉功能，讓錢包與交易平台都能讀懂。</p>
+
+<p>一顆音樂NFT的一生，可以拆成四個動作。<b>第一步，部署</b>：發行人把ERC-721程式上鏈，發行量、版稅比例等參數自此固定。<b>第二步，鑄造（mint）</b>：合約在帳本上寫入一筆「編號某某的代幣，屬於某地址」的紀錄——鑄造的全部內容就是這行字。歌曲本身不在鏈上：合約僅以 tokenURI 函式存放一個網址，指向鏈外的描述檔（metadata）與音檔<sup>3</sup>。<b>第三步，轉售</b>：買家在交易平台下單，平台呼叫 transferFrom，合約把持有人紀錄改成新地址，同時撥付價金——逐筆留痕，任何人可查。<b>第四步，版稅回報</b>：若合約實作ERC-2981，任何人可呼叫 royaltyInfo 查詢「這筆轉售應付多少版稅給誰」——注意動詞：是「查詢」，不是「執行」；該標準明文只負責回報數字，付不付由平台自願<sup>4</sup>。</p>
+
+<p>四個動作走完，一顆NFT從誕生到二手市場的全部技術事實已經窮盡：<mark>寫入一筆登記、改寫一筆登記、撥一筆款、報一個數。</mark></p>
+
+<h2><span class="no">參</span>圖解與定性：每個函式在法律上是什麼</h2>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0714" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111C2E"/>
+      <stop offset="1" stop-color="#0A101C"/>
+    </linearGradient>
+    <linearGradient id="topbar0714" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E6BFF"/>
+      <stop offset="1" stop-color="#6FBBFF"/>
+    </linearGradient>
+    <marker id="arrB0714" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#4D9FFF"/></marker>
+    <marker id="arrN0714" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg0714)"/>
+  <rect width="1280" height="6" fill="url(#topbar0714)"/>
+
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-2</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="38" font-weight="900" fill="#F5F8FF">智慧合約實際做了什麼：<tspan fill="#4D9FFF">記帳・轉帳・報數</tspan></text>
+
+  <!-- 左欄講解卡 -->
+  <rect x="64" y="140" width="304" height="180" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="86" y="176" font-size="16" font-weight="800" fill="#4D9FFF">■ 智慧合約是什麼？</text>
+  <text x="86" y="206" font-size="15" fill="#C7D2E4">部署在區塊鏈上的程式：規則</text>
+  <text x="86" y="230" font-size="15" fill="#C7D2E4">寫定、公開可查、照章自動執行。</text>
+  <text x="86" y="254" font-size="15" fill="#C7D2E4">ERC-721 是它的規格書，規定必須</text>
+  <text x="86" y="278" font-size="15" fill="#C7D2E4">提供哪些查詢與移轉功能。</text>
+  <text x="86" y="306" font-size="14" font-weight="700" fill="#7E8CA8">→ 名字有「合約」，內容是程式。</text>
+
+  <rect x="64" y="344" width="304" height="204" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <rect x="64" y="344" width="304" height="5" rx="2.5" fill="url(#topbar0714)"/>
+  <text x="86" y="382" font-size="16" font-weight="800" fill="#F2A33C">■ 規格書裡沒有的字</text>
+  <text x="86" y="412" font-size="15" fill="#C7D2E4">逐字讀完 EIP-721：<tspan font-weight="700" fill="#F5F8FF">copyright</tspan></text>
+  <text x="86" y="436" font-size="15" fill="#C7D2E4">只出現在文件末尾「本文件依</text>
+  <text x="86" y="460" font-size="15" fill="#C7D2E4">CC0 拋棄版權」的聲明裡。</text>
+  <text x="86" y="484" font-size="15" fill="#C7D2E4">ownerOf 回答「誰持有」，</text>
+  <text x="86" y="508" font-size="15" fill="#C7D2E4">從不回答「誰能利用」。</text>
+  <text x="86" y="536" font-size="14" font-weight="700" fill="#7E8CA8">→ 標準自己就沒承諾過著作權。</text>
+
+  <!-- 中央流程：四步 -->
+  <rect x="412" y="164" width="180" height="122" rx="12" fill="#131D2E" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="502" y="196" font-size="17" font-weight="800" fill="#F5F8FF" text-anchor="middle">① 部署合約</text>
+  <text x="502" y="222" font-size="13.5" fill="#C7D2E4" text-anchor="middle">發行人把 ERC-721</text>
+  <text x="502" y="242" font-size="13.5" fill="#C7D2E4" text-anchor="middle">程式上鏈</text>
+  <text x="502" y="268" font-size="12.5" fill="#7E8CA8" text-anchor="middle">發行量・版稅參數固定</text>
+  <line x1="592" y1="225" x2="618" y2="225" stroke="#4D9FFF" stroke-width="2.5" marker-end="url(#arrB0714)"/>
+
+  <rect x="626" y="164" width="180" height="122" rx="12" fill="#131D2E" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="716" y="196" font-size="17" font-weight="800" fill="#F5F8FF" text-anchor="middle">② 鑄造 mint</text>
+  <text x="716" y="222" font-size="13.5" fill="#C7D2E4" text-anchor="middle">帳本寫入一行字：</text>
+  <text x="716" y="242" font-size="13.5" fill="#C7D2E4" text-anchor="middle">tokenId ↔ 持有地址</text>
+  <text x="716" y="268" font-size="12.5" fill="#7E8CA8" text-anchor="middle">法律定性：登記，非授權</text>
+  <line x1="806" y1="225" x2="832" y2="225" stroke="#4D9FFF" stroke-width="2.5" marker-end="url(#arrB0714)"/>
+
+  <rect x="840" y="164" width="180" height="122" rx="12" fill="#131D2E" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="930" y="196" font-size="17" font-weight="800" fill="#F5F8FF" text-anchor="middle">③ 轉售 transferFrom</text>
+  <text x="930" y="222" font-size="13.5" fill="#C7D2E4" text-anchor="middle">改寫持有人紀錄</text>
+  <text x="930" y="242" font-size="13.5" fill="#C7D2E4" text-anchor="middle">＋撥付價金</text>
+  <text x="930" y="268" font-size="12.5" fill="#7E8CA8" text-anchor="middle">法律定性：登記變動＋金流</text>
+  <line x1="1020" y1="225" x2="1046" y2="225" stroke="#4D9FFF" stroke-width="2.5" marker-end="url(#arrB0714)"/>
+
+  <rect x="1054" y="164" width="162" height="122" rx="12" fill="#131D2E" stroke="#35C08E" stroke-width="2"/>
+  <text x="1135" y="196" font-size="17" font-weight="800" fill="#35C08E" text-anchor="middle">④ royaltyInfo</text>
+  <text x="1135" y="222" font-size="13.5" fill="#C7D2E4" text-anchor="middle">回報「應付多少</text>
+  <text x="1135" y="242" font-size="13.5" fill="#C7D2E4" text-anchor="middle">版稅給誰」</text>
+  <text x="1135" y="268" font-size="12.5" fill="#7E8CA8" text-anchor="middle">只報數，不執行（2981）</text>
+
+  <!-- 鏈外虛線區 -->
+  <rect x="626" y="330" width="394" height="104" rx="12" fill="none" stroke="#7E8CA8" stroke-width="1.5" stroke-dasharray="7 6"/>
+  <text x="823" y="364" font-size="16" font-weight="800" fill="#C7D2E4" text-anchor="middle">鏈外：metadata ＋ 音檔（tokenURI 指向）</text>
+  <text x="823" y="392" font-size="13.5" fill="#7E8CA8" text-anchor="middle">歌曲本體不在鏈上——鏈上只存一個網址，</text>
+  <text x="823" y="412" font-size="13.5" fill="#7E8CA8" text-anchor="middle">指向的檔案存放於一般伺服器或 IPFS，可能被抽換或失聯。</text>
+  <line x1="716" y1="286" x2="716" y2="322" stroke="#7E8CA8" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrN0714)"/>
+
+  <!-- 警示帶 -->
+  <rect x="412" y="474" width="804" height="72" rx="14" fill="rgba(229,72,77,.10)" stroke="#E5484D" stroke-width="1.5"/>
+  <text x="814" y="504" font-size="17" font-weight="800" fill="#E5484D" text-anchor="middle">⚠ 四步走完，著作權法上的「授權」從未發生</text>
+  <text x="814" y="530" font-size="14" fill="#C7D2E4" text-anchor="middle">能不能重製、能不能公開傳輸——答案不在這條流程的任何一格，在鏈下的契約（或契約的缺席）。</text>
+
+  <!-- 底部金句 -->
+  <rect x="64" y="584" width="1152" height="88" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="584" width="8" height="88" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="622" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：token 移轉是登記變動，不是權利變動——鏈上沒有「授權」這個動作。</text>
+  <text x="96" y="654" font-size="14" fill="#8FA1C0">智慧合約＝登記簿＋收銀機＋報數員；授權層仍在鏈下——上一講那張契約網，一格都沒有被取代。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">本圖由作者參考 ethereum.org「Non-fungible tokens (NFT)」官方說明（https://ethereum.org/en/nft/）與 EIP-721、EIP-2981 規格原文（https://eips.ethereum.org）改繪（最後瀏覽日：2026-07-14）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-2</text>
+</svg>
+<figcaption><b>圖 1｜</b>NFT生命週期四步驟與逐步法律定性。本圖亦為本系列口試簡報之 C-2 幕。與上一講的 C-1 對照看：這條流程沒有接管契約網的任何一格。</figcaption>
+</figure>
+
+<p>把圖中每個函式翻譯成法律語言：<b>ownerOf</b> 是登記查詢——回答「這顆代幣現在連結到哪個地址」；<b>transferFrom</b> 是登記變動加金流——改寫持有紀錄並撥款；<b>tokenURI</b> 是一個參照——指向鏈外檔案的網址；<b>royaltyInfo</b> 是資訊揭露——回報應付金額，本身不執行<sup>4</sup>。這不是本文的外部評價，而是標準自己的用語：<mark>逐字檢視EIP-721規格全文，「copyright」一詞僅出現在文件末尾「本文件依CC0拋棄版權」的聲明中；ownerOf、transferFrom、approve、tokenURI等全部介面函式與事件，沒有任何一個以著作權為對象</mark><sup>3</sup>。標準的沉默是誠實的：它管理的客體自始是「代幣」，不是「權利」。經濟部智慧財產局亦已公開說明：購買NFT不當然取得著作財產權，買受人得否利用著作，視發行時的約定而定<sup>5</sup>。</p>
+
+<p>對這個「token與權利的關係」，論述光譜上有兩種立場。<b>權利容器說</b>（去中心化社群的通念）認為token是權利的載體：程式碼即法律，登記在誰名下，權利就是誰的——鏈上紀錄本身創設並移轉權利。<b>登記簿說</b>則認為token只是一筆指向性的紀錄：著作財產權的變動依著作權法第36條（讓與）、第37條（授權）發生，需要意思表示與法定要件，帳本寫入什麼字都不能代替<sup>6</sup>。兩說的分歧點很乾淨：權利變動的效力來源，是程式碼還是法律行為。</p>
+
+<h2><span class="no">肆</span>評析：事實上的排他，不是法律上的排他</h2>
+
+<p>本文採登記簿說，並進一步精緻化：智慧合約給予持有人的，是<b>事實上的排他力</b>——沒有你的私鑰，任何人（包括發行人）都無法改寫這筆持有紀錄；但這不是<b>法律上的排他權</b>——你無法憑這筆紀錄禁止任何人重製或傳輸那首歌，因為那是著作權的內容，而著作權從未進入這條流程。混淆兩者，正是「購買即擁有」話術的槓桿支點：它讓買受人以為自己買到的排他及於著作，實則僅及於帳本上的一個位置。</p>
+
+<p>裁判者與監理者看得很清楚。整理三件指標案例（詳見圖2）：Roc-A-Fella v. Dash中，公司訴請確認《Reasonable Doubt》著作權屬於公司——法院處理的是<b>權利來源</b>，先於一切token問題<sup>7</sup>；Miramax v. Tarantino中，爭點是數十年前的劇本授權契約是否涵蓋NFT此種新利用型態——純粹的<b>契約解釋</b>問題，鏈上紀錄自始未成為爭點<sup>8</sup>；SEC對Impact Theory的執法，依Howey測試看發行人的<b>鏈下承諾</b>與經濟實質，token的技術形式不影響定性<sup>9</sup>。三個法域、三種爭點，方法一致：<mark>法律問的從來是「鏈下發生了什麼」，沒有任何裁判者把token當作權利本體。</mark></p>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0714d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0714d" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg0714d)"/>
+  <rect width="1280" height="6" fill="url(#topbar0714d)"/>
+
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-2・數據</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">裁判者眼中的 token——<tspan fill="#4D9FFF">定性都回到鏈下</tspan></text>
+
+  <rect x="64" y="126" width="1152" height="38" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.5"/>
+  <text x="640" y="151" font-size="15" font-weight="700" fill="#F2A33C" text-anchor="middle">三個法域・三種爭點・同一個方法：token 移轉的法律效果，由鏈下的權利與契約關係決定（n＝3案＋1主管機關說明）</text>
+
+  <!-- 表頭 -->
+  <rect x="64" y="184" width="1152" height="44" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1"/>
+  <text x="84" y="213" font-size="15" font-weight="800" fill="#4D9FFF">案件／機關</text>
+  <text x="454" y="213" font-size="15" font-weight="800" fill="#4D9FFF">年份</text>
+  <text x="564" y="213" font-size="15" font-weight="800" fill="#4D9FFF">爭點</text>
+  <text x="904" y="213" font-size="15" font-weight="800" fill="#4D9FFF">要旨</text>
+
+  <rect x="64" y="236" width="1152" height="76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="266" font-size="15.5" font-weight="700" fill="#F5F8FF">Roc-A-Fella Records v. Dash</text>
+  <text x="84" y="290" font-size="12.5" fill="#7E8CA8">No. 1:21-cv-05411 (S.D.N.Y.)</text>
+  <text x="454" y="278" font-size="15" fill="#C7D2E4">2021</text>
+  <text x="564" y="266" font-size="14" fill="#C7D2E4">股東能把公司專輯著作權</text>
+  <text x="564" y="288" font-size="14" fill="#C7D2E4">做成 NFT 出售嗎</text>
+  <text x="904" y="266" font-size="14" font-weight="700" fill="#F5F8FF">公司訴請確認權利歸屬——</text>
+  <text x="904" y="288" font-size="14" fill="#C7D2E4">先問權利來源，再談 token</text>
+
+  <rect x="64" y="320" width="1152" height="76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="350" font-size="15.5" font-weight="700" fill="#F5F8FF">Miramax v. Tarantino</text>
+  <text x="84" y="374" font-size="12.5" fill="#7E8CA8">No. 2:21-cv-08979 (C.D. Cal.)</text>
+  <text x="454" y="362" font-size="15" fill="#C7D2E4">2021</text>
+  <text x="564" y="350" font-size="14" fill="#C7D2E4">數十年前的劇本授權契約</text>
+  <text x="564" y="372" font-size="14" fill="#C7D2E4">涵蓋 NFT 這種新利用嗎</text>
+  <text x="904" y="350" font-size="14" font-weight="700" fill="#F5F8FF">爭點是舊契約解釋，不是鏈上紀錄</text>
+  <text x="904" y="372" font-size="14" fill="#C7D2E4">（2022 年和解撤回）</text>
+
+  <rect x="64" y="404" width="1152" height="76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="434" font-size="15.5" font-weight="700" fill="#F5F8FF">In re Impact Theory, LLC</text>
+  <text x="84" y="458" font-size="12.5" fill="#7E8CA8">SEC Rel. No. 33-11226</text>
+  <text x="454" y="446" font-size="15" fill="#C7D2E4">2023</text>
+  <text x="564" y="434" font-size="14" fill="#C7D2E4">NFT 是投資契約</text>
+  <text x="564" y="456" font-size="14" fill="#C7D2E4">（有價證券）嗎</text>
+  <text x="904" y="434" font-size="14" font-weight="700" fill="#F5F8FF">依 Howey 看鏈下承諾與經濟實質，</text>
+  <text x="904" y="456" font-size="14" fill="#C7D2E4">token 的技術形式不影響定性</text>
+
+  <rect x="64" y="488" width="1152" height="76" rx="10" fill="rgba(53,192,142,.08)" stroke="#35C08E" stroke-width="2"/>
+  <text x="84" y="518" font-size="15.5" font-weight="800" fill="#35C08E">經濟部智慧財產局</text>
+  <text x="84" y="542" font-size="12.5" fill="#7E8CA8">NFT 與著作權之公開說明</text>
+  <text x="454" y="530" font-size="15" fill="#C7D2E4">—</text>
+  <text x="564" y="518" font-size="14" fill="#C7D2E4">買到 NFT 等於</text>
+  <text x="564" y="540" font-size="14" fill="#C7D2E4">買到著作權嗎</text>
+  <text x="904" y="518" font-size="14" font-weight="700" fill="#F5F8FF">不當然取得著作財產權；</text>
+  <text x="904" y="540" font-size="14" fill="#C7D2E4">得否利用，視發行時之約定</text>
+
+  <rect x="64" y="592" width="1152" height="80" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="592" width="8" height="80" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="626" font-size="21" font-weight="900" fill="#F5F8FF">沒有任何裁判者把 token 當權利本體：法律問的是「鏈下發生了什麼」。</text>
+  <text x="96" y="656" font-size="14" fill="#8FA1C0">「權利容器說」在裁判實務上至今掛零——這是登記簿說最有力的經驗證據。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">各案出處見本文註釋；本表由作者整理自製（2026-07-14）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-2・DATA</text>
+</svg>
+<figcaption><b>圖 2｜</b>NFT權利定性之案例整理表（作者自製）。三案與智慧局說明的共同方法：定性一律回到鏈下法律關係。本圖亦為口試簡報 C-2 數據幕。</figcaption>
+</figure>
+
+<p>解釋論上還有一個支點。德國著作權法的目的讓與理論（Zweckübertragungslehre，UrhG第31條第5項）指出：授權範圍不明時，以契約目的所必要者為限<sup>10</sup>——我國著作權法第37條第1項後段「約定不明之部分，推定為未授權」承載同一精神。把這個標尺放到鏈上流程：<mark>連「約定不明」都談不上，因為多數發行流程中根本沒有授權的意思表示可供解釋</mark>——買受人點擊的是交易平台的購買鍵，不是授權契約的同意鍵。C-0講的第37條推定，在這裡接上了技術事實的地基。</p>
+
+<p>最後回到市場。這個定性不是書齋推演：存活至今的音樂版稅代幣化平台anotherblock，其模式正是先與權利人締結鏈下契約、再以鏈上系統執行分配——2025年向用戶分配約250萬美元版稅<sup>11</sup>。它的智慧合約做的就是本文說的三件事：記帳、轉帳、報數；授權層老老實實留在鏈下。承認程式碼的邊界，反而是活下來的原因。</p>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>智慧合約是登記簿加收銀機，不是授權書——鏈上沒有「授權」這個動作。</mark>下一講（C-3）拆解ERC-2981的法律性質：一個只會報數的標準，為什麼被整個市場當成「版稅保證」？技術標準與契約的距離，正是下一個要量測的對象。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你用『EIP-721規格裡沒有copyright這個字』來論證token移轉不生權利變動——規格沉默不等於法律評價，這個方法論站得住嗎？」</span>
+<span class="a">答題方向：規格沉默只是輔助證據，主論證是權利變動的要件論——著作權讓與及授權依§36、§37須有意思表示與特定範圍，transferFrom欠缺此二者；規格用語僅用以反駁「標準已承諾權利移轉」的誤解。</span></li>
+<li><span class="q">「有沒有任何法院直接判過『NFT移轉不生著作權移轉』？你圖2的三個案子都是間接推論。」</span>
+<span class="a">答題方向：誠實承認直接判決尚缺——三案證明的是裁判方法（定性回到鏈下），非直接命題；本文定性為解釋論上的風險分析，本土函釋的深化留待D-1專題。</span></li>
+<li><span class="q">「如果發行人在發行頁明文寫『購買即取得重製與公開傳輸之授權』，你的『鏈上無授權』還成立嗎？」</span>
+<span class="a">答題方向：成立——此時授權發生於鏈下的意思表示（發行頁為要約或定型化條款），token只是識別受授權人的工具；這正好證成本文「鏈上可驗證、鏈下才成立」的混合模型，C-6專題展開。</span></li>
+<li><span class="q">「tokenURI指向的檔案可以被發行人抽換，那你們區塊鏈社群講的『不可竄改』到底剩下什麼？」</span>
+<span class="a">答題方向：不可竄改的是持有登記與交易歷史，不及於鏈外內容——本文圖1已明確標示此界線；鏈上紀錄的證據價值分層，留待G-4（電子簽章法）專題。</span></li>
+<li><span class="q">「你批評『購買即擁有』是話術，但學術文獻裡真有人主張token即權利嗎？會不會在打稻草人？」</span>
+<span class="a">答題方向：非稻草人——Miramax與Roc-A-Fella的糾紛正源於當事人依此認知行動，且工程文獻（如今日引用之Laws期刊論文）仍在嘗試實作「隨NFT移轉著作權」，可見該認知有真實市場載體；本文對其最強版本（權利容器說）作論證後反駁。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>Development of a Smart Contract for the Transfer of Copyrights in an Artwork Linked to an NFT, Laws (MDPI), 2026, <a href="https://doi.org/10.3390/laws15020032" target="_blank">https://doi.org/10.3390/laws15020032</a>（本站研究雷達2026-07-14收錄；此處僅引其題目所示之問題意識）。</li>
+<li>ethereum.org, Non-fungible tokens (NFT), <a href="https://ethereum.org/en/nft/" target="_blank">https://ethereum.org/en/nft/</a>（頁面更新日：2026年6月23日；最後瀏覽日：2026年7月14日）。</li>
+<li>EIP-721: Non-Fungible Token Standard（2018），<a href="https://eips.ethereum.org/EIPS/eip-721" target="_blank">https://eips.ethereum.org/EIPS/eip-721</a>（最後瀏覽日：2026年7月14日）。作者逐字檢視規格全文：「copyright」僅出現於文末依CC0拋棄本文件版權之聲明，介面定義不含著作權語彙。</li>
+<li>EIP-2981: NFT Royalty Standard（2020），<a href="https://eips.ethereum.org/EIPS/eip-2981" target="_blank">https://eips.ethereum.org/EIPS/eip-2981</a>：royaltyInfo僅回報應付金額，不執行、不強制，遵循與否由平台自願。</li>
+<li>經濟部智慧財產局關於NFT與著作權之公開說明：購買NFT不當然取得著作財產權，得否利用視發行約定【正式文件名稱與文號待查補】。</li>
+<li>著作權法第36條（著作財產權之讓與）、第37條（授權；約定不明之部分，推定為未授權）。</li>
+<li>Roc-A-Fella Records, Inc. v. Dash, No. 1:21-cv-05411 (S.D.N.Y. filed June 18, 2021)。</li>
+<li>Miramax, LLC v. Tarantino, No. 2:21-cv-08979 (C.D. Cal. filed Nov. 16, 2021)（2022年和解撤回）。</li>
+<li>In re Impact Theory, LLC, SEC Securities Act Release No. 33-11226 (Aug. 28, 2023)。</li>
+<li>德國著作權法（UrhG）第31條第5項之目的讓與理論（Zweckübertragungslehre）。</li>
+<li>anotherblock之營運模式與2025年分配數據，見本站：Royal之死與anotherblock之生——音樂NFT版稅的驗屍報告（2021–2026）之資料來源清單。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-13.html"><span class="dir">← 上一篇</span>鏈下授權如何運作：一首歌的錢，怎麼流到創作者手上</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-14.html">2026-07-14　鏈上授權如何運作：智慧合約實際做了什麼（C-2）</a></li>
+<li><a href="2026-07-13.html">2026-07-13　鏈下授權如何運作（方向一 C-1）</a></li>
+<li><a href="2026-07-12.html">2026-07-12　著作權法第37條：約定不明推定未授權（C-0）</a></li>
+<li><a href="2026-07-11.html">2026-07-11　鏈上日報：DAO治理攻擊與版稅證券化</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。本篇由自動化流程產出初稿，引用前請核對來源。圖1由作者參考 ethereum.org 官方說明與 EIP-721、EIP-2981 規格原文改繪；圖2為作者整理自製。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>
