@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-15｜ERC-2981的法律性質｜鏈法醫</title>
+<meta name="description" content="寫進智慧合約的「5%」在法律上是什麼？本文逐一檢驗三個可能的法律容器——契約、單獨行為、物上負擔——結論是三個都裝不進去。鏈法醫期刊專題，方向一：授權制度。">
+<meta property="og:title" content="期刊專題 2026-07-15｜ERC-2981的法律性質：技術標準為何不是契約｜鏈法醫">
+<meta property="og:description" content="版稅要有拘束力，必須裝進法律容器——標準本身不是容器。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-15</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向一：授權制度（C-3）</div>
+<h1>ERC-2981 的法律性質：<br>技術標準為何不是契約</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-15</span>
+  <span>閱讀約 10 分鐘</span>
+</div>
+
+<p class="dek"><b>前兩講確認了事實：智慧合約只報數、不收錢。本講處理規範問題：那個寫進合約的「5%」，在法律上究竟是什麼？本文將它逐一放進三個可能的法律容器——契約、單獨行為、物上負擔——結論是三個都裝不進去。ERC-2981 是一份規格文件加一項市場慣行，而慣行不是法源：它隨商業誘因而生，也隨商業誘因而滅。</b></p>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>市場對鏈上版稅有一個頑強的直覺：「都寫進智慧合約了，怎麼會沒有拘束力？」要檢驗這個直覺，必須先把問題翻譯成法律語言：<mark>一個有拘束力的「轉售分潤5%」，在我國法之下必須是什麼？</mark>可能的容器只有三個——它是一份契約之債（誰跟誰成立了契約？）；或是一個單獨行為（誰單方承諾了什麼？）；或是一種跟著物走的物上負擔（義務附著於 token 本身？）。本文逐一檢驗，並以 2022–23 年版稅戰爭的實際經過作為對照組。</p>
+
+<h2><span class="no">貳</span>背景：那個「5%」是怎麼寫進去的</h2>
+
+<p>先還原技術事實。ERC-2981 的全部內容，是要求合約提供一個查詢功能：輸入代幣編號與成交價，回傳「應付版稅金額」與「收款地址」<sup>1</sup>。它不攔截交易、不經手價金、對不遵循者沒有任何制裁——這不是解釋，是標準原文的自我描述：版稅之給付屬<b>自願</b>性質，有賴交易平台於結算時主動查詢並代為扣付。</p>
+
+<p>這個自願機制曾經運作良好，也曾經一夕崩解。事實線很短：2022年10月，聚合平台 Blur 以「不查詢、不代扣」的零版稅模式搶占交易量；OpenSea 於同年11月推出「營運者過濾器」，容許創作者在合約層封鎖不付版稅的平台，該工具於2023年2月遭技術繞過；同年8月，OpenSea 宣布放棄強制、改為買方自願給付，其執行長的說明是：強制版稅「有賴整個生態系配合，單一平台無法獨力維持」<sup>2</sup>。一項「寫在鏈上、不可竄改」的版稅設定，其實際效力在十個月內歸零——鏈上的資訊一個位元都沒變，變的是鏈下的意願。</p>
+
+<h2><span class="no">參</span>法制說明：三個容器，三次驗屍</h2>
+
+<p><b>容器一：契約之債。</b>契約以要約與承諾之意思表示合致為成立要件<sup>3</sup>，並以特定之當事人為前提。發行人部署合約、寫入「5%」時，未來的轉售後手不存在亦不特定，無從為要約之相對人；後手日後買入時（尤其場外的錢包對錢包交易），對發行人未為任何意思表示，甚至不知該參數存在。或有論者以發行頁條款為要約——那份條款所能拘束者，至多是曾點選同意的平台使用者；契約的邊界劃在哪裡，正是下一講債之相對性要正面處理的問題。就本講而言，結論已足：<mark>在發行人與場外後手之間，找不到任何要約與承諾</mark>。</p>
+
+<p><b>容器二：單獨行為。</b>單方之意思表示原則上僅能拘束表意人自己——如懸賞廣告，是自己承諾對完成一定行為之人給付報酬<sup>4</sup>。版稅參數的方向恰好相反：它不是發行人承諾給錢，而是要求<b>他人</b>付錢。以單獨行為對不特定第三人課予給付義務，在債法上沒有這種東西。</p>
+
+<p><b>容器三：物上負擔。</b>最接近市場直覺的構造是：讓「付5%」像地上權一樣附著於 token，隨物流轉、拘束每一手。但這正面撞上物權法定主義：物權除依法律或習慣外，不得創設<sup>5</sup>。「token 上的版稅負擔」非法律明定之物權；至於習慣，其承認以長期慣行與法之確信為前提——版稅戰爭在十個月內讓慣行崩解，恰恰證明連穩定的慣行都不存在。</p>
+
+<p>三次檢驗的結論一致：<b>ERC-2981 的法律性質，是規格文件（工程師之間的溝通格式）加上市場慣行（平台自願遵循的商業實踐）</b>。慣行不是法源。它存在時，版稅入帳；它消滅時，沒有任何人違約、沒有任何人侵權——因為自始沒有義務存在。</p>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgC3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarC3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arrNC3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+    <marker id="arrBC3" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#4D9FFF"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgC3)"/>
+  <rect width="1280" height="6" fill="url(#topbarC3)"/>
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-3</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">「5%」的三次法律驗屍——<tspan fill="#4D9FFF">它裝得進哪個容器？</tspan></text>
+
+  <!-- 左：受檢體 -->
+  <rect x="64" y="170" width="300" height="200" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="86" y="206" font-size="16" font-weight="800" fill="#4D9FFF">■ 受檢體：royaltyInfo()</text>
+  <text x="86" y="236" font-size="15" fill="#C7D2E4">「這顆 token 轉售時，</text>
+  <text x="86" y="260" font-size="15" fill="#C7D2E4">　抽 5%，匯到這個地址。」</text>
+  <text x="86" y="292" font-size="14" fill="#8FA1C0">寫進智慧合約・公開可查</text>
+  <text x="86" y="314" font-size="14" fill="#8FA1C0">不可竄改・自動回答</text>
+  <text x="86" y="346" font-size="14" font-weight="700" fill="#F2A33C">問題：它是誰的「義務」？</text>
+  <line x1="364" y1="270" x2="428" y2="270" stroke="#7E8CA8" stroke-width="2.5" marker-end="url(#arrNC3)"/>
+
+  <!-- 中：三個容器 -->
+  <rect x="436" y="140" width="440" height="126" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="458" y="174" font-size="16" font-weight="800" fill="#F5F8FF">容器一：契約之債？<tspan fill="#E5484D">　✕</tspan></text>
+  <text x="458" y="202" font-size="14" fill="#C7D2E4">契約要有要約與承諾（民法§153）＋特定當事人。</text>
+  <text x="458" y="224" font-size="14" fill="#C7D2E4">部署時後手不存在；場外買入時無任何意思表示。</text>
+  <text x="458" y="248" font-size="13" fill="#7E8CA8">→ 發行人與場外後手之間，找不到契約。</text>
+
+  <rect x="436" y="282" width="440" height="126" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="458" y="316" font-size="16" font-weight="800" fill="#F5F8FF">容器二：單獨行為？<tspan fill="#E5484D">　✕</tspan></text>
+  <text x="458" y="344" font-size="14" fill="#C7D2E4">單方意思表示只能拘束自己（如懸賞廣告§164），</text>
+  <text x="458" y="366" font-size="14" fill="#C7D2E4">版稅卻是要「別人」付錢。</text>
+  <text x="458" y="390" font-size="13" fill="#7E8CA8">→ 債法上沒有「單方課他人義務」這種東西。</text>
+
+  <rect x="436" y="424" width="440" height="126" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="458" y="458" font-size="16" font-weight="800" fill="#F5F8FF">容器三：物上負擔？<tspan fill="#E5484D">　✕</tspan></text>
+  <text x="458" y="486" font-size="14" fill="#C7D2E4">想讓義務「跟著 token 走」＝創設新種物權，</text>
+  <text x="458" y="508" font-size="14" fill="#C7D2E4">但物權法定主義（民法§757）：非依法律或習慣不得創設。</text>
+  <text x="458" y="532" font-size="13" fill="#7E8CA8">→ 版稅戰爭證明：連「穩定慣行」都不存在。</text>
+
+  <!-- 右：結論 -->
+  <line x1="876" y1="345" x2="940" y2="345" stroke="#4D9FFF" stroke-width="2.5" marker-end="url(#arrBC3)"/>
+  <rect x="948" y="238" width="268" height="214" rx="14" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="2"/>
+  <text x="970" y="274" font-size="16" font-weight="800" fill="#F2A33C">■ 驗屍結論</text>
+  <text x="970" y="306" font-size="15" font-weight="700" fill="#F5F8FF">ERC-2981 ＝</text>
+  <text x="970" y="332" font-size="15" fill="#C7D2E4">規格文件（溝通格式）</text>
+  <text x="970" y="356" font-size="15" fill="#C7D2E4">＋市場慣行（自願遵循）</text>
+  <text x="970" y="392" font-size="14" fill="#8FA1C0">慣行不是法源：</text>
+  <text x="970" y="414" font-size="14" fill="#8FA1C0">隨商業誘因而生，</text>
+  <text x="970" y="436" font-size="14" fill="#8FA1C0">也隨商業誘因而滅。</text>
+
+  <rect x="64" y="584" width="1152" height="88" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="584" width="8" height="88" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="622" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：版稅要有拘束力，必須裝進法律容器——標準本身不是容器。</text>
+  <text x="96" y="654" font-size="14" fill="#8FA1C0">裝得進的：平台條款（對使用者）、授權契約（對締約人）；裝不進的：場外後手——下一講債之相對性正面處理。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">依 EIP-2981 標準原文與民法§153、§164、§757 整理；作者自製（2026-07-15）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-3</text>
+</svg>
+<figcaption><b>圖1｜</b>三個法律容器的逐一檢驗（作者自製）。市場直覺「寫進合約＝有拘束力」在三個容器前全數落空。本圖亦為口試簡報 C-3 幕。</figcaption>
+</figure>
+
+<h2><span class="no">肆</span>評析：兩種學說立場，與一條立法對照
+
+</h2>
+
+<p>對智慧合約的法律定性，論述光譜上有兩個端點。<b>「程式碼即契約」說</b>沿英美部分文獻的樂觀路線，主張部署程式碼即屬要約、與合約互動即屬承諾，契約法應直接擁抱鏈上行為。<b>「工具說」</b>則認為程式碼是履約與執行的工具，契約是否成立、內容如何，仍依傳統民法要件判斷——我國學說方向大抵如此<sup>6</sup>。本文採工具說，並就 ERC-2981 補充一個更強的理由：這個標準連「履約」都不做，只做「報數」。把報數功能當成債權，等於把電話簿當成收銀機——前幾講的比喻，在此獲得教義學的落點。</p>
+
+<p>比較法上有一條重要的對照線：歐盟《轉售權指令》讓美術著作原件的轉售分潤「跟著作品走」，作者對每一次轉售均得請求分潤<sup>7</sup>。注意它怎麼做到的——<b>立法</b>。是指令與內國法賦予這項法定債權，並以拍賣商、畫廊等看得見的中介為執行支點；不是市場慣行自然長成的。這條對照線說明了本講結論的深層意義：<mark>要讓義務跟著資產走，人類法制史上只有一條路——立法</mark>；而立法之後還需要執行節點。錢包對錢包的鏈上世界兩者皆缺，這是 G 幕「追及權引進論之批判」的伏筆。</p>
+
+<p>本文以為，C-2 與 C-3 合起來完成了「去中介化」論述的完整解剖：事實層面，鏈上流程中沒有授權這個動作（C-2）；規範層面，鏈上參數裝不進任何義務容器（C-3）。剩下的問題只有一個——那個承諾究竟拘束誰？這是債之相對性的主場，下一講展開。</p>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>寫進智慧合約的版稅是「資訊」；要變成「債權」，必須裝進法律容器——而標準本身，從來不是容器。</mark>裝得進的地方（平台條款、授權契約），版稅收得到；裝不進的地方（場外後手），十個月的版稅戰爭已經給出實證答案。</p>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgC3d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarC3d" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgC3d)"/>
+  <rect width="1280" height="6" fill="url(#topbarC3d)"/>
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-3・數據</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">版稅戰爭時間軸——<tspan fill="#4D9FFF">一個「自願機制」的崩解實錄</tspan></text>
+
+  <rect x="64" y="126" width="1152" height="38" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.5"/>
+  <text x="640" y="151" font-size="15" font-weight="700" fill="#F2A33C" text-anchor="middle">鏈上的版稅參數一個位元都沒變——變的是鏈下的意願（n＝5 個公開事件，出處見文末註釋）</text>
+
+  <line x1="140" y1="200" x2="140" y2="540" stroke="#263B5C" stroke-width="2"/>
+
+  <circle cx="140" cy="216" r="7" fill="#4D9FFF"/>
+  <rect x="180" y="188" width="1036" height="56" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="200" y="212" font-size="15" font-weight="700" fill="#4D9FFF">2020　EIP-2981 定稿</text>
+  <text x="200" y="234" font-size="14" fill="#C7D2E4">標準原文自我定位：版稅給付屬「自願」，須靠平台查詢並代扣。</text>
+
+  <circle cx="140" cy="296" r="7" fill="#E5484D"/>
+  <rect x="180" y="268" width="1036" height="56" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="200" y="292" font-size="15" font-weight="700" fill="#F5F8FF">2022-10　Blur 上線</text>
+  <text x="200" y="314" font-size="14" fill="#C7D2E4">選擇「不查詢、不代扣」，以零版稅搶走交易量——慣行出現第一道裂縫。</text>
+
+  <circle cx="140" cy="376" r="7" fill="#F2A33C"/>
+  <rect x="180" y="348" width="1036" height="56" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="200" y="372" font-size="15" font-weight="700" fill="#F5F8FF">2022-11　OpenSea 推出「營運者過濾器」</text>
+  <text x="200" y="394" font-size="14" fill="#C7D2E4">用技術反制：讓創作者在合約層封鎖不付版稅的平台——以工程手段勉強維持慣行。</text>
+
+  <circle cx="140" cy="456" r="7" fill="#F2A33C"/>
+  <rect x="180" y="428" width="1036" height="56" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="200" y="452" font-size="15" font-weight="700" fill="#F5F8FF">2023-02　過濾器遭技術繞過</text>
+  <text x="200" y="474" font-size="14" fill="#C7D2E4">封鎖失效，OpenSea 市占持續流失——工程手段補不住法律義務的缺位。</text>
+
+  <circle cx="140" cy="536" r="7" fill="#E5484D"/>
+  <rect x="180" y="508" width="1036" height="56" rx="12" fill="rgba(229,72,77,.08)" stroke="#E5484D" stroke-width="1.5"/>
+  <text x="200" y="532" font-size="15" font-weight="700" fill="#E5484D">2023-08　OpenSea 棄守：改為買方自願給付</text>
+  <text x="200" y="554" font-size="14" fill="#C7D2E4">「強制版稅有賴整個生態系配合，單一平台無法獨力維持。」——慣行正式死亡，全程十個月。</text>
+
+  <rect x="64" y="592" width="1152" height="80" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="592" width="8" height="80" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="626" font-size="20" font-weight="900" fill="#F5F8FF">慣行不是法源：它消滅的那一天，沒有任何人違約——因為自始沒有義務存在。</text>
+  <text x="96" y="656" font-size="14" fill="#8FA1C0">這條時間軸是「容器三：物上負擔說」的實證反駁——連穩定慣行都不存在，遑論習慣法上的物權。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">事件彙整自 EIP-2981 原文與各平台公開公告（見文末註釋與驗屍報告 No.001 來源清單）；作者整理自製（2026-07-15）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-3・DATA</text>
+</svg>
+<figcaption><b>圖2｜</b>版稅戰爭時間軸（作者整理）<sup>2</sup>。一項「不可竄改」的鏈上設定，實際效力在十個月內歸零——本講三個容器檢驗的市場實證版。本圖亦為口試簡報 C-3 數據幕。</figcaption>
+</figure>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「工程界會抗議：ERC-2981 就是為了執行版稅而設計的，你一句『不是契約』會不會太武斷？」</span>
+<span class="hint">👉 這題其實在問：你這樣定性，寫標準的工程師服氣嗎？</span>
+<span class="a">怎麼答：我引的是標準自己說的話——EIP-2981 原文明白寫著給付屬「自願」、要靠平台配合，連設計者都沒有宣稱它有強制力。我的定性不是貶低這個標準，而是還原它的自我定位：它是溝通用的規格，不是執行機制。</span></li>
+<li><span class="q">「如果平台服務條款白紙黑字寫『本平台遵循 ERC-2981』，這時它是不是就變成契約義務了？」</span>
+<span class="hint">👉 這題其實在問：平台自己都承諾了，你還說沒有拘束力嗎？</span>
+<span class="a">怎麼答：有拘束力！這正是我要的答案——一旦寫進平台條款，對「這個平台的使用者」就是契約義務。但注意：義務的來源是那份條款，不是標準本身；而且只拘束平台使用者，場外交易還是管不到。這剛好證明我的命題：標準要「裝進契約這個容器」才有力量。</span></li>
+<li><span class="q">「學界不是一直在討論數位資產的物權化嗎？物權法定主義真的擋得住『版稅跟著token走』？」</span>
+<span class="hint">👉 這題其實在問：法律不會進化嗎？你會不會太保守？</span>
+<span class="a">怎麼答：依「現行法」確實擋得住：民法§757說物權要有法律或習慣依據，新種負擔要嘛立法、要嘛有長期穩定的慣行加上大家都認為那是法律——而版稅戰爭恰恰證明，市場連十個月的穩定慣行都維持不了。至於「該不該立法」是另一個問題，我在追及權那一講（G幕）會正面處理成本效益。</span></li>
+<li><span class="q">「用民法§269第三人利益契約，讓發行人與平台約定向創作者給付，不就繞過你的三個容器了？」</span>
+<span class="hint">👉 這題其實在問：民法現成的工具就能解決，你是不是漏看了？</span>
+<span class="a">怎麼答：沒有漏看，而且要分清楚方向。§269能讓第三人「取得權利」——創作者當受益人、平台內交易由平台代扣給他，實務上正是這樣運作，我完全承認。但它不能對第三人「課予義務」——要讓場外的後手付錢是課義務，第三人利益契約做不到。工具能用的地方我用，不能用的地方講清楚為什麼。</span></li>
+<li><span class="q">「C-2講智慧合約做了什麼、C-3講標準不是契約——兩講會不會其實是同一件事？」</span>
+<span class="hint">👉 這題其實在問：你是不是把一篇拆成兩篇灌水？</span>
+<span class="a">怎麼答：是兩個不同層次。C-2是「事實層」：鏈上四個步驟裡，沒有一步是法律上的授權行為；C-3是「規範層」：就算把那個報數功能拿去法律上定性，三個義務容器也都裝不進。一個回答「發生了什麼」、一個回答「它算什麼」——描述與定性，在方法論上本來就要分開。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>EIP-2981: NFT Royalty Standard，<a href="https://eips.ethereum.org/EIPS/eip-2981" target="_blank">https://eips.ethereum.org/EIPS/eip-2981</a>（royaltyInfo 介面定義；版稅給付屬自願性質）。</li>
+<li>版稅戰爭事件經過（Blur 零版稅、OpenSea 營運者過濾器與 2023 年 8 月政策轉向），彙整見本站驗屍報告 No.001 及其資料來源清單。</li>
+<li>民法第153條第1項（當事人互相表示意思一致者，契約即為成立）。</li>
+<li>民法第164條（懸賞廣告：對完成一定行為之人負給付報酬之義務）。</li>
+<li>民法第757條（物權除依法律或習慣外，不得創設）。</li>
+<li>參林玫君，區塊鏈智能合約的契約法問題，中正大學法學集刊第63期，2019年（智慧合約與契約成立要件之分工）。</li>
+<li>Directive 2001/84/EC of the European Parliament and of the Council of 27 September 2001 on the resale right for the benefit of the author of an original work of art（歐盟轉售權指令）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-14.html"><span class="dir">← 上一篇</span>鏈上授權如何運作：智慧合約的記帳・轉帳・報數</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-15.html">2026-07-15　ERC-2981的法律性質：技術標準為何不是契約（C-3）</a></li>
+<li><a href="2026-07-14.html">2026-07-14　鏈上授權如何運作：智慧合約的記帳・轉帳・報數（C-2）</a></li>
+<li><a href="2026-07-13.html">2026-07-13　鏈下授權如何運作（C-1）</a></li>
+<li><a href="2026-07-12.html">2026-07-12　著作權法第37條：約定不明推定未授權（C-0）</a></li>
+<li><a href="2026-07-11.html">2026-07-11　驗屍報告 No.001：Royal 之死與 anotherblock 之生（A幕開場）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。圖1、圖2為作者依法條、標準原文與公開事件整理自製。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>
