@@ -10,12 +10,28 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   echo "=== $(date) 鏈上日報開始 ==="
   [ -z "$BIN" ] && { echo "找不到 claude 執行檔"; exit 1; }
   cd "$REPO" || exit 1
+  # 剛喚醒時網路可能還沒連上：最多等 10 分鐘
+  i=0
+  until /usr/bin/curl -sm 5 -o /dev/null https://api.anthropic.com 2>/dev/null; do
+    i=$((i+1))
+    [ $i -ge 60 ] && { echo "網路 10 分鐘未就緒，放棄本次執行"; exit 1; }
+    sleep 10
+  done
+  echo "網路就緒（等待 $((i*10)) 秒）"
   git pull -q origin main
   DATE="${FORCE_DATE:-$(date +%Y-%m-%d)}"
   PROMPT=$(sed "s/{{DATE}}/$DATE/g" "$REPO/scripts/daily-prompt.txt")
   "$BIN" -p "$PROMPT" \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
       --max-turns 120
+  # 若未產出（如 API 瞬斷），60 秒後重試一次
+  if [ ! -f "$REPO/posts/daily/$DATE.html" ]; then
+    echo "第一次執行未產出，60 秒後重試一次"
+    sleep 60
+    "$BIN" -p "$PROMPT" \
+        --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
+        --max-turns 120
+  fi
   # 轉 Word：drafts/DATE.md → 期刊日更Word（資料夾被搬走會自動尋找）
   OUT="$HOME/Desktop/📄 講座與文件/期刊日更Word"
   [ -d "$OUT" ] || OUT=$(find "$HOME/Desktop" -maxdepth 3 -type d -name "期刊日更Word" 2>/dev/null | head -1)
