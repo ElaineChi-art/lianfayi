@@ -1,22 +1,27 @@
-/* 鏈法醫 ChainForensics — editorial stylesheet */
+/* 鏈法醫 ChainForensics — deep-blue panel stylesheet（vocab/judicial 質感） */
 :root{
-  --plane:#0d0d0d; --surface:#1a1a19;
-  --ink:#f2efe6; --ink-2:#c3c2b7; --muted:#898781;
-  --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,.10);
-  --accent:#3987e5; --accent-ink:#86b6ef;
-  --good:#0ca30c; --serious:#ec835a; --critical:#d03b3b; --warning:#fab219;
-  --seq-250:#86b6ef; --seq-400:#3987e5; --seq-450:#2a78d6;
+  --plane:#10131a; --surface:#161b24; --surface2:#1d2430;
+  --ink:#e7ecf3; --ink-2:#aab6c8; --muted:#8b97a8;
+  --grid:#232a38; --baseline:#2a3140; --ring:rgba(127,181,255,.14);
+  --accent:#5b8def; --accent-ink:#7fb5ff; --gold:#e0c060;
+  --good:#3ec97a; --serious:#e8b94a; --critical:#ef6b6b; --warning:#e8b94a;
+  --seq-250:#7fb5ff; --seq-400:#5b8def; --seq-450:#4a7fe0;
+  --grad:linear-gradient(135deg,#3a6ea5,#7c5cff);
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --plane:#0d0d0d; --surface:#1a1a19;
-    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
-    --grid:#2c2c2a; --baseline:#383835; --ring:rgba(255,255,255,.10);
-    --accent:#3987e5; --accent-ink:#86b6ef;
+    --plane:#10131a; --surface:#161b24; --surface2:#1d2430;
+    --ink:#e7ecf3; --ink-2:#aab6c8; --muted:#8b97a8;
+    --grid:#232a38; --baseline:#2a3140; --ring:rgba(127,181,255,.14);
+    --accent:#5b8def; --accent-ink:#7fb5ff;
   }
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(1100px 560px at 75% -8%,rgba(70,100,180,.13),transparent 60%),
+             radial-gradient(900px 520px at -5% 105%,rgba(130,70,160,.10),transparent 60%);}
 body{background:var(--plane);color:var(--ink);
   font-family:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
   line-height:1.9;font-size:17px}
@@ -25,7 +30,7 @@ a:hover{text-decoration:underline}
 .serif{font-family:"Noto Serif TC","Songti TC",serif}
 
 /* masthead */
-.masthead{border-bottom:1px solid var(--grid);background:var(--surface)}
+.masthead{position:sticky;top:0;z-index:60;border-bottom:1px solid var(--baseline);background:rgba(11,13,18,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 .masthead-inner{max-width:760px;margin:0 auto;padding:18px 20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .brand{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.35rem;letter-spacing:2px;color:var(--ink)}
 .brand a{color:inherit}
@@ -50,7 +55,7 @@ p{margin:0 0 16px}
 ul,ol{padding-left:26px;margin:0 0 16px}
 li{margin-bottom:8px}
 strong{font-weight:700}
-mark{background:rgba(237,161,0,.30);color:#f2efe6;padding:0 3px;border-radius:3px}
+mark{background:rgba(127,181,255,.22);color:var(--ink);padding:0 3px;border-radius:3px}
 
 /* quick answer */
 .quick{background:var(--surface);border:1px solid var(--grid);border-left:4px solid var(--accent);
@@ -117,7 +122,7 @@ details p{margin:10px 0 4px;font-size:.92rem;color:var(--ink-2)}
 .hero .dek{max-width:56ch}
 .card{display:block;background:var(--surface);border:1px solid var(--grid);border-radius:14px;
   padding:22px 26px;margin-bottom:16px;color:inherit;transition:border-color .15s}
-.card:hover{border-color:var(--accent);text-decoration:none}
+.card:hover{border-color:var(--accent);text-decoration:none;box-shadow:0 8px 28px rgba(80,110,255,.18)}
 .card .kicker{margin-bottom:4px}
 .card h2{margin:2px 0 8px;font-size:1.3rem}
 .card p{color:var(--ink-2);font-size:.9rem;margin:0 0 10px}
@@ -126,14 +131,14 @@ footer.site{border-top:1px solid var(--grid);margin-top:60px}
 footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76rem;color:var(--muted);line-height:1.8}
 
 /* ===== Video Abstract 影片摘要 ===== */
-.videoabs{position:relative;background:#101014;border:1px solid #2c2c2a;border-radius:14px;
+.videoabs{position:relative;background:#0d1017;border:1px solid var(--baseline);border-radius:14px;
   overflow:hidden;margin:26px 0;aspect-ratio:16/9}
 .videoabs svg{width:100%;height:100%;display:block;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
 .va-label{position:absolute;top:12px;left:16px;font-size:.7rem;letter-spacing:2px;color:#898781;
   text-transform:uppercase;font-weight:700;z-index:3}
 .va-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:14px;background:rgba(16,16,20,.55);border:none;cursor:pointer;z-index:4;color:#fff;transition:opacity .4s}
-.va-play .btn{width:74px;height:74px;border-radius:50%;background:#3987e5;display:flex;align-items:center;
+.va-play .btn{width:74px;height:74px;border-radius:50%;background:var(--accent);display:flex;align-items:center;
   justify-content:center;box-shadow:0 8px 30px rgba(57,135,229,.45)}
 .va-play .btn svg{width:26px;height:26px;margin-left:4px}
 .va-play .t{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.05rem;letter-spacing:1px}
@@ -160,7 +165,7 @@ footer.site .inner{max-width:760px;margin:0 auto;padding:22px 20px;font-size:.76
 @keyframes vaStamp{0%{opacity:0;transform:scale(1.8)}100%{opacity:1;transform:scale(1)}}
 @keyframes vaIn{to{opacity:1}}
 .va-prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:3}
-.va-prog span{display:block;height:100%;width:0;background:#3987e5}
+.va-prog span{display:block;height:100%;width:0;background:var(--accent)}
 @media (prefers-reduced-motion: reduce){
   .va-scene{transition:none}
   .va-scene .grow,.va-scene .stamp,.va-scene .late,.va-scene .late2{animation:none !important;opacity:1}
