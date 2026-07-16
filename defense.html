@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎯 口試作戰面板｜鏈法醫</title>
+<meta name="description" content="碩論口試簡報生產線儀表板：26 個專題、八幕結構、口委攻防題庫，每日自動更新。">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#10131a; --panel:#161b24; --panel2:#1d2430; --line:#2a3140;
+    --tx:#e7ecf3; --mut:#8b97a8; --acc:#7fb5ff; --acc2:#5b8def;
+    --green:#3ec97a; --yellow:#e8b94a; --red:#ef6b6b; --gold:#e0c060;
+    --grad:linear-gradient(135deg,#3a6ea5,#7c5cff);
+  }
+  body{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+       background:var(--bg);color:var(--tx);min-height:100vh;font-size:16px;line-height:1.6}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:radial-gradient(1100px 560px at 75% -8%,rgba(70,100,180,.14),transparent 60%),
+               radial-gradient(900px 520px at -5% 105%,rgba(130,70,160,.11),transparent 60%);}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px;
+    padding:10px 18px;background:rgba(11,13,18,.82);
+    -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .topbar .brand{font-weight:800;font-size:16px;letter-spacing:.5px}
+  .topbar a{color:#9aa4b2;text-decoration:none;font-size:13.5px;font-weight:600;padding:6px 13px;border-radius:8px;white-space:nowrap}
+  .topbar a:hover{background:#161922;color:#e6e6e6}
+  .topbar .sp{margin-left:auto}
+  .wrap{max-width:1060px;margin:0 auto;padding:26px 18px 90px}
+  h1{font-size:25px;margin-bottom:4px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:20px}
+
+  /* 倒數條 */
+  .cdrow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+  .cd{flex:1;min-width:180px;background:linear-gradient(135deg,#1b2030,#13161d 70%);
+      border:1px solid var(--line);border-radius:14px;padding:13px 16px;display:flex;align-items:baseline;gap:10px}
+  .cd .n{font-size:30px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+  .cd .l{font-size:13px;color:#cfd6e2}
+  .cd .d{font-size:12px;color:var(--mut);margin-left:auto}
+
+  /* 統計卡 */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:10px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 16px}
+  .stat b{font-size:26px;color:var(--acc);display:block;font-variant-numeric:tabular-nums}
+  .stat span{font-size:13px;color:var(--mut)}
+  .pbar{height:9px;background:var(--panel2);border-radius:99px;overflow:hidden;margin:16px 0 26px;border:1px solid var(--line)}
+  .pbar i{display:block;height:100%;background:var(--grad);border-radius:99px;transition:width .6s}
+
+  /* 幕板 */
+  .act{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+  .act-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .act-h .tag{background:var(--grad);color:#fff;font-weight:800;font-size:13px;border-radius:8px;padding:3px 10px;letter-spacing:1px}
+  .act-h .name{font-weight:700;font-size:16px}
+  .act-h .cnt{margin-left:auto;font-size:12.5px;color:var(--mut);font-variant-numeric:tabular-nums}
+  .trow{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;border-left:4px solid var(--line);
+        background:var(--panel2);margin-bottom:7px}
+  .trow.done{border-left-color:var(--green)}
+  .trow.today{border-left-color:var(--acc2);box-shadow:0 0 0 1px rgba(91,141,239,.35)}
+  .trow .st{font-size:12px;font-weight:700;white-space:nowrap;width:86px;flex-shrink:0}
+  .trow.done .st{color:var(--green)}
+  .trow.todo .st{color:var(--mut)}
+  .trow.today .st{color:var(--acc)}
+  .trow .t{font-size:14.5px;flex:1;min-width:0}
+  .trow .t a{color:var(--tx);text-decoration:none;border-bottom:1px dotted #3a4152}
+  .trow .t a:hover{color:var(--acc)}
+  .trow .meta{font-size:11.5px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .pill{font-size:11px;padding:1px 8px;border-radius:20px;background:#0f1219;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
+  .foot{color:var(--mut);font-size:12.5px;margin-top:24px;text-align:center}
+  @media(max-width:560px){ .trow .meta{display:none} .cd .n{font-size:24px} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">🎯 口試作戰面板</span>
+  <a href="index.html">🕵️ 鏈法醫</a>
+  <a href="posts/daily/latest.html">📰 今日專題</a>
+  <span class="sp"></span>
+  <a href="https://elainechi-art.github.io/">🏠 學習中心</a>
+</div>
+
+<div class="wrap">
+<h1>口試簡報生產線</h1>
+<div class="sub">碩論《智慧合約之法制整合與智慧財產權保障研究》口試準備・26 專題×八幕結構・平日 10:15 自動產出・本面板每日自動更新</div>
+
+<div class="cdrow" id="cds"></div>
+
+<div class="stats" id="stats"></div>
+<div class="pbar"><i id="pfill" style="width:0%"></i></div>
+
+<div id="board"></div>
+
+<div class="foot" id="foot"></div>
+</div>
+
+<script>
+const ACTS = {A:"開場：驗屍報告",B:"市場背景",C:"方向一：授權制度",D:"方向二：智慧財產權",E:"方向三：合規性",F:"方向四：集體管理",G:"制度設計",H:"總結：三層次模型"};
+const ORDER = ["A","C","B","D","E","F","G","H"]; // B幕補完排在C之後（8/5），依實際佇列順序
+
+function dstr(d){return d.toISOString().slice(0,10);}
+function nextWeekdays(from,n){ // 產出接下來 n 個平日
+  const out=[]; let d=new Date(from);
+  while(out.length<n){ d.setDate(d.getDate()+1); const w=d.getDay(); if(w!==0&&w!==6) out.push(dstr(d)); }
+  return out;
+}
+function dleft(target){ const ms=new Date(target+"T00:00:00")-new Date(new Date().toDateString()); return Math.ceil(ms/86400000); }
+
+fetch("data/progress.json").then(r=>r.json()).then(D=>{
+  const today = dstr(new Date());
+  // 倒數
+  const cds = [
+    ["口試（暫定）", D.defense],
+    ["PPT 彙整日", D.ppt],
+    ["調查局筆試", D.exam],
+  ].map(([l,t])=>{
+    const n=dleft(t);
+    return `<div class="cd"><span class="n">D-${n}</span><span class="l">${l}</span><span class="d">${t.slice(5).replace("-","/")}</span></div>`;
+  }).join("");
+  document.getElementById("cds").innerHTML=cds;
+
+  // 待做題預計日期：今天沒出刊且是平日 → 第一題排今天；其餘依序排接下來的平日
+  const todos = D.topics.filter(t=>t.status!=="done");
+  const doneToday = D.topics.some(t=>t.date===today);
+  const w = new Date().getDay();
+  const firstIsToday = !doneToday && w!==0 && w!==6;
+  const seq = firstIsToday
+    ? [today, ...nextWeekdays(new Date(), todos.length-1)]
+    : nextWeekdays(new Date(), todos.length);
+  todos.forEach((t,i)=>{ t.plan = seq[i]; });
+
+  // 統計
+  const done = D.topics.filter(t=>t.status==="done");
+  const slides = done.reduce((s,t)=>s+(t.slides||0),0);
+  const qsum = done.reduce((s,t)=>s+(t.q||0),0);
+  const pct = Math.round(done.length/D.topics.length*100);
+  document.getElementById("stats").innerHTML = `
+    <div class="stat"><b>${done.length}<span style="font-size:15px;color:var(--mut)"> / ${D.topics.length}</span></b><span>已刊專題</span></div>
+    <div class="stat"><b>${slides}</b><span>口試投影片（張）</span></div>
+    <div class="stat"><b>${qsum}</b><span>口委攻防題（題）</span></div>
+    <div class="stat"><b>${pct}%</b><span>簡報素材完成率</span></div>`;
+  document.getElementById("pfill").style.width = pct+"%";
+
+  // 幕板
+  let html="";
+  ORDER.forEach(a=>{
+    const list = D.topics.filter(t=>t.act===a);
+    if(!list.length) return;
+    const dn = list.filter(t=>t.status==="done").length;
+    html += `<div class="act"><div class="act-h"><span class="tag">${a} 幕</span><span class="name">${ACTS[a]||""}</span><span class="cnt">${dn}／${list.length}</span></div>`;
+    list.forEach(t=>{
+      const isToday = t.status!=="done" && t.plan===today;
+      const cls = t.status==="done" ? "done" : (isToday ? "today":"todo");
+      const st  = t.status==="done" ? "✓ "+t.date.slice(5).replace("-","/") : (isToday ? "● 今天" : "○ 預計 "+ (t.plan? t.plan.slice(5).replace("-","/"):""));
+      const title = t.status==="done" && t.url ? `<a href="${t.url}">${t.title}</a>` : t.title;
+      const meta = t.status==="done" ? `${t.slides} 張投影片・${t.q} 題攻防` : "";
+      html += `<div class="trow ${cls}"><span class="st">${st}</span><span class="t">${title}</span><span class="meta">${meta}</span><span class="pill">${t.ppt}</span></div>`;
+    });
+    html += `</div>`;
+  });
+  document.getElementById("board").innerHTML = html;
+  document.getElementById("foot").textContent = `資料更新：${D.updated}・由每日自動流程維護｜鏈法醫 Chain Forensics © 2026 姬政妤`;
+}).catch(e=>{
+  document.getElementById("board").innerHTML = `<div class="act">面板資料載入失敗：${e}</div>`;
+});
+</script>
+</body>
+</html>
