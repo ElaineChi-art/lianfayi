@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-17｜傳統授權vs智慧合約授權｜鏈法醫</title>
+<meta name="description" content="拿一份真正的音樂授權契約，逐條問「這條寫得進程式碼嗎」——期間、地域、範圍、對價、救濟、管轄，六個維度的對照實驗。鏈法醫期刊專題，方向一：授權制度。">
+<meta property="og:title" content="期刊專題 2026-07-17｜傳統授權 vs 智慧合約授權：期間、地域、範圍與救濟為何寫不進程式碼｜鏈法醫">
+<meta property="og:description" content="智慧合約寫得進「執行」，寫不進「彈性」——而契約最值錢的部分，就是彈性。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-17</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向一：授權制度（C-5）</div>
+<h1>傳統授權 vs 智慧合約授權：<br>期間、地域、範圍與救濟，為何寫不進程式碼</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-17</span>
+  <span>閱讀約 9 分鐘</span>
+</div>
+
+<p class="dek"><b>本講做一個簡單的實驗：拿一份真正的音樂授權契約，一條一條問「這條寫得進程式碼嗎」。答案先講：寫得進的，是最簡單的那幾條；最值錢的那幾條，一條都寫不進。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>一份授權契約有六種主要條款：期間、地域、利用範圍、對價、違約救濟、爭議解決。逐條檢驗的結果：程式碼只寫得進「不需要人判斷」的部分——固定比例、時間鎖。其他全部寫不進，因為它們的本質是「出事之後怎麼辦」，而區塊鏈的設計哲學是「執行了就不能回頭」。所以結論是分工，不是取代：執行交給程式碼，彈性留給契約和法院。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>支持鏈上授權的人有一個標準說法：把授權條款寫進智慧合約，就能自動執行、不用打官司。這個說法聽起來很有力，但它有一個沒被檢驗過的前提——<mark>授權條款真的寫得進程式碼嗎？</mark></p>
+
+<p>要回答這個問題，最誠實的方法不是空想，而是對照。我國著作權法第37條第1項自己就列了一張清單：授權要約定「地域、時間、內容、利用方法或其他事項」<sup>1</sup>；實務上一份完整的授權契約，還會再加上對價的計算與調整、違約時的救濟、發生爭議找誰處理。本講就拿這張清單，一條一條放到程式碼面前檢驗。</p>
+
+<h2><span class="no">貳</span>背景：一份授權契約裡到底裝了什麼</h2>
+
+<p>先讓沒看過授權契約的讀者有個畫面。一份音樂授權契約大致長這樣：前面幾條講「你可以用什麼、用到什麼程度」（標的與範圍）；中間幾條講「用多久、在哪裡用、付多少錢」（期間、地域、對價）；後面一大半的篇幅，其實都在講一件事——<b>出事了怎麼辦</b>。對方不付錢怎麼辦、用超過範圍怎麼辦、我想提前終止怎麼辦、我們對條款的理解不一樣時聽誰的。國際上整理授權實務的文獻，也把期間、地域、範圍列為授權的基本維度<sup>2</sup>。</p>
+
+<p>這個結構透露了一個重點：契約的前半部在描述「順利的世界」，後半部在準備「不順利的世界」。而簽約的人都知道，後半部才是請律師來的原因。</p>
+
+<h2><span class="no">參</span>法制說明：六個維度，逐條對照</h2>
+
+<p><b>一、期間。</b>程式碼寫得進「倒數計時」：時間鎖到期，權限自動關閉，這做得到，而且做得很好。但契約裡的期間條款不只是倒數——「他方違約，經催告仍不改正者，得提前終止」，這句話需要有人判斷什麼叫違約、催告了沒有、改正了沒有。<mark>程式碼寫得進「規則」，寫不進「裁量」</mark>（需要人拿捏的判斷）。</p>
+
+<p><b>二、地域。</b>「本授權以台澎金馬為限」——鏈上沒有地理。區塊鏈節點遍布全球，一筆交易不發生在任何國家。平台可以用 IP 封鎖或身分驗證做地域管制，但那是鏈下的配套措施，不是鏈上的保證。</p>
+
+<p><b>三、利用範圍。</b>「得公開傳輸，但不含商業使用」——「商業使用」是語意，不是數值。程式碼分不出一次播放是自用還是營利，這需要理解脈絡，而理解脈絡正是法院解釋契約在做的事。</p>
+
+<p><b>四、對價。</b>固定抽成寫得進，「每次轉售抽5%」正是智慧合約最擅長的算術。但實務契約常見「市場情事重大變更時，雙方應重新協商費率」——重新協商是一個面向未來的開放條款，程式碼要求所有條件在部署時就確定，兩者天生互斥。</p>
+
+<p><b>五、違約救濟。</b>損害賠償怎麼算、能不能解除契約、已付的錢怎麼返還——這些全部發生在違約「之後」，本質是<b>回頭修正已經發生的事</b>。而區塊鏈的核心設計就是不可逆：執行了就不能收回。一個以「不能回頭」為賣點的系統，結構上裝不下以「回頭」為本質的救濟制度。</p>
+
+<p><b>六、爭議解決。</b>管轄法院、仲裁條款、準據法——這些條款是在告訴世界「這份契約由誰來讀、用哪一國的法律讀」。程式碼沒有讀者，只有執行者；它不解釋自己，也不接受解釋。</p>
+
+<p>六條驗完，可以下一個定性了。契約有上半身跟下半身：<b>上半身是給付的執行</b>（算錢、撥款、登記），<b>下半身是風險的分配與事後的修正</b>（終止、救濟、解釋、管轄）。智慧合約只有上半身。</p>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgC5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarC5" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgC5)"/>
+  <rect width="1280" height="6" fill="url(#topbarC5)"/>
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-5</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">一份授權契約的解剖：<tspan fill="#4D9FFF">上半身與下半身</tspan></text>
+
+  <!-- 上半身 -->
+  <rect x="64" y="140" width="1152" height="184" rx="14" fill="#131D2E" stroke="#35C08E" stroke-width="2"/>
+  <text x="86" y="176" font-size="17" font-weight="800" fill="#35C08E">■ 上半身・給付的執行——「順利的世界」怎麼跑</text>
+  <rect x="86" y="196" width="256" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="214" y="222" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">分潤比例的計算</text>
+  <text x="214" y="242" font-size="12.5" fill="#35C08E" text-anchor="middle">✓ 程式碼寫得進</text>
+  <rect x="362" y="196" width="256" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="490" y="222" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">款項拆分與撥付</text>
+  <text x="490" y="242" font-size="12.5" fill="#35C08E" text-anchor="middle">✓ 程式碼寫得進</text>
+  <rect x="638" y="196" width="256" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="766" y="222" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">固定期間（時間鎖）</text>
+  <text x="766" y="242" font-size="12.5" fill="#35C08E" text-anchor="middle">✓ 到期自動關閉</text>
+  <rect x="914" y="196" width="256" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="1042" y="222" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">持有與交易的登記</text>
+  <text x="1042" y="242" font-size="12.5" fill="#35C08E" text-anchor="middle">✓ 不可竄改留痕</text>
+  <text x="86" y="296" font-size="14" fill="#8FA1C0">共同點：不需要任何人的「判斷」——輸入確定、輸出確定，純粹的算術與記帳。</text>
+
+  <!-- 下半身 -->
+  <rect x="64" y="352" width="1152" height="212" rx="14" fill="#131D2E" stroke="#E5484D" stroke-width="2"/>
+  <text x="86" y="388" font-size="17" font-weight="800" fill="#E5484D">■ 下半身・風險分配與事後修正——「不順利的世界」怎麼辦</text>
+  <rect x="86" y="408" width="343" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="257" y="434" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">催告後終止・重大事由解約</text>
+  <text x="257" y="454" font-size="12.5" fill="#E5484D" text-anchor="middle">✕ 需要「裁量」：誰違約？改正了沒？</text>
+  <rect x="449" y="408" width="343" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="620" y="434" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">地域限制・「非商業使用」</text>
+  <text x="620" y="454" font-size="12.5" fill="#E5484D" text-anchor="middle">✕ 鏈上無地理；「商業」是語意不是數值</text>
+  <rect x="812" y="408" width="358" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="991" y="434" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">損害賠償・解除・返還</text>
+  <text x="991" y="454" font-size="12.5" fill="#E5484D" text-anchor="middle">✕ 救濟＝回頭修正，鏈的哲學＝不可逆</text>
+  <rect x="86" y="480" width="343" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="257" y="506" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">情事變更・重新議約條款</text>
+  <text x="257" y="526" font-size="12.5" fill="#E5484D" text-anchor="middle">✕ 面向未來的開放條款，部署時寫不完</text>
+  <rect x="449" y="480" width="343" height="56" rx="10" fill="#0F1726" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="620" y="506" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">管轄・仲裁・準據法</text>
+  <text x="620" y="526" font-size="12.5" fill="#E5484D" text-anchor="middle">✕ 程式碼沒有讀者，只有執行者</text>
+  <text x="830" y="514" font-size="14" fill="#8FA1C0">共同點：本質都是「出事之後怎麼辦」</text>
+  <text x="830" y="536" font-size="14" fill="#8FA1C0">——契約後半部，才是請律師來的原因。</text>
+
+  <rect x="64" y="592" width="1152" height="80" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="592" width="8" height="80" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="626" font-size="20" font-weight="900" fill="#F5F8FF">與論文的連結：智慧合約只有上半身——執行寫得進，彈性寫不進；而契約最值錢的部分，就是彈性。</text>
+  <text x="96" y="656" font-size="14" fill="#8FA1C0">結論是分工不是取代：上半身交給程式碼（結算層），下半身留給契約與法院（授權層）——C-6 畫出完整的混合模型。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">依著作權法§37Ⅰ之列舉事項與授權實務條款結構整理；作者自製（2026-07-17）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-5</text>
+</svg>
+<figcaption><b>圖1｜</b>一份授權契約的解剖（作者自製）。上半身「順利世界的執行」程式碼全能勝任；下半身「不順利世界的修正」一條都寫不進。本圖亦為口試簡報 C-5 幕。</figcaption>
+</figure>
+
+<h2><span class="no">肆</span>評析：留白不是偷懶，是理性</h2>
+
+<p>對於「契約能不能全面程式化」，理論光譜上有兩個立場。<b>樂觀的一端</b>是「可計算契約」的傳統：從 Ricardian contract（把法律文本跟程式碼綁在一起的設計）以來，工程社群的終極想像是把契約完全形式化，讓爭議無從發生<sup>3</sup>。<b>另一端</b>是經濟學的不完全契約理論：契約留白不是律師偷懶，是理性——未來的狀況寫不完，硬要寫完的成本高於收益，所以理性的締約者故意留白，把填空交給事後的協商、解釋規則和法院<sup>4</sup>。</p>
+
+<p>本文站在後者，而且要補一句法律人的觀察：<mark>我國民法跟著作權法早就內建了「填空機制」</mark>。第37條的「約定不明推定未授權」，就是立法者提供的預設值（C-0 講過的推定閘門）；契約解釋規則、誠信原則、情事變更原則，都是留白的配套設施。換句話說，法律體系的設計本來就預期契約寫不完——而智慧合約要求「部署時全部寫完」，等於拒絕使用整套配套設施。</p>
+
+<p>比較法上有一個具體的碰撞點可以觀察：<b>法定解約權</b>。歐盟消費者權利指令給消費者14天的撤回權，數位內容要例外，必須消費者明示同意放棄<sup>5</sup>；台灣消保法第19條的通訊交易七天解約權，邏輯相同<sup>6</sup>。法定解約權的本質是「法律保障你反悔的權利」——而不可逆執行的本質是「不讓任何人反悔」。兩者相撞，法律不會讓步，結果就是平台必須在鏈下自己長出「下半身」：退款政策、客服、爭議處理條款。市場已經給出證據：存活至今的代幣化平台，每一家都掛著厚厚的服務條款，沒有任何一家敢只靠程式碼營運<sup>7</sup>。</p>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>智慧合約寫得進「執行」，寫不進「彈性」——而契約最值錢的部分，就是彈性。</mark>這不是智慧合約的失敗，是分工的起點：上半身交給程式碼，下半身留給契約與法院。下一講（C-6）就把這個分工畫成一張完整的混合式契約模型——那是本文論文的核心方案。</p>
+
+<figure>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgC5d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarC5d" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgC5d)"/>
+  <rect width="1280" height="6" fill="url(#topbarC5d)"/>
+  <text x="66" y="44" font-size="14" letter-spacing="3" fill="#5F79A6">PART C・方向一：授權制度  ›  SLIDE C-5・數據</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">六個維度的對照實驗——<tspan fill="#4D9FFF">哪些條款寫得進程式碼？</tspan></text>
+
+  <rect x="64" y="126" width="1152" height="38" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.5"/>
+  <text x="640" y="151" font-size="15" font-weight="700" fill="#F2A33C" text-anchor="middle">方法：以著作權法§37Ⅰ列舉事項＋授權實務常備條款為清單（n＝6 維度），逐條檢驗可程式化程度</text>
+
+  <!-- 表頭 -->
+  <rect x="64" y="182" width="1152" height="42" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1"/>
+  <text x="84" y="210" font-size="15" font-weight="800" fill="#4D9FFF">條款維度</text>
+  <text x="404" y="210" font-size="15" font-weight="800" fill="#4D9FFF">契約怎麼寫</text>
+  <text x="884" y="210" font-size="15" font-weight="800" fill="#4D9FFF">程式碼能表達嗎</text>
+
+  <rect x="64" y="232" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="266" font-size="15" font-weight="700" fill="#F5F8FF">1 期間</text>
+  <text x="404" y="258" font-size="14" fill="#C7D2E4">授權三年；違約經催告不改正得提前終止</text>
+  <text x="404" y="278" font-size="12.5" fill="#7E8CA8">固定期限＋裁量性終止</text>
+  <text x="884" y="266" font-size="14" font-weight="700" fill="#F2A33C">△ 時間鎖✓・裁量終止✕</text>
+
+  <rect x="64" y="294" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="328" font-size="15" font-weight="700" fill="#F5F8FF">2 地域</text>
+  <text x="404" y="320" font-size="14" fill="#C7D2E4">以台澎金馬為限</text>
+  <text x="404" y="340" font-size="12.5" fill="#7E8CA8">授權的基本維度之一</text>
+  <text x="884" y="328" font-size="14" font-weight="700" fill="#E5484D">✕ 鏈上沒有地理</text>
+
+  <rect x="64" y="356" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="390" font-size="15" font-weight="700" fill="#F5F8FF">3 利用範圍</text>
+  <text x="404" y="382" font-size="14" fill="#C7D2E4">得公開傳輸，但不含商業使用</text>
+  <text x="404" y="402" font-size="12.5" fill="#7E8CA8">範圍界定＝契約解釋的主戰場</text>
+  <text x="884" y="390" font-size="14" font-weight="700" fill="#E5484D">✕ 「商業」是語意不是數值</text>
+
+  <rect x="64" y="418" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="452" font-size="15" font-weight="700" fill="#F5F8FF">4 對價</text>
+  <text x="404" y="444" font-size="14" fill="#C7D2E4">每次轉售抽5%；市況重大變更應重新協商</text>
+  <text x="404" y="464" font-size="12.5" fill="#7E8CA8">固定費率＋開放式調整條款</text>
+  <text x="884" y="452" font-size="14" font-weight="700" fill="#F2A33C">△ 固定比例✓・重新協商✕</text>
+
+  <rect x="64" y="480" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="514" font-size="15" font-weight="700" fill="#F5F8FF">5 違約救濟</text>
+  <text x="404" y="506" font-size="14" fill="#C7D2E4">損害賠償、解除契約、返還已付價金</text>
+  <text x="404" y="526" font-size="12.5" fill="#7E8CA8">契約後半部的主體</text>
+  <text x="884" y="514" font-size="14" font-weight="700" fill="#E5484D">✕ 救濟＝回頭，鏈＝不可逆</text>
+
+  <rect x="64" y="542" width="1152" height="54" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="576" font-size="15" font-weight="700" fill="#F5F8FF">6 爭議解決</text>
+  <text x="404" y="568" font-size="14" fill="#C7D2E4">管轄法院、仲裁條款、準據法</text>
+  <text x="404" y="588" font-size="12.5" fill="#7E8CA8">指定「由誰來讀這份契約」</text>
+  <text x="884" y="576" font-size="14" font-weight="700" fill="#E5484D">✕ 程式碼沒有讀者，只有執行者</text>
+
+  <rect x="64" y="614" width="1152" height="60" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="614" width="8" height="60" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="640" font-size="19" font-weight="900" fill="#F5F8FF">六比零到六比二之間：寫得進的都是算術，寫不進的都是判斷。</text>
+  <text x="96" y="664" font-size="13.5" fill="#8FA1C0">△＝部分可程式化（機械規則可、裁量不可）。法律的填空機制（§37推定、解釋規則、情事變更）正是為「寫不完」而生。</text>
+
+  <text x="64" y="704" font-size="12.5" fill="#55668A">依著作權法§37Ⅰ與授權實務條款結構整理；作者自製（2026-07-17）。</text>
+  <text x="1216" y="704" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">C-5・DATA</text>
+</svg>
+<figcaption><b>圖2｜</b>六個授權維度的可程式化對照表（作者整理）。本圖亦為口試簡報 C-5 數據幕。</figcaption>
+</figure>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「智慧合約也能寫時間鎖、也能配合地理封鎖（geofencing），你說寫不進去，會不會下結論太快？」</span>
+<span class="hint">👉 這題其實在問：技術上明明做得到一部分，你是不是誇大了？</span>
+<span class="a">怎麼答：我區分得很細——寫得進的是「機械規則」：時間鎖到期關閉、固定比例拆帳，這些我在圖上全都打勾。寫不進的是「裁量」：催告後有沒有改正、一次播放算不算商業使用，這些需要人判斷。地理封鎖則是鏈下配套（靠 IP 和身分驗證），不是鏈上保證。精確的說法是：寫得進規則，寫不進判斷。</span></li>
+<li><span class="q">「不完全契約理論是經濟學的東西，你拿來當法律論證，方法上妥當嗎？」</span>
+<span class="hint">👉 這題其實在問：你會不會拿別的學科的理論來充場面？</span>
+<span class="a">怎麼答：它的角色是「解釋工具」不是「規範依據」——它解釋為什麼契約留白是理性的。而法律上的對應物是現成的：§37 的推定就是立法者提供的預設值，契約解釋規則、情事變更原則都是留白的配套。規範論證從頭到尾站在民法上，經濟學只是幫忙說明立法者為什麼這樣設計。</span></li>
+<li><span class="q">「照你這樣講，智慧合約幾乎一無是處，那你的論文在研究什麼？」</span>
+<span class="hint">👉 這題其實在問：你把研究對象罵成這樣，研究還有意義嗎？</span>
+<span class="a">怎麼答：剛好相反——我的結論是分工論，不是否定論。契約的上半身（算錢、撥付、留痕）交給程式碼，是真實的效率增益；下半身（救濟、解釋）留給契約與法院。劃清這條線，兩邊才能各自做擅長的事——下一講的混合模型就是把這條線畫成制度設計。</span></li>
+<li><span class="q">「有沒有實際發生過『智慧合約條款』的訴訟？還是你全部在講假設？」</span>
+<span class="hint">👉 這題其實在問：你的問題意識有真實案例支撐嗎？</span>
+<span class="a">怎麼答：直接以智慧合約條款為標的的判決還沒有，我誠實承認。但間接證據很強：Miramax 和 Roc-A-Fella 的訴訟都是「鏈下契約解釋」的戰場、版稅戰爭是「機制沒有法律拘束力」的實證，而且每一家存活的平台都掛著厚厚的鏈下服務條款——如果程式碼真能取代契約，這些條款不會存在。</span></li>
+<li><span class="q">「消保法七天解約權碰上不可逆的鏈上交易，實務上到底怎麼處理？」</span>
+<span class="hint">👉 這題其實在問：法定解約權和區塊鏈相撞，誰讓步？</span>
+<span class="a">怎麼答：法律不會讓步，所以讓步的一定是業者——實務做法是鏈下補償：退款政策、客服、爭議處理條款，等於平台自己長出契約的下半身。至於通訊交易解約權在數位內容的例外要件（消保法§19與相關辦法），會在合規那一幕（E幕）正面處理。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>著作權法第37條第1項。</li>
+<li>WIPO 官網關於著作權授權實務之說明（期間、地域、範圍為授權之基本維度），https://www.wipo.int【具體文件名與頁碼待查補】。</li>
+<li>Ian Grigg, <i>The Ricardian Contract</i>, Proceedings of the First IEEE International Workshop on Electronic Contracting (2004)（法律文本與程式碼綁定之設計原型）。</li>
+<li>不完全契約理論之概念框架，參 Oliver Hart 於契約理論之系列研究（2016年諾貝爾經濟學獎表彰主題）【具體文獻擇定待查補】。</li>
+<li>Directive 2011/83/EU on consumer rights, art. 16(m)（數位內容之撤回權例外：經消費者明示同意並確認知悉喪失撤回權者）。</li>
+<li>消費者保護法第19條（通訊交易之七日解除權）及通訊交易解除權合理例外情事適用準則。</li>
+<li>參見本站驗屍報告 No.001 與 C-3〈版稅戰爭時間軸〉之整理。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-16.html"><span class="dir">← 上一篇</span>債之相對性與轉售版稅：一個找不到債務人的承諾</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-17.html">2026-07-17　傳統授權 vs 智慧合約授權：六個維度的對照實驗（C-5）</a></li>
+<li><a href="2026-07-16.html">2026-07-16　債之相對性與轉售版稅（C-4）</a></li>
+<li><a href="2026-07-15.html">2026-07-15　ERC-2981的法律性質（C-3）</a></li>
+<li><a href="2026-07-14.html">2026-07-14　鏈上授權如何運作（C-2）</a></li>
+<li><a href="2026-07-13.html">2026-07-13　鏈下授權如何運作（C-1）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。圖1、圖2為作者依法條與授權實務結構整理自製。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>
