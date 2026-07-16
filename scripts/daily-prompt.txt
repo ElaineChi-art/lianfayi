@@ -23,6 +23,6 @@
 
 【第三步半：更新作戰面板資料】編輯 data/progress.json（口試作戰面板 defense.html 的資料源）：找到當日主題 id 的物件，改 "status":"done"、"date":"{{DATE}}"、"url":"posts/daily/{{DATE}}.html"、"q":口委題數、"slides":投影片張數；並把頂層 "updated" 改為 {{DATE}}。只改這些欄位，不動其他結構。
 
-【第四步：首頁與發布】編輯 index.html 的「鏈上日報」卡片：kicker 改「期刊專題日更・每日一題」，連到最新一篇，標題與描述用當日主題與摘要句；不動其他卡片。git add -A、commit（訊息「期刊專題 {{DATE}}：主題短名」）、push origin main。
+【第四步：發布】index.html 的最新專題清單由 data/progress.json 自動生成，**不需要也不要編輯 index.html**（只要第三步半的 progress.json 有更新，首頁清單就會自己長出當日這篇）。git add -A、commit（訊息「期刊專題 {{DATE}}：主題短名」）、push origin main。
 
 【紅線】1. 學術分析限定：不評論時政與政治人物、不對進行中個案下結論、不給投資建議。2. 絕不編造來源。3. 若 repo 結構與預期不符，以最小侵入方式完成。

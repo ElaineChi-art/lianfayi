@@ -37,12 +37,12 @@
     <div class="meta">2026-07-11 · 閱讀約 12 分鐘 · 音樂NFT／智慧合約／版稅</div>
   </a>
 
-  <a class="card" href="posts/daily/2026-07-17.html">
-    <div class="kicker">期刊專題日更・每日一題</div>
-    <h2 class="serif">2026-07-17｜傳統授權 vs 智慧合約授權：六個維度的對照實驗</h2>
-    <p>期間、地域、範圍、對價、救濟、管轄——逐條檢驗哪些寫得進程式碼。答案：寫得進的都是算術，寫不進的都是判斷（C-5・2026-07-17）。</p>
-    <div class="meta">2026-07-17 · 方向一：授權制度 · 閱讀約 9 分鐘</div>
-  </a>
+  <div class="card" style="cursor:default">
+    <div class="kicker" style="display:flex;align-items:center;gap:10px">期刊專題日更・平日一題
+      <a href="defense.html" style="margin-left:auto;font-size:.72rem;letter-spacing:1px">🎯 作戰面板 →</a></div>
+    <div id="dailylist" style="margin-top:10px"><div class="meta">載入中…</div></div>
+  </div>
+
 
   <div class="card" style="cursor:default">
     <div class="kicker">即將刊出</div>
@@ -53,6 +53,24 @@
 
   <div class="disclaimer">⚖️ 本站內容為資訊整理與學術分析，不構成法律意見或投資建議。作者：姬政妤（陽明交通大學科技法律研究所）。</div>
 </main>
+
+<script>
+fetch("data/progress.json").then(r=>r.json()).then(D=>{
+  const done = D.topics.filter(t=>t.status==="done" && t.url)
+                        .sort((a,b)=> b.date.localeCompare(a.date));
+  const list = done.slice(0, Math.max(7, 7));
+  const el = document.getElementById("dailylist");
+  el.innerHTML = list.map((t,i)=>`
+    <a href="${t.url}" class="drow${i===0?" new":""}">
+      <span class="dd">${t.date.slice(5).replace("-","/")}</span>
+      <span class="dp">${t.ppt}</span>
+      <span class="dt">${t.title}</span>
+      ${i===0?'<span class="dnew">最新</span>':""}
+    </a>`).join("")
+    + `<div class="meta" style="margin-top:10px">共 ${done.length} 篇・每平日 10:15 自動更新・<a href="posts/daily/latest.html">直接看最新一篇 →</a></div>`;
+}).catch(()=>{ document.getElementById("dailylist").innerHTML='<div class="meta"><a href="posts/daily/latest.html">看最新一篇 →</a></div>'; });
+</script>
+
 
 <footer class="site"><div class="inner">
 鏈法醫 Chain Forensics © 2026 姬政妤 · 聯絡與合作：chengyuchi849@gmail.com
