@@ -58,7 +58,7 @@
 fetch("data/progress.json").then(r=>r.json()).then(D=>{
   const done = D.topics.filter(t=>t.status==="done" && t.url)
                         .sort((a,b)=> b.date.localeCompare(a.date));
-  const list = done.slice(0, Math.max(7, 7));
+  const list = done.slice(0, 10);
   const el = document.getElementById("dailylist");
   el.innerHTML = list.map((t,i)=>`
     <a href="${t.url}" class="drow${i===0?" new":""}">
