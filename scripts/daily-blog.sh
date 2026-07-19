@@ -1,8 +1,7 @@
 #!/bin/zsh
 # 鏈法醫・期刊專題 平日自動發文（launchd 於 10:15 觸發；週末休息）
 set -u
-# 週六(6)日(7)不發文；手動指定 FORCE_DATE 時照跑
-if [ -z "${FORCE_DATE:-}" ] && [ "$(date +%u)" -ge 6 ]; then exit 0; fi
+# 2026-07-20 起每天發文（假日照做，她指定）
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 LOG="$REPO/logs/daily-$(date +%Y%m%d).log"
 BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude 2>/dev/null | sort -V | tail -1)
