@@ -54,6 +54,7 @@
 <h2><span class="no">參</span>圖解與定性：每個函式在法律上是什麼</h2>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c2-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bg0714" x1="0" y1="0" x2="1" y2="1">
@@ -145,6 +146,14 @@
 </svg>
 <figcaption><b>圖 1｜</b>NFT生命週期四步驟與逐步法律定性。本圖亦為本系列口試簡報之 C-2 幕。與上一講的 C-1 對照看：這條流程沒有接管契約網的任何一格。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c2-1">
+<div class="lbl">SLIDE C-2 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-14-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>上一講描繪鏈下授權之契約網，並指出智慧合約僅能接管其中算錢之環節；本講自技術事實層面，逐步檢驗鏈上流程之四個步驟，確認其中是否存在著作權法上之授權行為。</p>
+<p>此一流程共有四步：發行人部署合約，此為登記行為而非授權行為；鑄造，帳本寫入代幣編號與持有地址之對應，法律定性同為登記；轉售，透過轉帳函式改寫持有人紀錄並撥付價金，法律定性為登記變動與金流，仍非授權；royaltyInfo查詢，僅回報應付版稅金額，只報數，不執行。四步走完，著作權法上之授權，自始未曾發生——能不能重製、能不能公開傳輸，答案不在此一流程之任何一格，而在鏈下之契約，或契約之缺席。</p>
+<p>此處尚有一項技術細節值得指出：鏈上僅存一個指向外部之網址，實際之音檔與描述資料存放於鏈外，可能遭抽換或失聯。是以本研究所稱「不可竄改」，其範圍僅及於持有登記與交易歷史，並不及於鏈外內容，此一界線對於鏈上紀錄之證據價值評估，具有關鍵意義。</p>
+<p class="transition">承接下一頁，此一流程之案例佐證何在？下一頁將整理三起案件與一項主管機關說明，說明裁判者面對token時，如何一致回歸鏈下之權利與契約關係。</p>
+</div>
 
 <p>把圖中每個函式翻譯成法律語言：<b>ownerOf</b> 是登記查詢——回答「這顆代幣現在連結到哪個地址」；<b>transferFrom</b> 是登記變動加金流——改寫持有紀錄並撥款；<b>tokenURI</b> 是一個參照——指向鏈外檔案的網址；<b>royaltyInfo</b> 是資訊揭露——回報應付金額，本身不執行<sup>4</sup>。這不是本文的外部評價，而是標準自己的用語：<mark>逐字檢視EIP-721規格全文，「copyright」一詞僅出現在文件末尾「本文件依CC0拋棄版權」的聲明中；ownerOf、transferFrom、approve、tokenURI等全部介面函式與事件，沒有任何一個以著作權為對象</mark><sup>3</sup>。標準的沉默是誠實的：它管理的客體自始是「代幣」，不是「權利」。經濟部智慧財產局亦已公開說明：購買NFT不當然取得著作財產權，買受人得否利用著作，視發行時的約定而定<sup>5</sup>。</p>
 
@@ -157,6 +166,7 @@
 <p>裁判者與監理者看得很清楚。整理三件指標案例（詳見圖2）：Roc-A-Fella v. Dash中，公司訴請確認《Reasonable Doubt》著作權屬於公司——法院處理的是<b>權利來源</b>，先於一切token問題<sup>7</sup>；Miramax v. Tarantino中，爭點是數十年前的劇本授權契約是否涵蓋NFT此種新利用型態——純粹的<b>契約解釋</b>問題，鏈上紀錄自始未成為爭點<sup>8</sup>；SEC對Impact Theory的執法，依Howey測試看發行人的<b>鏈下承諾</b>與經濟實質，token的技術形式不影響定性<sup>9</sup>。三個法域、三種爭點，方法一致：<mark>法律問的從來是「鏈下發生了什麼」，沒有任何裁判者把token當作權利本體。</mark></p>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c2-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bg0714d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
@@ -225,6 +235,14 @@
 </svg>
 <figcaption><b>圖 2｜</b>NFT權利定性之案例整理表（作者自製）。三案與智慧局說明的共同方法：定性一律回到鏈下法律關係。本圖亦為口試簡報 C-2 數據幕。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c2-2">
+<div class="lbl">SLIDE C-2・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-14-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁自技術流程確認鏈上不存在授權行為；本頁以三起案件與一項主管機關說明，檢驗裁判實務之立場。</p>
+<p>Roc-A-Fella訴Dash一案，爭點為股東可否將公司專輯著作權製成NFT出售，法院之處理方法，係先確認權利歸屬，再論token；Miramax訴塔倫提諾一案，爭點為數十年前之劇本授權契約是否涵蓋NFT此一新利用型態，爭點仍為舊契約之解釋，而非鏈上紀錄；美國證券交易委員會於Impact Theory一案，依Howey測試判斷NFT是否構成投資契約，其判斷依據為鏈下之承諾與經濟實質，token之技術形式並不影響定性。此外，我國經濟部智慧財產局亦已就此表示：購買NFT不當然取得著作財產權，能否利用著作，仍視發行時之約定而定。</p>
+<p>四者所共同揭示者為：迄今尚無任何裁判者將token本身當作權利本體，法律問題之答案，一律回到鏈下發生了什麼。此一裁判方法，係「權利容器說」在實務上至今未獲採用之最有力經驗證據。</p>
+<p class="transition">承接下一講，鏈上流程既不構成授權，亦裝不進權利容器，下一講將進一步追問：若市場上仍有人宣稱鏈上版稅具有拘束力，其技術標準之法律性質，究竟能不能構成契約。</p>
+</div>
 
 <p>解釋論上還有一個支點。德國著作權法的目的讓與理論（Zweckübertragungslehre，UrhG第31條第5項）指出：授權範圍不明時，以契約目的所必要者為限<sup>10</sup>——我國著作權法第37條第1項後段「約定不明之部分，推定為未授權」承載同一精神。把這個標尺放到鏈上流程：<mark>連「約定不明」都談不上，因為多數發行流程中根本沒有授權的意思表示可供解釋</mark>——買受人點擊的是交易平台的購買鍵，不是授權契約的同意鍵。C-0講的第37條推定，在這裡接上了技術事實的地基。</p>
 
