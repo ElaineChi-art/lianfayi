@@ -86,11 +86,11 @@
    "act": "C",
    "ppt": "C6",
    "title": "鏈上與鏈下如何搭配：混合式契約模型（鏈上可驗證、鏈下可執行）",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-20",
+   "url": "posts/daily/2026-07-20.html",
+   "q": 5,
+   "slides": 2
   },
   {
    "id": 8,
