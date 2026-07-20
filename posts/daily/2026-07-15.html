@@ -60,6 +60,7 @@
 <p>三次檢驗的結論一致：<b>ERC-2981 的法律性質，是規格文件（工程師之間的溝通格式）加上市場慣行（平台自願遵循的商業實踐）</b>。慣行不是法源。它存在時，版稅入帳；它消滅時，沒有任何人違約、沒有任何人侵權——因為自始沒有義務存在。</p>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c3-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bgC3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
@@ -123,6 +124,14 @@
 </svg>
 <figcaption><b>圖1｜</b>三個法律容器的逐一檢驗（作者自製）。市場直覺「寫進合約＝有拘束力」在三個容器前全數落空。本圖亦為口試簡報 C-3 幕。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c3-1">
+<div class="lbl">SLIDE C-3 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-15-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>上一講自事實層面確認鏈上流程不構成著作權法上之授權行為；本講進一步處理規範層次之問題：寫入智慧合約之版稅比例，於法律上究竟應如何定性。</p>
+<p>本講將此一問題，逐一置於三個可能之法律容器前檢驗。容器一為契約之債：契約須有要約與承諾之意思表示合致，並以特定當事人為前提；然發行人部署合約當時，未來之場外受讓人尚不存在，無從成立契約關係。容器二為單獨行為：單方意思表示原則上僅能拘束表意人自身，而版稅參數所欲拘束者係他人之給付義務，債法上並無此種構造。容器三為物上負擔：欲使義務隨代幣移轉，本質上係創設一種新種物權，然物權法定主義明定，非依法律或習慣不得創設，此一路徑同樣不通。</p>
+<p>三次檢驗之結論一致：ERC-2981之法律性質，僅為規格文件與市場慣行之結合，而慣行並非法源，其存在時版稅入帳，其消滅時亦無任何人負有違約責任，因自始並無義務存在。</p>
+<p class="transition">承接下一頁，此一結論並非理論推演，而有具體市場事件可資佐證；下一頁將以版稅戰爭之完整時間軸，說明此一自願機制如何在十個月內崩解。</p>
+</div>
 
 <h2><span class="no">肆</span>評析：兩種學說立場，與一條立法對照
 
@@ -139,6 +148,7 @@
 <p>一句話帶走：<mark>寫進智慧合約的版稅是「資訊」；要變成「債權」，必須裝進法律容器——而標準本身，從來不是容器。</mark>裝得進的地方（平台條款、授權契約），版稅收得到；裝不進的地方（場外後手），十個月的版稅戰爭已經給出實證答案。</p>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c3-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bgC3d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
@@ -190,6 +200,14 @@
 </svg>
 <figcaption><b>圖2｜</b>版稅戰爭時間軸（作者整理）<sup>2</sup>。一項「不可竄改」的鏈上設定，實際效力在十個月內歸零——本講三個容器檢驗的市場實證版。本圖亦為口試簡報 C-3 數據幕。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c3-2">
+<div class="lbl">SLIDE C-3・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-15-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁自法理論證ERC-2981無法裝入任何一個法律容器；本頁以完整時間軸，呈現此一結論之市場實證。</p>
+<p>2020年，EIP-2981標準定稿，其原文即自我定位：版稅給付屬自願性質，須靠平台查詢並代扣。2022年10月，新興平台Blur選擇不查詢、不代扣，以零版稅策略搶占交易量，慣行出現第一道裂縫。同年11月，OpenSea推出營運者過濾器，試圖以技術手段封鎖不付版稅之平台，以工程方式勉強維持慣行。惟此一過濾器於2023年2月遭技術繞過，封鎖失效。最終，2023年8月，OpenSea正式棄守，改為買方自願給付，其官方說明明確指出：強制版稅有賴整個生態系配合，單一平台無法獨力維持。自標準定稿至慣行正式死亡，全程僅十個月。</p>
+<p>此一時間軸之意義在於：鏈上之版稅參數，自始至終一個位元也沒有改變，改變的是鏈下之意願。慣行既非法源，其消滅之時，並無任何人違約，因自始不曾存在義務。</p>
+<p class="transition">承接下一講，ERC-2981之路徑既已窮盡，下一講將轉向另一可能之法律基礎——債之相對性，檢驗轉售版稅之承諾是否能拘束場外之後手。</p>
+</div>
 
 <div class="oralq">
 <b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
