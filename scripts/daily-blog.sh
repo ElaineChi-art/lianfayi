@@ -23,14 +23,20 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   "$BIN" -p "$PROMPT" \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
       --max-turns 120
-  # 若未產出（如 API 瞬斷），60 秒後重試一次
-  if [ ! -f "$REPO/posts/daily/$DATE.html" ]; then
-    echo "第一次執行未產出，60 秒後重試一次"
-    sleep 60
+  # 若未產出（如 API 瞬斷），最多重試 2 次；每次重試前先重新等網路
+  for RETRY in 1 2; do
+    [ -f "$REPO/posts/daily/$DATE.html" ] && break
+    echo "第 $RETRY 次重試：先等網路穩定"
+    sleep 90
+    j=0
+    until /usr/bin/curl -sm 5 -o /dev/null https://api.anthropic.com 2>/dev/null; do
+      j=$((j+1)); [ $j -ge 60 ] && break
+      sleep 10
+    done
     "$BIN" -p "$PROMPT" \
         --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
         --max-turns 120
-  fi
+  done
   # 轉 Word：drafts/DATE.md → 期刊日更Word（資料夾被搬走會自動尋找）
   OUT="$HOME/Desktop/📄 講座與文件/期刊日更Word"
   [ -d "$OUT" ] || OUT=$(find "$HOME/Desktop" -maxdepth 3 -type d -name "期刊日更Word" 2>/dev/null | head -1)
