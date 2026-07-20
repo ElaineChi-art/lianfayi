@@ -260,3 +260,24 @@ article figcaption{max-width:880px;margin:10px auto 0;font-size:.85rem;color:var
 .drow .dnew{font-size:.68rem;font-weight:800;letter-spacing:1px;color:#fff;background:var(--grad);
   border-radius:20px;padding:2px 9px;white-space:nowrap}
 @media(max-width:560px){ .drow .dd{display:none} }
+
+/* 投影片報告稿（每張投影片右上角 🎤 角標，點開＝這一頁的口頭講稿） */
+article figure{position:relative}
+.script-btn{position:absolute;top:58px;left:14px;z-index:5;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;background:rgba(11,13,18,.78);border:1px solid rgba(127,181,255,.4);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  color:#7fb5ff;font-size:1.15rem;border-radius:50%;cursor:pointer;font-family:inherit;line-height:1;padding:0}
+.script-btn:hover{background:rgba(91,141,239,.3);border-color:#7fb5ff;transform:scale(1.06)}
+.script-btn.open{background:rgba(91,141,239,.35);border-color:#7fb5ff}
+.script-panel{display:none;margin:-16px auto 34px;max-width:1120px;padding:22px 26px;
+  background:var(--surface2);border:1px solid var(--baseline);border-left:4px solid var(--accent);border-radius:12px}
+.script-panel.open{display:block}
+.script-panel .lbl{font-size:.76rem;font-weight:800;letter-spacing:2px;color:var(--accent-ink);
+  text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.script-panel .lbl::before{content:"🎤"}
+.script-panel p{font-size:1.02rem;line-height:1.95;margin-bottom:12px;color:var(--ink)}
+.script-panel p:last-child{margin-bottom:0}
+.script-panel .cue{color:var(--accent-ink);font-weight:700}
+.script-panel .transition{font-size:.86rem;color:var(--muted);font-style:italic;margin-top:14px;
+  padding-top:12px;border-top:1px dashed var(--grid)}
+@media(max-width:640px){ .script-btn{top:8px;right:8px;font-size:.7rem;padding:5px 10px} }

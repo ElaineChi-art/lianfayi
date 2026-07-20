@@ -54,6 +54,7 @@
 <p>市場的倖存者已用商業實踐投下一票。驗屍報告 No.001 顯示：募資約 7,100 萬美元、以純鏈上敘事為號召的 Royal 於 2024 年停止營運；而持續成長的 anotherblock，其模式恰係「先與權利人締結授權契約、再上鏈執行分配」——2025 年即依此結構向用戶分配約 250 萬美元版稅<sup>2</sup>。倖存者的共同點並非技術更強，而係「契約在前、程式在後」的順序。此一觀察意味著，混合模型並非學理上的妥協，而係經市場淘汰後的存活結構。</p>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c6-1').classList.toggle('open')" aria-label="這一頁的報告稿">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bg0720" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
@@ -130,6 +131,13 @@
 </svg>
 <figcaption><b>圖1｜</b>混合式契約模型的三構件：鏈下層（規範與救濟）、鏈上層（執行與驗證）、連結條款（效力位階）。本圖由作者參考 European Law Institute, ELI Principles on Blockchain Technology, Smart Contracts and Consumer Protection（https://www.europeanlawinstitute.eu）之原則架構改繪（最後瀏覽日：2026-07-20）。本圖亦為口試簡報 C-6 幕。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c6-1">
+<div class="lbl">SLIDE C-6 報告稿</div>
+<p><span class="cue">〔承接上一講〕</span>前五講，我逐一拆掉了「智慧合約可以取代授權契約」這個直覺——鏈上做得到記帳、做不到判斷；ERC-2981 只是報數，裝不進任何一個法律容器；轉售版稅找不到債務人；期間、地域、救濟六個維度，寫得進的都是算術，寫不進的都是判斷。到這裡，讀者很自然會問一句：那智慧合約在音樂NFT裡，到底該扮演什麼角色？</p>
+<p>這一頁給答案。我先排除兩個極端：<span class="cue">全鏈上走不通</span>——因為五個維度寫不進去，法律上等於裸奔；<span class="cue">全鏈下也不是解方</span>——那就退回C-1講過的「慢、黑箱、層層抽成」，等於白白浪費了區塊鏈唯一擅長的事。真正可行的，是中間這條路：鏈下用自然語言寫一份完整的授權契約，把期間、地域、範圍、救濟這些程式碼寫不進去的東西講清楚；鏈上只負責它真正擅長的——鑄造、支付、分潤、留痕，快、透明、可驗證。中間用一組「連結條款」把兩層縫起來：契約裡載明鏈上程式只是履行工具，衝突時以鏈下契約為準，並把契約文本的雜湊值寫進鏈上metadata，讓兩層可以互相指認、互相驗證。</p>
+<p>這組衝突規則不是我自己發明的，右上角引的是歐洲法律協會（ELI）2023年正式發布的原則第9條——鏈下契約優先，這是本頁最重要的權威依據，下一張投影片會展開整個原則清單。右下角則是實證對照：anotherblock走的正是這條路，先締約、再上鏈，2025年替用戶分配了250萬美元版稅；反過來，Royal當年幾乎完全靠鏈上敘事，募了7,100萬美元，2024年還是收攤了。</p>
+<p class="transition">〔接下來〕如果口委問「這樣不就只是各退一步的妥協」，我會直接翻回這一頁的金句：這不是妥協，是分工——程式碼負責履行，契約負責意義。下一頁我會用ELI整套原則表，證明這個分工架構有堅實的比較法依據，不是我憑空畫的。</p>
+</div>
 
 <h2><span class="no">參</span>法制與技術說明：模型的三個構件與 ELI 的背書</h2>
 
@@ -148,6 +156,7 @@
 <p>應誠實承認者係，本模型仍有未解之斷點。其一，連結條款拘束締約當事人，惟 NFT 輾轉讓與後之第Ｎ手買受人是否受其拘束，仍撞上 C-4 之債之相對性高牆——鏈下契約無法自動「跟著 token 走」，此係 D 幕權利移轉分析之出發點。其二，我國尚無法院就混合結構表態之判決，ELI 原則亦僅係軟法（soft law，無拘束力之學理建議），其說服力有待實務檢驗——此亦係本研究以比較法補本土空白之理由，而非本土空白可以視而不見之藉口。顯示混合模型須與後續各幕之分析相互支撐，方能自「設計圖」走向「可辯護之制度主張」。</p>
 
 <figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-c6-2').classList.toggle('open')" aria-label="這一頁的報告稿">🎤</button>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
   <defs>
     <linearGradient id="bg0720d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
@@ -217,6 +226,14 @@
 </svg>
 <figcaption><b>圖2｜</b>ELI 原則整理表（n＝6，取與混合模型直接相關者）。本圖由作者依 European Law Institute, ELI Principles on Blockchain Technology, Smart Contracts and Consumer Protection（https://www.europeanlawinstitute.eu）原文整理改繪，中譯為作者摘譯（最後瀏覽日：2026-07-20）。本圖亦為口試簡報 C-6 數據幕。</figcaption>
 </figure>
+<div class="script-panel" id="sp-c6-2">
+<div class="lbl">SLIDE C-6・數據 報告稿</div>
+<p><span class="cue">〔承接上一頁〕</span>上一張圖的核心主張——鏈下優先、程式碼是履行工具——聽起來像是我自己的立場宣示。這一頁要證明它不是。歐洲法律協會在2023年出版了一份專門處理區塊鏈與智慧合約的原則文件，全文52頁，我從中挑出六條跟混合模型直接相關的原則，逐條整理成這張表。</p>
+<p>先看最關鍵的<span class="cue">原則9</span>：鏈下締結的契約譯成程式碼之後，除非當事人明示相反約定，否則以鏈下條款為準。這就是我上一頁連結條款的權威出處，不是我自創的規則。<span class="cue">原則2</span>把智慧合約分成五種類型，從純程式到與契約合一，我的混合模型精確落在「履行鏈下契約之工具」這一型，等於幫我的定位做了學理上的分類定錨。<span class="cue">原則5</span>說鏈上的觸發行為本身可以構成要約或承諾，呼應我在C-2講過的——鏈上行為不會自動被排除在民法之外，它仍然要回到意思表示的框架去解釋。</p>
+<p>後面三條原則是幫我把整個救濟制度接上技術層：<span class="cue">原則10</span>要求解除、撤銷這些法律上的解消，原則上要能用反向交易在鏈上實現；<span class="cue">原則13</span>直接寫明消費者保護不因為用了智慧合約或上了鏈就被排除或降低——這正好呼應我在C-5講過的，消保法的強行規定擋得住準據法條款；<span class="cue">原則17</span>更具體，要求消費者的猶豫期要寫進智慧合約，程式必須等到法定期間過了才能執行——這就是「compliance by design」，把合規直接刻進程式邏輯裡。</p>
+<p class="transition">〔接下來〕如果口委追問「這只是歐洲的軟性原則，對台灣有拘束力嗎」，我會誠實回答：它不是硬法，是學理上高度權威的整理，作用是提供一套可操作的分工邏輯，我在制度設計那一幕（G幕）會把它轉化成對我國法制的具體建議。到這裡，方向一「授權制度」七講全部收尾——下一講起，我會轉進方向二，處理token移轉與著作權移轉之間的落差。</p>
+</div>
+
 
 <h2><span class="no">伍</span>小結</h2>
 
