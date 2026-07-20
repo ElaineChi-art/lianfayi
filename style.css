@@ -261,7 +261,7 @@ article figcaption{max-width:880px;margin:10px auto 0;font-size:.85rem;color:var
   border-radius:20px;padding:2px 9px;white-space:nowrap}
 @media(max-width:560px){ .drow .dd{display:none} }
 
-/* 投影片報告稿（每張投影片右上角 🎤 角標，點開＝這一頁的口頭講稿） */
+/* 投影片簡報講解（每張投影片右上角 🎤 角標，點開＝這一頁的口頭講稿） */
 article figure{position:relative}
 .script-btn{position:absolute;top:58px;left:14px;z-index:5;display:flex;align-items:center;justify-content:center;
   width:40px;height:40px;background:rgba(11,13,18,.78);border:1px solid rgba(127,181,255,.4);
