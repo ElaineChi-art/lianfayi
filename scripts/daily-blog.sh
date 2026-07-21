@@ -21,9 +21,10 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
   DATE="${FORCE_DATE:-$(date +%Y-%m-%d)}"
   PROMPT=$(sed "s/{{DATE}}/$DATE/g" "$REPO/scripts/daily-prompt.txt")
   "$BIN" -p "$PROMPT" \
+      --model claude-sonnet-5 \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
       --max-turns 120
-  # 若未產出（如 API 瞬斷），最多重試 2 次；每次重試前先重新等網路
+  # 若未產出（如 API 瞬斷或額度問題），最多重試 2 次；每次重試前先重新等網路
   for RETRY in 1 2; do
     [ -f "$REPO/posts/daily/$DATE.html" ] && break
     echo "第 $RETRY 次重試：先等網路穩定"
@@ -34,6 +35,7 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
       sleep 10
     done
     "$BIN" -p "$PROMPT" \
+        --model claude-sonnet-5 \
         --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
         --max-turns 120
   done
