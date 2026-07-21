@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-21｜token移轉不等於權利移轉｜鏈法醫</title>
+<meta name="description" content="C-2已確認鏈上流程不構成授權；本講深化其解釋論基礎：token的移轉何以在物權層次「像」讓與，卻構不成著作財產權讓與？雙層結構圖＋比較法對照。鏈法醫期刊專題，方向二：智慧財產權。">
+<meta property="og:title" content="期刊專題 2026-07-21｜token移轉不等於權利移轉：智慧局函釋的解釋論深化與雙層結構｜鏈法醫">
+<meta property="og:description" content="占有可以用交易模擬，意思表示不能——這是雙層結構的分界線。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-21</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向二：智慧財產權（D-1）・D幕開場</div>
+<h1>token移轉不等於權利移轉：<br>智慧局函釋的解釋論深化與雙層結構</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-21</span>
+  <span>閱讀約 10 分鐘</span>
+</div>
+
+<p class="dek"><b>C-2已自事實層面確認：鏈上四個步驟裡，沒有一步構成著作權法上之授權。本講進一步追問其解釋論基礎——token之移轉，何以在技術上「模擬」了物權讓與之外觀，卻始終構不成著作財產權之讓與。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>買賣一顆NFT，鏈上發生的事很像「交貨」：一手交錢、一手把代幣轉過去，跟買一件家具一樣直觀。但著作財產權的移轉，法律上靠的不是交貨，是雙方講清楚「我要把什麼權利給你」這句話本身。token轉移做得到模擬交貨，但模擬不出那句話。所以同一個動作，物權角度看像是移轉了，著作權角度看卻什麼都沒發生——這條分界線，就是本講要講清楚的雙層結構。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>C-2已就技術事實逐一檢驗：部署、鑄造、轉售、royaltyInfo查詢四個步驟，均屬登記性質，無一構成著作權法上之授權行為。惟此一結論尚停留於事實描述，其背後之解釋論基礎為何，仍待深化——<mark>token之轉移，何以在物權層次「看起來」發生了讓與，於著作權層次卻始終未曾發生？</mark>此一問題若不釐清，市場上「一手交錢一手交貨」之直覺，將持續與法律評價產生落差。本講即自此一落差出發，建立token層與權利層之雙層分析架構。</p>
+
+<h2><span class="no">貳</span>背景：一個看似直觀、實則錯位的類比</h2>
+
+<p>NFT交易之市場敘事，慣以實體交易為類比：買一幅畫、一件家具，一手交錢、一手交貨，所有權隨占有移轉而移轉。此一類比之所以具說服力，在於token之轉移，於技術上確實模擬了交付之外觀——transferFrom函式執行後，代幣之持有地址即時更新，任何人均可鏈上查證，其即時性與確定性甚至優於實體交付。</p>
+
+<p>惟此一類比之錯位，正在於其僅捕捉物權讓與之表徵，而遺漏著作財產權讓與之要件結構。我國經濟部智慧財產局已於其發行之官方期刊中明確指出：NFT本身並非著作，僅係區塊鏈上對於所連結著作之紀錄，作為真品保證或所有權證明之用；發行NFT若涉及重製或改作他人著作，並將圖像上傳交易平台而構成公開傳輸，除合於著作權法第44條至第65條合理使用規定外，均須取得著作財產權人之同意或授權<sup>1</sup>。此一說明雖非以NFT為專章之正式函釋，惟已清楚揭示官方立場：token所承載者，係「紀錄」與「證明」，並非著作財產權本身。</p>
+
+<h2><span class="no">參</span>法制說明：兩套不同的權利變動邏輯</h2>
+
+<p>本講之核心論證，在於指出token層與權利層適用兩套截然不同之權利變動邏輯。<b>Token層</b>之運作邏輯，近似於動產物權：持有地址之變更，功能上模擬占有之移轉，具備公示性（鏈上可查）與確定性（不可逆轉），此一邏輯與民法上動產以交付為生效要件之精神相通<sup>2</sup>。<b>權利層</b>之運作邏輯則完全不同：著作財產權之讓與，依著作權法規定，其效力繫諸當事人之意思表示是否合致，並不以交付、占有或任何形式之公示為生效要件，亦即採意思主義而非交付主義<sup>3</sup>。</p>
+
+<p>此一區分之實益在於：transferFrom函式所執行者，完整模擬了token層之公示性交付，卻無從模擬權利層所要求之意思表示合致——程式碼可以確定「誰現在持有這顆代幣」，卻無法確定「發行人是否有將著作財產權讓與此人之意思」，二者屬於不同性質之問題，前者是可驗證之事實，後者是需解釋之法律行為。<mark>雙層結構之分界線，正在於占有可以用交易模擬，意思表示不能。</mark>此一結構性落差，即為C-0所述第37條推定、C-2所述token移轉不生授權效果之共同解釋論基礎。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d1-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0721" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0721" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0721" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg0721)"/>
+  <rect width="1280" height="6" fill="url(#topbar0721)"/>
+  <text x="66" y="44" font-size="16" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-1</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="36" font-weight="900" fill="#F5F8FF">雙層結構：<tspan fill="#4D9FFF">占有可以模擬，意思表示不能</tspan></text>
+
+  <!-- 左：token層 -->
+  <rect x="64" y="140" width="500" height="280" rx="14" fill="rgba(77,159,255,.07)" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="86" y="176" font-size="19" font-weight="800" fill="#4D9FFF">■ Token層（技術／準物權邏輯）</text>
+  <text x="86" y="212" font-size="16" fill="#C7D2E4">transferFrom 執行後：</text>
+  <text x="86" y="238" font-size="16" fill="#C7D2E4">・持有地址即時更新</text>
+  <text x="86" y="264" font-size="16" fill="#C7D2E4">・鏈上公示、任何人可查證</text>
+  <text x="86" y="290" font-size="16" fill="#C7D2E4">・不可逆轉，確定性極高</text>
+  <text x="86" y="326" font-size="16" font-weight="700" fill="#F5F8FF">功能上模擬「占有之移轉」</text>
+  <text x="86" y="352" font-size="15" fill="#7E8CA8">與民法動產以交付為要件</text>
+  <text x="86" y="376" font-size="15" fill="#7E8CA8">之精神相通（民法§761）</text>
+  <text x="86" y="402" font-size="15" font-weight="700" fill="#35C08E">✓ 程式碼完整承載此層</text>
+
+  <!-- 右：權利層 -->
+  <rect x="716" y="140" width="500" height="280" rx="14" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="2"/>
+  <text x="738" y="176" font-size="19" font-weight="800" fill="#E5484D">■ 權利層（著作財產權邏輯）</text>
+  <text x="738" y="212" font-size="16" fill="#C7D2E4">著作財產權讓與：</text>
+  <text x="738" y="238" font-size="16" fill="#C7D2E4">・生效繫諸意思表示合致</text>
+  <text x="738" y="264" font-size="16" fill="#C7D2E4">・不以交付／占有為要件</text>
+  <text x="738" y="290" font-size="16" fill="#C7D2E4">・採意思主義，非交付主義</text>
+  <text x="738" y="326" font-size="16" font-weight="700" fill="#F5F8FF">需要「發行人真的想讓與」</text>
+  <text x="738" y="352" font-size="15" fill="#7E8CA8">這句話本身——程式碼無從</text>
+  <text x="738" y="376" font-size="15" fill="#7E8CA8">驗證意思表示是否存在</text>
+  <text x="738" y="402" font-size="15" font-weight="700" fill="#E5484D">✕ 程式碼承載不了此層</text>
+
+  <!-- 中央箭頭與分界 -->
+  <line x1="564" y1="280" x2="716" y2="280" stroke="#F2A33C" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arr0721)"/>
+  <text x="640" y="264" font-size="14" font-weight="700" fill="#F2A33C" text-anchor="middle">分界線</text>
+
+  <!-- 官方立場卡 -->
+  <rect x="64" y="436" width="1152" height="70" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="86" y="466" font-size="16" font-weight="800" fill="#F2A33C">■ 官方立場：</text>
+  <text x="86" y="490" font-size="15.5" fill="#C7D2E4">智慧局：NFT本身非著作，僅係鏈上對所連結著作之紀錄，發行涉及重製、公開傳輸者，須取得著作財產權人同意或授權。</text>
+
+  <rect x="64" y="522" width="1152" height="84" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="522" width="8" height="84" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="558" font-size="20" font-weight="900" fill="#F5F8FF">與論文的連結：占有可以用交易模擬，意思表示不能——這是雙層結構的分界線。</text>
+  <text x="96" y="588" font-size="15" fill="#8FA1C0">C-0的§37推定、C-2的token移轉不生授權，共同的解釋論基礎都在這裡；下一頁以五個案例與函釋，檢驗此一分界線是否經得起實務考驗。</text>
+
+  <text x="64" y="700" font-size="15" fill="#55668A">依民法§761、著作權法讓與規定與智慧局期刊說明整理；作者自製（2026-07-21）。</text>
+  <text x="1216" y="700" font-size="15" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-1</text>
+</svg>
+<figcaption><b>圖1｜</b>token層與權利層之雙層結構（作者自製）。占有可以用交易模擬，意思表示不能——本圖為方向二之解釋論起點。本圖亦為口試簡報 D-1 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d1-1">
+<div class="lbl">SLIDE D-1 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-21-1.mp3"></audio>
+<p><span class="cue">承接C幕，</span>方向一「授權制度」七講已完整處理鏈上與鏈下之分工架構；本講轉入方向二「智慧財產權」，第一講即處理最基礎之問題：token之移轉，其法律性質究竟為何。</p>
+<p>本圖將問題拆成兩層。左側之token層，其運作邏輯近似動產物權：持有地址一經更新，鏈上即時公示、任何人可查證、且不可逆轉，這一整套特性，與我國民法上動產以交付為生效要件之精神高度相通，程式碼完整承載此層。右側之權利層，則完全是另一套邏輯：著作財產權之讓與，效力繫諸雙方是否有讓與之意思表示合致，並不以交付或占有為要件，亦即採意思主義。程式碼能確定的，是現在誰持有這顆代幣；程式碼確定不了的，是發行人有沒有想把著作財產權讓與這個人。</p>
+<p>下方引述經濟部智慧財產局之官方立場：NFT本身並非著作，僅是鏈上對所連結著作之紀錄，若發行行為涉及重製或公開傳輸，仍須取得著作財產權人之同意或授權。此一立場，恰好呼應本圖之雙層結構。</p>
+<p class="transition">承接下一頁，此一雙層結構是否只是本文之理論建構？下一頁將以五個案例與官方說明，檢驗這條分界線在實務上是否站得住腳。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>對於token與著作財產權之關係，論述光譜上存在兩種立場。<b>權利容器說</b>主張，token作為一種新形態之財產登記機制，其移轉應可承載並移轉其所指涉之著作財產權，此說於工程文獻中仍有嘗試，並非無人主張，C-2已就此說之最強版本為完整反駁<sup>4</sup>。<b>通說見解</b>則認為，物之移轉與權利之移轉，於我國法制下本屬二事：動產所有權因交付而移轉，著作財產權則因意思表示而讓與，兩套要件互不隸屬，token之移轉至多完成前者，無從當然完成後者。本文採後說，並以雙層結構圖具體化此一立場——非以抽象原則帶過，而係逐項指出token能承載與不能承載者為何。</p>
+
+<p>案例整理方面，本講將C-2既已引用之案例，重新自「雙層結構」角度呈現：Roc-A-Fella訴Dash一案，法院之處理方法，是先確認公司對錄音著作之權利歸屬，再論代幣之效力，權利層之判斷先於token層；Miramax訴塔倫提諾一案，爭點始終停留於1993年劇本授權契約之解釋，token於此爭訟中未曾被當作獨立之權利依據；美國證券交易委員會於Impact Theory一案，依Howey測試判斷代幣之經濟實質，其判斷基礎同樣是鏈下之承諾內容，而非token本身之技術形式<sup>5</sup>。三案之共同方法，均係將token層懸置，逕自處理權利層之問題。</p>
+
+<p>比較法上，歐盟法院關於數位財產之權利耗盡問題，提供一組具啟發性之對照。於UsedSoft案，法院肯認軟體授權之數位第一次銷售可構成權利耗盡，買受人得轉售其副本；惟於其後之Tom Kabinet案，法院就電子書轉售之爭議，改採否定見解，認為電子書之提供構成向公眾傳播、不適用耗盡原則<sup>6</sup>。此一先後看似矛盾之結論，恰可解讀為對「占有」與「權利」分離問題之持續摸索——數位環境下，複製品之占有移轉極易達成，但該移轉是否使利用行為當然合法化，仍須回歸個別權利之性質判斷，此與本講之雙層結構問題意識高度一致。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d1-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0721d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0721d" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg0721d)"/>
+  <rect width="1280" height="6" fill="url(#topbar0721d)"/>
+  <text x="66" y="44" font-size="16" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-1・案例整理</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="34" font-weight="900" fill="#F5F8FF">五個案例／函釋，<tspan fill="#4D9FFF">同一個方法：懸置token、先看權利</tspan></text>
+
+  <rect x="64" y="132" width="1152" height="42" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1"/>
+  <text x="84" y="160" font-size="16" font-weight="800" fill="#4D9FFF">案件／機關</text>
+  <text x="384" y="160" font-size="16" font-weight="800" fill="#4D9FFF">年份</text>
+  <text x="484" y="160" font-size="16" font-weight="800" fill="#4D9FFF">層次</text>
+  <text x="624" y="160" font-size="16" font-weight="800" fill="#4D9FFF">要旨</text>
+
+  <rect x="64" y="182" width="1152" height="62" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="212" font-size="16" font-weight="700" fill="#F5F8FF">Roc-A-Fella v. Dash</text>
+  <text x="84" y="234" font-size="14.5" fill="#7E8CA8">S.D.N.Y., No. 1:21-cv-05411</text>
+  <text x="384" y="220" font-size="16" fill="#C7D2E4">2021</text>
+  <text x="484" y="220" font-size="15.5" font-weight="700" fill="#35C08E">權利層優先</text>
+  <text x="624" y="212" font-size="15" fill="#C7D2E4">先確認錄音著作權利歸屬，</text>
+  <text x="624" y="232" font-size="15" fill="#C7D2E4">再論代幣是否有效發行</text>
+
+  <rect x="64" y="252" width="1152" height="62" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="282" font-size="16" font-weight="700" fill="#F5F8FF">Miramax v. Tarantino</text>
+  <text x="84" y="304" font-size="14.5" fill="#7E8CA8">C.D. Cal., No. 2:21-cv-08979</text>
+  <text x="384" y="290" font-size="16" fill="#C7D2E4">2021–22</text>
+  <text x="484" y="290" font-size="15.5" font-weight="700" fill="#35C08E">權利層優先</text>
+  <text x="624" y="282" font-size="15" fill="#C7D2E4">爭點停留於1993年契約解釋，</text>
+  <text x="624" y="302" font-size="15" fill="#C7D2E4">token技術形式未成為判斷依據</text>
+
+  <rect x="64" y="322" width="1152" height="62" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="352" font-size="16" font-weight="700" fill="#F5F8FF">In re Impact Theory, LLC</text>
+  <text x="84" y="374" font-size="14.5" fill="#7E8CA8">SEC Rel. No. 33-11226</text>
+  <text x="384" y="360" font-size="16" fill="#C7D2E4">2023</text>
+  <text x="484" y="360" font-size="15.5" font-weight="700" fill="#35C08E">權利層優先</text>
+  <text x="624" y="352" font-size="15" fill="#C7D2E4">Howey測試依鏈下承諾與經濟</text>
+  <text x="624" y="372" font-size="15" fill="#C7D2E4">實質判斷，token形式不影響定性</text>
+
+  <rect x="64" y="392" width="1152" height="62" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="422" font-size="16" font-weight="700" fill="#F5F8FF">經濟部智慧財產局</text>
+  <text x="84" y="444" font-size="14.5" fill="#7E8CA8">智慧財產權月刊第286期</text>
+  <text x="384" y="430" font-size="16" fill="#C7D2E4">2022</text>
+  <text x="484" y="430" font-size="15.5" font-weight="700" fill="#35C08E">官方立場</text>
+  <text x="624" y="422" font-size="15" fill="#C7D2E4">NFT非著作，僅為鏈上紀錄；</text>
+  <text x="624" y="442" font-size="15" fill="#C7D2E4">發行涉重製、傳輸須另行取得授權</text>
+
+  <rect x="64" y="462" width="1152" height="62" rx="10" fill="rgba(77,159,255,.08)" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="84" y="492" font-size="16" font-weight="700" fill="#4D9FFF">UsedSoft／Tom Kabinet</text>
+  <text x="84" y="514" font-size="14.5" fill="#7E8CA8">CJEU C-128/11／C-263/18</text>
+  <text x="384" y="500" font-size="16" fill="#C7D2E4">2012／2019</text>
+  <text x="484" y="500" font-size="15.5" font-weight="700" fill="#4D9FFF">比較法對照</text>
+  <text x="624" y="492" font-size="15" fill="#C7D2E4">數位耗盡先肯定後否定——占有</text>
+  <text x="624" y="512" font-size="15" fill="#C7D2E4">移轉是否使利用合法化，仍待個案判斷</text>
+
+  <rect x="64" y="540" width="1152" height="66" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="540" width="8" height="66" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="572" font-size="19" font-weight="900" fill="#F5F8FF">五案／函釋共同方法：懸置token層，逕自處理權利層問題。</text>
+  <text x="96" y="596" font-size="14.5" fill="#8FA1C0">n＝4案＋1官方說明＋1組比較法對照；出處見文末註釋，逐條可回查。</text>
+
+  <text x="64" y="700" font-size="15" fill="#55668A">依各案判決書、SEC處分文件、智慧局期刊與CJEU判決整理；作者自製（2026-07-21）。</text>
+  <text x="1216" y="700" font-size="15" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-1・DATA</text>
+</svg>
+<figcaption><b>圖2｜</b>案例與函釋整理表（作者自製）。四案與官方說明之共同方法一致：懸置token層，逕自處理權利層問題。本圖亦為口試簡報 D-1 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d1-2">
+<div class="lbl">SLIDE D-1・案例整理 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-21-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁提出雙層結構之理論架構；本頁以四個案例、一項官方說明，以及一組比較法對照，檢驗此一架構是否經得起實務考驗。</p>
+<p>Roc-A-Fella訴Dash一案，法院處理股東擬將公司專輯著作權做成NFT出售之爭議，其方法是先確認錄音著作之權利歸屬，再論代幣發行是否有效；Miramax訴塔倫提諾一案，爭點始終停留於1993年劇本授權契約之解釋，token之技術形式從未成為判斷依據；美國證券交易委員會於Impact Theory一案，依Howey測試判斷代幣之經濟實質，其判斷基礎同樣是鏈下之承諾內容。我國經濟部智慧財產局於其官方期刊亦明確指出，NFT本身並非著作，僅是鏈上對所連結著作之紀錄。四者之共同方法一致：懸置token層，逕自處理權利層之問題。</p>
+<p>比較法上，歐盟法院關於數位財產權利耗盡之判決提供一組有意思的對照：UsedSoft案肯認軟體之數位第一次銷售可構成權利耗盡，Tom Kabinet案卻對電子書轉售改採否定見解。此一先後對照顯示，占有之移轉是否使利用行為當然合法化，即便在歐盟法院內部，也仍是持續摸索之問題，與本講雙層結構之問題意識完全一致。</p>
+<p class="transition">承接下一講，本講已建立token與著作財產權分離之解釋論基礎；下一講將沿此基礎，處理NFT轉售與著作權法上權利耗盡原則之適用問題。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>占有可以用交易模擬，意思表示不能——這是token層與權利層之分界線，也是方向二全部分析之解釋論起點。</mark>下一講將沿此架構，處理NFT轉售是否適用著作權法上之權利耗盡原則。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你說token模擬了占有移轉，但區塊鏈上根本沒有『占有』這個概念，這個類比會不會太勉強？」</span>
+<span class="hint">👉 這題其實在問：你拿民法的物權概念套區塊鏈，是不是牽強附會？</span>
+<span class="a">怎麼答：我用的是「功能類比」不是「法律定性」——我沒有主張token在法律上就是占有，而是指出它在功能上模擬了占有的兩個特徵：公示（鏈上可查）跟確定性（不可逆）。這個類比的目的，是幫讀者理解「為什麼程式碼看起來做到了交貨，卻做不到讓與」，重點在說明結構性落差，不是硬套法律概念。</span></li>
+<li><span class="q">「智慧局那篇文章是期刊論文不是正式函釋，你能拿它當權威依據嗎？」</span>
+<span class="hint">👉 這題其實在問：你引的資料層級夠不夠格當「官方立場」？</span>
+<span class="a">怎麼答：我在文中已經誠實標示，這不是以NFT為專章的正式函釋，而是智慧局自己發行的官方期刊論文——它的權威性來自於作者身分與發行機關，不是來自公文字號。這篇之外我也還沒找到更正式的專門函釋，這個限制我會繼續追查，找到就補上。</span></li>
+<li><span class="q">「UsedSoft跟Tom Kabinet兩個案子結論相反，你只挑對你有利的部分講，是不是選擇性引用？」</span>
+<span class="hint">👉 這題其實在問：你是不是只挑支持自己論點的判決？</span>
+<span class="a">怎麼答：不是，我兩個都完整引用了，而且特別點出兩案結論相反這件事——因為結論相反正是我要的重點：連歐洲法院自己面對「占有移轉是否使利用合法化」都拿不出一致答案，這反而支持了我的主張，占有和權利的分離問題沒有簡單答案，需要個案判斷。</span></li>
+<li><span class="q">「你的雙層結構圖只用了民法§761一條，這樣的理論厚度夠嗎？」</span>
+<span class="hint">👉 這題其實在問：你的法律論證是不是太單薄？</span>
+<span class="a">怎麼答：§761是動產物權的比較基準點，不是全部論證——真正的重點在著作權讓與的意思主義，這部分我在下一講會結合著作權法的具體條文再深化。今天這篇的任務是先把「兩套邏輯」的架構立起來，細節留給後面幾講逐步展開，這是我八幕結構的設計，不是遺漏。</span></li>
+<li><span class="q">「『權利容器說』你說C-2已經反駁過，那今天為什麼又提一次？」</span>
+<span class="hint">👉 這題其實在問：你是不是在灌水，把同樣的東西講第二次？</span>
+<span class="a">怎麼答：C-2反駁的是事實層——鏈上四個步驟裡沒有授權這回事；今天重提，是要把同一個對立立場放進解釋論層，講清楚它錯在哪個理論位置：它把token層的公示性，誤當成權利層的意思表示。同一個學說，兩個層次各打一次，讀者才會知道它到底哪裡站不住腳。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>陳婉玉，從NFT內涵、應用談相關法律爭議，智慧財產權月刊第286期，頁40以下（2022年10月），經濟部智慧財產局發行。</li>
+<li>民法第761條（動產物權之讓與，以交付為生效要件；例外情形包括簡易交付、占有改定、指示交付）。</li>
+<li>著作權法第36條（著作財產權讓與依當事人之約定，未明定以交付或登記為要件，通說採意思主義）；參林玫君，區塊鏈智能合約的契約法問題，中正大學法學集刊第63期，2019年。</li>
+<li>參見本站C-2〈鏈上授權如何運作：從鑄造到轉售，智慧合約實際做了什麼〉對「權利容器說」最強版本之反駁。</li>
+<li>Roc-A-Fella Records, Inc. v. Dash, No. 1:21-cv-05411 (S.D.N.Y. filed June 18, 2021)；Miramax, LLC v. Tarantino, No. 2:21-cv-08979 (C.D. Cal. filed Nov. 16, 2021)；In re Impact Theory, LLC, SEC Securities Act Release No. 33-11226 (Aug. 28, 2023)。</li>
+<li>Case C-128/11, UsedSoft GmbH v. Oracle Int'l Corp. (CJEU July 3, 2012)；Case C-263/18, NUV v. Tom Kabinet (CJEU Dec. 19, 2019)。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-20.html"><span class="dir">← 上一篇</span>鏈上與鏈下如何搭配：混合式契約模型</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-21.html">2026-07-21　token移轉不等於權利移轉：雙層結構的解釋論深化（D-1）</a></li>
+<li><a href="2026-07-20.html">2026-07-20　鏈上與鏈下如何搭配：混合式契約模型（C-6）</a></li>
+<li><a href="2026-07-19.html">2026-07-19　四平台解剖（下）：版圖、跨境與五層法律切面（B-3）</a></li>
+<li><a href="2026-07-18.html">2026-07-18　四平台解剖（上）：他們到底賣的是什麼（B-2）</a></li>
+<li><a href="2026-07-17.html">2026-07-17　傳統授權 vs 智慧合約授權（C-5）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。圖1、圖2為作者依民法、著作權法規定與案例整理自製。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

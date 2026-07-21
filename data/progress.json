@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-20",
+ "updated": "2026-07-21",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -97,11 +97,11 @@
    "act": "D",
    "ppt": "D1",
    "title": "token移轉不等於權利移轉：智慧局函釋的解釋論深化與雙層結構",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-21",
+   "url": "posts/daily/2026-07-21.html",
+   "q": 5,
+   "slides": 2
   },
   {
    "id": 9,
