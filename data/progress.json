@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-21",
+ "updated": "2026-07-22",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -108,11 +108,11 @@
    "act": "D",
    "ppt": "D2",
    "title": "NFT轉售與權利耗盡：UsedSoft到Tom Kabinet的數位耗盡分歧",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-22",
+   "url": "posts/daily/2026-07-22.html",
+   "q": 5,
+   "slides": 2
   },
   {
    "id": 10,
