@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-22",
+ "updated": "2026-07-23",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -119,11 +119,11 @@
    "act": "D",
    "ppt": "D3",
    "title": "著作人格權與自動化改作：智慧合約觸發的格式轉換侵害保持完整權嗎",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-23",
+   "url": "posts/daily/2026-07-23.html",
+   "q": 5,
+   "slides": 4
   },
   {
    "id": 11,

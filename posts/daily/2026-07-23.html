@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-23｜著作人格權與自動化改作｜鏈法醫</title>
+<meta name="description" content="動態NFT讓持有人或預言機在鏈上觸發作品外觀改變——這是著作權法第17條保持完整權的問題嗎？技術執行鏈六步驟，逐一對照四行為態樣與致損害名譽的主觀要件。鏈法醫期刊專題，方向二：智慧財產權。">
+<meta property="og:title" content="期刊專題 2026-07-23｜著作人格權與自動化改作：智慧合約觸發的格式轉換侵害保持完整權嗎｜鏈法醫">
+<meta property="og:description" content="鏈上機制把「誰能改」寫進規則，卻沒有回答「改了算不算侵害名譽」。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-23</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向二：智慧財產權（D-3）</div>
+<h1>著作人格權與自動化改作：<br>智慧合約觸發的格式轉換侵害保持完整權嗎</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-23</span>
+  <span>閱讀約 13 分鐘</span>
+</div>
+
+<p class="dek"><b>本講處理D幕第三個問題：動態NFT讓持有人或外部預言機在鏈上觸發作品外觀改變，此一機制是否構成著作權法第17條保持完整權之侵害。本講逐一拆解技術執行鏈，並對照四行為態樣與致損害名譽之主觀要件。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>有些NFT不是買了就永遠長那樣，它可以依規則變化——持有人可以自己觸發改變，或是外部資料（像天氣、股價）自動觸發改變。這種「會變的NFT」會不會侵害到原作者「不准別人亂改我作品」的權利？答案要拆成兩關：第一關是客觀上有沒有「歪曲、割裂、竄改」這幾種行為；第二關是這樣改有沒有真的傷到作者的名譽。技術上鏈上留了完整紀錄（誰改的、何時改的），這對打官司舉證是好事，但鏈上有紀錄不代表就不算侵權——它只是讓侵權更容易被抓到而已。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>D-1、D-2兩講已確立token與著作財產權分離之解釋論基礎，並處理NFT轉售與權利耗盡之關係；本講轉向著作人格權——一組性質與財產權完全不同之權利。音樂NFT與美術NFT市場已出現「動態化」之技術趨勢：作品外觀不再於鑄造時鎖死，而是依預先設定之規則，隨持有人操作或外部資料變化而改變。<mark>此一機制若造成作品外觀之實質變更，是否構成著作權法第17條所稱「以歪曲、割裂、竄改或其他方法改變其著作之內容、形式或名目」，致損害著作人名譽之侵害？</mark>本講即以此為核心，逐層拆解技術執行鏈，並對照法律要件。</p>
+
+<h2><span class="no">貳</span>背景：會變化的NFT，如何運作</h2>
+
+<p>多數NFT之運作模式，係鑄造時即確定其對應內容：token所指向之metadata與圖像，自鑄造後不再變動。惟晚近出現一類「動態NFT」（dynamic NFT），其外觀得依規則於鑄造後持續改變。其技術基礎，仍建立於EIP-721規定之metadata擴充介面——`tokenURI(uint256 _tokenId)`函式回傳一個指向JSON檔案之URI，該JSON檔案依規範應包含名稱、描述與圖像等欄位<sup>1</sup>；動態NFT之關鍵設計在於：此一JSON內容並非鑄造時寫死，而是依鏈上一個或數個「狀態變數」，於每次查詢時重新組成。</p>
+
+<p>此一機制之具體實踐，可見於藝術平台Async Art：藝術家將作品拆解為若干可獨立變動之「圖層」（Layer），並於部署時預先定義每一圖層可能之狀態與其對應之視覺呈現規則；圖層之持有人得在此一預先定義之規則範圍內，主動變更其圖層之狀態，最終作品之呈現即為所有圖層當前狀態之綜合結果<sup>2</sup>。除持有人主動觸發外，另一常見設計係由預言機（如Chainlink Automation）依外部條件自動呼叫合約函式，使作品依真實世界資料（如天氣、股價、鏈上活動量）自動變化，此類設計常見於所謂「動態NFT」（dNFT）之技術說明<sup>3</sup>。無論觸發來源為何，其技術鏈之共同結構為：觸發事件→合約函式執行→狀態變數更新→下一次`tokenURI()`查詢時JSON內容隨之改變→前端依新內容重新渲染。</p>
+
+<p>此一技術設計對著作權法帶來一個此前未曾出現之提問：傳統的「改作」，行為人是持有實體或副本、主動進行修改之人；而動態NFT之改變，行為往往經由一段自動化程序完成，行為人可能是點擊按鈕的持有人，也可能是一組依外部資料自動執行的程式碼。<b>是誰在改作，改到什麼程度算數，成為本講必須先處理的技術鋪陳。</b></p>
+
+<h2><span class="no">參</span>法制說明：保持完整權的兩階段檢驗</h2>
+
+<p>著作權法第17條規定：「著作人享有禁止他人以歪曲、割裂、竄改或其他方法改變其著作之內容、形式或名目致損害其名譽之權利。」<sup>4</sup>此即學說上所稱之「保持完整權」，屬著作人格權之一種，依同法第21條規定專屬於著作人本身，不得讓與或繼承<sup>5</sup>。</p>
+
+<p>條文結構上，本條之成立要件可分兩階段。<b>第一階段為客觀行為態樣</b>：條文列舉「歪曲」（扭曲原意、呈現失真）、「割裂」（切割完整性、去脈絡呈現）、「竄改」（未經同意逕行變更內容）三種具體態樣，並以「其他方法」作為概括條款，使條文得涵蓋立法當時未能預見之新型態改變行為——此一概括條款之存在，正是本講得以將動態NFT之狀態變更行為，納入本條射程範圍內討論之規範基礎。<b>第二階段為主觀損害要件</b>：條文明定「致損害其名譽」，通說見解認為，此一判斷應採社會客觀評價標準，而非以著作人主觀感受為斷——換言之，並非著作人主觀上不悅即為已足，須客觀上足使社會對著作人之評價受到減損，方屬該當<sup>6</sup>。此一兩階段結構意味著：<mark>技術上使作品「看起來不一樣」，僅完成第一階段客觀行為態樣之可能該當，尚不當然構成侵害；第二階段之名譽損害，仍須個案判斷。</mark></p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d3-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0723a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0723a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0723a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#F2A33C"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg0723a)"/>
+  <rect width="1280" height="6" fill="url(#topbar0723a)"/>
+  <text x="66" y="44" font-size="16" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-3</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="34" font-weight="900" fill="#F5F8FF">保持完整權的兩階段檢驗：<tspan fill="#4D9FFF">技術「變了」≠法律「侵權」</tspan></text>
+
+  <!-- 左：靜態vs動態 -->
+  <rect x="64" y="140" width="500" height="180" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.5"/>
+  <text x="86" y="176" font-size="18" font-weight="800" fill="#F5F8FF">■ 靜態NFT vs 動態NFT</text>
+  <text x="86" y="208" font-size="16" fill="#C7D2E4">靜態：鑄造時鎖死，此後永不變動</text>
+  <text x="86" y="234" font-size="16" fill="#C7D2E4">動態：依規則，可由持有人或外部</text>
+  <text x="86" y="258" font-size="16" fill="#C7D2E4">資料觸發，於鑄造後持續改變外觀</text>
+  <text x="86" y="292" font-size="15" font-weight="700" fill="#F2A33C">→ 傳統改作的「行為人」很清楚；</text>
+  <text x="86" y="312" font-size="15" font-weight="700" fill="#F2A33C">　 動態NFT的行為人需要重新追問。</text>
+
+  <!-- 右：兩階段檢驗 -->
+  <rect x="716" y="140" width="500" height="180" rx="14" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="2"/>
+  <text x="738" y="176" font-size="18" font-weight="800" fill="#E5484D">■ §17 兩階段檢驗</text>
+  <text x="738" y="208" font-size="16" fill="#C7D2E4">第一階段：客觀行為態樣</text>
+  <text x="738" y="230" font-size="15" fill="#8FA1C0">歪曲／割裂／竄改／其他方法</text>
+  <text x="738" y="258" font-size="16" fill="#C7D2E4">第二階段：主觀損害要件</text>
+  <text x="738" y="280" font-size="15" fill="#8FA1C0">致損害名譽——採社會客觀評價標準</text>
+  <text x="738" y="308" font-size="15" font-weight="700" fill="#E5484D">→ 兩階段缺一不可，技術變更只碰第一階段。</text>
+
+  <!-- 中央流程：觸發到呈現 -->
+  <rect x="64" y="342" width="1152" height="150" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.5"/>
+  <text x="86" y="374" font-size="17" font-weight="800" fill="#4D9FFF">■ 誰觸發：兩條路徑</text>
+  <rect x="86" y="392" width="330" height="76" rx="10" fill="#0F1726" stroke="#263B5C"/>
+  <text x="251" y="418" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">路徑A・持有人主動觸發</text>
+  <text x="251" y="442" font-size="13.5" fill="#8FA1C0" text-anchor="middle">在藝術家預設規則範圍內自行操作</text>
+  <text x="251" y="460" font-size="13" fill="#35C08E" text-anchor="middle">行為人明確＝持有人自己</text>
+  <line x1="424" y1="430" x2="470" y2="430" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0723a)"/>
+  <rect x="474" y="392" width="330" height="76" rx="10" fill="#0F1726" stroke="#263B5C"/>
+  <text x="639" y="418" font-size="15" font-weight="700" fill="#F5F8FF" text-anchor="middle">路徑B・預言機自動觸發</text>
+  <text x="639" y="442" font-size="13.5" fill="#8FA1C0" text-anchor="middle">依外部資料（天氣／股價）自動執行</text>
+  <text x="639" y="460" font-size="13" fill="#F2A33C" text-anchor="middle">行為人待特定＝需回溯委任觸發者</text>
+  <line x1="808" y1="430" x2="854" y2="430" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0723a)"/>
+  <rect x="858" y="392" width="330" height="76" rx="10" fill="rgba(242,163,60,.08)" stroke="#F2A33C"/>
+  <text x="1023" y="418" font-size="15" font-weight="700" fill="#F2A33C" text-anchor="middle">共同結果：作品外觀實際改變</text>
+  <text x="1023" y="442" font-size="13.5" fill="#C7D2E4" text-anchor="middle">公眾實際看到與鑄造時不同的樣態</text>
+  <text x="1023" y="460" font-size="13" fill="#E5484D" text-anchor="middle">→ 進入§17客觀要件審查</text>
+
+  <rect x="64" y="510" width="1152" height="80" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="510" width="8" height="80" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="544" font-size="19" font-weight="900" fill="#F5F8FF">與論文的連結：鏈上機制把「誰能改」寫進規則，卻沒有回答「改了算不算侵害名譽」。</text>
+  <text x="96" y="572" font-size="14.5" fill="#8FA1C0">技術上「規則允許」與法律上「不損害名譽」是兩個獨立問題——下兩頁分別以技術拆解與判斷樹處理。</text>
+
+  <text x="64" y="700" font-size="14" fill="#55668A">依著作權法第17條、第21條與EIP-721規格整理；Async Art機制參OpenSea Blog（2021）、Chainlink dNFT說明。作者自製（2026-07-23）。</text>
+  <text x="1216" y="700" font-size="15" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-3</text>
+</svg>
+<figcaption><b>圖1｜</b>保持完整權兩階段檢驗總覽（作者自製）。技術上「變了」與法律上「侵權」之間，隔著客觀行為態樣與主觀名譽損害兩道關卡。本圖亦為口試簡報 D-3 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d3-1">
+<div class="lbl">SLIDE D-3 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-23-1.mp3"></audio>
+<p><span class="cue">承接D-2，</span>前兩講處理token與著作財產權之分離問題；本講轉向性質完全不同之著作人格權——保持完整權，處理動態NFT觸發外觀改變是否構成侵害。</p>
+<p>本圖左側先建立技術對照：靜態NFT鑄造後永不變動，行為人清楚；動態NFT依規則可由持有人或外部資料觸發改變，傳統上明確的「行為人」概念在此需要重新追問。右側則是本講的核心法律架構：著作權法第17條的審查分兩階段，第一階段是客觀行為態樣，歪曲、割裂、竄改或其他方法；第二階段是主觀損害要件，致損害名譽，通說採社會客觀評價標準。兩階段缺一不可，這是本講反覆會回來的核心提醒。</p>
+<p>下方流程圖呈現觸發的兩條路徑：路徑A是持有人在藝術家預設的規則範圍內主動操作，行為人明確；路徑B是預言機依外部條件自動執行，行為人需要回溯到委任觸發的人或合約部署者。兩條路徑最終都匯聚到同一個結果：作品外觀實際改變，公眾看到與鑄造時不同的樣態，進入客觀要件的審查。</p>
+<p class="transition">承接下一頁，動態NFT目前尚無直接的訴訟案例，本講改以真實存在的技術類型逐一比對風險等級，並引入一個高度類比的實體藝術品案例作為參照。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、類型比較與比較法</h2>
+
+<p>對於「事前同意」能否消解著作人格權侵害之疑慮，學說上存在對立立場。<b>絕對不可讓與說</b>主張，著作人格權專屬一身，第21條「不得讓與或繼承」之文義明確，縱著作人於鑄造時已預先設定變更規則，仍不影響其後保持完整權之行使，蓋人格權之保護不因當事人事前拋棄而消滅。<b>相對化見解</b>則認為，著作人於部署動態NFT規則時，其本身即為創作行為之一部分——著作人自行決定作品得依何種規則變化，此一決定本身即是著作人格權之行使，而非其拋棄；後續依規則發生之變化，應評價為著作人創作意旨之延伸實現，而非對其著作之侵害。本文以為，相對化見解較能說明動態NFT之藝術實踐，惟其適用應嚴格限於規則明確界定之範圍內；逾越規則所定範圍之變更（如合約遭駭客攻擊而觸發非預期狀態），仍應回歸絕對保護之邏輯。</p>
+
+<p>案例整理方面，本文誠實指出：<mark>截至本文完稿，尚未查得任何直接以「動態NFT狀態變更」為爭點之訴訟案例</mark>，此為本領域之現實限制，而非本文之疏漏。惟一件高度類比之實體藝術品案例，值得作為參照：丹麥海事商業法院審理之Thorleifsson與Leivsgard訴Tal R一案，兩名法羅群島鐘錶商購入畫家Tal R作品《Paris Chic》，計畫將其切割為二百至三百片製成錶面，法院判決此舉侵害藝術家之著作權（含保持完整權之精神），縱買受人已取得原件所有權，仍不得任意切割改變<sup>7</sup>。此案雖非NFT案件，其法理意義卻高度相關：<b>取得物之所有權或持有，不當然取得改變作品完整性之權限</b>，此一法理直接適用於NFT持有人觸發狀態變更之情形——持有token，不等於取得逾越規則範圍改變作品之權限。</p>
+
+<p>比較法上，美國《視覺藝術家權利法》（VARA）提供一組具啟發性之對照。該法規定，著作人享有防止對其作品為故意扭曲、變形或其他修改，而致損害其名譽之權利，此一表述與我國第17條高度相似；惟VARA另規定，防止破壞之權利，僅及於「具公認地位之作品」（work of recognized stature）<sup>8</sup>。此一限定要件，我國法所無，值得注意其政策意涵：美國法對「破壞」設有較高門檻，僅保護已獲肯認地位之作品，而對單純之「修改」（第106A(a)(3)(A)項）則未設此一限定。動態NFT之狀態變更屬於修改而非破壞，於美國法下，理論上仍受VARA保護，不因「地位」門檻而豁免——惟VARA之保護客體以「視覺藝術作品」之法定定義為限，數位原生作品能否該當，本身即存在爭議，此一適用範圍問題，我國著作權法因未設狹義之作品類型限定，反而較無此一障礙。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d3-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0723b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0723b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg0723b)"/>
+  <rect width="1280" height="6" fill="url(#topbar0723b)"/>
+  <text x="66" y="44" font-size="16" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-3・類型比較</text>
+  <rect x="64" y="60" width="8" height="50" rx="4" fill="#2E6BFF"/>
+  <text x="90" y="98" font-size="30" font-weight="900" fill="#F5F8FF">尚無直接案例，<tspan fill="#4D9FFF">改以技術類型逐一評估風險</tspan></text>
+
+  <rect x="64" y="126" width="1152" height="38" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.5"/>
+  <text x="640" y="151" font-size="15" font-weight="700" fill="#F2A33C" text-anchor="middle">誠實揭露：本表為技術類型分析，非判決整理——動態NFT尚無直接訴訟案例，Tal R案為高度類比之參照</text>
+
+  <rect x="64" y="176" width="1152" height="42" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1"/>
+  <text x="84" y="204" font-size="16" font-weight="800" fill="#4D9FFF">技術類型</text>
+  <text x="404" y="204" font-size="16" font-weight="800" fill="#4D9FFF">變更觸發者</text>
+  <text x="644" y="204" font-size="16" font-weight="800" fill="#4D9FFF">變更範圍</text>
+  <text x="884" y="204" font-size="16" font-weight="800" fill="#4D9FFF">§17風險評估</text>
+
+  <rect x="64" y="226" width="1152" height="66" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="256" font-size="16" font-weight="700" fill="#F5F8FF">靜態NFT</text>
+  <text x="84" y="278" font-size="13" fill="#7E8CA8">傳統多數型態</text>
+  <text x="404" y="264" font-size="14.5" fill="#C7D2E4">無（鑄造後鎖死）</text>
+  <text x="644" y="264" font-size="14.5" fill="#C7D2E4">無</text>
+  <text x="884" y="264" font-size="15" font-weight="700" fill="#35C08E">低・無變更行為</text>
+
+  <rect x="64" y="300" width="1152" height="66" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="330" font-size="16" font-weight="700" fill="#F5F8FF">持有人選項式（如Async Art圖層）</text>
+  <text x="84" y="352" font-size="13" fill="#7E8CA8">藝術家預設有限選項</text>
+  <text x="404" y="338" font-size="14.5" fill="#C7D2E4">持有人（規則內選擇）</text>
+  <text x="644" y="338" font-size="14.5" fill="#C7D2E4">藝術家預定義範圍</text>
+  <text x="884" y="338" font-size="15" font-weight="700" fill="#F2A33C">中・規則內視為創作延伸</text>
+
+  <rect x="64" y="374" width="1152" height="66" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1"/>
+  <text x="84" y="404" font-size="16" font-weight="700" fill="#F5F8FF">鏈上一次性生成（如生成藝術）</text>
+  <text x="84" y="426" font-size="13" fill="#7E8CA8">鑄造當下演算法決定，之後不變</text>
+  <text x="404" y="412" font-size="14.5" fill="#C7D2E4">無（鑄造瞬間即定）</text>
+  <text x="644" y="412" font-size="14.5" fill="#C7D2E4">無（本質上仍屬靜態）</text>
+  <text x="884" y="412" font-size="15" font-weight="700" fill="#35C08E">低・生成即固定</text>
+
+  <rect x="64" y="448" width="1152" height="66" rx="10" fill="rgba(229,72,77,.08)" stroke="#E5484D" stroke-width="2"/>
+  <text x="84" y="478" font-size="16" font-weight="700" fill="#E5484D">外部資料驅動（依天氣／股價變化）</text>
+  <text x="84" y="500" font-size="13" fill="#7E8CA8">預言機持續自動觸發</text>
+  <text x="404" y="486" font-size="14.5" fill="#C7D2E4">預言機（行為人待特定）</text>
+  <text x="644" y="486" font-size="14.5" fill="#C7D2E4">持續、不可預期</text>
+  <text x="884" y="486" font-size="15" font-weight="700" fill="#E5484D">高・逾原始規則想像之虞</text>
+
+  <rect x="64" y="522" width="1152" height="66" rx="10" fill="rgba(77,159,255,.08)" stroke="#4D9FFF" stroke-width="2"/>
+  <text x="84" y="552" font-size="16" font-weight="700" fill="#4D9FFF">比較法對照：Thorleifsson v. Tal R</text>
+  <text x="84" y="574" font-size="13" fill="#7E8CA8">丹麥海事商業法院・實體畫作類比案</text>
+  <text x="404" y="560" font-size="14.5" fill="#C7D2E4">買受人（非鏈上）</text>
+  <text x="644" y="560" font-size="14.5" fill="#C7D2E4">切割為200-300片錶面</text>
+  <text x="884" y="560" font-size="15" font-weight="700" fill="#4D9FFF">法理類比：持有≠改變完整性之權限</text>
+
+  <rect x="64" y="600" width="1152" height="60" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="64" y="600" width="8" height="60" rx="4" fill="#2E6BFF"/>
+  <text x="96" y="628" font-size="18" font-weight="900" fill="#F5F8FF">風險與規則明確度成反比：規則寫得越清楚、範圍越窄，越接近「創作延伸」而非「侵害」。</text>
+  <text x="96" y="648" font-size="13.5" fill="#8FA1C0">n＝4技術類型＋1比較法類比案；出處見文末註釋，逐條可回查。</text>
+
+  <text x="64" y="700" font-size="14" fill="#55668A">依各平台公開技術文件與丹麥海事商業法院判決整理；作者自製（2026-07-23）。</text>
+  <text x="1216" y="700" font-size="15" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-3・DATA</text>
+</svg>
+<figcaption><b>圖2｜</b>技術類型×風險評估表（作者整理）。動態NFT尚無直接訴訟案例，改以技術類型逐一評估，並引入Tal R案作法理類比。本圖亦為口試簡報 D-3 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d3-2">
+<div class="lbl">SLIDE D-3・類型比較 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-23-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁建立兩階段檢驗架構；本頁誠實面對一個現實：動態NFT截至目前尚無直接訴訟案例，因此本頁改以技術類型逐一評估風險，取代傳統的判決整理表。</p>
+<p>五種類型從低風險排到高風險。靜態NFT鑄造後鎖死，沒有變更行為，風險最低。持有人選項式，例如Async Art的圖層機制，變更在藝術家預先設定的範圍內，本文將其評價為創作意旨的延伸，風險中等。鏈上一次性生成藝術，雖然是演算法決定，但生成瞬間即固定，本質上仍屬靜態，風險同樣低。風險最高的是外部資料驅動型，因為預言機依天氣或股價這類外部條件持續觸發，變化不可預期，很容易逾越原始規則的想像範圍。</p>
+<p>最後一列放的是比較法對照：丹麥海事商業法院審理的Thorleifsson訴Tal R案，兩名鐘錶商買下畫家Tal R的畫作，打算切割成兩三百片做成錶面，法院判決這樣做侵害了藝術家的權利。這不是NFT案件，但法理上高度類比：買到東西的所有權或持有權，不代表就有權改變作品的完整性。這句話直接適用在NFT持有人身上——持有token，不等於取得逾越規則範圍改變作品的權限。</p>
+<p class="transition">承接下一頁，前兩頁建立了架構跟類型分級；下一頁把鏡頭拉近，逐一拆解動態NFT背後六個技術層，包括實際的規格程式碼。</p>
+</div>
+
+<p>綜上，本文以為評析部分之核心命題已可歸納：技術可行性與法律可責性，係兩條平行但不重合的判斷軸線。以下兩頁進一步將此一命題具體化——先以六個技術層逐一拆解動態NFT之運作機制，再以判斷樹將技術執行鏈與法律要件逐步對應，使抽象的兩階段檢驗有具體的技術對應點可資操作。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d3-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgD3a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarD3a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arrD3a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgD3a)"/>
+  <rect width="1280" height="6" fill="url(#topbarD3a)"/>
+  <text x="50" y="38" font-size="14" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-3・技術拆解</text>
+  <rect x="48" y="50" width="7" height="38" rx="3" fill="#2E6BFF"/>
+  <text x="70" y="78" font-size="27" font-weight="900" fill="#F5F8FF">動態NFT機制拆解：<tspan fill="#4D9FFF">六個技術層，逐一對照§17</tspan></text>
+
+  <rect x="48" y="102" width="384" height="180" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.5"/>
+  <circle cx="70" cy="122" r="12" fill="#4D9FFF"/><text x="70" y="127" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">1</text>
+  <text x="90" y="127" font-size="15" font-weight="800" fill="#4D9FFF">機制總覽 Overview</text>
+  <rect x="64" y="140" width="90" height="30" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="109" y="159" font-size="11" fill="#C7D2E4" text-anchor="middle">觸發事件</text>
+  <line x1="154" y1="155" x2="182" y2="155" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3a)"/>
+  <rect x="184" y="140" width="90" height="30" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="229" y="159" font-size="11" fill="#C7D2E4" text-anchor="middle">合約函式</text>
+  <line x1="274" y1="155" x2="302" y2="155" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3a)"/>
+  <rect x="304" y="140" width="104" height="30" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="356" y="159" font-size="11" fill="#C7D2E4" text-anchor="middle">state 變數異動</text>
+  <line x1="109" y1="170" x2="109" y2="188" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3a)"/>
+  <text x="64" y="204" font-size="11.5" fill="#8FA1C0">↓ 下一輪 tokenURI() 呼叫</text>
+  <rect x="64" y="212" width="344" height="30" rx="5" fill="rgba(53,192,142,.1)" stroke="#35C08E"/><text x="236" y="231" font-size="11" fill="#35C08E" text-anchor="middle">metadata JSON 依 state 重新解析＋前端重新渲染</text>
+  <text x="64" y="262" font-size="12" fill="#7E8CA8">關鍵：鏈上只存「狀態值」，圖像本身</text>
+  <text x="64" y="278" font-size="12" fill="#7E8CA8">於每次讀取時才依規則「重新生成」。</text>
+
+  <rect x="448" y="102" width="384" height="180" rx="10" fill="#131D2E" stroke="#F2A33C" stroke-width="1.5"/>
+  <circle cx="470" cy="122" r="12" fill="#F2A33C"/><text x="470" y="127" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">2</text>
+  <text x="490" y="127" font-size="15" font-weight="800" fill="#F2A33C">EIP-721 規格原文</text>
+  <rect x="464" y="140" width="352" height="128" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="476" y="160" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="#7E8CA8">interface ERC721Metadata {</text>
+  <text x="486" y="178" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="#4D9FFF">function</text>
+  <text x="540" y="178" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="#F5F8FF">tokenURI(uint256 _id)</text>
+  <text x="486" y="196" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="#7E8CA8">  external view returns (string);</text>
+  <text x="476" y="214" font-family="ui-monospace,Menlo,monospace" font-size="11.5" fill="#7E8CA8">}</text>
+  <text x="476" y="238" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#35C08E">// URI 可指向符合「ERC721</text>
+  <text x="476" y="254" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#35C08E">// Metadata JSON Schema」之檔案</text>
+
+  <rect x="848" y="102" width="384" height="180" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.5"/>
+  <circle cx="870" cy="122" r="12" fill="#4D9FFF"/><text x="870" y="127" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">3</text>
+  <text x="890" y="127" font-size="15" font-weight="800" fill="#4D9FFF">觸發機制：誰按下按鈕</text>
+  <rect x="864" y="140" width="352" height="58" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="876" y="158" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#F2A33C">function setLayerState(</text>
+  <text x="876" y="174" font-family="ui-monospace,Menlo,monospace" font-size="11" fill="#F5F8FF">  uint id, uint8 state) onlyOwner</text>
+  <text x="864" y="216" font-size="12" font-weight="700" fill="#F5F8FF">路徑A・持有人主動觸發</text>
+  <text x="864" y="234" font-size="11.5" fill="#8FA1C0">token owner 在規則範圍內自行改變狀態</text>
+  <text x="864" y="254" font-size="12" font-weight="700" fill="#F5F8FF">路徑B・預言機自動觸發</text>
+  <text x="864" y="272" font-size="11.5" fill="#8FA1C0">Chainlink Automation 依外部條件呼叫函式</text>
+
+  <rect x="48" y="296" width="384" height="176" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.5"/>
+  <circle cx="70" cy="316" r="12" fill="#E5484D"/><text x="70" y="321" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">4</text>
+  <text x="90" y="321" font-size="15" font-weight="800" fill="#E5484D">著作權法§17・四行為態樣</text>
+  <text x="64" y="348" font-size="12.5" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">歪曲</tspan>：扭曲原意，呈現失真</text>
+  <text x="64" y="370" font-size="12.5" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">割裂</tspan>：切割完整性，去脈絡呈現</text>
+  <text x="64" y="392" font-size="12.5" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">竄改</tspan>：變更內容而未經同意</text>
+  <text x="64" y="414" font-size="12.5" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">其他方法</tspan>：概括條款，涵蓋新型態改變</text>
+  <rect x="64" y="428" width="344" height="32" rx="6" fill="rgba(229,72,77,.08)" stroke="#E5484D"/>
+  <text x="236" y="449" font-size="11.5" fill="#E5484D" text-anchor="middle" font-weight="700">state 變動屬「內容」或「形式」變更？——爭點所在</text>
+
+  <rect x="448" y="296" width="384" height="176" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.5"/>
+  <circle cx="470" cy="316" r="12" fill="#E5484D"/><text x="470" y="321" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">5</text>
+  <text x="490" y="321" font-size="15" font-weight="800" fill="#E5484D">主觀要件：致損害其名譽</text>
+  <text x="464" y="348" font-size="12.5" fill="#C7D2E4">四行為態樣屬客觀要件，須另證：</text>
+  <text x="464" y="370" font-size="12.5" fill="#C7D2E4">改變「致損害」著作人名譽——</text>
+  <text x="464" y="392" font-size="12.5" fill="#C7D2E4">非以著作人主觀感受為斷，</text>
+  <text x="464" y="414" font-size="12.5" fill="#C7D2E4">通說採社會客觀評價標準。</text>
+  <text x="464" y="446" font-size="11.5" font-weight="700" fill="#F2A33C">→ 兩階段檢驗：先客觀行為態樣，</text>
+  <text x="464" y="464" font-size="11.5" font-weight="700" fill="#F2A33C">　 後主觀名譽損害，缺一不可。</text>
+
+  <rect x="848" y="296" width="384" height="176" rx="10" fill="#131D2E" stroke="#35C08E" stroke-width="1.5"/>
+  <circle cx="870" cy="316" r="12" fill="#35C08E"/><text x="870" y="321" font-size="13" font-weight="900" fill="#0A101C" text-anchor="middle">6</text>
+  <text x="890" y="321" font-size="15" font-weight="800" fill="#35C08E">關鍵概念 Key Concepts</text>
+  <text x="864" y="348" font-size="12" fill="#C7D2E4">・鏈上存的是「規則」，不是「畫面」</text>
+  <text x="864" y="370" font-size="12" fill="#C7D2E4">・持有人觸發＝著作權法上的「行為人」</text>
+  <text x="864" y="392" font-size="12" fill="#C7D2E4">・預言機觸發＝行為歸責對象待釐清</text>
+  <text x="864" y="414" font-size="12" fill="#C7D2E4">・藝術家預先設定規則範圍＝同意的邊界</text>
+  <text x="864" y="440" font-size="12" font-weight="700" fill="#35C08E">✦ 下一頁：技術鏈六步驟逐一</text>
+  <text x="864" y="458" font-size="12" font-weight="700" fill="#35C08E">　對照法律要件，做成判斷樹</text>
+
+  <rect x="48" y="486" width="1184" height="70" rx="12" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="48" y="486" width="7" height="70" rx="3" fill="#2E6BFF"/>
+  <text x="70" y="516" font-size="17" font-weight="900" fill="#F5F8FF">與論文的連結：技術規格只回答「能不能改」，不回答「改了算不算侵害名譽」。</text>
+  <text x="70" y="540" font-size="12.5" fill="#8FA1C0">六個技術層各自獨立驗證過——下一頁把每一步接回法律要件，做成可操作的判斷樹。</text>
+
+  <text x="48" y="700" font-size="12" fill="#55668A">依 EIP-721 規格原文（tokenURI／Metadata JSON Schema）與著作權法第17條整理；Async Art機制參OpenSea Blog、Chainlink dNFT說明；作者自製（2026-07-23）。</text>
+  <text x="1232" y="700" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-3</text>
+</svg>
+<figcaption><b>圖3｜</b>六面板技術分解（作者自製）。每一格都是具體技術內容或逐字規格引用，供實作與教學雙重用途。本圖亦為口試簡報 D-3 技術拆解幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d3-3">
+<div class="lbl">SLIDE D-3・技術拆解 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-23-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁完成類型分級；本頁把鏡頭拉近，逐一拆解動態NFT背後六個技術層，每一格都放具體內容，不是抽象描述。</p>
+<p>第一格是機制總覽：觸發事件、合約函式、狀態變數異動，三步一路往下，接著下一輪tokenURI查詢時，metadata依當前狀態重新解析、前端重新渲染。第二格是EIP-721規格原文，直接引用官方定義的tokenURI介面——這不是我編的，是規格書上寫死的內容。第三格是觸發機制，列出兩條路徑的代表性程式碼：持有人主動觸發、或預言機依外部條件自動觸發。</p>
+<p>第四、五格回到法律端：第四格是著作權法第17條的四種客觀行為態樣，歪曲、割裂、竄改、其他方法；第五格是主觀要件，致損害名譽，強調兩階段缺一不可。第六格收斂成幾個關鍵概念：鏈上存的是規則不是畫面，持有人觸發是著作權法上的行為人，預言機觸發則行為歸責對象待釐清，藝術家預先設定的規則範圍就是同意的邊界。</p>
+<p class="transition">承接下一頁，六個技術層都拆開了；下一頁把每一步技術動作，逐一接回對應的法律評價，做成一張完整的判斷樹。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>鏈上機制把「誰能改」寫進規則，卻沒有回答「改了算不算侵害名譽」——這是技術與法律的分工，不是技術取代法律的證明。</mark>下一講將轉向Roc-A-Fella訴Dash一案，處理共有著作權情形下NFT發行之權利來源驗證問題。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-d3-4').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgD3b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarD3b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arrD3b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4D9FFF"/></marker>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bgD3b)"/>
+  <rect width="1280" height="6" fill="url(#topbarD3b)"/>
+  <text x="50" y="38" font-size="14" letter-spacing="3" fill="#5F79A6">PART D・方向二：智慧財產權  ›  SLIDE D-3・判斷樹</text>
+  <rect x="48" y="50" width="7" height="38" rx="3" fill="#2E6BFF"/>
+  <text x="70" y="78" font-size="27" font-weight="900" fill="#F5F8FF">技術鏈 × 法律要件：<tspan fill="#4D9FFF">六步驟逐格對照</tspan></text>
+
+  <text x="70" y="112" font-size="13" font-weight="800" fill="#4D9FFF">技術執行鏈</text>
+  <text x="700" y="112" font-size="13" font-weight="800" fill="#E5484D">法律要件檢驗</text>
+
+  <rect x="48" y="124" width="560" height="82" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="66" y="148" font-size="13" font-weight="700" fill="#F5F8FF">① 藝術家部署規則合約</text>
+  <text x="66" y="168" font-size="11.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">defineStates(layerId, [0,1,2], rules)</text>
+  <text x="66" y="188" font-size="11" fill="#7E8CA8">規則於鑄造時公開、不可竄改</text>
+  <line x1="610" y1="165" x2="674" y2="165" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3b)"/>
+  <rect x="676" y="124" width="556" height="82" rx="8" fill="#131D2E" stroke="#35C08E"/>
+  <text x="694" y="148" font-size="13" font-weight="700" fill="#35C08E">✓ 同意的邊界已預先劃定</text>
+  <text x="694" y="170" font-size="11.5" fill="#C7D2E4">著作人格權雖不得讓與，惟事前同意</text>
+  <text x="694" y="188" font-size="11.5" fill="#C7D2E4">特定範圍之變更，學說上非無討論空間</text>
+
+  <rect x="48" y="214" width="560" height="82" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="66" y="238" font-size="13" font-weight="700" fill="#F5F8FF">② 持有人／預言機觸發狀態異動</text>
+  <text x="66" y="258" font-size="11.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">setLayerState(tokenId, newState)</text>
+  <text x="66" y="278" font-size="11" fill="#7E8CA8">交易發起人＝可能之改作行為人</text>
+  <line x1="610" y1="255" x2="674" y2="255" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3b)"/>
+  <rect x="676" y="214" width="556" height="82" rx="8" fill="#131D2E" stroke="#F2A33C"/>
+  <text x="694" y="238" font-size="13" font-weight="700" fill="#F2A33C">△ 行為主體待特定</text>
+  <text x="694" y="260" font-size="11.5" fill="#C7D2E4">持有人＝自己行為；預言機＝需回溯</text>
+  <text x="694" y="278" font-size="11.5" fill="#C7D2E4">至委任觸發之人或合約部署者</text>
+
+  <rect x="48" y="304" width="560" height="82" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="66" y="328" font-size="13" font-weight="700" fill="#F5F8FF">③ state 變數於鏈上更新</text>
+  <text x="66" y="348" font-size="11.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">emit StateChanged(tokenId, newState)</text>
+  <text x="66" y="368" font-size="11" fill="#7E8CA8">交易紀錄公開、時間戳精確</text>
+  <line x1="610" y1="345" x2="674" y2="345" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3b)"/>
+  <rect x="676" y="304" width="556" height="82" rx="8" fill="#131D2E" stroke="#35C08E"/>
+  <text x="694" y="328" font-size="13" font-weight="700" fill="#35C08E">✓ 舉證優勢：誰改的、何時改的</text>
+  <text x="694" y="350" font-size="11.5" fill="#C7D2E4">鏈上事件紀錄可作為訴訟證據，</text>
+  <text x="694" y="368" font-size="11.5" fill="#C7D2E4">此為傳統改作侵權少見之優勢</text>
+
+  <rect x="48" y="394" width="560" height="82" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="66" y="418" font-size="13" font-weight="700" fill="#F5F8FF">④ tokenURI() 重新解析 JSON</text>
+  <text x="66" y="438" font-size="11.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">{"image": "...state2.png", ...}</text>
+  <text x="66" y="458" font-size="11" fill="#7E8CA8">前端依 EIP-721 Schema 重新取像</text>
+  <line x1="610" y1="435" x2="674" y2="435" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3b)"/>
+  <rect x="676" y="394" width="556" height="82" rx="8" fill="#131D2E" stroke="#E5484D"/>
+  <text x="694" y="418" font-size="13" font-weight="700" fill="#E5484D">✕ 客觀要件之判斷點</text>
+  <text x="694" y="440" font-size="11.5" fill="#C7D2E4">畫面實際變化＝「內容或形式」改變，</text>
+  <text x="694" y="458" font-size="11.5" fill="#C7D2E4">屬歪曲、竄改中至少一種態樣之外觀</text>
+
+  <rect x="48" y="484" width="560" height="82" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="66" y="508" font-size="13" font-weight="700" fill="#F5F8FF">⑤ 市場端／觀者端呈現新版本</text>
+  <text x="66" y="528" font-size="11.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">marketplace.render(tokenURI)</text>
+  <text x="66" y="548" font-size="11" fill="#7E8CA8">公眾實際看到變更後之樣態</text>
+  <line x1="610" y1="525" x2="674" y2="525" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrD3b)"/>
+  <rect x="676" y="484" width="556" height="82" rx="8" fill="#131D2E" stroke="#E5484D"/>
+  <text x="694" y="508" font-size="13" font-weight="700" fill="#E5484D">✕ 主觀要件之判斷點</text>
+  <text x="694" y="530" font-size="11.5" fill="#C7D2E4">須另證：此一呈現致社會客觀評價</text>
+  <text x="694" y="548" font-size="11.5" fill="#C7D2E4">上減損著作人名譽，非當然成立</text>
+
+  <rect x="48" y="576" width="1184" height="70" rx="12" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.5"/>
+  <rect x="48" y="576" width="7" height="70" rx="3" fill="#2E6BFF"/>
+  <text x="70" y="606" font-size="17" font-weight="900" fill="#F5F8FF">與論文的連結：五步驟裡，只有④⑤兩步真正進入法律評價；①②③是技術層的舉證優勢，不是免責事由。</text>
+  <text x="70" y="628" font-size="12.5" fill="#8FA1C0">動態NFT不會因為「鏈上有紀錄」而豁免著作人格權審查——它只是讓審查變得更容易舉證。</text>
+
+  <text x="48" y="700" font-size="12" fill="#55668A">依 EIP-721 事件標準與著作權法第17條要件拆解；作者自製（2026-07-23）。</text>
+  <text x="1232" y="700" font-size="13" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">D-3・TREE</text>
+</svg>
+<figcaption><b>圖4｜</b>技術執行鏈×法律要件判斷樹（作者自製）。每一步技術動作直接對應法律評價，供口試簡報逐格說明使用。本圖亦為口試簡報 D-3 判斷樹幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-d3-4">
+<div class="lbl">SLIDE D-3・判斷樹 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-23-4.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁拆開六個技術層；本頁把每一個技術動作，逐一接回對應的法律評價，做成完整的判斷樹，這是本講整體論證的收束。</p>
+<p>第一步，藝術家部署規則合約，法律上對應「同意的邊界已預先劃定」——著作人格權雖不得讓與，但事前同意特定範圍的變更，學說上並非沒有討論空間，這是打勾的。第二步，持有人或預言機觸發狀態異動，對應「行為主體待特定」，持有人是自己的行為，預言機則需要回溯到委任觸發的人或合約部署者，這格標橙色三角形，表示還有爭議。第三步，狀態變數於鏈上更新，對應「舉證優勢」，鏈上事件紀錄可以直接當訴訟證據，這是傳統改作侵權案件少見的優勢，打勾。</p>
+<p>第四步跟第五步，才是真正進入法律評價的兩步。第四步，tokenURI重新解析JSON，畫面真的變了，這是客觀要件的判斷點，屬於歪曲或竄改其中一種態樣的外觀，打叉。第五步，市場端呈現新版本，公眾實際看到變更後的樣子，這是主觀要件的判斷點，必須另外證明這樣的呈現確實在社會客觀評價上減損了著作人的名譽，不是當然成立，同樣打叉，代表這裡才是真正需要個案審查的地方。</p>
+<p class="transition">承接下一講，本講已把技術與法律的分工講清楚；下一講將轉向Roc-A-Fella訴Dash一案，處理共有著作權情形下NFT發行的權利來源驗證問題。</p>
+</div>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你的判斷樹把①②③都打勾、只有④⑤打叉，這樣的配置是不是先射箭再畫靶，刻意設計成對智慧合約有利？」</span>
+<span class="hint">👉 這題其實在問：這張圖是不是你為了論證方便而設計的，不夠中立？</span>
+<span class="a">怎麼答：配置不是我選的，是§17的要件結構決定的——條文本來就分客觀行為態樣跟主觀名譽損害兩階段，①②③只是技術執行的前置步驟，本來就不會直接觸發法律評價，這是條文結構的必然結果，不是我為了替智慧合約說話而安排。真正該質疑的問題方向反而是：如果連④⑤都能想辦法自動判斷，那才是需要質疑的地方。</span></li>
+<li><span class="q">「Tal R案是丹麥法院判的、處理的是實體畫作被物理切割，你把它類比到NFT的鏈上狀態變更，這個跨法域、跨媒介的類推妥當嗎？」</span>
+<span class="hint">👉 這題其實在問：你是不是硬拗一個不相干的外國案例來湊數？</span>
+<span class="a">怎麼答：我在文中已經明講這不是NFT案件，是法理類比不是直接適用。類比的基礎很窄但很關鍵：兩個案子共同的爭點都是「持有或所有權是否當然包含改變作品完整性的權限」，這個法理命題跟媒介、法域無關，是著作人格權的核心邏輯。我沒有主張丹麥判決對台灣有拘束力，只是用它來佐證這個法理命題並非我憑空發明。</span></li>
+<li><span class="q">「你承認動態NFT還沒有直接案例，那你整篇的分析會不會只是假設性推演，沒有實務意義？」</span>
+<span class="hint">👉 這題其實在問：沒有真實案例支撐，你這篇是不是純粹空想？</span>
+<span class="a">怎麼答：沒有案例正是研究走在實務前面的機會，不是弱點。我沒有假裝有案例，而是誠實揭露、改用技術類型分級加比較法類比，這個方法論本身在論文裡會明講——這叫風險預警研究，價值在於等真正的爭議發生時，法院跟業者已經有一套現成的分析框架可以用，不用從零開始。</span></li>
+<li><span class="q">「VARA要求『recognized stature』才保護毀損，我國法沒有這個限制，你會不會因為我國法比較寬鬆，反而讓你自己的論證站不住腳？」</span>
+<span class="hint">👉 這題其實在問：你引的比較法對照，會不會反而顯示我國法有問題？</span>
+<span class="a">怎麼答：不會，因為recognized stature那個門檻，VARA只用在「毀損」（destruction），不是「修改」（modification）——動態NFT的狀態變更屬於修改而不是毀損，所以在美國法下同樣不受那個門檻限制，兩國在這個具體情境的保護密度其實接近。我在文中特別把這個區分講清楚，就是為了不讓比較法對照被誤讀成我國法過寬。</span></li>
+<li><span class="q">「你今天用四張投影片處理一個題目，比其他講多了兩張，這樣的份量分配合理嗎？會不會排擠到後面題目的篇幅？」</span>
+<span class="hint">👉 這題其實在問：你是不是這篇特別用心、其他篇會顯得沒那麼扎實？</span>
+<span class="a">怎麼答：多兩張是因為這一講第一次把技術執行鏈完整攤開比對法律要件，屬於方法論的建立，後面遇到同樣需要拆解技術機制的講次會沿用這個判斷樹格式，不是重新做一次，所以這裡投入的份量會持續攤提到後面幾講，不是排擠，是投資。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>EIP-721: Non-Fungible Token Standard，ERC721Metadata擴充介面，https://eips.ethereum.org/EIPS/eip-721（最後瀏覽日：2026年7月22日）。</li>
+<li>Async Art之圖層機制，參OpenSea Blog, <i>Async Art - Paving the Way for Programmable, Dynamically Changing Art on the Blockchain</i>；Async Art Help Center, <i>What am I collecting?</i>。</li>
+<li>Chainlink, <i>What Is a Dynamic NFT (dNFT)?</i>，關於預言機驅動之NFT自動更新機制說明。</li>
+<li>著作權法第17條。</li>
+<li>著作權法第21條（著作人格權專屬於著作人本身，不得讓與或繼承）。</li>
+<li>就「致損害其名譽」採社會客觀評價標準之說明，參本站站內既有分析架構；學說詳細出處【待查補】。</li>
+<li>Sø- og Handelsretten（丹麥海事商業法院）審理之Thorleifsson與Leivsgard訴Tal R一案，涉及畫作《Paris Chic》（2017）是否得裁切為錶面之爭議；參Artsy, <i>A Danish Court Ruled That a Tal R Painting Can't Be Cut Up Into Watch Faces</i>；The Art Newspaper相關報導【判決字號待查補】。</li>
+<li>17 U.S.C. §106A(a)(3)（Visual Artists Rights Act, VARA）：(A)款禁止故意扭曲、變形或修改致損害名譽；(B)款禁止毀損具公認地位（recognized stature）之作品——地位門檻僅適用於(B)款毀損，不適用於(A)款修改。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-22.html"><span class="dir">← 上一篇</span>NFT轉售與權利耗盡：UsedSoft到Tom Kabinet的數位耗盡分歧</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-23.html">2026-07-23　著作人格權與自動化改作：智慧合約觸發的格式轉換侵害保持完整權嗎（D-3）</a></li>
+<li><a href="2026-07-22.html">2026-07-22　NFT轉售與權利耗盡（D-2）</a></li>
+<li><a href="2026-07-21.html">2026-07-21　token移轉不等於權利移轉（D-1）</a></li>
+<li><a href="2026-07-20.html">2026-07-20　鏈上與鏈下如何搭配：混合式契約模型（C-6）</a></li>
+<li><a href="2026-07-19.html">2026-07-19　四平台解剖（下）：版圖、跨境與五層法律切面（B-3）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。圖1–圖4為作者依法條、EIP-721規格原文與公開技術文件整理自製；Tal R案為比較法類比案例，非我國法院判決。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>
