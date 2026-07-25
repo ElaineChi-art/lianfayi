@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-24",
+ "updated": "2026-07-25",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -141,11 +141,11 @@
    "act": "D",
    "ppt": "D5",
    "title": "Miramax v. Tarantino：數十年前的授權契約涵蓋NFT這種新利用嗎",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-25",
+   "url": "posts/daily/2026-07-25.html",
+   "q": 5,
+   "slides": 4
   },
   {
    "id": 13,
