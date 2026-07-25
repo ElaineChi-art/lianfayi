@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-23",
+ "updated": "2026-07-24",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -130,11 +130,11 @@
    "act": "D",
    "ppt": "D4",
    "title": "Roc-A-Fella v. Dash：共有著作權與NFT發行的權利來源驗證",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-24",
+   "url": "posts/daily/2026-07-24.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 12,
