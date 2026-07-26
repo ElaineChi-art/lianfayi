@@ -4,9 +4,11 @@ set -u
 # 2026-07-20 起每天發文（假日照做，她指定）
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 LOG="$REPO/logs/daily-$(date +%Y%m%d).log"
-BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude 2>/dev/null | sort -V | tail -1)
+# 每次呼叫前重新解析執行檔路徑（VSCode 擴充可能在重試之間自動升級版本、舊路徑會消失）
+resolve_bin() { ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-binary/claude 2>/dev/null | sort -V | tail -1; }
 {
   echo "=== $(date) 鏈上日報開始 ==="
+  BIN=$(resolve_bin)
   [ -z "$BIN" ] && { echo "找不到 claude 執行檔"; exit 1; }
   cd "$REPO" || exit 1
   # 剛喚醒時網路可能還沒連上：最多等 10 分鐘
@@ -24,7 +26,7 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
       --model claude-sonnet-5 \
       --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
       --max-turns 120
-  # 若未產出（如 API 瞬斷或額度問題），最多重試 2 次；每次重試前先重新等網路
+  # 若未產出（如 API 瞬斷或額度問題），最多重試 2 次；每次重試前先重新等網路＋重新解析執行檔路徑
   for RETRY in 1 2; do
     [ -f "$REPO/posts/daily/$DATE.html" ] && break
     echo "第 $RETRY 次重試：先等網路穩定"
@@ -34,6 +36,8 @@ BIN=$(ls -d "$HOME"/.vscode/extensions/anthropic.claude-code-*/resources/native-
       j=$((j+1)); [ $j -ge 60 ] && break
       sleep 10
     done
+    BIN=$(resolve_bin)
+    [ -z "$BIN" ] && { echo "重試時找不到 claude 執行檔（可能擴充正在升級），跳過本次重試"; continue; }
     "$BIN" -p "$PROMPT" \
         --model claude-sonnet-5 \
         --allowedTools "Bash,Read,Write,Edit,Glob,Grep" \
