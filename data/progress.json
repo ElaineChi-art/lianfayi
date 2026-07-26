@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-25",
+ "updated": "2026-07-26",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -152,11 +152,11 @@
    "act": "E",
    "ppt": "E1",
    "title": "Howey測試與收益型音樂NFT：金管會STO令釋如何適用",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-26",
+   "url": "posts/daily/2026-07-26.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 14,
