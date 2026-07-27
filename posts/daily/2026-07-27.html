@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-27｜Musicow案的啟示｜鏈法醫</title>
+<meta name="description" content="韓國金融委員會2022年將Musicow「音樂著作權料參與請求權」定性為投資契約證券，命補正投資人保護措施後准予合規化營運——與美國SEC對Impact Theory的取締清算路線恰成對照。此一「定性不等於死刑」的韓國經驗，對台灣STO令釋與虛擬資產服務法之銜接有何啟示？鏈法醫期刊專題，方向三：金融監理。">
+<meta property="og:title" content="期刊專題 2026-07-27｜Musicow案的啟示：版稅分潤商品的證券定性與合規化路徑（韓國經驗）｜鏈法醫">
+<meta property="og:description" content="被定性為證券，不等於被判處死刑——韓國經驗給的是合規化路徑，不是唯一的取締結局。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-27</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向三：金融監理（E-2）</div>
+<h1>Musicow案的啟示：<br>版稅分潤商品的證券定性與合規化路徑（韓國經驗）</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-27</span>
+  <span>閱讀約 18 分鐘</span>
+</div>
+
+<p class="dek"><b>韓國金融委員會將Musicow音樂版稅分潤商品定性為投資契約證券，惟其後續處置係命補正投資人保護措施，而非強制清算——此一路徑對台灣有何借鏡，係本講核心提問。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>上一講講到，音樂NFT如果承諾分你版稅收入，很可能會被當成「證券」來管。韓國有一個真實案例：Musicow這個平台賣的「音樂著作權料參與請求權」，2022年被韓國金融委員會正式認定是證券。但重點是，韓國並沒有因此把這個平台關掉、把錢全部退回去——而是要求平台補上投資人保護措施，補完之後就可以繼續合法經營。這跟美國SEC處理NFT案件時「認定違法、退錢、銷毀代幣」的做法完全不同。這篇要講的是，被認定是證券之後，到底有哪些不同的收場方式，以及台灣未來遇到類似狀況時，可以參考韓國這條路。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>上一講已建立收益型音樂NFT於Howey測試與金管會STO令釋下之定性判準<sup>1</sup>——惟定性僅係分析之起點，而非終點。一項代幣一旦被監理機關認定「具證券性質」，其後續命運究竟為何？是否必然走向強制清算、發行人繳回款項、代幣銷毀之取締結局，抑或存在另一條容許發行人補正缺失後繼續合法營運之路徑？此等問題，構成本講欲進一步深掘之核心。韓國之Musicow平台，即為觀察此一問題之絕佳素材：該平台所發行之「音樂著作權料參與請求權」，於2022年遭韓國金融委員會（Financial Services Commission，下稱FSC）定性為投資契約證券，然其後續處置方式，卻與美國SEC同期對NFT案件之取締作法呈現鮮明對比。此一對比之意義，並非單純之比較法趣聞，而係直接關涉台灣虛擬資產服務法上路後，主管機關面對已被定性為證券之音樂NFT分潤商品時，究竟應採何種標準處理程序此一未來必然浮現之政策問題。</p>
+
+<h2><span class="no">貳</span>背景：Musicow的商業模式與定性爭議之緣起</h2>
+
+<p>Musicow之基本商業模式，與上一講所述之「收益型音樂NFT」高度相似，惟其標的並非以區塊鏈代幣形式呈現，而係以平台自行設計之「音樂著作權料參與請求權」為交易單位——此一差異提醒本文，證券定性之判準向來與資產之技術形式無涉，縱使標的並非嚴格意義下之NFT，只要其經濟實質具備收益分潤特徵，仍得落入證券法射程<sup>2</sup>。依現有可查證資料整理，Musicow使投資人得就特定樂曲購入前述請求權，並依持有比例分享該樂曲嗣後實際產生之版稅收入；投資人亦得於平台內建之次級市場轉讓其請求權，此一設計，使該項商品同時具備「初級認購」與「次級流通」二層交易結構。此一商業模式運作若干年後，其法律定性問題終於浮上檯面：究竟投資人購入之標的，僅係一種契約性質之收益分配權，抑或已該當韓國資本市場法所稱之「投資契約證券」，而應受證券募集發行相關規範拘束？</p>
+
+<p>此一提問，與C幕、D幕所處理之「著作權授權是否完整」問題，以及E-1所處理之「收益型代幣是否構成投資契約」問題，屬於同一分析脈絡之延伸——惟Musicow案之特殊價值，在於它並非停留於「應否定性為證券」之抽象辯論，而係已有監理機關就具體個案作成正式定性，且該定性作成後，平台並未因此消失，此一「定性之後怎麼辦」之後續發展，正是美國SEC對Impact Theory一案，或我國STO令釋、虛擬資產服務法之既有討論所尚未充分觸及之面向。<mark>此一觀察意味著，研究音樂NFT之證券定性問題，若僅停留於「是否構成證券」之判斷，而不進一步追問「構成證券之後如何處理」，其論證僅完成一半——後半段之政策選擇，同樣攸關發行人與投資人之實際權益。</mark></p>
+
+<h2><span class="no">參</span>法制說明：韓國FSC之定性邏輯與處置方式</h2>
+
+<p>韓國資本市場與金融投資業法（一般稱資本市場法）就「投資契約證券」設有概括性規定，其判斷邏輯與美國Howey測試之四要件高度相通——聚焦於出資人是否基於對他人經營成果之信賴而期待獲利，而非拘泥於資產之名稱或技術形式；惟本文所能查得之公開資料尚不足以逐字引用其具體條號，此部分本文標示為【待查補】<sup>3</sup>，僅先陳明其判斷邏輯與美國法之親近性，以利與前一講之分析銜接。</p>
+
+<p>依本站已驗證證據庫所載，FSC於2022年4月就Musicow之「音樂著作權料參與請求權」作成定性：認該項商品該當投資契約證券，並命Musicow補正投資人保護措施後，始准予合規化營運<sup>4</sup>。此一定性之作成方式，本身即值得注意——FSC並未因該商品名稱不含「證券」二字，或其交易形式與傳統證券市場迥異，而豁免其證券法分析；此一取向，與美國SEC於《數位資產投資契約分析框架》所揭示之「重實質、輕形式」邏輯<sup>2</sup>，以及我國金管會STO令釋「具證券性質」之判準內核<sup>5</sup>，可謂殊途同歸。惟FSC此一定性之特殊之處，並不在於「定性」本身，而在於「定性之後」——依現有可查證資料，FSC並未要求Musicow立即停止營運或強制買回已發行之請求權，而係要求該平台就投資人保護機制（如資訊揭露、交易安全、風險告知等面向）進行補正，補正完成後，平台得繼續合法營運其既有商業模式。此一處理方式，實質上開創出一條「先定性、後補正、再合規」之政策路徑，有別於單純之「定性即禁止」二分邏輯。</p>
+
+<p>至此，本講已建立理解Musicow案之基本框架：其定性邏輯與美、台兩地既有判準相通，然其後續處置方式，卻展現出監理機關面對「既成事實之市場」時，得選擇之另一種政策工具——此一工具之存在與否，構成肆節評析部分學說對立與比較法對照之核心提問。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e2-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0727a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0727a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0727a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0727a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0727a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-2</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="38" font-weight="900" fill="#F5F8FF">Musicow交易結構：<tspan fill="#4D9FFF">從版稅分潤商品到投資契約證券</tspan></text>
+
+  <rect x="73.6" y="168" width="820" height="84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="98.9" y="203.6" font-size="20.7" font-weight="700" fill="#F5F8FF">① 原著作權人</text>
+  <text x="98.9" y="234.4" font-size="18.3" fill="#8FA1C0">詞曲／錄音著作財產權人授權或讓與收益權予平台</text>
+  <line x1="483.6" y1="252" x2="483.6" y2="284" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0727a)"/>
+
+  <rect x="73.6" y="284" width="820" height="84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="98.9" y="319.6" font-size="20.7" font-weight="700" fill="#F5F8FF">② Musicow平台</text>
+  <text x="98.9" y="350.4" font-size="18.3" fill="#8FA1C0">發行「音樂著作權料參與請求權」——特定樂曲版稅之分潤憑證</text>
+  <line x1="483.6" y1="368" x2="483.6" y2="400" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0727a)"/>
+
+  <rect x="73.6" y="400" width="820" height="84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="98.9" y="435.6" font-size="20.7" font-weight="700" fill="#F5F8FF">③ 投資人</text>
+  <text x="98.9" y="466.4" font-size="18.3" fill="#8FA1C0">公開申購並於平台內建次級市場交易，依比例分享實際版稅</text>
+  <line x1="483.6" y1="484" x2="483.6" y2="516" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0727a)"/>
+
+  <rect x="73.6" y="516" width="820" height="84" rx="10" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="2.3"/>
+  <text x="98.9" y="551.6" font-size="20.7" font-weight="700" fill="#F2A33C">④ FSC證券期貨委員會（2022年4月）</text>
+  <text x="98.9" y="582.4" font-size="18.3" fill="#C7D2E4">依經濟實質定性該請求權該當「投資契約證券」</text>
+  <line x1="483.6" y1="600" x2="483.6" y2="632" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0727a)"/>
+
+  <rect x="73.6" y="632" width="820" height="84" rx="10" fill="rgba(53,192,142,.08)" stroke="#35C08E" stroke-width="2.3"/>
+  <text x="98.9" y="667.6" font-size="20.7" font-weight="700" fill="#35C08E">⑤ 命補正投資人保護措施後</text>
+  <text x="98.9" y="698.4" font-size="18.3" fill="#C7D2E4">准予合規化營運——非強制下架、非全面禁止交易</text>
+
+  <rect x="933.6" y="168" width="464.8" height="254" rx="14" fill="rgba(77,159,255,.07)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="958.9" y="211.52" font-size="22" font-weight="800" fill="#4D9FFF">■ 呼應E-1：與Howey測試對照</text>
+  <text x="958.9" y="254" font-size="19.5" fill="#C7D2E4">FSC定性邏輯與Howey測試</text>
+  <text x="958.9" y="287.44" font-size="19.5" fill="#C7D2E4">第④要件「依賴他人努力」，</text>
+  <text x="958.9" y="320.88" font-size="19.5" fill="#C7D2E4">判準內核高度相通。</text>
+  <text x="958.9" y="364" font-size="18" fill="#7E8CA8">獲利仰賴平台持續經營，</text>
+  <text x="958.9" y="397.44" font-size="18" fill="#7E8CA8">非投資人自身之行動。</text>
+
+  <rect x="933.6" y="446" width="464.8" height="238" rx="14" fill="rgba(53,192,142,.07)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="958.9" y="489.52" font-size="22" font-weight="800" fill="#35C08E">■ 與台灣STO令釋對照</text>
+  <text x="958.9" y="532" font-size="19.5" fill="#C7D2E4">「具證券性質」實質判準，</text>
+  <text x="958.9" y="565.44" font-size="19.5" fill="#C7D2E4">與韓國定性邏輯相通，</text>
+  <text x="958.9" y="598.88" font-size="19.5" fill="#C7D2E4">惟台灣尚無合規化後續案例</text>
+  <text x="958.9" y="632.32" font-size="19.5" fill="#C7D2E4">可資參照。</text>
+
+  <rect x="73.6" y="738" width="1324.8" height="58" rx="12" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="774" font-size="19.5" font-weight="800" fill="#F2A33C" text-anchor="middle">定性並非終局：第⑤格「命補正後准予合規化」，而非強制清算——此即本講核心提問之解答方向</text>
+
+  <rect x="73.6" y="818" width="1324.8" height="110" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="818" width="9.2" height="110" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="862.72" font-size="23" font-weight="900" fill="#F5F8FF">與論文的連結：「被定性為證券」不等於「被判處死刑」——韓國經驗提供的是合規化路徑，而非唯一的取締結局。</text>
+  <text x="110.4" y="900.8" font-size="18" fill="#8FA1C0">下一頁把美國的取締路線與韓國的合規化路線並排比較給你看。</text>
+
+  <text x="73.6" y="952" font-size="17.08" fill="#55668A">依本站已驗證證據庫所載FSC對Musicow之定性整理；官方新聞稿發文字號待查補。作者自製（2026-07-27）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-2</text>
+</svg>
+</figure>
+<div class="script-panel" id="sp-e2-1">
+<div class="lbl">SLIDE E-2 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-27-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>E-1建立了Howey測試與金管會STO令釋這兩把判準；本講轉向一個更具體的問題：一項商品被定性為證券之後，接下來會發生什麼事。</p>
+<p>左側五個方框，由上而下畫出Musicow的交易結構：原著作權人把收益權授權給平台，平台發行「音樂著作權料參與請求權」，投資人申購並在次級市場交易，韓國金融委員會於二〇二二年四月依經濟實質將這項商品定性為投資契約證券，最後一格是全篇的關鍵——FSC命平台補正投資人保護措施後，准予合規化營運，並未強制下架或全面禁止交易。</p>
+<p>右側兩張卡片，分別把這套判準與上一講的Howey測試、以及金管會STO令釋做對照，判準邏輯高度相通，但台灣目前還沒有定性之後怎麼處理的本土案例。</p>
+<p class="transition">承接下一頁，把美國的取締路線與韓國的合規化路線並排比較給你看。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>監理機關就已定性為證券之數位分潤商品，究應採何種後續處置方式，學說與實務上存在兩種可能之政策取向。其一為<b>「取締清算路線」</b>，以美國SEC對Impact Theory一案之處置為代表：此說主張，未經登記之證券發行，本身即屬違法募集，監理機關一旦完成定性，即應要求發行人繳回募得款項並銷毀已發行之代幣，使該項未經核准之證券發行歸於消滅，以此徹底消除市場上之違法狀態，並對其他潛在發行人形成嚇阻效果。此說之優勢在於其執法立場明確、對投資人之即時損害填補直接；其代價則在於，若市場上已存在為數眾多之善意持有人，強制清算可能反而使其陷入「投資標的一夕歸零」之處境，此一結果對投資人保護之實質效果，未必優於任其存續。其二為<b>「補正後合規化路線」</b>，以韓國FSC對Musicow之處置為代表：此說主張，定性為證券僅係監理程序之起點，監理機關應評估發行人是否具備補正投資人保護缺失之能力與意願，若具備，即應要求其於合理期限內完成補正，而非逕行取締；此一路徑之優勢，在於兼顧投資人保護與既有市場秩序之安定，避免因監理介入本身而製造新的市場損害；其代價則在於，補正期間投資人所承受之風險是否確實降低，往往取決於監理機關後續之執行力道，若補正淪為形式，反而可能延長違法狀態之存續。</p>
+
+<p><b>本文以為</b>，此二路德之選擇，實非單純之寬嚴問題，而應繫諸「該項商品是否具備繼續合法化營運之現實可能性」此一個案判斷——Impact Theory之Founder's Keys NFT，其商業模式本身與證券法所欲規範之核心風險（發行人單方承諾、缺乏對應之資訊揭露與監理框架）高度重合，市場規模亦相對有限，取締清算之社會成本較低；相對而言，Musicow所處理者，係已具相當規模、持續運作數年之音樂著作權分潤市場，牽涉為數眾多之既有投資人與著作權人，強制清算之外溢效果顯著，補正後合規化路線之政策合理性因此較高。<mark>「定性不等於死刑」——此一觀察意味著，監理機關面對數位分潤商品之證券定性問題時，其政策工具箱應同時容納取締與合規化二種選項，而非僅有前者，方能因應市場規模與投資人結構各異之個案樣態。</mark>此一區辨，對台灣虛擬資產服務法未來執行時之政策設計，具有直接參考價值。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e2-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0727b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0727b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0727b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0727b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-2・路線對照</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="36.6" font-weight="900" fill="#F5F8FF">兩條路線：<tspan fill="#4D9FFF">取締清算 vs 補正後合規化</tspan></text>
+
+  <rect x="73.6" y="170" width="640" height="560" rx="14" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="2.3"/>
+  <text x="98.9" y="215" font-size="22" font-weight="800" fill="#E5484D">SEC v. Impact Theory, LLC</text>
+  <text x="98.9" y="246" font-size="18" fill="#8FA1C0">美國・取締清算路線</text>
+
+  <text x="98.9" y="300" font-size="18" fill="#7E8CA8">定性機關／日期</text>
+  <text x="98.9" y="330" font-size="19.5" fill="#F5F8FF">SEC・2023年8月28日</text>
+
+  <text x="98.9" y="384" font-size="18" fill="#7E8CA8">定性依據</text>
+  <text x="98.9" y="414" font-size="19.5" fill="#F5F8FF">Howey測試四要件該當</text>
+
+  <text x="98.9" y="468" font-size="18" fill="#7E8CA8">處分方式</text>
+  <text x="98.9" y="498" font-size="19.5" fill="#F5F8FF">認定為未經登記之投資契約</text>
+
+  <rect x="98.9" y="540" width="590" height="160" rx="10" fill="rgba(229,72,77,.10)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="121" y="576" font-size="18" font-weight="700" fill="#E5484D">後續結果與市場狀態</text>
+  <text x="121" y="612" font-size="19.5" fill="#C7D2E4">發行人繳回募得款項並銷毀</text>
+  <text x="121" y="644" font-size="19.5" fill="#C7D2E4">已發行代幣</text>
+  <text x="121" y="676" font-size="19.5" font-weight="700" fill="#E5484D">→ 市場消滅，代幣停止流通</text>
+
+  <rect x="757.4" y="170" width="640" height="560" rx="14" fill="rgba(53,192,142,.06)" stroke="#35C08E" stroke-width="2.3"/>
+  <text x="782.7" y="215" font-size="22" font-weight="800" fill="#35C08E">FSC對Musicow之定性</text>
+  <text x="782.7" y="246" font-size="18" fill="#8FA1C0">韓國・補正後合規化路線</text>
+
+  <text x="782.7" y="300" font-size="18" fill="#7E8CA8">定性機關／日期</text>
+  <text x="782.7" y="330" font-size="19.5" fill="#F5F8FF">FSC・2022年4月</text>
+
+  <text x="782.7" y="384" font-size="18" fill="#7E8CA8">定性依據</text>
+  <text x="782.7" y="414" font-size="19.5" fill="#F5F8FF">音樂著作權料參與請求權</text>
+  <text x="782.7" y="444" font-size="19.5" fill="#F5F8FF">該當投資契約證券</text>
+
+  <text x="782.7" y="498" font-size="18" fill="#7E8CA8">處分方式</text>
+  <text x="782.7" y="528" font-size="19.5" fill="#F5F8FF">命補正投資人保護措施</text>
+
+  <rect x="782.7" y="558" width="590" height="142" rx="10" fill="rgba(53,192,142,.10)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="804.8" y="594" font-size="18" font-weight="700" fill="#35C08E">後續結果與市場狀態</text>
+  <text x="804.8" y="630" font-size="19.5" fill="#C7D2E4">補正完成後准予合規化營運</text>
+  <text x="804.8" y="674" font-size="19.5" font-weight="700" fill="#35C08E">→ 市場存續，平台持續運作</text>
+
+  <rect x="73.6" y="754" width="1324.8" height="174" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="754" width="9.2" height="174" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="798" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：同屬「定性為投資契約證券」，市場命運卻截然不同——關鍵不在定性本身，在監理機關後續選擇之處置工具。</text>
+  <text x="110.4" y="836" font-size="18" fill="#8FA1C0">兩案之樣本數僅為n=2，本文誠實承認樣本有限，惟其對比之政策意義，已足以說明「取締」並非定性後之唯一收場。</text>
+  <text x="110.4" y="874" font-size="18" fill="#8FA1C0">台灣本土音樂NFT尚無被定性為證券後之處理案例，此為現階段風險預警研究之侷限，本文標示待查補。</text>
+
+  <text x="73.6" y="952" font-size="17.08" fill="#55668A">依SEC執法紀錄與本站已驗證證據庫所載FSC定性事實整理；作者自製（2026-07-27）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-2・路線對照</text>
+</svg>
+</figure>
+<div class="script-panel" id="sp-e2-2">
+<div class="lbl">SLIDE E-2・路線對照 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-27-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>結構圖已經畫出Musicow案定性後走向合規化的路徑；這頁把它跟美國的取締案例並排比較。</p>
+<p>左邊紅色卡片是SEC對Impact Theory的處置：二〇二三年八月依Howey測試認定為未經登記之投資契約，後續結果是發行人繳回款項並銷毀代幣，市場直接消滅。右邊綠色卡片是FSC對Musicow的處置：二〇二二年四月定性為投資契約證券，但後續只要求補正投資人保護措施，補完之後平台繼續合法營運，市場並未消滅。</p>
+<p>下方金句框誠實提醒，這只是兩個案例的對比，樣本數很小，但已經足以說明定性之後的收場方式不是只有一種；台灣目前還沒有本土案例可以參照，這塊老實標示待查補。</p>
+<p class="transition">承接下一頁，把美國、韓國、台灣三個法域的處理模式並排放進同一張表。</p>
+</div>
+
+<p>比較法對照方面，美、韓、台三地就數位分潤商品之證券定性，其判準基礎雖高度相通，惟就「定性之後」之標準處理程序，差異甚為顯著。美國模式以個案執法為核心，尚未見有系統性之「補正後合規化」明文機制，發行人若欲於定性後繼續合法營運，須另行踐行完整之證券註冊程序，實務上門檻甚高；韓國模式則展現出監理機關得依個案裁量，選擇「補正命令」此一介於放任與取締之間的中間工具，其法理基礎或可理解為監理機關依法所享有之執法裁量權，於具體個案中兼顧投資人保護與市場秩序安定之政策考量；台灣模式則呈現一種特殊之「空窗」狀態——金管會STO令釋雖已建立「具證券性質」之定性判準，惟就定性後之標準處理流程，尚未見有明文規定，晚近三讀通過之虛擬資產服務法，其重心亦在建構虛擬資產服務提供者之特許制與換照機制<sup>6</sup>，至於已被定性為證券之數位分潤商品應如何處理，仍屬有待銜接之政策課題<sup>7</sup>。<mark>此一比較顯示，台灣現行制度已具備「認定證券」之前段判準，卻相對欠缺「認定之後如何處理」之後段設計——此一後段空白，正是韓國Musicow案對台灣制度建構最直接之啟示所在。</mark></p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e2-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0727c" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0727c" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0727c)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0727c)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-2・比較法</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">三種模式：<tspan fill="#4D9FFF">定性之後，各國怎麼收場</tspan></text>
+
+  <rect x="73.6" y="176.8" width="270.5" height="59.84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="208.85" y="214.88" font-size="18.3" font-weight="800" fill="#8FA1C0" text-anchor="middle">判斷項目</text>
+  <rect x="353.3" y="176.8" width="353.5" height="59.84" rx="10" fill="rgba(229,72,77,.10)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="530.05" y="214.88" font-size="18.91" font-weight="800" fill="#E5484D" text-anchor="middle">美國・SEC取締路線</text>
+  <rect x="716" y="176.8" width="353.5" height="59.84" rx="10" fill="rgba(53,192,142,.10)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="892.75" y="214.88" font-size="18.91" font-weight="800" fill="#35C08E" text-anchor="middle">韓國・FSC合規化路線</text>
+  <rect x="1078.7" y="176.8" width="319.7" height="59.84" rx="10" fill="rgba(242,163,60,.10)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="1238.55" y="214.88" font-size="18.91" font-weight="800" fill="#F2A33C" text-anchor="middle">台灣・STO令釋</text>
+
+  <rect x="73.6" y="247.52" width="1324.8" height="116.96" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="288.32" font-size="17.69" font-weight="700" fill="#F5F8FF">判準基礎</text>
+  <text x="96.6" y="318.24" font-size="17.08" fill="#7E8CA8">依經濟實質或依名稱</text>
+  <text x="364.8" y="293.76" font-size="18.91" fill="#C7D2E4">Howey四要件，經濟實</text>
+  <text x="364.8" y="320.96" font-size="18.91" fill="#C7D2E4">質取向</text>
+  <text x="727.5" y="293.76" font-size="18.91" fill="#C7D2E4">資本市場法，經濟實質</text>
+  <text x="727.5" y="320.96" font-size="18.91" fill="#C7D2E4">取向【條號待查補】</text>
+  <text x="1090.2" y="293.76" font-size="18.91" fill="#C7D2E4">「具證券性質」實質</text>
+  <text x="1090.2" y="320.96" font-size="18.91" fill="#C7D2E4">要件</text>
+
+  <rect x="73.6" y="378.08" width="1324.8" height="127.84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="418.88" font-size="17.69" font-weight="700" fill="#F5F8FF">定性後標準處理</text>
+  <text x="96.6" y="448.8" font-size="17.08" fill="#7E8CA8">有沒有明文的後段機制</text>
+  <text x="364.8" y="418.88" font-size="18.91" fill="#C7D2E4">未見系統性補正機制，</text>
+  <text x="364.8" y="446.08" font-size="18.91" fill="#C7D2E4">須另循完整註冊程序</text>
+  <text x="727.5" y="418.88" font-size="18.91" fill="#C7D2E4">補正命令＋合規化，</text>
+  <text x="727.5" y="446.08" font-size="18.91" fill="#C7D2E4">監理機關享執法裁量</text>
+  <text x="1090.2" y="418.88" font-size="18.91" fill="#C7D2E4">尚無音樂NFT本土執法</text>
+  <text x="1090.2" y="446.08" font-size="18.91" fill="#C7D2E4">先例，後段設計空白</text>
+
+  <rect x="73.6" y="519.52" width="1324.8" height="127.84" rx="10" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="96.6" y="560.32" font-size="17.69" font-weight="700" fill="#E5484D">市場後續狀態</text>
+  <text x="96.6" y="590.24" font-size="17.08" fill="#7E8CA8">存續還是消滅</text>
+  <text x="364.8" y="560.32" font-size="18.91" fill="#C7D2E4">代幣清算銷毀，</text>
+  <text x="364.8" y="587.52" font-size="18.91" fill="#C7D2E4">市場歸零</text>
+  <text x="727.5" y="560.32" font-size="18.91" fill="#C7D2E4">平台持續運作，</text>
+  <text x="727.5" y="587.52" font-size="18.91" fill="#C7D2E4">市場存續</text>
+  <text x="1090.2" y="560.32" font-size="18.91" fill="#C7D2E4">未定，取決於未來</text>
+  <text x="1090.2" y="587.52" font-size="18.91" fill="#C7D2E4">執行政策</text>
+
+  <rect x="73.6" y="660.96" width="1324.8" height="116.96" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="701.76" font-size="17.69" font-weight="700" fill="#F5F8FF">對台灣之啟示</text>
+  <text x="96.6" y="731.68" font-size="17.08" fill="#7E8CA8">可以借鏡什麼</text>
+  <text x="364.8" y="716.32" font-size="18.91" fill="#C7D2E4">投資人保護優先，但市場歸零之代價高</text>
+  <text x="727.5" y="708.16" font-size="18.91" fill="#35C08E">補正後合規化，兼顧</text>
+  <text x="727.5" y="735.36" font-size="18.91" fill="#35C08E">保護與市場安定</text>
+  <text x="1090.2" y="716.32" font-size="18.91" fill="#C7D2E4">前段判準已具備，缺後段流程</text>
+
+  <rect x="73.6" y="798.4" width="1324.8" height="108.8" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="798.4" width="9.2" height="108.8" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="843.68" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：台灣STO令釋有前段判準，卻缺後段流程——韓國經驗補的正是這一塊空白。</text>
+  <text x="110.4" y="881.76" font-size="18" fill="#8FA1C0">虛擬資產服務法如何與STO令釋銜接，本文留待E-3專講深入處理，此處僅先行標示問題所在。</text>
+
+  <text x="73.6" y="952" font-size="17.08" fill="#55668A">依SEC執法紀錄、FSC定性事實與金管會令釋整理；韓國資本市場法具體條號待查補。作者自製（2026-07-27）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-2・比較法</text>
+</svg>
+</figure>
+<div class="script-panel" id="sp-e2-3">
+<div class="lbl">SLIDE E-2・比較法 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-27-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>兩案對比鋪好了取締與合規化兩條路線；這頁把美國、韓國、台灣三個法域並排放進同一張表。</p>
+<p>判準基礎上，三地都採經濟實質取向，差別不大。定性後標準處理這一列才是關鍵：美國沒有系統性的補正機制，發行人得另外走完整的證券註冊程序；韓國有補正命令加合規化這條路，監理機關享有執法裁量；台灣則是空白，還沒有本土執法先例可以參照。市場後續狀態也因此不同：美國歸零、韓國存續、台灣未定。</p>
+<p>最後一列是對台灣的啟示：台灣的STO令釋已經有前段的定性判準，缺的是後段怎麼處理這一塊，這正是韓國經驗最直接能補上的空白。</p>
+<p class="transition">承接下一講，這個前後段銜接的問題，留給E-3虛擬資產服務法納管邊界那一講繼續處理。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>Musicow案證明，「被定性為證券」與「被迫走向清算」並非同一件事——韓國經驗所提供者，係一條容許發行人補正投資人保護缺失後繼續合法營運之路徑，此一路徑對台灣虛擬資產服務法未來執行時之政策設計，具有直接參考價值。</mark>下一講將轉向虛擬資產服務法本身，處理其納管邊界之解釋論問題。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你講Musicow是2022年4月被FSC定性，但正式的新聞稿或處分文件的文號、原文你有讀過嗎？萬一日期或機關名稱記錯了呢？」</span>
+<span class="hint">👉 這題其實在問：你怎麼證明這個日期跟機關名稱是對的，不是你記錯或聽錯的？</span>
+<span class="a">怎麼答：老實說，我目前手上有的是整理過、已經交叉確認的事實摘要——定性機關是韓國金融委員會、時間是2022年4月、結果是命補正後准予合規化，這幾個核心事實我有把握；但正式處分文件的發文字號跟官方公告的原始網址，我還沒有查到可靠的一手來源，這部分我在文中已經明確標示待查補，不會假裝有。這篇的定位是用已確認的核心事實做政策分析，不是逐字解讀處分書，如果口試需要，我可以再去查證韓國金融委員會官網的正式公告。</span></li>
+<li><span class="q">「你拿Impact Theory跟Musicow兩個案子比，一個是美國證券法、一個是韓國資本市場法，法律體系、市場規模、發展階段全部不一樣，這樣硬比不會犯了比較法上見樹不見林的錯誤嗎？」</span>
+<span class="hint">👉 這題其實在問：兩個完全不同國家的案子放在一起比，這樣公平嗎，會不會比錯重點？</span>
+<span class="a">怎麼答：我做的不是逐條法律規定的直接比較，而是「政策工具」的功能性比較——兩地監理機關面對同一種問題（分潤型代幣被認定是證券），各自選擇了不同的處置工具，一個選擇清算、一個選擇補正合規化，我比較的是這兩種工具的邏輯跟後果，不是主張兩套法律體系一模一樣。這種比較法方法在論文裡處理過同樣的問題，比如德國共同著作人制度跟我國著作權法共有規定的比較，都是功能性比較，不是主張條文可以直接互換適用。</span></li>
+<li><span class="q">「Musicow現在到底還有沒有在合法經營？投資人保護措施真的補完了嗎？你這篇文章是不是只看了定性當下那一刻，後面有沒有繼續追蹤？」</span>
+<span class="hint">👉 這題其實在問：你講的是2022年當下的事，那之後呢？你有沒有偷懶沒有追蹤後續？</span>
+<span class="a">怎麼答：這題問得很準，我必須承認這篇文章分析的是「定性當下」這個時間點的政策選擇，也就是FSC選擇補正而非清算這個決定本身，至於補正措施執行的具體成效、平台現在的實際經營狀況，我沒有查證到最新、可靠的一手資料，這塊我標示為待查補，不會憑印象亂寫。我的論證重點是「補正後合規化」這個政策選項存在且被實際採用過，這件事本身不需要靠後續追蹤才成立，但如果要評估這個路線是不是真的有效，確實需要更新的資料，這是我研究的侷限，也是可以繼續深化的方向。</span></li>
+<li><span class="q">「台灣虛擬資產服務法都三讀了，你講韓國經驗有什麼用？金管會不會直接抄自己的新法就好，何必參考韓國？」</span>
+<span class="hint">👉 這題其實在問：台灣已經有新法了，你講韓國案例的意義在哪裡？</span>
+<span class="a">怎麼答：虛擬資產服務法解決的是「虛擬資產服務提供者要不要領照、怎麼受監理」這個平台管理問題，但它沒有解決「一項商品已經被定性為證券之後，接下來的標準處理程序是什麼」這個問題——這兩件事不一樣，我在文中已經指出這是台灣制度目前的後段空白。韓國經驗有用，是因為它示範了一種具體的處理模式：補正命令加合規化，這可以作為台灣未來訂定相關子法或行政指導時的參考範本，不是要台灣照抄，是提供一個「原來還有這個選項」的政策想像。</span></li>
+<li><span class="q">「你自己也說樣本只有兩個案子，這樣就敢說『定性不等於死刑』，會不會太誇張、下的結論太快？」</span>
+<span class="hint">👉 這題其實在問：只有兩個案例就下這麼大的結論，會不會太武斷？</span>
+<span class="a">怎麼答：我在文中有很清楚地標注樣本數是n等於2，這個結論的性質不是「統計上證明取締是少數、合規化是多數」，而是「存在性證明」——只要能舉出一個真實發生、且確實運作中的合規化案例，就足以推翻「定性之後只能走向清算」這個過度簡化的預設，這正是Musicow案的價值所在。至於合規化路線在多數情況下是不是比較好的政策選擇，那是需要更多案例才能回答的問題，我沒有做這個更大的宣稱。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>SEC v. W.J. Howey Co., 328 U.S. 293 (1946)；金管會108年7月3日金管證發字第1080321164號令。詳見本站2026-07-26期刊專題（E-1）。</li>
+<li>U.S. Securities and Exchange Commission, Strategic Hub for Innovation and Financial Technology (FinHub), <i>Framework for "Investment Contract" Analysis of Digital Assets</i> (Apr. 3, 2019), https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets（最後瀏覽日：2026年7月27日）。</li>
+<li>韓國資本市場與金融投資業法（자본시장과 금융투자업에 관한 법률）有關投資契約證券之規定，具體條號本文標示【待查補】。</li>
+<li>韓國金融委員會（FSC）2022年4月對Musicow「音樂著作權料參與請求權」之定性：認屬投資契約證券，命補正投資人保護措施後准予合規化營運。事實整理自本站已驗證證據庫；官方新聞稿發文字號與原始網址，本文標示【待查補】，引用前請逕行核對原文。</li>
+<li>In re Impact Theory, LLC, SEC Securities Act Release No. 33-11226 (Aug. 28, 2023)。</li>
+<li>虛擬資產服務法（2026年6月30日三讀，全文56條），金管會特許制，施行後換照，約2027年上路——具體條號引用前應再核對三讀版本，本文僅引用架構性事實。</li>
+<li>金管會，「金管會對『證券型代幣發行(Security Token Offering, STO)相關規範』之說明」新聞稿，2019年6月27日，https://www.fsc.gov.tw/ch/home.jsp?id=96&amp;parentpath=0,2&amp;mcustomize=news_view.jsp&amp;dataserno=201906270004（最後瀏覽日：2026年7月27日）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-26.html"><span class="dir">← 上一篇</span>Howey測試與收益型音樂NFT：金管會STO令釋如何適用</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-27.html">2026-07-27　Musicow案的啟示：版稅分潤商品的證券定性與合規化路徑（韓國經驗）（E-2）</a></li>
+<li><a href="2026-07-26.html">2026-07-26　Howey測試與收益型音樂NFT：金管會STO令釋如何適用（E-1）</a></li>
+<li><a href="2026-07-25.html">2026-07-25　Miramax v. Tarantino：數十年前的授權契約涵蓋NFT這種新利用嗎（D-5）</a></li>
+<li><a href="2026-07-24.html">2026-07-24　Roc-A-Fella v. Dash：共有著作權與NFT發行的權利來源驗證（D-4）</a></li>
+<li><a href="2026-07-23.html">2026-07-23　著作人格權與自動化改作：智慧合約觸發的格式轉換侵害保持完整權嗎（D-3）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見，亦不評論特定平台之現況經營狀態。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖3為作者依已驗證證據庫、SEC執法紀錄與金管會公開文件整理自製；Musicow定性案之官方文件發文字號與韓國資本市場法具體條號，均標示【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

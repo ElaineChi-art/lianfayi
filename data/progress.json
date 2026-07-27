@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-26",
+ "updated": "2026-07-27",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -163,11 +163,11 @@
    "act": "E",
    "ppt": "E2",
    "title": "Musicow案的啟示：版稅分潤商品的證券定性與合規化路徑（韓國經驗）",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-27",
+   "url": "posts/daily/2026-07-27.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 15,
