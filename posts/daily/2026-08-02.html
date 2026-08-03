@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-08-02｜SCSP的監理定位｜鏈法醫</title>
+<meta name="description" content="智慧合約服務提供者（SCSP）之監理定位，繫諸「客體理論」（合約本身是否構成可控制之財產）與「主體理論」（開發或營運者是否事實上參與、控制、獲利）二說之取捨。Van Loon案認定不可竄改合約非「財產」，同一時期Storm案卻認定開發者本人應負無照資金移轉業務罪責——同一種技術，抓合約抓不到、抓人抓得到。鏈法醫期刊專題，方向三：金融監理。">
+<meta property="og:title" content="期刊專題 2026-08-02｜SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界｜鏈法醫">
+<meta property="og:description" content="客體理論回答「合約能不能被凍結」，主體理論回答「人該不該被課責」——這是兩個不同的問題，不應混為一談。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-08-02</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向三：金融監理（E-5）</div>
+<h1>SCSP（智慧合約服務提供者）的監理定位：<br>純技術工具與資產控制力的分界</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-08-02</span>
+  <span>閱讀約 18 分鐘</span>
+</div>
+
+<p class="dek"><b>智慧合約服務提供者之監理定位，繫諸「客體理論」（合約本身是否構成可控制之財產）與「主體理論」（開發或營運者是否事實上保有控制力）二說之取捨，二者於美國近期實務已生分歧結果。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>想像一個去中心化金融（DeFi）協議：核心的智慧合約寫死在鏈上、沒有人能改；但操作介面的網站，是一家公司架設的，隨時可以關掉或修改。監理機關到底該抓誰，抓「合約」還是抓「人」？這篇要講一組很有意思的對照：美國政府想凍結一個完全沒人能控制的合約，法院說那不算「財產」，凍結不到；但同一時期，開發並經營同一類混幣工具、還從中賺了上千萬美元的人，卻被陪審團認定要為經營無照資金移轉業務負責，判有罪。同一種去中心化技術，抓合約抓不到、抓人抓得到——這正是「智慧合約服務提供者」這個新身分，到底該怎麼定義的核心難題，也是上一講FATF控制者判準必須進一步回答的問題：控制者是誰，要往哪裡找。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>上一講已就音樂NFT自動分潤合約與洗錢防制、資恐防制凍結義務之衝突，提出FATF控制者判準——凡於推出服務時保留一定程度之控制力或足夠影響力者，例如設定參數、持有管理金鑰、收取手續費，即應被認定為負有義務之控制主體<sup>1</sup>。惟此一判準之具體操作，仍遺留一項更根本之問題未決：所謂「控制者」，其法律主體究竟應如何界定？一項去中心化金融（DeFi）協議之技術架構，往往可拆解為至少三個層次：其一為部署於鏈上、原則上不可竄改之核心智慧合約層；其二為供一般使用者操作、通常由特定公司架設且得隨時修改或關閉之前端介面（front-end）層；其三則為經治理代幣持有人集體決議、得對協議參數進行調整之去中心化自治組織（DAO）治理層。此三層次之控制力分布極不均勻——核心合約層可能徹底無人能控制，前端介面層通常仍由可辨識之法律主體營運，DAO治理層之控制力則介於兩者之間，視治理機制之集中程度而定。歐盟《加密資產市場規則》（MiCA）雖已定義「加密資產服務提供者」（Crypto-Asset Service Provider，下稱CASP）一詞，惟其操作性條文究竟及於前述三層次中之何者，並未明文規定；台灣虛擬資產服務法（VASA）之七類虛擬資產服務商（VASP）分類，亦未見「智慧合約服務提供者」（Smart Contract Service Provider，下稱SCSP）之專屬類型<sup>2</sup>。此等問題，構成本講之核心提問——當監理架構鎖定「服務提供者」作為義務主體，而該服務之技術實現本身即高度去中心化時，究竟應以合約之可控制性為判準（下稱「客體理論」），抑或以合約背後之人是否事實上參與、營運、獲利為判準（下稱「主體理論」），劃定SCSP之監理邊界。</p>
+
+<h2><span class="no">貳</span>背景：DeFi協議的三層技術架構與監理難題</h2>
+
+<p>就技術背景而言，一個典型DeFi協議之運作，並非單一整塊之系統，而是由前述三個技術層次拼接而成，此一拼接方式，正是SCSP監理定位問題之技術根源。核心合約層，係以Solidity等程式語言撰寫、部署於以太坊等公鏈上之邏輯本體，其部署後之狀態，依鏈之共識機制而具有高度不可竄改性；部分協議之開發團隊，會在部署完成後刻意放棄合約之管理金鑰、或透過「可信賴設置儀式」永久移除任何後門，此類設計手法，本站上一講已就Tornado Cash之例詳為說明<sup>3</sup>。前端介面層，則是使用者實際造訪、用以組成交易並發送至核心合約之網站或應用程式，此一層次通常由一家可辨識之公司或團隊架設並持續維運，其網域、伺服器、程式碼儲存庫，均屬傳統意義上可被關閉、修改或查扣之標的——換言之，縱使核心合約層徹底去中心化，前端介面層往往仍保有相當程度之集中控制力。DAO治理層，則是部分協議進一步引入之制度設計，將特定參數（如手續費率、白名單資產）之調整權限，交由持有治理代幣之社群成員以鏈上投票方式決定，此一層次之控制力，視投票門檻與代幣分佈之集中程度而異，可能高度集中於少數大額持有人，亦可能確實分散。此三層次之組合方式，決定一項DeFi協議之「可控制性光譜」究竟落於何處，也直接決定監理機關於執法時，究竟應以何者作為「服務提供者」加以定性。此一問題絕非純屬理論：台灣虛擬資產服務法三讀通過之後，政策討論已開始觸及去中心化應用與代理人治理等新興議題，惟目前仍多停留於政策倡議層次，尚未見具體規範文字<sup>4</sup>；此一觀察意味著，SCSP之監理定位問題，雖屬新興議題，卻已具備進入政策議程之現實迫切性。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e5-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0802a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0802a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0802a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0802a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0802a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-5</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="33" font-weight="900" fill="#F5F8FF">SCSP的監理定位：<tspan fill="#4D9FFF">誰才是「服務提供者」</tspan></text>
+
+  <rect x="73.6" y="168" width="820" height="132" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="98.9" y="203.6" font-size="20.7" font-weight="700" fill="#F5F8FF">①核心合約層（on-chain）</text>
+  <text x="98.9" y="234.4" font-size="18.3" fill="#8FA1C0">部署後不可竄改，部分協議永久放棄管理金鑰</text>
+  <text x="98.9" y="262.4" font-size="18.3" fill="#35C08E">控制力：可能徹底無人能控制</text>
+  <line x1="483.6" y1="300" x2="483.6" y2="326" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0802a)"/>
+
+  <rect x="73.6" y="326" width="820" height="132" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="98.9" y="361.6" font-size="20.7" font-weight="700" fill="#F5F8FF">②前端介面層（front-end）</text>
+  <text x="98.9" y="392.4" font-size="18.3" fill="#8FA1C0">網站／App，由可辨識之公司架設維運</text>
+  <text x="98.9" y="420.4" font-size="18.3" fill="#F2A33C">控制力：通常仍集中，可關閉、可修改</text>
+  <line x1="483.6" y1="458" x2="483.6" y2="484" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0802a)"/>
+
+  <rect x="73.6" y="484" width="820" height="132" rx="10" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="2.3"/>
+  <text x="98.9" y="519.6" font-size="20.7" font-weight="700" fill="#F2A33C">③DAO治理層（governance）</text>
+  <text x="98.9" y="550.4" font-size="18.3" fill="#C7D2E4">治理代幣持有人投票調整參數</text>
+  <text x="98.9" y="578.4" font-size="18.3" fill="#C7D2E4">控制力：視代幣集中度而定，介於①②之間</text>
+
+  <rect x="933.6" y="168" width="464.8" height="230" rx="14" fill="rgba(77,159,255,.07)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="958.9" y="211.52" font-size="22" font-weight="800" fill="#4D9FFF">■ 客體理論</text>
+  <text x="958.9" y="250" font-size="19.5" fill="#C7D2E4">問題意識：合約本身是不是</text>
+  <text x="958.9" y="283.44" font-size="19.5" fill="#C7D2E4">一項「財產」，可被凍結？</text>
+  <text x="958.9" y="330" font-size="18" fill="#7E8CA8">回答「能不能凍結」的問題，</text>
+  <text x="958.9" y="363.44" font-size="18" fill="#7E8CA8">見肆段Van Loon案。</text>
+
+  <rect x="933.6" y="416" width="464.8" height="230" rx="14" fill="rgba(53,192,142,.07)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="958.9" y="459.52" font-size="22" font-weight="800" fill="#35C08E">■ 主體理論</text>
+  <text x="958.9" y="498" font-size="19.5" fill="#C7D2E4">問題意識：不論合約可否</text>
+  <text x="958.9" y="531.44" font-size="19.5" fill="#C7D2E4">控制，開發、營運、獲利</text>
+  <text x="958.9" y="564.88" font-size="19.5" fill="#C7D2E4">之人是否該負責？</text>
+  <text x="958.9" y="611" font-size="18" fill="#7E8CA8">回答「該不該課責」的問題，</text>
+  <text x="958.9" y="644.44" font-size="18" fill="#7E8CA8">見肆段Storm案。</text>
+
+  <rect x="73.6" y="668" width="1324.8" height="58" rx="12" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="704" font-size="19.5" font-weight="800" fill="#F2A33C" text-anchor="middle">技術上的三層架構，恰好對應法律上的兩種理論——問題在於，多數執法只鎖定其中一層</text>
+
+  <rect x="73.6" y="746" width="1324.8" height="110" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="746" width="9.2" height="110" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="790.72" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：SCSP不是單一身分，而是三層技術架構疊加兩種理論後的交叉產物。</text>
+  <text x="110.4" y="828.8" font-size="18" fill="#8FA1C0">下一頁把MiCA的CASP定義逐字攤開，看它到底鎖定了哪一層。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依DeFi協議一般技術架構與FATF/MiCA控制判準整理。作者自製（2026-08-02）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-5</text>
+</svg>
+<figcaption><b>圖1｜</b>DeFi協議三層技術架構與客體／主體理論對照（作者自製，參本站2026-07-29期刊專題FATF控制者判準改繪）。本圖亦為口試簡報 E-5 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e5-1">
+<div class="lbl">SLIDE E-5 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-02-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>上一講建立了FATF控制者判準：誰保留管理金鑰、誰收手續費，誰就負凍結義務。這一講往下追問一個更根本的問題：控制者這個人，到底要去哪一層找。左側三個方框，由上而下畫出DeFi協議的三層技術架構。第一層是核心合約層，部署以後不可竄改，部分協議還會刻意永久放棄管理金鑰，控制力可能徹底歸零。第二層是前端介面層，就是使用者實際操作的網站，通常由一家可以辨識的公司架設維運，控制力仍然集中，隨時可以關閉或修改。第三層是DAO治理層，由持有治理代幣的社群投票調整參數，控制力介於前兩層之間，視代幣集中程度而定。</p>
+<p>右側兩張卡片，對應兩種不同的理論路徑。客體理論問的是，合約本身算不算一項可以被凍結的財產；主體理論問的是，不管合約能不能控制，開發、營運、從中獲利的人該不該負責。這是兩個不同的問題，下方金句框提醒讀者，技術上的三層架構剛好對應這兩種理論，但多數執法行動往往只鎖定其中一層，而忽略另一層可能才是真正的癥結。</p>
+<p class="transition">承接下一頁，把歐盟MiCA對「加密資產服務提供者」的定義逐字攤開，看這個定義究竟鎖定了三層架構裡的哪一層。</p>
+</div>
+
+<h2><span class="no">參</span>法制說明：MiCA的CASP定義與「控制」的文字線索</h2>
+
+<p>就國際規範而言，歐盟MiCA已於第3條第1項第15款，就「加密資產服務提供者」提供明文定義：其係指以專業方式，向客戶提供一項或多項加密資產服務為其職業或業務之法人或其他事業體，且依該規則第59條規定獲准提供加密資產服務者<sup>5</sup>。此一定義本身，即已隱含一項重要限制——CASP須為「獲准」提供服務之法人或事業體，若一項協議之核心合約層徹底無人控制、亦無任何法人或事業體對其負「營運」之責，該合約本身在文義上即難以被涵攝入此一定義射程。同條第16款進一步列舉構成「加密資產服務」之十類行為：代客戶保管與管理加密資產；營運加密資產交易平台；以法定貨幣交換加密資產；以其他加密資產交換加密資產；代客戶執行加密資產訂單；加密資產之發行安排；代客戶接收與傳遞加密資產訂單；提供加密資產投資建議；提供加密資產投資組合管理；代客戶提供加密資產移轉服務<sup>5</sup>。同條第17款則就其中「代客戶保管與管理」一項，另設細部定義：指代客戶對加密資產或其存取方式（如私密金鑰）進行安全保管或「控制」（controlling）<sup>5</sup>——此一「控制」用語，恰與上一講FATF指引第九十二段所揭示之控制者判準遙相呼應，顯示歐盟與國際反洗錢組織於此一問題上，實採取相近之解釋工具：法律評價之錨點，係「控制」此一事實狀態，而非合約之技術外觀。
+
+觀之MiCA前言部分，第21段說明前述十類服務可再分為兩大類：第一類涉及交易平台營運、資產交換、保管管理、移轉服務，第二類涉及訂單接收執行、投資建議、投資組合管理；並明文「凡以專業方式提供一項或多項加密資產服務者，均應被視為『加密資產服務提供者』」<sup>5</sup>。第22段則進一步規定：本規則應適用於自然人與法人，及其直接或間接履行、提供或控制之加密資產服務與活動，包括該等活動或服務部分係以去中心化方式履行之情形；惟若加密資產服務係以「完全去中心化、無任何中介者」（fully decentralised without any intermediary）之方式提供，則不應落入本規則之適用範圍<sup>5</sup>。此一段落文字，正是本講核心提問之關鍵切入點——惟其法律位階，僅屬前言（recital），依歐盟立法體例，前言係用以輔助解釋操作性條文（operative articles）之立法意旨，本身並非可獨立援引適用之拘束性規範；本文逐條檢視MiCA第2條（適用範圍）與第3條（定義）之操作性條文本身，均未見任何與「完全去中心化」相對應之明文排除規定或例外條款。此一立法技術上之落差——政策意旨明確寫入前言，操作性條文卻未同步落實——正是本文於肆段所欲深入處理之解釋論爭點。</p>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>就SCSP之監理定位應如何劃定，本文以為，前述客體理論與主體理論之對立，實可進一步具體化為兩種論證路徑。<b>客體理論</b>主張，監理機關課予「服務提供者」義務之邏輯前提，在於該服務提供者對其所提供之服務標的，事實上保有得以排除他人干涉之控制可能性；若一項合約之設計已徹底排除任何人之控制可能性——例如經不可逆之設置儀式移除全部管理金鑰——則該合約在法律意義上已不具備「可被擁有、控制」之財產性質，監理機關對其課予義務或採取凍結、查扣等強制措施，即欠缺適格之對象。此說之優勢，在於其忠實反映「無法履行之義務不應被課予」此一法理原則；其代價則在於，此說僅回答「能否對合約本身採取強制措施」之程序性問題，並未處理「開發、部署、營運該合約之人，是否仍應就其行為負責」此一實體性問題——換言之，客體理論即使成立，亦不當然排除主體理論之適用餘地。<b>主體理論</b>則主張，監理義務之歸屬，應繫諸何人事實上參與該協議之開發、部署、營運與獲利，而非繫諸協議本身之技術可控制性；縱使核心合約層已徹底去中心化、無人能事後修改，若特定自然人明知該工具將被用於特定高風險用途（如洗錢），仍持續開發、維運、宣傳並從中獲利，該人即應就其自身之行為負相應之法律責任，此一責任之成立與合約本身是否可被凍結，係屬二事。<b>本文以為</b>，此二理論並非互斥，而係分別回答不同層次之問題：客體理論回答的是「能不能對合約採取強制措施」，主體理論回答的是「該不該對人課予責任」，二者本應併行不悖、缺一不可——SCSP之完整監理圖像，必須同時處理「物」與「人」兩個面向，僅擇一而論，均將產生規範漏洞。</p>
+
+<p>案例整理方面，美國近期之執法與司法實踐，恰好提供一組客體理論與主體理論分別適用、且結果看似矛盾、實則回答不同問題之對照案例。就客體理論之適用而言，第五巡迴上訴法院於Van Loon案中，認定Tornado Cash之不可竄改智慧合約並非國際緊急經濟權力法所稱之「財產」，理由在於已無任何人能排除他人使用該合約，故該合約不具備可被擁有、凍結之財產性質，美國財政部外國資產管制辦公室（OFAC）對其之制裁指定因而逾越法定授權<sup>6</sup>。然而，就主體理論之適用而言，同一時期，美國聯邦檢察官已對Tornado Cash之共同創辦人Roman Storm與Roman Semenov提起刑事訴追：紐約南區聯邦檢察署於二〇二三年八月二十三日公布起訴書，指控二人共謀洗錢、共謀違反美國制裁規定、共謀經營無照資金移轉業務，起訴書並敘明Tornado Cash協助北韓國家資助之駭客組織洗錢逾數億美元、總計協助洗錢逾十億美元<sup>7</sup>。歷經近兩年之刑事訴訟程序，紐約南區聯邦地方法院陪審團於二〇二五年八月六日，就其中「共謀經營無照資金移轉業務」一項罪名，認定Storm罪名成立——檢方主張並經陪審團採信之事實為：Storm身為Tornado Cash共同創辦人之一，與其他共同創辦人共同創建該工具之核心功能、支付維運該工具所需之關鍵基礎設施費用、對外推廣該工具，並從中獲利逾一千二百萬美元，且明知該工具正被用以移轉大量犯罪所得，仍持續提供該服務<sup>8</sup>。此二案之對照要旨甚明：<mark>Van Loon案處理的是「合約」能不能被凍結，Storm案處理的是「人」該不該被課責——同一項技術、同一類工具，客體理論說凍結不到，主體理論卻說開發者本人要負責，二者其實並不矛盾，只是回答了不同層次的問題。</mark></p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e5-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0802b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0802b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0802b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0802b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-5・數據</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="32" font-weight="900" fill="#F5F8FF">四件美國案例／執法行動：<tspan fill="#4D9FFF">客體理論 vs 主體理論的實戰對照</tspan></text>
+
+  <rect x="73.6" y="171.36" width="1324.8" height="51.68" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="205.36" font-size="19.5" font-weight="700" fill="#F2A33C" text-anchor="middle">資料範圍：2023年8月至2025年8月，美國聯邦執法／司法／監理案例，n=4（均為官方新聞稿或判決一手來源）</text>
+
+  <rect x="73.6" y="239.36" width="1324.8" height="57.12" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1.15"/>
+  <text x="96.6" y="277.44" font-size="20.7" font-weight="800" fill="#4D9FFF">案件／行動</text>
+  <text x="464.6" y="277.44" font-size="20.7" font-weight="800" fill="#4D9FFF">年份</text>
+  <text x="620.6" y="277.44" font-size="20.7" font-weight="800" fill="#4D9FFF">爭點</text>
+  <text x="1016.6" y="277.44" font-size="20.7" font-weight="800" fill="#4D9FFF">結論</text>
+
+  <rect x="73.6" y="307.36" width="1324.8" height="103.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="345.76" font-size="19.5" font-weight="700" fill="#F5F8FF">Van Loon v. Treasury</text>
+  <text x="96.6" y="375.68" font-size="18" fill="#7E8CA8">（5th Cir.）</text>
+  <text x="464.6" y="358.24" font-size="19.5" fill="#C7D2E4">2024</text>
+  <text x="620.6" y="345.76" font-size="19.5" fill="#C7D2E4">不可竄改合約是否為</text>
+  <text x="620.6" y="372.96" font-size="19.5" fill="#C7D2E4">可凍結之「財產」</text>
+  <text x="1016.6" y="345.76" font-size="19.5" font-weight="700" fill="#4D9FFF">客體理論勝出：非財產，</text>
+  <text x="1016.6" y="372.96" font-size="19.5" font-weight="700" fill="#4D9FFF">OFAC凍結逾越授權</text>
+
+  <rect x="73.6" y="422.88" width="1324.8" height="103.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="461.28" font-size="19.5" font-weight="700" fill="#F5F8FF">U.S. v. Storm（起訴）</text>
+  <text x="96.6" y="491.2" font-size="18" fill="#7E8CA8">（S.D.N.Y.）</text>
+  <text x="464.6" y="473.76" font-size="19.5" fill="#C7D2E4">2023</text>
+  <text x="620.6" y="461.28" font-size="19.5" fill="#C7D2E4">開發者是否應就無照</text>
+  <text x="620.6" y="488.48" font-size="19.5" fill="#C7D2E4">資金移轉負共謀責任</text>
+  <text x="1016.6" y="461.28" font-size="19.5" font-weight="700" fill="#F2A33C">起訴書指控洗錢、制裁</text>
+  <text x="1016.6" y="488.48" font-size="19.5" font-weight="700" fill="#F2A33C">違反、無照資金移轉三罪</text>
+
+  <rect x="73.6" y="538.4" width="1324.8" height="103.76" rx="10" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="2.3"/>
+  <text x="96.6" y="576.8" font-size="19.5" font-weight="700" fill="#F5F8FF">U.S. v. Storm（定罪）</text>
+  <text x="96.6" y="606.72" font-size="18" fill="#7E8CA8">（S.D.N.Y.）</text>
+  <text x="464.6" y="589.28" font-size="19.5" fill="#C7D2E4">2025</text>
+  <text x="620.6" y="576.8" font-size="19.5" fill="#C7D2E4">開發者明知獲利是否</text>
+  <text x="620.6" y="604" font-size="19.5" fill="#C7D2E4">構成無照資金移轉業務</text>
+  <text x="1016.6" y="576.8" font-size="19.5" font-weight="700" fill="#E5484D">主體理論勝出：陪審團</text>
+  <text x="1016.6" y="604" font-size="19.5" font-weight="700" fill="#E5484D">認定該項罪名成立</text>
+
+  <rect x="73.6" y="654" width="1324.8" height="103.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="692.4" font-size="19.5" font-weight="700" fill="#F5F8FF">SEC對Uniswap Labs調查</text>
+  <text x="96.6" y="722.32" font-size="18" fill="#7E8CA8">（SEC）</text>
+  <text x="464.6" y="704.88" font-size="19.5" fill="#C7D2E4">2024–25</text>
+  <text x="620.6" y="692.4" font-size="19.5" fill="#C7D2E4">前端公司是否構成未</text>
+  <text x="620.6" y="719.6" font-size="19.5" fill="#C7D2E4">註冊交易所／經紀商</text>
+  <text x="1016.6" y="692.4" font-size="19.5" font-weight="700" fill="#35C08E">Wells Notice後，SEC</text>
+  <text x="1016.6" y="719.6" font-size="19.5" font-weight="700" fill="#35C08E">結案、不採取執法行動</text>
+
+  <rect x="73.6" y="784" width="1324.8" height="81.6" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="784" width="9.2" height="81.6" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="822.08" font-size="20" font-weight="900" fill="#F5F8FF">四案並陳可見：核心合約層難以課責，前端介面層有人負責時才成立，中間地帶則因案而異。</text>
+  <text x="110.4" y="849.28" font-size="18" fill="#8FA1C0">下一頁把美、歐、台三法域的判準工具整理成同一張矩陣。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依DOJ、SEC與法院官方新聞稿／判決整理。作者自製（2026-08-02）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-5・數據</text>
+</svg>
+<figcaption><b>圖2｜</b>四件美國案例／執法行動之案由與結論整理（作者自製，依DOJ／SEC／法院官方新聞稿與判決逐案核對）。本圖亦為口試簡報 E-5 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e5-2">
+<div class="lbl">SLIDE E-5・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-02-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁把三層架構跟兩種理論的對應關係畫出來；這頁把四件真實發生的美國案例整理成同一張表，逐一標出年份、爭點跟結論。第一列是Van Loon訴財政部案，二〇二四年第五巡迴上訴法院判決，爭點是不可竄改的合約算不算可以凍結的財產，結論是客體理論勝出，法院認定不算財產，OFAC的凍結指定逾越法定授權。第二列是美國政府對Storm的起訴，二〇二三年紐約南區聯邦檢察署公布起訴書，指控他共謀洗錢、共謀違反制裁、共謀經營無照資金移轉業務三項罪名。</p>
+<p>第三列是同一案子的定罪結果，二〇二五年八月，陪審團經過四週審理，認定Storm在無照資金移轉業務這項罪名上有罪，這裡是主體理論勝出，開發者本人明知獲利仍持續提供服務，因此要負責。第四列是證券交易委員會對Uniswap Labs的調查，二〇二四年發出Wells Notice，指控它可能構成未註冊的交易所或經紀商，但二〇二五年二月，SEC結案、不採取任何執法行動，這代表前端公司這一層，這次沒有被課責。下方金句框整理，四案並陳可以看出，核心合約層很難課責，前端介面層有明確負責人時才會成立，中間地帶則要看個案。</p>
+<p class="transition">承接下一頁，把美國、歐盟、台灣三個法域處理SCSP問題的判準工具，整理進同一張比較矩陣。</p>
+</div>
+
+<p>比較法對照方面，美國、歐盟與台灣就SCSP此一問題所展現之制度成熟度，差異甚為明顯。美國之路徑，並無成文之SCSP或CASP定義，而係透過個案式之刑事訴追與行政調查，逐案累積客體理論與主體理論之適用邊界——此一路徑之優勢，在於執法機關得依個案事實彈性選擇訴追對象與理論依據；其代價則在於可預測性偏低，市場參與者難以事前確知何種行為模式將觸發何種責任。歐盟之路徑，則透過MiCA提供成文之CASP定義與服務清單，理論上具較高之法律確定性；惟如前段所述，其「完全去中心化、無任何中介者」之排除規定，僅見於不具獨立拘束力之前言，操作性條文本身並未落實此一排除，此一立法技術上之落差，使歐盟看似領先之成文定義，於實際適用時，仍將產生與美國個案式路徑相近之不確定性。台灣之路徑，則呈現更為初階之狀態：VASA之七類VASP分類——交換商、交易平台商、移轉商、保管商、承銷商、借貸商及其他<sup>2</sup>——均係以傳統中心化金融中介之業務型態為原型設計，未見任何一類明文對應前述DeFi協議之三層技術架構，亦未如MiCA一般，於立法過程中至少留下政策意旨之文字痕跡。此一比較顯示，台灣現行制度於SCSP此一問題上，較歐盟更為欠缺解釋工具，此一空白，恐須仰賴主管機關未來訂定授權子法或發布函釋時，正面回應前述三層架構之定性問題，方能填補。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e5-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0802c" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0802c" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0802c)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0802c)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-5・比較</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">三法域比較：<tspan fill="#4D9FFF">誰有成文定義，誰只有個案</tspan></text>
+
+  <rect x="73.6" y="176.8" width="260" height="59.84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="203.6" y="214.88" font-size="20.7" font-weight="800" fill="#8FA1C0" text-anchor="middle">判斷項目</text>
+  <rect x="333.6" y="176.8" width="341.6" height="59.84" rx="10" fill="rgba(229,72,77,.10)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="504.4" y="214.88" font-size="20.7" font-weight="800" fill="#E5484D" text-anchor="middle">美國</text>
+  <rect x="675.2" y="176.8" width="341.6" height="59.84" rx="10" fill="rgba(77,159,255,.10)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="846" y="214.88" font-size="20.7" font-weight="800" fill="#4D9FFF" text-anchor="middle">歐盟（MiCA）</text>
+  <rect x="1016.8" y="176.8" width="382.4" height="59.84" rx="10" fill="rgba(242,163,60,.10)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="1208" y="214.88" font-size="20.7" font-weight="800" fill="#F2A33C" text-anchor="middle">台灣（VASA）</text>
+
+  <rect x="73.6" y="247.52" width="1325.6" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="288.32" font-size="20.7" font-weight="700" fill="#F5F8FF">判準基礎</text>
+  <text x="96.6" y="318.24" font-size="18" fill="#7E8CA8">有無成文定義</text>
+  <text x="356.6" y="293.76" font-size="19.5" fill="#C7D2E4">無成文SCSP定義，</text>
+  <text x="356.6" y="320.96" font-size="19.5" fill="#C7D2E4">個案累積客體／主體理論</text>
+  <text x="698.2" y="293.76" font-size="19.5" fill="#C7D2E4">MiCA§3(1)(15)-(17)</text>
+  <text x="698.2" y="320.96" font-size="19.5" fill="#C7D2E4">成文CASP定義</text>
+  <text x="1039.8" y="293.76" font-size="19.5" font-weight="700" fill="#F2A33C">VASA七類VASP，</text>
+  <text x="1039.8" y="320.96" font-size="19.5" fill="#C7D2E4">未見SCSP對應類型</text>
+
+  <rect x="73.6" y="384.32" width="1325.6" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="425.12" font-size="20.7" font-weight="700" fill="#F5F8FF">去中心化排除</text>
+  <text x="96.6" y="455.04" font-size="18" fill="#7E8CA8">有無操作性條文</text>
+  <text x="356.6" y="430.56" font-size="19.5" fill="#C7D2E4">無明文，僅個案</text>
+  <text x="356.6" y="457.76" font-size="19.5" fill="#C7D2E4">認定客體是否為財產</text>
+  <text x="698.2" y="430.56" font-size="19.5" font-weight="700" fill="#4D9FFF">僅見於Recital 22，</text>
+  <text x="698.2" y="457.76" font-size="19.5" fill="#C7D2E4">操作性條文未落實</text>
+  <text x="1039.8" y="430.56" font-size="19.5" fill="#C7D2E4">完全未觸及，</text>
+  <text x="1039.8" y="457.76" font-size="19.5" fill="#C7D2E4">連前言層級亦無</text>
+
+  <rect x="73.6" y="521.12" width="1325.6" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="561.92" font-size="20.7" font-weight="700" fill="#F5F8FF">代表案例</text>
+  <text x="96.6" y="591.84" font-size="18" fill="#7E8CA8">有無執法先例</text>
+  <text x="356.6" y="567.36" font-size="19.5" fill="#C7D2E4">Van Loon／Storm／</text>
+  <text x="356.6" y="594.56" font-size="19.5" fill="#C7D2E4">Uniswap Labs（見圖2）</text>
+  <text x="698.2" y="567.36" font-size="19.5" fill="#C7D2E4">尚無公開執法案例</text>
+  <text x="1039.8" y="567.36" font-size="19.5" font-weight="700" fill="#F2A33C">VASA未施行，</text>
+  <text x="1039.8" y="594.56" font-size="19.5" fill="#C7D2E4">無本土案例</text>
+
+  <rect x="73.6" y="657.92" width="1325.6" height="122.4" rx="10" fill="rgba(46,107,255,.06)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <text x="96.6" y="698.72" font-size="20.7" font-weight="700" fill="#4D9FFF">對台灣之啟示</text>
+  <text x="96.6" y="728.64" font-size="18" fill="#7E8CA8">可借鏡什麼</text>
+  <text x="356.6" y="704.16" font-size="19.5" fill="#C7D2E4">主體理論之操作</text>
+  <text x="356.6" y="731.36" font-size="19.5" fill="#C7D2E4">方式值得參照</text>
+  <text x="698.2" y="704.16" font-size="19.5" fill="#C7D2E4">成文定義優於個案，</text>
+  <text x="698.2" y="731.36" font-size="19.5" fill="#C7D2E4">惟排除條款須入操作條文</text>
+  <text x="1039.8" y="704.16" font-size="19.5" font-weight="700" fill="#4D9FFF">子法／函釋亟待</text>
+  <text x="1039.8" y="731.36" font-size="19.5" fill="#C7D2E4">正面回應三層架構</text>
+
+  <rect x="73.6" y="798.4" width="1325.6" height="98" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="798.4" width="9.2" height="98" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="836" font-size="20" font-weight="900" fill="#F5F8FF">與論文的連結：台灣連歐盟式「政策意旨」的文字痕跡都沒有——這正是本文欲填補的最前段空白。</text>
+  <text x="110.4" y="866.4" font-size="18" fill="#8FA1C0">資料範圍：美、歐、台三法域，n=3。下一講進入制度設計軸，處理平台單方變更條款之定型化契約審查。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依MiCA條文、DOJ／SEC文件與VASA條文整理。作者自製（2026-08-02）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-5・比較</text>
+</svg>
+<figcaption><b>圖3｜</b>美、歐、台三法域SCSP監理定位比較矩陣（作者自製，依MiCA條文、DOJ／SEC官方文件與VASA條文整理）。本圖亦為口試簡報 E-5 比較幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e5-3">
+<div class="lbl">SLIDE E-5・比較 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-02-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>四個案例整理進表格之後；這頁把美國、歐盟、台灣三個法域的判準工具，攤開放進同一張矩陣裡比較。第一列是判準基礎，美國沒有成文的SCSP定義，靠個案累積客體理論跟主體理論的適用邊界；歐盟有MiCA第三條的成文CASP定義；台灣的虛擬資產服務法雖然有七類VASP分類，但沒有一類明確對應智慧合約服務提供者這種身分。第二列是去中心化排除，這是本講的重點：歐盟雖然在前言第二十二段提到完全去中心化、沒有中介者的服務不適用本規則，但這段文字只在前言、不在操作性條文裡，實際適用時效力有限；台灣則是連這個層級的文字痕跡都沒有。</p>
+<p>第三列是代表案例，美國有前一頁講的三個案例可以參照，歐盟目前還沒有公開的執法案例，台灣因為VASA還沒施行，同樣沒有本土案例，這裡老實標示待查補。最後一列是對台灣的啟示：主體理論的操作方式值得參照，歐盟成文定義的做法也優於美國的個案累積，但排除條款一定要放進操作性條文，不能只停留在前言，這是台灣未來訂定子法時可以借鏡、也可以避免重蹈的教訓。</p>
+<p class="transition">承接下一講，本講建立的客體與主體理論架構，會延伸到下一講平台單方變更服務條款、與code-deference條款的定型化契約雙重審查問題。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>SCSP之監理定位，不應繫諸合約本身是否為可控制之「財產」，而應繫諸何人事實上參與該協議之開發、營運與獲利——客體理論回答的是「合約能不能被凍結」，主體理論回答的才是「人該不該被課責」，此二問題性質不同、不應混為一談，完整之SCSP監理架構，須同時處理「物」與「人」兩個面向。</mark>下一講將轉向制度設計軸，處理平台單方變更服務條款與code-deference（程式碼優先）條款，於定型化契約審查下應如何雙重檢視之問題。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「Van Loon案說合約不是財產、凍結不到；Storm案卻判開發者有罪。這兩個案子講的不是同一件事嗎，結果怎麼會不一樣，你不覺得這很矛盾嗎？」</span>
+<span class="hint">👉 這題其實在問：你舉的兩個案子結果相反，是不是代表你的理論框架有問題？</span>
+<span class="a">怎麼答：表面上看結果相反，但這兩個案子問的其實是完全不同的問題，這正是我這篇文章想強調的重點。Van Loon案問的是「這個合約本身算不算一項財產，政府能不能把它凍結」，法院說不算，因為根本沒有人能控制它；Storm案問的是「開發並經營這個工具、還從中賺錢的這個人，該不該為他自己的行為負責」，陪審團說要負責，因為他明知這個工具被拿去洗錢，還持續提供服務、持續獲利。合約不是財產，跟開發合約的人要不要負責，是兩件完全不同的事情，一個問物，一個問人，兩個答案並不衝突。</span></li>
+<li><span class="q">「SEC最後沒有起訴Uniswap Labs，是不是代表以後只要協議夠去中心化、公司夠低調，前端公司就永遠不會被追究，你這篇文章的警告是不是有點言過其實？」</span>
+<span class="hint">👉 這題其實在問：Uniswap Labs沒事，是不是代表你講的監理風險其實不存在？</span>
+<span class="a">怎麼答：我不認為SEC結案代表監理風險不存在，反而代表這個問題目前高度取決於個案事實跟政策風向，還沒有穩定的規則。Uniswap Labs結案的時間點，剛好是SEC换了新的領導階層、對整個產業採取比較寬鬆態度的時候，這代表的是執法政策的變動，不是法律原則上確定「前端公司永遠不會被追究」。我在文章裡也沒有下這樣的結論，我只是把這個案例當作四個案例之一，呈現「前端介面層有時候會被放過、有時候不會」這個不確定性本身，這正是我認為台灣現在就要開始思考SCSP定位問題的原因，不能等到規則穩定了才開始準備。</span></li>
+<li><span class="q">「MiCA前言第二十二段講的『完全去中心化不適用本規則』，你說這段話沒有法律拘束力，這是你自己讀條文得出的結論，還是有官方文件或學者明確這樣講？」</span>
+<span class="hint">👉 這題其實在問：「前言沒有拘束力」這個講法，是你自己的解讀，還是有人真的這樣認定過？</span>
+<span class="a">怎麼答：老實說，「前言不是拘束性條文、只是解釋輔助」這件事，是歐盟立法的一般體例，屬於法律方法論上的常識，不是我發明的講法。但「MiCA操作性條文完全沒有對應第二十二段的去中心化排除規定」這一點，是我自己逐條檢視MiCA第二條、第三條原文後得出的觀察，我在文章裡也是這樣寫的，沒有引用特定學者或官方文件明確做出「這是個立法漏洞」這樣的結論。這部分屬於我自己的解釋論分析，如果口試委員知道有官方文件或學者已經明確指出這個落差，我很願意進一步查證補充。</span></li>
+<li><span class="q">「照你『主體理論』的邏輯，只要開發者明知工具可能被濫用還繼續開發、還賺錢，就可能要負責——這樣的標準，會不會讓所有寫開源程式碼、又靠打賞或贊助賺錢的開發者，都活在被起訴的陰影底下？」</span>
+<span class="hint">👉 這題其實在問：你這套理論會不會太寬，把單純寫程式的人也一起抓進去？</span>
+<span class="a">怎麼答：這題點出主體理論確實需要更精細的界線，我承認Storm案的事實其實比單純「寫開源程式碼」嚴重很多——他不只是寫程式，還持續維運關鍵基礎設施、對外宣傳、從中獲利超過一千兩百萬美元，而且檢方證明他「明知」大量犯罪所得正在透過這個工具移轉，仍然持續提供服務。這跟一個單純把程式碼放上網、沒有持續維運、沒有從中獲利、也不知道被拿去做什麼的開發者，事實情況差很多。我這篇文章沒有主張「只要寫過相關程式碼就要負責」，我主張的是「明知、持續營運、並從中獲利」這三個要件同時具備時，才適用主體理論，這條界線在我的文章裡確實還可以講得更精確。</span></li>
+<li><span class="q">「你這篇最後說台灣『連歐盟式的政策意旨文字痕跡都沒有』，但VASA才剛三讀通過、子法都還沒訂，你會不會對台灣的立法太嚴苛，時間點根本還沒到？」</span>
+<span class="hint">👉 這題其實在問：法都還沒完全上路，你現在就批評台灣沒做到，會不會太早、太嚴格？</span>
+<span class="a">怎麼答：我同意這個批評有一定道理，VASA確實才剛三讀通過，子法跟函釋都還在制定過程中，現在完全沒有SCSP相關規定，某種程度上是正常的。但我這篇的重點不是苛責立法者「現在」沒做到，而是提醒接下來訂子法的人，歐盟MiCA的經驗顯示，就算在立法過程中寫了政策意旨，如果沒有同步落實到操作性條文，一樣會產生適用上的落差；我希望台灣在訂定授權子法的階段，就能記取這個教訓，把SCSP相關的定性標準直接寫進具有拘束力的條文裡，而不是像歐盟一樣只停留在前言層次。這是往前看的建議，不是往後看的苛責。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>本站2026-07-29期刊專題「自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法」（E-4）；FATF, Updated Guidance for a Risk-Based Approach to Virtual Assets and Virtual Asset Service Providers (Oct. 2021), paras. 67, 92, 116-117。</li>
+<li>虛擬資產服務法第3條第1款；VASP七類（交換商、交易平台商、移轉商、保管商、承銷商、借貸商及其他）詳本站2026-07-28期刊專題「虛擬資產服務法與NFT」（E-3）註釋2；條文轉載自維基文庫，https://zh.wikisource.org/zh-hant/虛擬資產服務法（最後瀏覽日：2026年8月2日），正式條文以立法院公報或全國法規資料庫刊登版本為準。</li>
+<li>本站2026-07-29期刊專題「自動分潤遇上凍結義務」（E-4）；U.S. Department of the Treasury, Office of Foreign Assets Control, Specially Designated Nationals List update, "TORNADO CASH"（2022年8月8日公告）。</li>
+<li>「台灣加密專法通過的下一步？唐鳳、葛如鈞在WebX談AI代理人治理」，Meet創業小聚（政策時事報導，非官方文件，僅供制度討論脈絡參考，非本文法律論證依據）。</li>
+<li>Regulation (EU) 2023/1114 of the European Parliament and of the Council of 31 May 2023 on Markets in Crypto-Assets (MiCA), Article 3(1), points (15)-(17), Recitals (21)-(22), https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng（最後瀏覽日：2026年8月2日，逐條逐字核對）。</li>
+<li>Van Loon v. Department of the Treasury, 122 F.4th 549 (5th Cir. 2024), No. 23-50669（2024年11月26日判決）；詳本站2026-07-29期刊專題（E-4）。</li>
+<li>U.S. Attorney's Office, Southern District of New York, "Tornado Cash Founders Charged With Money Laundering And Sanctions Violations"（press release, Aug. 23, 2023），https://www.justice.gov/usao-sdny/pr/tornado-cash-founders-charged-money-laundering-and-sanctions-violations（最後瀏覽日：2026年8月2日）。</li>
+<li>U.S. Attorney's Office, Southern District of New York, "Founder Of Tornado Cash Crypto Mixing Service Convicted Of Knowingly Transmitting Criminal Proceeds"（press release, Aug. 6, 2025），https://www.justice.gov/usao-sdny/pr/founder-tornado-cash-crypto-mixing-service-convicted-knowingly-transmitting-criminal（最後瀏覽日：2026年8月2日）；Uniswap Labs, "Fighting for DeFi"（blog, Apr. 10, 2024），https://blog.uniswap.org/fighting-for-defi；Uniswap Labs, "A Win for DeFi – SEC Closes Investigation into Uniswap Labs"（blog, Feb. 25, 2025），https://blog.uniswap.org/a-win-for-defi（以上二篇最後瀏覽日：2026年8月2日）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-29.html"><span class="dir">← 上一篇</span>自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-08-02.html">2026-08-02　SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界（E-5）</a></li>
+<li><a href="2026-07-29.html">2026-07-29　自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法（E-4）</a></li>
+<li><a href="2026-07-28.html">2026-07-28　虛擬資產服務法與NFT：納管邊界的解釋論（E-3）</a></li>
+<li><a href="2026-07-27.html">2026-07-27　Musicow案的啟示：版稅分潤商品的證券定性與合規化路徑（韓國經驗）（E-2）</a></li>
+<li><a href="2026-07-26.html">2026-07-26　Howey測試與收益型音樂NFT：金管會STO令釋如何適用（E-1）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見，亦不評論特定平台或個人之進行中訴訟現況。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖3為作者依MiCA條文、DOJ／SEC官方新聞稿與法院判決整理自製；MiCA第3條、前言第21、22段已於2026年8月2日逐字核對EUR-Lex原文；Storm案起訴書與判決之案號【待查補】，本文僅依官方新聞稿所載事實整理，正式案號請以法院公開紀錄為準；歐盟、台灣是否存在SCSP相關執法案例，均標示【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

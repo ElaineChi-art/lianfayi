@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-07-29｜自動分潤遇上凍結義務｜鏈法醫</title>
+<meta name="description" content="音樂NFT自動分潤合約若採無管理金鑰之全自動設計，任何地址皆可觸發撥款；惟洗錢防制與資恐防制法制要求對受制裁對象「不遲延」凍結。程式碼的不可暫停，遇上洗防法的必須可凍結，形成技術與法律的死結——美國Van Loon案已為此留下真實判決。鏈法醫期刊專題，方向三：金融監理。">
+<meta property="og:title" content="期刊專題 2026-07-29｜自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法｜鏈法醫">
+<meta property="og:description" content="凍結義務規範預設存在一個保有控制力的「人」——完全不可控制的合約不是規避監理的巧門，而是把控制力歸屬的爭點提前顯現。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-07-29</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向三：金融監理（E-4）</div>
+<h1>自動分潤遇上凍結義務：<br>不可暫停的程式碼與必須可凍結的洗防法</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-07-29</span>
+  <span>閱讀約 16 分鐘</span>
+</div>
+
+<p class="dek"><b>音樂NFT自動分潤合約若採無管理金鑰之全自動設計，任何地址皆可無條件觸發撥款；惟洗錢防制與資恐防制法制要求對受制裁對象「不遲延」凍結，兩者在技術架構上正面衝突。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>很多音樂NFT把版稅自動分給一堆持有人，用的是一種任何人都能按、卻沒有人能喊停的分帳合約。問題是，洗錢防制與資恐防制法規定，一旦有人被政府列入制裁名單，任何人都不能再把錢匯給他，而且要「立刻」做到。如果這筆錢是靠一個沒有暫停鍵的合約自動撥出去的，法律要凍結的對象到底是誰？這篇要講清楚：程式碼「無法暫停」本來是設計優點，遇到反洗錢法「必須能暫停」的要求，會變成一個死結——美國已經真的打過這場官司，而且政府輸了。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>上一講已處理虛擬資產服務法（下稱VASA）「非同質化代幣」但書之解釋論問題，並指出縱使音樂NFT技術上脫離虛擬資產定義射程，仍可能因經濟實質落入證券交易法或其他金融監理射程<sup>1</sup>。惟縱使前述定性問題已獲解決——音樂NFT之收益分潤機制經確認須受相應監理——隨之而來者，係一項更為根本、且屬執行層次之提問：此一監理義務，在技術上是否真正可能履行？收益型音樂NFT之自動分潤機制，其技術核心在於：版稅收入進入智慧合約後，依預先寫定之股份比例，由程式自動、且原則上不可逆地撥付予各權利持有人，無須任何第三方之介入或核准。此一設計，正是智慧合約相較於傳統版稅代收代付制度之最大優勢——省去中介成本、消弭給付遲延、杜絕人為挪用之風險。然而，洗錢防制與資恐防制法制之核心要求，恰恰與此一設計哲學正面衝突：依資恐防制法第七條，對於經指定制裁之個人、法人或團體，不得為之匯款、轉帳、付款或交付等一切足以變動其財產之行為<sup>2</sup>；依國際反洗錢組織（FATF）二〇二一年更新指引，此一凍結義務更須「不遲延」（without delay）履行<sup>3</sup>。若一項音樂NFT分潤合約之受益人清單中，出現一名嗣後遭列入制裁名單之持有人，該合約是否有能力「不遲延」地將其排除於撥款對象之外？若合約設計上並無任何管理金鑰、任何人皆得對任何受益人觸發撥款，這一項法律義務究竟應由誰履行、又如何履行？此等問題，構成本講之核心提問——不可暫停的程式碼，遇上必須可凍結的洗防法，究竟是技術問題，抑或法律問題，抑或兩者皆是。</p>
+
+<h2><span class="no">貳</span>背景：自動分潤怎麼運作，凍結義務怎麼要求</h2>
+
+<p>就技術背景而言，音樂NFT之「自動分潤」，其實踐方式繁多，惟其中最具代表性者，係借助一類被稱為「支付分割器」（payment splitter）之智慧合約樣板。此類合約之運作邏輯甚為單純：部署時，即將全部收益人（payee）及其對應之分潤股數（shares）寫入合約狀態，此後任何款項匯入合約地址，即依股數比例累計每一受益人之「可領取餘額」；任何人——不限於受益人本身——皆得呼叫合約之撥款函式，促使合約將該筆可領取餘額實際轉出至受益人錢包地址。以開源智慧合約庫OpenZeppelin所提供、廣泛被業界援引之PaymentSplitter合約為例，其核心撥款函式`release(address payable account)`一經呼叫，即依當時累計比例計算應付金額並逕行轉出，合約本身並未內建任何「拒絕撥款予特定地址」「暫停撥款」或「管理員介入」之機制<sup>4</sup>；此一設計之初衷，正是要讓分潤流程徹底去中心化、不受任何單一主體之控制或延宕，藉此降低「平台捲款潛逃」或「分潤遭平台任意扣留」之對手方風險。惟此一技術優勢，恰恰是本講欲檢視之法律困境的技術根源。</p>
+
+<p>另一方面，洗錢防制與資恐防制之規範架構，其核心機制之一即為「目標性金融制裁」（targeted financial sanctions）：主管機關依法將特定個人、法人或團體列為制裁名單並公告後，任何人不得再對其提供金融服務或移轉財產。依我國資恐防制法第四條、第五條，主管機關得依法務部調查局提報或依職權，將涉嫌資恐或經聯合國安全理事會決議指定之個人、法人或團體，指定為制裁名單並公告之<sup>2</sup>；同法第七條進一步規定，對於經指定制裁者，任何人不得為其金融帳戶、通貨或其他支付工具辦理提款、匯款、轉帳、付款、交付或轉讓，此一禁止規定並明文及於「第三人受指定制裁之個人、法人或團體委任、委託、信託或其他原因而為其持有或管理之財物或財產上利益」<sup>2</sup>——換言之，縱使受制裁者本身並未直接持有資產，只要有第三人（含合約或其他持有安排）為其持有或管理財產，該第三人亦負有相同之禁止義務。就虛擬資產服務商而言，VASA第二十條另賦予其對疑似不法或顯屬異常交易之客戶「得予暫停轉入、提取或轉出其資產或暫停全部或部分交易功能」之權限，其認定基準與作業程序，授權由主管機關另定辦法<sup>5</sup>；而依同法第五十五條，既存虛擬資產服務商亦須先完成洗錢防制法第六條第一項所定之洗錢防制登記，方得於過渡期間內繼續營業<sup>6</sup>。此一整套規範架構之共同前提，乃預設存在一個具備「暫停」或「拒絕移轉」能力之義務主體——銀行得凍結帳戶、交易所得暫停出金、平台得拒絕撥款。此一預設，在面對一項「任何人皆得觸發撥款、且無人得以拒絕」之全自動分潤合約時，是否仍然成立，即為本講參、肆兩段所欲深入處理之核心問題。</p>
+
+<h2><span class="no">參</span>法制說明：FATF的控制者判準</h2>
+
+<p>就國際規範而言，FATF二〇二一年十月發布之《虛擬資產與虛擬資產服務提供者風險基礎方法更新指引》，已就此一問題提供兩項關鍵論述工具。其一，關於建議事項六與建議事項七所定之目標性金融制裁義務，該指引第一一六段、第一一七段明文：各國應「不遲延」凍結經指定制裁者之資金或其他資產——包括虛擬資產在內，並確保不再有任何資金或資產被提供予或為其利益而使用<sup>3</sup>；此一「不遲延」之時間要求，本身即與智慧合約撥款之「不可逆、即時執行」特性形成微妙對照——法律要求「立即」阻止，技術特性卻是「一經觸發即無法收回」，兩者其實是同一條時間軸的兩極，卻分屬不同陣營、指向相反之操作目標。其二，關於自動化是否得作為免責事由，該指引第九十二段明確揭示：使用自動化流程（例如智慧合約）執行VASP功能，並不免除相關當事人履行VASP義務之責任，凡於推出服務時保留一定程度之控制力或足夠影響力者——例如設定參數、持有管理金鑰、保留平台存取權限，或收取手續費、實現利潤——即應被認定為負有VASP義務之控制主體<sup>3</sup>；同指引第六十七段則進一步釐清，去中心化應用程式（DApp）本身作為軟體，並非FATF標準所稱之VASP，惟其創建者、所有人或營運者，若對該去中心化安排保有控制或足夠影響力，仍可能構成VASP<sup>3</sup>。此二段論述合觀，形成一項具操作性之判準：<mark>法律評價之對象，並非程式碼本身，而是程式碼背後是否存在一個保有控制力之「人」。</mark></p>
+
+<p>承此一判準，回頭檢視音樂NFT分潤合約之技術光譜，即可發現「控制力」之有無與程度，實際上因合約設計而異，並非鐵板一塊。純粹之PaymentSplitter式合約，一旦部署，其收益人清單、股數比例即寫定於建構子（constructor）而不可再變更，亦無`pause()`或黑名單一類之管理函式<sup>4</sup>；此類合約近似於前述FATF指引所稱「不存在保留控制力之人」之情形。惟現實中多數音樂NFT平台，其分潤合約往往並非如此純粹：平台常保留合約之可升級性、常自行部署並持有能夠新增或移除受益人之管理金鑰、亦常由平台前端介面代為呼叫撥款函式並向持有人收取一定比例之服務費——此等設計特徵，恰恰對應FATF指引第九十二段所列舉之「設定參數」「持有管理金鑰」「收取手續費」等控制力表徵，依前揭判準，此類平台應被認定為VASP或至少為負有等同義務之控制主體，從而須承擔資恐防制法第七條與VASA第二十條所定之凍結、暫停義務。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e4-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0729a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0729a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0729a" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0729a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0729a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-4</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="38" font-weight="900" fill="#F5F8FF">死結浮現：<tspan fill="#4D9FFF">自動分潤 vs 洗防法凍結義務</tspan></text>
+
+  <rect x="73.6" y="185" width="640" height="230" rx="14" fill="#131D2E" stroke="#263B5C" stroke-width="1.725"/>
+  <text x="98.9" y="228" font-size="22" font-weight="800" fill="#F5F8FF">■ 自動分潤機制設計</text>
+  <text x="98.9" y="266" font-size="19.5" fill="#C7D2E4">版稅收入進入合約，依股數自動</text>
+  <text x="98.9" y="298" font-size="19.5" fill="#C7D2E4">計算並撥付每一受益人之金額</text>
+  <text x="98.9" y="330" font-size="19.5" fill="#C7D2E4">任何地址皆可觸發撥款函式，</text>
+  <text x="98.9" y="362" font-size="19.5" fill="#C7D2E4">合約本身未保留任何管理金鑰</text>
+  <text x="98.9" y="400" font-size="20.5" font-weight="700" fill="#35C08E">→ 優點：去中心化、無平台捲款風險</text>
+
+  <rect x="757.6" y="185" width="640" height="230" rx="14" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="2.3"/>
+  <text x="782.9" y="228" font-size="22" font-weight="800" fill="#E5484D">■ 洗防法凍結要件</text>
+  <text x="782.9" y="266" font-size="19.5" fill="#C7D2E4">資恐防制法§7：對制裁名單禁止</text>
+  <text x="782.9" y="298" font-size="19.5" fill="#C7D2E4">匯款、轉帳、付款、交付、轉讓</text>
+  <text x="782.9" y="330" font-size="19.5" fill="#C7D2E4">VASA§20：VASP得暫停異常交易</text>
+  <text x="782.9" y="362" font-size="19.5" fill="#C7D2E4">客戶之資產轉入、提取或轉出</text>
+  <text x="782.9" y="400" font-size="20.5" font-weight="700" fill="#E5484D">→ FATF R.6/R.7：凍結須「不遲延」</text>
+
+  <rect x="73.6" y="450" width="1324.8" height="200" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="98.9" y="490" font-size="21" font-weight="800" fill="#4D9FFF">■ 誰能喊停：兩種情境</text>
+
+  <rect x="98.9" y="512" width="398" height="112" rx="10" fill="#0F1726" stroke="#263B5C"/>
+  <text x="297.9" y="546" font-size="19.5" font-weight="700" fill="#F5F8FF" text-anchor="middle">情境A・保留管理金鑰</text>
+  <text x="297.9" y="576" font-size="18" fill="#8FA1C0" text-anchor="middle">可升級合約／持金鑰／收手續費</text>
+  <text x="297.9" y="605" font-size="19" font-weight="700" fill="#35C08E" text-anchor="middle">✓ 凍結義務可履行</text>
+  <line x1="496.9" y1="568" x2="536.9" y2="568" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0729a)"/>
+
+  <rect x="536.9" y="512" width="398" height="112" rx="10" fill="#0F1726" stroke="#263B5C"/>
+  <text x="735.9" y="546" font-size="19.5" font-weight="700" fill="#F5F8FF" text-anchor="middle">情境B・全自動無金鑰</text>
+  <text x="735.9" y="576" font-size="18" fill="#8FA1C0" text-anchor="middle">任何地址皆可對任何受益人撥款</text>
+  <text x="735.9" y="605" font-size="19" font-weight="700" fill="#E5484D" text-anchor="middle">✕ 凍結義務無人可履行</text>
+  <line x1="934.9" y1="568" x2="974.9" y2="568" stroke="#7E8CA8" stroke-width="2" marker-end="url(#arr0729a)"/>
+
+  <rect x="974.9" y="512" width="398" height="112" rx="10" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="2"/>
+  <text x="1173.9" y="546" font-size="19.5" font-weight="700" fill="#F2A33C" text-anchor="middle">共同結果：死結浮現</text>
+  <text x="1173.9" y="576" font-size="18" fill="#C7D2E4" text-anchor="middle">「不遲延」阻止 vs「不可逆」觸發</text>
+  <text x="1173.9" y="605" font-size="19" font-weight="700" fill="#F5F8FF" text-anchor="middle">→ 見肆段：控制者判準</text>
+
+  <rect x="73.6" y="670" width="1324.8" height="58" rx="12" fill="rgba(242,163,60,.08)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="706" font-size="19.5" font-weight="800" fill="#F2A33C" text-anchor="middle">「不遲延」的法律要求，遇上「不可逆」的技術特性——是同一條時間軸站在兩端的兩種要求</text>
+
+  <rect x="73.6" y="746" width="1324.8" height="110" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="746" width="9.2" height="110" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="790.72" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：凍結義務規範預設存在「控制者」——這正是判斷分潤合約是否合規之關鍵。</text>
+  <text x="110.4" y="828.8" font-size="18" fill="#8FA1C0">下一頁把四種分潤合約架構依可凍結程度排成光譜，並附Van Loon案這個真實比較法座標。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依資恐防制法、VASA、FATF二〇二一指引整理。作者自製（2026-07-29）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-4</text>
+</svg>
+<figcaption><b>圖1｜</b>自動分潤機制與洗防法凍結義務之結構衝突（作者自製，參FATF 2021指引、資恐防制法、VASA條文改繪）。本圖亦為口試簡報 E-4 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e4-1">
+<div class="lbl">SLIDE E-4 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-29-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>前一講處理音樂NFT要不要落入虛擬資產服務法的納管邊界；本講進一步追問，一旦真的落入監理射程，這項義務在技術上是否真的能夠履行。左側方框整理自動分潤合約的設計特徵：版稅進入合約後依股數自動撥款，任何地址皆可觸發，合約本身不保留管理金鑰。右側方框整理洗防法對應的凍結要件：資恐防制法第七條禁止對制裁名單為匯款、轉帳等行為，虛擬資產服務法第二十條賦予平台暫停異常交易的權限，FATF指引更要求凍結須「不遲延」履行。</p>
+<p>下方流程圖把問題攤開成兩種情境：平台若保留管理金鑰，凍結義務尚可履行；若合約徹底去中心化、無人可控，義務便無人能履行，兩者共同指向同一個死結——法律要求的「不遲延」，撞上技術特性的「不可逆」。</p>
+<p class="transition">承接下一頁，下一頁把不同分潤合約架構依可凍結程度排成光譜，並整理Van Loon案這個真實發生過的比較法案例，看死結在現實中曾經如何演出。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>就「不可控制之合約，其凍結義務應如何履行」此一問題，學理上可整理出兩種立場。其一為<b>控制可歸責說</b>：此說主張，凍結義務之履行主體，應以「何人事實上保有控制或足夠影響該合約運作之能力」為斷，凡保有此等能力者，即應被課予凍結義務，縱使該能力並非以傳統中心化管理帳戶之方式呈現，只要能透過升級合約、修改參數或其他任何足以阻止特定撥款之技術手段達成同等效果，即應履行義務；至於完全不具備任何控制手段之合約，其設計本身即構成一種阻卻可歸責性之抗辯，蓋法律不能課予不存在之控制者以其無法履行之義務。其二為<b>技術中立風險說</b>：此說主張，凡涉及具高風險資金流動特性之金融性智慧合約，縱使設計上刻意排除任何控制手段，仍不能因此免除發行人或部署者於部署前納入凍結機制之義務；換言之，「使合約不可控制」本身即是一項可歸責之設計選擇，其效果不應是免責，而應是要求發行人於部署前，即應將凍結能力內建於合約架構之中，作為金融性智慧合約上架之前提要件。本文以為，兩說各有所本，然於現行法之解釋論層次，控制可歸責說較貼近資恐防制法第七條與FATF指引之文義結構——現行凍結義務規範，其設計邏輯本即環繞「誰持有或管理財產」而展開，尚未及於「要求發行人強制內建凍結後門」此一更前置之技術治理層次；惟技術中立風險說所指出之制度縫隙，即完全不可控制之合約若被用於高風險金流，將形成監理死角，仍屬立法論層次亟待正視之議題。</p>
+
+<p>案例整理方面，美國之執法與司法實踐，已就「無控制者之合約應如何凍結」此一問題，留下一組極具參照價值之對照案例。美國財政部外國資產管制辦公室（OFAC）於二〇二二年八月八日，將混幣協議Tornado Cash列入特別指定國民名單，並具體指定該協議部署於以太坊上之多個智慧合約地址<sup>7</sup>——此一措施之特殊性在於，其凍結對象並非某一自然人或法人，而是直接指定一組「地址」本身，等同宣告任何美國人不得再與該等智慧合約地址互動。此一執法方式旋即引發訴訟：原告Van Loon等人訴請確認OFAC逾越其法定授權，第五巡迴上訴法院於二〇二四年十一月二十六日作成判決，認定Tornado Cash之不可竄改智慧合約並非國際緊急經濟權力法所稱之「財產」，理由在於：經過一次「可信賴設置儀式」，任何人均已不可能再更新、移除或以其他方式控制該等程式碼，而「財產」概念之核心特徵之一，即為得排除他人干涉之控制可能性——既無人能「排除」他人使用該合約，該合約即不具備可被擁有之財產性質，從而不能成為得予凍結、阻斷之對象，OFAC之指定因而逾越其法定授權<sup>8</sup>。財政部其後於二〇二五年三月二十一日，正式將Tornado Cash自制裁名單除名<sup>9</sup>。此一案例之要旨甚明：<mark>「財產」之凍結，邏輯上以「存在得被剝奪控制權之主體」為前提；一旦合約之設計已徹底排除任何人之控制可能性，凍結命令便失去其得以附麗之對象，這正是本講所稱不可暫停的程式碼，在真實訴訟中具體呈現的樣貌。</mark></p>
+
+<p>比較法對照方面，歐盟與美國就此一問題所採取之制度路徑，恰可形成有意義之對照。美國之路徑，係由執法機關逕行指定特定合約地址為制裁對象，屬直接凍結標的之強硬手段，惟此一手段之邊界，已因Van Loon案而受到司法審查之限縮——凍結命令仍須有一個在法律意義上得被擁有或控制之對象方能成立。歐盟之路徑則相對迂迴：依二〇二三年通過之加密資產轉帳規則（Regulation (EU) 2023/1113），其前言第十八段明文，該規則之適用不妨礙依歐盟條約第二一五條所定限制性措施，此等措施得要求付款人與收款人之加密資產服務提供者、及中介加密資產服務提供者，對特定資金與加密資產採取適當之凍結行動，或遵循特定移轉限制，並要求相關服務提供者建立內部政策、程序與控制機制，以確保此等限制性措施得以落實<sup>10</sup>——換言之，歐盟並未如美國一般直接指定協議本身，而是將合規負擔前置於服務提供者此一層次，要求有能力控制資金流向者，事前即建立起篩查與凍結機制。此一制度選擇，與前述FATF指引所揭示之控制者判準一脈相承，亦與本文所採之控制可歸責說較為契合。對台灣而言，此一比較顯示：現行資恐防制法第七條與VASA第二十條之凍結機制，其規範預設仍較貼近美國式「指定特定對象後要求配合」之邏輯，尚未如歐盟一般明文要求服務提供者於制度設計層次即內建凍結能力；隨音樂NFT分潤機制日趨自動化、去中心化，此一制度縫隙，恐將隨對應個案之出現而逐漸浮現。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e4-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0729b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0729b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0729b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0729b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-4・光譜</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">四種分潤合約架構：<tspan fill="#4D9FFF">依可凍結程度排成光譜</tspan></text>
+
+  <rect x="73.6" y="171.36" width="1324.8" height="51.68" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="205.36" font-size="20" font-weight="700" fill="#F2A33C" text-anchor="middle">非窮舉分類，架構之間可混合設計——用以呈現「控制力」與「去中心化程度」之間的取捨</text>
+
+  <rect x="73.6" y="239.36" width="1324.8" height="57.12" rx="10" fill="rgba(46,107,255,.14)" stroke="#2E6BFF" stroke-width="1.15"/>
+  <text x="96.6" y="277.44" font-size="19.5" font-weight="800" fill="#4D9FFF">架構類型</text>
+  <text x="464.6" y="277.44" font-size="19.5" font-weight="800" fill="#4D9FFF">控制力來源</text>
+  <text x="740.6" y="277.44" font-size="19.5" font-weight="800" fill="#4D9FFF">去中心化程度</text>
+  <text x="1016.6" y="277.44" font-size="19.5" font-weight="800" fill="#4D9FFF">凍結可行性</text>
+
+  <rect x="73.6" y="307.36" width="1324.8" height="89.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="341.76" font-size="19.5" font-weight="700" fill="#F5F8FF">A．純PaymentSplitter式</text>
+  <text x="96.6" y="371.68" font-size="18" fill="#7E8CA8">全自動分潤合約</text>
+  <text x="464.6" y="341.76" font-size="18.9" fill="#C7D2E4">無（未設管理金鑰、</text>
+  <text x="464.6" y="368.96" font-size="18.9" fill="#C7D2E4">不可升級）</text>
+  <text x="740.6" y="358.24" font-size="18.9" fill="#C7D2E4">高</text>
+  <text x="1016.6" y="358.24" font-size="19" font-weight="700" fill="#E5484D">✕ 無法履行</text>
+
+  <rect x="73.6" y="408" width="1324.8" height="89.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="442.4" font-size="19.5" font-weight="700" fill="#F5F8FF">B．加註Pausable／</text>
+  <text x="96.6" y="472.32" font-size="18" fill="#7E8CA8">Allowlist之分潤合約</text>
+  <text x="464.6" y="442.4" font-size="18.9" fill="#C7D2E4">部署者持有pause／</text>
+  <text x="464.6" y="469.6" font-size="18.9" fill="#C7D2E4">blacklist金鑰</text>
+  <text x="740.6" y="458.88" font-size="18.9" fill="#C7D2E4">中</text>
+  <text x="1016.6" y="458.88" font-size="19" font-weight="700" fill="#35C08E">✓ 可履行（賴部署者觸發）</text>
+
+  <rect x="73.6" y="508.64" width="1324.8" height="89.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="543.04" font-size="19.5" font-weight="700" fill="#F5F8FF">C．平台代管、鏈下分潤</text>
+  <text x="96.6" y="572.96" font-size="18" fill="#7E8CA8">（如anotherblock模式）</text>
+  <text x="464.6" y="543.04" font-size="18.9" fill="#C7D2E4">平台直接持有並</text>
+  <text x="464.6" y="570.24" font-size="18.9" fill="#C7D2E4">撥付資金</text>
+  <text x="740.6" y="559.52" font-size="18.9" fill="#C7D2E4">低</text>
+  <text x="1016.6" y="559.52" font-size="19" font-weight="700" fill="#35C08E">✓ 明確可履行</text>
+
+  <rect x="73.6" y="609.28" width="1324.8" height="89.76" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="643.68" font-size="19.5" font-weight="700" fill="#F5F8FF">D．升級型合約＋</text>
+  <text x="96.6" y="673.6" font-size="18" fill="#7E8CA8">DAO治理</text>
+  <text x="464.6" y="643.68" font-size="18.9" fill="#C7D2E4">治理多簽（視門檻</text>
+  <text x="464.6" y="670.88" font-size="18.9" fill="#C7D2E4">與投票速度而定）</text>
+  <text x="740.6" y="660.16" font-size="18.9" fill="#C7D2E4">中低</text>
+  <text x="1016.6" y="660.16" font-size="19" font-weight="700" fill="#F2A33C">△ 視治理速度而定</text>
+
+  <rect x="73.6" y="709.92" width="1324.8" height="89.76" rx="10" fill="rgba(77,159,255,.08)" stroke="#4D9FFF" stroke-width="2.3"/>
+  <text x="96.6" y="744.32" font-size="19.5" font-weight="700" fill="#4D9FFF">比較法案例：Van Loon</text>
+  <text x="96.6" y="774.24" font-size="18" fill="#7E8CA8">v. Treasury (5th Cir. 2024)</text>
+  <text x="464.6" y="744.32" font-size="18.9" fill="#C7D2E4">OFAC指定Tornado</text>
+  <text x="464.6" y="771.52" font-size="18.9" fill="#C7D2E4">Cash地址（2022-08-08）</text>
+  <text x="740.6" y="744.32" font-size="18.9" fill="#C7D2E4">不可竄改、</text>
+  <text x="740.6" y="771.52" font-size="18.9" fill="#C7D2E4">無人控制</text>
+  <text x="1016.6" y="744.32" font-size="18.3" font-weight="700" fill="#4D9FFF">法院：非「財產」，</text>
+  <text x="1016.6" y="771.52" font-size="18.3" font-weight="700" fill="#4D9FFF">2025-03-21除名</text>
+
+  <rect x="73.6" y="816" width="1324.8" height="81.6" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="816" width="9.2" height="81.6" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="854.08" font-size="21" font-weight="900" fill="#F5F8FF">唯有徹底不可控制的合約，才能援引Van Loon案之法理主張凍結命令欠缺附麗對象。</text>
+  <text x="110.4" y="881.28" font-size="18" fill="#8FA1C0">資料範圍：4種合約架構＋1件比較法案例，n=5；下一頁把技術規格逐一拆解，含真實原始碼引用。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依OpenZeppelin原始碼、Van Loon案與OFAC名單整理。作者自製（2026-07-29）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-4・光譜</text>
+</svg>
+<figcaption><b>圖2｜</b>四種分潤合約架構之可凍結程度光譜，附Van Loon案比較法座標（作者整理）。本圖亦為口試簡報 E-4 光譜幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e4-2">
+<div class="lbl">SLIDE E-4・光譜 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-29-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁畫出了死結的結構；這頁把不同分潤合約架構排成一張光譜表，看控制力來源如何決定凍結可不可行。第一列，純PaymentSplitter式全自動合約，沒有管理金鑰、無法升級，去中心化程度最高，凍結完全無法履行。第二列，加了pausable或allowlist的分潤合約，部署者持有管理金鑰，凍結可以履行，但要依賴部署者主動觸發。第三列，平台代管、鏈下分潤，像本站先前介紹過的anotherblock模式，平台直接持有資金，凍結明確可履行。第四列，升級型合約加DAO治理，凍結可不可行要看治理多簽的投票速度。</p>
+<p>最後一列放的是比較法案例：Van Loon訴財政部案，源自OFAC二〇二二年指定Tornado Cash的智慧合約地址，第五巡迴上訴法院認定這些不可竄改的合約不是「財產」、無人能控制，財政部後來也真的在二〇二五年三月除名。這一列的存在，是要提醒讀者，唯有徹底不可控制的合約，才能援引這個判決的法理主張凍結命令找不到對象，多數平台其實還保留著控制力。</p>
+<p class="transition">承接下一頁，下一頁把鏡頭拉近，逐一拆解PaymentSplitter合約背後六個技術層，包括真實引用的原始碼。</p>
+</div>
+
+<p>綜上，本文以為評析部分之核心命題已可歸納：控制力之有無，係決定凍結義務能否履行之技術樞紐，而非合約是否標榜「去中心化」之修辭。以下一頁進一步將此一命題具體化——以六個技術層逐一拆解自動分潤合約之運作機制，並附真實原始碼引用，作為本講論證之技術基礎。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e4-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgE4a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarE4a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arrE4a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#7E8CA8"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bgE4a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbarE4a)"/>
+  <text x="57.5" y="51.68" font-size="20.13" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-4・技術拆解</text>
+  <rect x="55.2" y="68" width="8.05" height="51.68" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="106.08" font-size="32.94" font-weight="900" fill="#F5F8FF">分潤合約機制拆解：<tspan fill="#4D9FFF">六個技術層，逐一對照凍結義務</tspan></text>
+
+  <rect x="55.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <circle cx="80.5" cy="165.92" r="12.3492" fill="#4D9FFF"/><text x="80.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">1</text>
+  <text x="103.5" y="172.72" font-size="21.35" font-weight="800" fill="#4D9FFF">機制總覽 Overview</text>
+  <rect x="73.6" y="190.4" width="103.5" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="125.35" y="216.24" font-size="16.5" fill="#C7D2E4" text-anchor="middle">版稅入帳</text>
+  <line x1="177.1" y1="210.8" x2="209.3" y2="210.8" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4a)"/>
+  <rect x="211.6" y="190.4" width="103.5" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="263.35" y="216.24" font-size="16.5" fill="#C7D2E4" text-anchor="middle">依shares計算</text>
+  <line x1="315.1" y1="210.8" x2="347.3" y2="210.8" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4a)"/>
+  <rect x="349.6" y="190.4" width="119.6" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="409.4" y="216.24" font-size="16" fill="#C7D2E4" text-anchor="middle">release()撥款</text>
+  <text x="73.6" y="269.28" font-size="17.5" fill="#8FA1C0">↓ 任何人皆可呼叫此函式</text>
+  <rect x="73.6" y="277.44" width="395.6" height="57.12" rx="5" fill="rgba(53,192,142,.1)" stroke="#35C08E"/>
+  <text x="271.4" y="300.56" font-size="16" fill="#35C08E" text-anchor="middle">Address.sendValue(account, payment)</text>
+  <text x="271.4" y="323.68" font-size="16" fill="#35C08E" text-anchor="middle">＋emit PaymentReleased</text>
+  <text x="73.6" y="359.04" font-size="17.5" fill="#7E8CA8">關鍵：合約不記錄呼叫者是誰，也不</text>
+  <text x="73.6" y="380.8" font-size="17.5" fill="#7E8CA8">檢查account是否為受制裁地址。</text>
+
+  <rect x="515.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#F2A33C" stroke-width="1.725"/>
+  <circle cx="540.5" cy="165.92" r="12.3492" fill="#F2A33C"/><text x="540.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">2</text>
+  <text x="563.5" y="172.72" font-size="21.35" font-weight="800" fill="#F2A33C">PaymentSplitter規格逐字</text>
+  <rect x="533.6" y="190.4" width="404.8" height="174.08" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="547.4" y="212.88" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#4D9FFF">function</text>
+  <text x="547.4" y="233.64" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#F5F8FF">  release(address payable a)</text>
+  <text x="547.4" y="254.4" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#F5F8FF">  public virtual {</text>
+  <text x="547.4" y="275.16" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#7E8CA8">    require(_shares[a]&gt;0,...);</text>
+  <text x="547.4" y="295.92" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#7E8CA8">    _released[a]+=payment;</text>
+  <text x="547.4" y="316.68" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#7E8CA8">    Address.sendValue(a,payment);</text>
+  <text x="547.4" y="337.44" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#F5F8FF">  }</text>
+  <text x="547.4" y="356" font-family="ui-monospace,Menlo,monospace" font-size="13.8" fill="#35C08E">// OpenZeppelin v4.9.3，無onlyOwner</text>
+
+  <rect x="975.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <circle cx="1000.5" cy="165.92" r="12.3492" fill="#4D9FFF"/><text x="1000.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">3</text>
+  <text x="1023.5" y="172.72" font-size="21.35" font-weight="800" fill="#4D9FFF">觸發機制：誰能按下按鈕</text>
+  <rect x="993.6" y="190.4" width="404.8" height="78.88" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="1007.4" y="214.88" font-family="ui-monospace,Menlo,monospace" font-size="15.5" fill="#F2A33C">release(payee) // public</text>
+  <text x="1007.4" y="236.64" font-family="ui-monospace,Menlo,monospace" font-size="14" fill="#7E8CA8">// 無 msg.sender 檢查</text>
+  <text x="993.6" y="293.76" font-size="18" font-weight="700" fill="#F5F8FF">任何EOA或合約皆可呼叫</text>
+  <text x="993.6" y="318.24" font-size="17" fill="#8FA1C0">payee可以是任何地址，含制裁名單</text>
+  <text x="993.6" y="345.44" font-size="18" font-weight="700" fill="#F5F8FF">→ 無守門人設計</text>
+  <text x="993.6" y="369.92" font-size="17" fill="#8FA1C0">這正是圖1右側凍結要件撞上的牆</text>
+
+  <rect x="55.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <circle cx="80.5" cy="429.76" r="12.3492" fill="#E5484D"/><text x="80.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">4</text>
+  <text x="103.5" y="436.56" font-size="21.35" font-weight="800" fill="#E5484D">資恐防制法§7・禁止清單</text>
+  <text x="73.6" y="473.28" font-size="18" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">一</tspan>：提款、匯款、轉帳、付款</text>
+  <text x="73.6" y="503.2" font-size="18" fill="#C7D2E4">　　交付或轉讓</text>
+  <text x="73.6" y="533.12" font-size="18" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">二</tspan>：移轉、變更、處分財物</text>
+  <text x="73.6" y="563.04" font-size="18" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">三</tspan>：為其收集或提供財物</text>
+  <rect x="73.6" y="576.64" width="395.6" height="57.12" rx="6" fill="rgba(229,72,77,.08)" stroke="#E5484D"/>
+  <text x="271.4" y="601.12" font-size="15.5" fill="#E5484D" text-anchor="middle" font-weight="700">release()屬「轉讓」——第一款文義</text>
+  <text x="271.4" y="622.88" font-size="15.5" fill="#E5484D" text-anchor="middle" font-weight="700">可涵蓋，惟尚待函釋確認</text>
+
+  <rect x="515.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <circle cx="540.5" cy="429.76" r="12.3492" fill="#E5484D"/><text x="540.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">5</text>
+  <text x="563.5" y="436.56" font-size="21.35" font-weight="800" fill="#E5484D">VASA§20・程序要件</text>
+  <text x="533.6" y="473.28" font-size="18" fill="#C7D2E4">VASP得予暫停轉入、提取、</text>
+  <text x="533.6" y="503.2" font-size="18" fill="#C7D2E4">轉出或暫停交易功能——</text>
+  <text x="533.6" y="533.12" font-size="18" fill="#C7D2E4">前提是先有「VASP」存在</text>
+  <text x="533.6" y="563.04" font-size="18" fill="#C7D2E4">認定基準由主管機關另定辦法</text>
+  <text x="533.6" y="606.56" font-size="17" font-weight="700" fill="#F2A33C">→ 純自動合約若無VASP，</text>
+  <text x="533.6" y="631.04" font-size="17" font-weight="700" fill="#F2A33C">　 §20無主體可資適用。</text>
+
+  <rect x="975.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#35C08E" stroke-width="1.725"/>
+  <circle cx="1000.5" cy="429.76" r="12.3492" fill="#35C08E"/><text x="1000.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">6</text>
+  <text x="1023.5" y="436.56" font-size="21.35" font-weight="800" fill="#35C08E">關鍵概念 Key Concepts</text>
+  <text x="993.6" y="473.28" font-size="17.5" fill="#C7D2E4">・release()無法辨識payee是否受制裁</text>
+  <text x="993.6" y="503.2" font-size="17.5" fill="#C7D2E4">・凍結能力＝合約是否保留否決撥款之點</text>
+  <text x="993.6" y="533.12" font-size="17.5" fill="#C7D2E4">・FATF§92：自動化不免除VASP義務，</text>
+  <text x="993.6" y="558.4" font-size="17.5" fill="#C7D2E4">　惟以「存在控制者」為前提</text>
+  <text x="993.6" y="598.4" font-size="18" font-weight="700" fill="#35C08E">✦ 下一頁：技術鏈六步驟</text>
+  <text x="993.6" y="622.88" font-size="18" font-weight="700" fill="#35C08E">　逐一對照法律要件，做成判斷樹</text>
+
+  <rect x="55.2" y="660.96" width="1361.6" height="95.2" rx="12" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="55.2" y="660.96" width="8.05" height="95.2" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="701.76" font-size="20.5" font-weight="900" fill="#F5F8FF">與論文的連結：技術規格只回答「能不能撥款」，不回答「該不該撥給這個地址」。</text>
+  <text x="80.5" y="734.4" font-size="20" fill="#8FA1C0">六個技術層各自獨立驗證過——下一頁把每一步接回法律要件，做成可操作的判斷樹。</text>
+
+  <text x="55.2" y="952" font-size="17" fill="#55668A">依OpenZeppelin原始碼、資恐防制法§7、VASA§20整理；作者自製（2026-07-29）。</text>
+  <text x="1416.8" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-4</text>
+</svg>
+<figcaption><b>圖3｜</b>六面板技術分解（作者自製）。每一格皆為具體技術內容或逐字原始碼引用，第2、3格引自OpenZeppelin PaymentSplitter.sol v4.9.3。本圖亦為口試簡報 E-4 技術拆解幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e4-3">
+<div class="lbl">SLIDE E-4・技術拆解 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-29-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁畫出四種架構的光譜；本頁把鏡頭拉近，逐一拆解最極端、也最常被援引的PaymentSplitter式合約，六個格子都放具體內容。第一格是機制總覽：版稅入帳、依股數計算、呼叫release()撥款，三步一路往下，關鍵在於合約不記錄呼叫者是誰，也不檢查收款地址是否受制裁。第二格是規格逐字，直接引用OpenZeppelin這套廣泛被業界使用的開源合約原始碼，這不是我編的，是官方倉庫上寫死的內容，沒有onlyOwner這類管理員限定。第三格是觸發機制，任何外部帳戶或合約都能呼叫，收款地址可以是任何人，沒有守門人設計。</p>
+<p>第四、五格回到法律端：第四格是資恐防制法第七條的禁止清單，release()這個動作在文義上可能落入「轉讓」，但目前沒有函釋明確確認；第五格是虛擬資產服務法第二十條，強調這條的前提是先有一個「VASP」存在，純自動合約如果沒有VASP，這一條就沒有主體可以適用。第六格收斂成關鍵概念：凍結能力等於合約是否保留否決撥款的控制點，FATF第九十二段的立場是自動化不免除義務，但仍以存在控制者為前提。</p>
+<p class="transition">承接下一頁，六個技術層都拆開了；下一頁把每一步技術動作逐一接回對應的法律評價，做成一張完整的判斷樹，這是本講整體論證的收束。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>洗錢防制與資恐防制法制所要求之「不遲延凍結」，其規範邏輯預設存在一個保有控制力之義務主體；音樂NFT自動分潤合約若刻意設計為無人可控制，並非規避監理之巧門，而是將控制力歸屬之爭點提前顯現——本文以為，凡保留任何管理金鑰、可升級性或手續費收取之平台，即應被歸類為負有凍結義務之控制主體，唯有真正如Tornado Cash般徹底不可控制之合約，方能以Van Loon案之法理，主張凍結命令欠缺附麗對象。</mark>下一講將轉向SCSP（智慧合約服務提供者）之監理定位問題，處理純技術工具與資產控制力之分界，作為本講控制者判準之進一步展開。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-e4-4').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgE4b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbarE4b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arrE4b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4D9FFF"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bgE4b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbarE4b)"/>
+  <text x="57.5" y="51.68" font-size="20.13" letter-spacing="3" fill="#5F79A6">PART E・方向三：金融監理  ›  SLIDE E-4・判斷樹</text>
+  <rect x="55.2" y="68" width="8.05" height="51.68" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="106.08" font-size="32.94" font-weight="900" fill="#F5F8FF">技術鏈 × 法律要件：<tspan fill="#4D9FFF">五步驟逐格對照</tspan></text>
+
+  <text x="80.5" y="152.32" font-size="21.35" font-weight="800" fill="#4D9FFF">技術執行鏈</text>
+  <text x="805" y="152.32" font-size="21.35" font-weight="800" fill="#E5484D">法律要件檢驗</text>
+
+  <rect x="55.2" y="168.64" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="201.28" font-size="20" font-weight="700" fill="#F5F8FF">① 版稅收入進入分潤合約</text>
+  <text x="75.9" y="228.48" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">receive() 累積合約餘額</text>
+  <text x="75.9" y="255.68" font-size="17" fill="#7E8CA8">尚未涉及特定受益人</text>
+  <line x1="701.5" y1="224.4" x2="775.1" y2="224.4" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4b)"/>
+  <rect x="777.4" y="168.64" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#35C08E"/>
+  <text x="798.1" y="201.28" font-size="20" font-weight="700" fill="#35C08E">✓ 正常金流，無疑義</text>
+  <text x="798.1" y="231.2" font-size="18" fill="#C7D2E4">資金累積階段尚未指定收款對象，</text>
+  <text x="798.1" y="255.68" font-size="18" fill="#C7D2E4">不涉及凍結問題</text>
+
+  <rect x="55.2" y="291.04" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="323.68" font-size="20" font-weight="700" fill="#F5F8FF">② 任何地址呼叫release(payee)</text>
+  <text x="75.9" y="350.88" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">release(address payable payee)</text>
+  <text x="75.9" y="378.08" font-size="17" fill="#7E8CA8">無onlyOwner，無白名單檢查</text>
+  <line x1="701.5" y1="346.8" x2="775.1" y2="346.8" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4b)"/>
+  <rect x="777.4" y="291.04" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#F2A33C"/>
+  <text x="798.1" y="323.68" font-size="20" font-weight="700" fill="#F2A33C">△ 行為人待特定</text>
+  <text x="798.1" y="353.6" font-size="18" fill="#C7D2E4">呼叫者可能是payee本人、也可能</text>
+  <text x="798.1" y="378.08" font-size="18" fill="#C7D2E4">是第三方代為觸發</text>
+
+  <rect x="55.2" y="413.44" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="446.08" font-size="20" font-weight="700" fill="#F5F8FF">③ payee嗣後遭列入制裁名單</text>
+  <text x="75.9" y="473.28" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">// 合約無鏈上黑名單機制</text>
+  <text x="75.9" y="500.48" font-size="17" fill="#7E8CA8">release()仍可正常執行，不受影響</text>
+  <line x1="701.5" y1="469.2" x2="775.1" y2="469.2" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4b)"/>
+  <rect x="777.4" y="413.44" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#E5484D"/>
+  <text x="798.1" y="446.08" font-size="20" font-weight="700" fill="#E5484D">✕ 客觀要件該當</text>
+  <text x="798.1" y="476" font-size="18" fill="#C7D2E4">對制裁名單為「轉讓」——資恐防制</text>
+  <text x="798.1" y="500.48" font-size="18" fill="#C7D2E4">法§7第1款禁止行為之文義射程</text>
+
+  <rect x="55.2" y="535.84" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="568.48" font-size="20" font-weight="700" fill="#F5F8FF">④ 若無人持有pause／黑名單金鑰</text>
+  <text x="75.9" y="595.68" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">// 無admin modifier可用</text>
+  <text x="75.9" y="622.88" font-size="17" fill="#7E8CA8">如Tornado Cash設置儀式後之狀態</text>
+  <line x1="701.5" y1="591.6" x2="775.1" y2="591.6" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4b)"/>
+  <rect x="777.4" y="535.84" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#F2A33C"/>
+  <text x="798.1" y="568.48" font-size="20" font-weight="700" fill="#F2A33C">△ 控制者是否存在，是關鍵</text>
+  <text x="798.1" y="598.4" font-size="18" fill="#C7D2E4">Van Loon案：非「財產」，凍結命令</text>
+  <text x="798.1" y="622.88" font-size="18" fill="#C7D2E4">欠缺附麗對象——惟屬例外而非常態</text>
+
+  <rect x="55.2" y="658.24" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="690.88" font-size="20" font-weight="700" fill="#F5F8FF">⑤ 補救：加入pausable／allowlist</text>
+  <text x="75.9" y="718.08" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">function pause() external onlyOwner</text>
+  <text x="75.9" y="745.28" font-size="17" fill="#7E8CA8">犧牲部分不可竄改性換取可凍結性</text>
+  <line x1="701.5" y1="714" x2="775.1" y2="714" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arrE4b)"/>
+  <rect x="777.4" y="658.24" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#35C08E"/>
+  <text x="798.1" y="690.88" font-size="20" font-weight="700" fill="#35C08E">✓ 合規可行</text>
+  <text x="798.1" y="720.8" font-size="18" fill="#C7D2E4">FATF§92：保留參數設定權者即負</text>
+  <text x="798.1" y="745.28" font-size="18" fill="#C7D2E4">VASP義務——本文建議之設計方向</text>
+
+  <rect x="55.2" y="783.36" width="1361.6" height="95.2" rx="12" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="55.2" y="783.36" width="8.05" height="95.2" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="824.16" font-size="20" font-weight="900" fill="#F5F8FF">與論文的連結：五步驟裡，只有③是明確踩到法律紅線，④是例外，⑤是本文建議的補救路徑。</text>
+  <text x="80.5" y="854.08" font-size="19" fill="#8FA1C0">自動分潤不會因為「程式碼中立」而豁免凍結義務審查——除非真的無人能控制它。</text>
+
+  <text x="55.2" y="952" font-size="17" fill="#55668A">依OpenZeppelin原始碼、資恐防制法§7、Van Loon案要件拆解；作者自製（2026-07-29）。</text>
+  <text x="1416.8" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">E-4・TREE</text>
+</svg>
+<figcaption><b>圖4｜</b>技術執行鏈×法律要件判斷樹（作者自製）。每一步技術動作直接對應法律評價，供口試簡報逐格說明使用。本圖亦為口試簡報 E-4 判斷樹幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-e4-4">
+<div class="lbl">SLIDE E-4・判斷樹 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-07-29-4.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁拆開六個技術層；本頁把每一個技術動作逐一接回對應的法律評價，做成完整的判斷樹，這是本講整體論證的收束。第一步，版稅收入進入合約，法律上無疑義，資金累積階段還沒有指定收款對象。第二步，任何地址呼叫release付款給某個payee，這格標橙色三角形，因為呼叫者可能是payee本人，也可能是第三方代為觸發，行為人待特定。第三步，payee嗣後遭列入制裁名單，合約完全不受影響照樣執行，這裡打叉，因為對制裁名單為轉讓，落入資恐防制法第七條第一款禁止行為的文義射程。</p>
+<p>第四步是最關鍵的分岔：若真的無人持有pause或黑名單金鑰，就像Tornado Cash設置儀式後的狀態，這裡標橙色，因為Van Loon案認定這種合約不是財產、凍結命令找不到對象，但這是例外而不是常態，多數平台不是這樣設計。第五步是補救路徑：加入pausable或allowlist機制，犧牲部分不可竄改性換取可凍結性，這格打勾，FATF第九十二段的立場是保留參數設定權者就該負VASP義務，這正是本文建議的設計方向。</p>
+<p class="transition">承接下一講，本講已把控制者判準講清楚；下一講將轉向智慧合約服務提供者的監理定位問題，處理純技術工具與資產控制力之間的分界。</p>
+</div>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你舉的Van Loon案是美國聯邦法院判的，處理的是混幣工具Tornado Cash的洗錢／資恐風險，跟你講的音樂NFT版稅分潤，資金性質跟風險等級完全不一樣，這樣類比合理嗎？」</span>
+<span class="hint">👉 這題其實在問：你是不是硬拿一個跟音樂完全無關、風險高很多的案子來湊比較法？</span>
+<span class="a">怎麼答：我承認兩者的資金性質差很多，Tornado Cash是用來隱匿資金來源的混幣工具（把很多人的錢混在一起、讓外人看不出誰的錢流向哪裡），音樂NFT分潤合約單純是把版稅照比例分給持有人，風險等級完全不同。但我引用這個案子不是說「音樂NFT跟洗錢工具一樣危險」，而是借用法院講的一個更窄、也更技術性的法理：一個合約如果真的沒有人能控制它，法律上能不能把它當成「財產」去凍結。這個法理跟資金拿去做什麼無關，只跟合約的技術設計有關，所以我認為這部分的類比是站得住的，但我在文中也應該更明確地把「風險等級不同」這件事講清楚。</span></li>
+<li><span class="q">「照你的結論，合約設計得越去中心化、越沒有人能控制，凍結命令就越打不到——這樣的論證，會不會等於教平台怎麼把合約設計成規避洗錢防制的樣子？」</span>
+<span class="hint">👉 這題其實在問：你這篇文章會不會變成教壞人怎麼鑽漏洞？</span>
+<span class="a">怎麼答：不會，因為我在文中明確主張的是「控制可歸責說」，也就是說，只要平台保留任何管理金鑰、可以升級合約，或是從中收取手續費，就應該被認定為負有凍結義務的人，這條路是走不通的。真正能夠主張「沒有人能控制、所以凍結不到」的例外，門檻設得非常高——要像Tornado Cash那樣，經過一個特殊的技術儀式、把所有管理權限都永久移除才算數。我這篇文章的重點其實是提醒現行法有一個縫隙、需要立法補正，不是鼓勵平台去鑽這個縫隙。</span></li>
+<li><span class="q">「資恐防制法第七條是設計來防制恐怖主義融資的，你直接把它套用到一個單純的版稅分潤合約，有沒有函釋或案例真的支持這樣的適用，還是你自己的推論？」</span>
+<span class="hint">👉 這題其實在問：有沒有官方文件明確講過「這條法律真的管得到這種合約」，還是你自己覺得應該管得到？</span>
+<span class="a">怎麼答：老實說，目前確實沒有台灣本土的函釋或案例，明確處理過音樂NFT分潤合約在資恐防制法下的具體適用，這是我這篇文章的解釋論推演，不是既有的函釋見解。我的推論依據是條文文字本身——第七條禁止的「轉讓」，文字上沒有限定只適用於特定類型的交易，而且條文明講也適用於「第三人持有或管理」受制裁者財產的情形，邏輯上應該涵蓋分潤合約的自動撥款行為。但這仍然只是我從文義推出來的看法，不是確定的法律見解，這部分我在文章裡也老實標示待查補。</span></li>
+<li><span class="q">「你自己說『控制可歸責說』跟『技術中立風險說』各有道理，但最後選了控制可歸責說，理由聽起來比較像『現行法剛好比較支持這樣解釋』，不是『這樣解釋比較對』——你是不是其實沒有真正表態？」</span>
+<span class="hint">👉 這題其實在問：你選邊站的理由夠不夠硬，還是只是因為現行法剛好長這樣？</span>
+<span class="a">怎麼答：我確實有一部分理由是基於現行法的文字結構，這屬於解釋論層次的判斷。但我不是只講這一點，我在文章裡同時承認，技術中立風險說指出的問題是真實存在的——完全不可控制的合約如果被拿去做高風險的資金流動，現行法真的管不到，這是需要修法補上的漏洞。所以我的立場其實是分成兩層：解釋現行法的時候採控制可歸責說，但同時呼籲立法應該往技術中立風險說的方向補正，這不是各打五十大板，是把「現在怎麼解釋」跟「以後應該怎麼修」分開講清楚。</span></li>
+<li><span class="q">「Van Loon案二〇二四年底才判、二〇二五年三月才除名，時間很新，會不會之後被最高法院推翻，或是其他巡迴法院有不同看法，你這篇的立論基礎會不會其實很不穩？」</span>
+<span class="hint">👉 這題其實在問：你引用的這個案子夠不夠「定案」，會不會過陣子就被打臉？</span>
+<span class="a">怎麼答：我承認這個判決確實還很新，目前只有第五巡迴上訴法院一個法院的見解，沒有經過美國最高法院確認，未來也可能出現其他巡迴法院持不同看法的情形，這是這篇文章目前無法迴避的侷限。不過財政部後來真的依照這個判決結果把Tornado Cash除名了，代表至少在執行層面已經產生了實際效果，不是紙上談兵的判決。我在文章裡也把判決日期跟除名日期都標得很清楚，讓讀者自己判斷後續發展，這也是為什麼我把它定位成「具參照價值的案例」，而不是講成已經確立的通說。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>本站2026-07-28期刊專題「虛擬資產服務法與NFT：納管邊界的解釋論」（E-3）。</li>
+<li>資恐防制法（法務部主管，最後修正公布日期2018年11月7日）第4條、第5條、第7條；條文核對自法務部全國法規資料庫轉載版本，https://mojlaw.moj.gov.tw/lawcontent.aspx?lsid=FL081466（最後瀏覽日：2026年7月29日），正式條文以法務部公報為準。</li>
+<li>FATF, Updated Guidance for a Risk-Based Approach to Virtual Assets and Virtual Asset Service Providers (Oct. 2021), paras. 67, 92, 116-117。</li>
+<li>OpenZeppelin Contracts, PaymentSplitter.sol, v4.9.3, https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/finance/PaymentSplitter.sol（最後瀏覽日：2026年7月29日）。</li>
+<li>虛擬資產服務法第20條；條文轉載自維基文庫，https://zh.wikisource.org/zh-hant/虛擬資產服務法（最後瀏覽日：2026年7月29日），正式條文以立法院公報或全國法規資料庫刊登版本為準。</li>
+<li>虛擬資產服務法第55條；洗錢防制法第6條第1項（2026年7月28日已核對，詳本站2026-07-28期刊專題；正式條文請以全國法規資料庫為準）。</li>
+<li>U.S. Department of the Treasury, Office of Foreign Assets Control, Specially Designated Nationals List update, "TORNADO CASH"（2022年8月8日公告），https://ofac.treasury.gov/recent-actions/20220808（最後瀏覽日：2026年7月29日）。</li>
+<li>Van Loon v. Department of the Treasury, 122 F.4th 549 (5th Cir. 2024), No. 23-50669（2024年11月26日判決）。</li>
+<li>U.S. Department of the Treasury, Office of Foreign Assets Control, "Tornado Cash Delisting"（2025年3月21日公告），https://ofac.treasury.gov/recent-actions/20250321（最後瀏覽日：2026年7月29日）。</li>
+<li>Regulation (EU) 2023/1113 of the European Parliament and of the Council of 31 May 2023（加密資產轉帳規則）, Recital (18), https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1113（最後瀏覽日：2026年7月29日）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-07-28.html"><span class="dir">← 上一篇</span>虛擬資產服務法與NFT：納管邊界的解釋論</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-07-29.html">2026-07-29　自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法（E-4）</a></li>
+<li><a href="2026-07-28.html">2026-07-28　虛擬資產服務法與NFT：納管邊界的解釋論（E-3）</a></li>
+<li><a href="2026-07-27.html">2026-07-27　Musicow案的啟示：版稅分潤商品的證券定性與合規化路徑（韓國經驗）（E-2）</a></li>
+<li><a href="2026-07-26.html">2026-07-26　Howey測試與收益型音樂NFT：金管會STO令釋如何適用（E-1）</a></li>
+<li><a href="2026-07-25.html">2026-07-25　Miramax v. Tarantino：數十年前的授權契約涵蓋NFT這種新利用嗎（D-5）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見，亦不評論特定平台或個案之現況經營狀態。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖4為作者依資恐防制法、虛擬資產服務法、FATF二〇二一指引與OpenZeppelin公開原始碼整理自製；資恐防制法全文引自法務部全國法規資料庫轉載版本，正式條文請以法務部公報為準；資恐防制法第七條是否確實涵蓋分潤合約撥款行為，尚無本土函釋或案例，標示為【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

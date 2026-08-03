@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27",
+ "updated": "2026-08-02",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -174,33 +174,33 @@
    "act": "E",
    "ppt": "E3",
    "title": "虛擬資產服務法與NFT：納管邊界的解釋論",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-28",
+   "url": "posts/daily/2026-07-28.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 16,
    "act": "E",
    "ppt": "E4",
    "title": "自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-07-29",
+   "url": "posts/daily/2026-07-29.html",
+   "q": 5,
+   "slides": 4
   },
   {
    "id": 17,
    "act": "E",
    "ppt": "E5",
    "title": "SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-08-02",
+   "url": "posts/daily/2026-08-02.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 18,
