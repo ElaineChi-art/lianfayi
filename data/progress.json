@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-02",
+ "updated": "2026-08-04",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -207,11 +207,11 @@
    "act": "F",
    "ppt": "F1",
    "title": "集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-08-04",
+   "url": "posts/daily/2026-08-04.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 19,
