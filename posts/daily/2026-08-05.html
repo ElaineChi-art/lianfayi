@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-08-05｜集管資料庫作為oracle｜鏈法醫</title>
+<meta name="description" content="智慧合約若要在NFT鑄造前自動驗證授權，必須讀取鏈下資料——這正是區塊鏈術語所稱之oracle problem。集管團體依法公示之著作資訊，能否扮演這個oracle角色？本文區分「資源層級把關」與「範圍層級驗證」，並整理三次全球音樂版權資料庫整合失敗史。鏈法醫期刊專題，方向四：集體管理（F-2）。">
+<meta property="og:title" content="期刊專題 2026-08-05｜集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口｜鏈法醫">
+<meta property="og:description" content="oracle能確認「查無登記」，卻無法替代「是否取得這個利用型態授權」的法律判斷。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-08-05</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・方向四：集體管理（F-2）</div>
+<h1>集管資料庫作為權利驗證的oracle：<br>鏈上授權驗證的制度接口</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-08-05</span>
+  <span>閱讀約 17 分鐘</span>
+</div>
+
+<p class="dek"><b>集管團體依法公示之著作資訊，能否作為智慧合約鑄造前之oracle驗證來源？本文主張：此一構想至多完成「資源層級把關」，無法取代「範圍層級」之實體法律判斷，而後者，正是著作權法第37條把守的最後一道關卡。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>智慧合約自己讀不到鏈下的資料，所以區塊鏈世界發明了一種叫「oracle（預言機）」的機制，專門負責把外部資訊送上鏈。有沒有可能讓智慧合約在鑄造NFT之前，自動連去查集管團體（像MÜST）的資料庫，查到「這首歌有登記」就自動放行？答案是：查得到「有沒有登記」，查不到「這個登記有沒有涵蓋NFT鑄造這種用法」——這是兩件完全不同的事。而且歷史上已經有三次想把全世界音樂版權資料整合成一個資料庫的嘗試，全部因為各集管團體不願意互相交底而失敗，跟區塊鏈完全無關。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>F-1已確立：NFT試聽構成著作權法上之公開傳輸，其授權義務歸屬於架設播放機制之平台，惟現行集管費率規程尚未將此一新興利用型態明文納入，形成一處分類空白<sup>1</sup>。本講延續此一問題意識，惟提問層次更進一步：倘若NFT平台欲在鑄造環節，透過智慧合約自動判斷某首曲目是否已取得授權，是否可能直接讀取集管團體之資料庫，由鏈上機制據以自動放行或阻擋鑄造？集管資料庫，能否扮演區塊鏈術語中所稱之「oracle」（預言機）角色——將鏈下之權利歸屬資訊帶上鏈，供智慧合約據以自動執行？倘若答案為肯定，此一技術路徑是否意味著著作權法第37條「約定不明，推定為未授權」之實體判斷，得以被技術化解、事先攔截？倘若答案為否定，問題究竟出在哪一層——是集管資料庫本身之公信力不足以承載此一功能，抑或oracle此一技術機制本身，即存在無法跨越之結構性極限？此等問題，構成本講之核心提問，亦是F軸系列自F-1建立授權盲點之現象觀察後，進一步追問「有無技術解方」之延伸。</p>
+
+<h2><span class="no">貳</span>背景：從oracle problem到集管資料庫的想像</h2>
+
+<p>要回答前述提問，須先釐清一組技術概念。智慧合約就其技術本質而言，係部署於區塊鏈上、依預先寫定之邏輯自動執行之程式；惟此一自動執行能力，存在一項與生俱來之限制：智慧合約僅能讀取、運算鏈上已存在之資料，無從主動觸及鏈下（off-chain）之現實世界資訊。此一限制，源自區塊鏈系統對「確定性」（determinism）之根本要求——全體節點須僅憑鏈上資料，即能對同一筆交易之有效性達成一致結論，倘若允許節點各自向外部世界查詢資料，因外部資料來源、查詢時點之歧異，節點間即可能得出不同結論，破壞共識機制之基礎。</p>
+
+<p>為突破此一限制，「oracle」（預言機）之技術機制應運而生。依以太坊基金會官方開發者文件之定義：oracle係「將鏈下（即儲存於鏈外）之外部資訊，予以取得、驗證並傳輸予運行於區塊鏈上之智慧合約」之應用程式<sup>2</sup>；申言之，oracle之功能，即在智慧合約與現實世界之間，架設一座資訊橋樑，使智慧合約得以其回傳之數值為基礎，觸發對應之鏈上行為。此一技術架構，帶出所謂「oracle problem」（預言機問題）：oracle所注入之資料，其正確性無從由區塊鏈系統本身驗證，智慧合約僅能被動信賴oracle所提供之數值——倘若oracle遭操縱或本身即有誤，智慧合約仍將依錯誤資料執行，而此一「仍須信賴oracle營運者提供正確資訊」之現實，恰恰削弱了區塊鏈標榜之「去信任化」（trustless）特性<sup>2</sup>。<mark>換言之，oracle並未消除「信任」這件事，而是把信任的對象，從法院或公示制度，轉移到oracle營運者身上。</mark></p>
+
+<p>此一技術脈絡，投射至音樂NFT鑄造情境，即產生一項頗具吸引力之制度想像：倘若智慧合約於鑄造NFT前，能透過oracle機制，即時查詢集管團體資料庫，確認擬鑄造之曲目是否已登記於某集管團體之管理範圍內，是否即可讓智慧合約「自動」完成授權查核，而毋須仰賴人工逐案確認？此一想像之制度基礎，並非憑空而來——依我國著作權集體管理團體條例第27條規定，集管團體應將其管理範圍內之著作相關資訊，包括所管理之著作財產權人名冊、管理之著作名稱、著作人、持有著作財產權比例、著作數量或其他足以辨識管理著作之資訊，上網供公眾查閱，並應公眾之申請，於合理範圍內提供相關資訊<sup>3</sup>。此一公示義務，係集管團體依法應履行之法定義務，其資訊來源具相當程度之官方監督色彩——集管團體之設立，須經著作權專責機關許可，其使用報酬率之訂定亦受專責機關備查、審議機制之監督<sup>4</sup>。此一制度特徵，使集管資料庫相較於一般商業資料庫，更具備作為oracle資料來源之表面正當性。惟此一想像是否經得起檢驗，仍須進一步拆解oracle機制之技術要求，並與集管資料庫之實際制度設計逐項對照，方能判斷——此即本講評析部分之核心任務。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-f2-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0805a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0805a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0805a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0805a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART F・方向四：集體管理  ›  SLIDE F-2</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="36" font-weight="900" fill="#F5F8FF">集管資料庫能當oracle嗎？<tspan fill="#4D9FFF">兩層問題要分開看</tspan></text>
+  <text x="103.5" y="167" font-size="18.3" fill="#7E8CA8">F-2：延續F-1的授權盲點觀察，追問有沒有技術解方</text>
+
+  <rect x="73.6" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="98.9" y="234" font-size="23" font-weight="800" fill="#4D9FFF">一般oracle運作</text>
+  <text x="98.9" y="272" font-size="19.5" fill="#C7D2E4">智慧合約讀不到鏈下資料，</text>
+  <text x="98.9" y="302" font-size="19.5" fill="#C7D2E4">oracle取得、驗證並傳輸外部資訊上鏈</text>
+  <text x="98.9" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 合約據此回傳值觸發後續執行</text>
+
+  <rect x="753.4" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="778.7" y="234" font-size="23" font-weight="800" fill="#4D9FFF">集管資料庫作為來源？</text>
+  <text x="778.7" y="272" font-size="19.5" fill="#C7D2E4">CMO條例§27要求集管團體</text>
+  <text x="778.7" y="302" font-size="19.5" fill="#C7D2E4">將管理著作資訊上網供公眾查閱</text>
+  <text x="778.7" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 理論上可作為oracle鏈下資料來源</text>
+
+  <text x="736" y="297" font-size="40" font-weight="700" fill="#4D9FFF" text-anchor="middle">≈</text>
+
+  <rect x="73.6" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="98.9" y="424" font-size="23" font-weight="800" fill="#35C08E">oracle能保證的</text>
+  <text x="98.9" y="462" font-size="19.5" fill="#C7D2E4">資訊由鏈下傳輸至鏈上之技術可行性；</text>
+  <text x="98.9" y="492" font-size="19.5" fill="#C7D2E4">確認「查無登記」此一消極事實</text>
+  <text x="98.9" y="534" font-size="19.5" font-weight="700" fill="#35C08E">→ 資源層級把關（resource-level）</text>
+
+  <rect x="753.4" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="778.7" y="424" font-size="23" font-weight="800" fill="#E5484D">oracle無法保證的</text>
+  <text x="778.7" y="462" font-size="19.5" fill="#C7D2E4">登記範圍是否涵蓋NFT鑄造這個</text>
+  <text x="778.7" y="492" font-size="19.5" fill="#C7D2E4">利用型態；登記資料本身之正確與時效</text>
+  <text x="778.7" y="534" font-size="19.5" font-weight="700" fill="#E5484D">→ 範圍層級驗證（scope-level）</text>
+
+  <rect x="73.6" y="580" width="1324.8" height="60" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="618" font-size="20" font-weight="700" fill="#F2A33C" text-anchor="middle">oracle能傳遞的是「資訊」，不是「法律判斷」——資源層級把關 ≠ 範圍層級驗證</text>
+
+  <rect x="73.6" y="660" width="1324.8" height="140" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="660" width="9.2" height="140" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="706" font-size="22" font-weight="900" fill="#F5F8FF">與論文的連結：oracle能確認「查無登記」，卻無法替代「是否取得這個利用型態授權」的法律判斷。</text>
+  <text x="110.4" y="744" font-size="19.5" fill="#8FA1C0">下一頁把三次全球音樂版權資料庫整合失敗的歷史，與台灣現行公示制度整理成同一張圖。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依ethereum.org開發者文件與著作權集體管理團體條例第27條整理；作者自製（2026-08-05）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">F-2</text>
+</svg>
+<figcaption><b>圖1｜</b>oracle一般運作與集管資料庫類比結構（作者自製，依ethereum.org開發者文件「What is a blockchain oracle?」與著作權集體管理團體條例第27條整理，最後瀏覽日：2026-08-05）。本圖亦為口試簡報 F-2 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-f2-1">
+<div class="lbl">SLIDE F-2 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-05-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>F-1處理了NFT試聽的授權盲點；這一講轉入一個更技術性的問題：集管團體的資料庫，能不能直接被智慧合約拿來當作驗證授權的資料來源，也就是區塊鏈術語裡說的oracle，也就是預言機。左上角這格說明oracle的一般運作：智慧合約自己讀不到鏈下的資料，所以需要oracle幫忙把外部資訊取得、驗證、再送上鏈。右上角是這一講的核心類比：著作權集體管理團體條例第二十七條要求集管團體把管理的著作資訊公示上網，理論上這確實可以當成oracle的鏈下資料來源。</p>
+<p>下半部才是關鍵。左下角是oracle真正能保證的事：技術上把資訊送上鏈沒有問題，也可以確認一首歌完全沒有登記在任何集管團體。右下角是oracle保證不了的事：這首歌的登記範圍，到底有沒有涵蓋NFT鑄造這種用法，還有登記資料本身正不正確、有沒有更新。中間那句判準句是整篇文章的骨架：oracle傳遞的是資訊，不是法律判斷。</p>
+<p class="transition">承接下一頁，把歷史上三次想整合全球音樂版權資料庫的失敗嘗試，跟台灣現行的公示制度，放進同一張圖裡看數字。</p>
+</div>
+
+<h2><span class="no">參</span>法制說明：資料庫公示義務的性質與界限</h2>
+
+<p>著作權集體管理團體條例對於集管資料庫之公示義務，其規範密度較外界想像為低。依第27條規定，集管團體僅負有「上網供公眾查閱」及「應公眾申請提供相關資訊」之義務，條文並未要求集管團體提供結構化、機器可讀之資料格式（如開放API或標準化資料交換格式），亦未就資料更新頻率、正確性擔保設有明文規範。此與同條例第4條就發起人名冊要求「提供電子格式檔案」之規定相較，益顯第27條對外公示義務之技術要求，僅止於「網頁可查閱」層次，尚未及於「系統可介接」層次<sup>3</sup>。此一立法設計，於其立法背景下實屬合理——彼時集管資料庫之預設使用者為「人」（利用人透過瀏覽器逐筆查詢），而非「智慧合約」或其他自動化系統；惟此一制度現實，恰恰構成本講評析部分所欲處理之核心癥結。</p>
+
+<p>再者，集管團體依第27條所公示之資訊，其法律性質為何，亦須先行釐清。此一公示義務，性質上屬對「集管團體自身管理範圍」之事實揭露，其目的在使利用人得以知悉「向何一集管團體洽談授權」，並非著作財產權歸屬之終局認定機制，更非物權法上之登記生效要件——著作財產權之歸屬與變動，依著作權法採創作保護主義，不以登記為生效要件，集管團體之名冊縱有登載，亦僅生「集管團體已受託管理」之事實推定效果，而非權利存否之公示公信力。此一觀察意味著：<mark>即便智慧合約成功透過oracle機制讀取集管資料庫之登載內容，其所取得者，充其量僅為「某曲目登記於某集管團體管理範圍內」此一事實陳述，尚不當然等同於「該集管團體已就NFT鑄造此一特定利用型態，取得完整且有效之授權範圍」。</mark>此一區分，正是本講評析部分申論之核心，亦與著作權法第37條之規範精神一脈相承——利用行為之合法性，仍須回歸具體授權範圍之解釋，不因鏈上機制之介入而有所改變<sup>5</sup>。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-f2-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0805b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0805b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0805b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0805b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART F・方向四：集體管理  ›  SLIDE F-2・數據</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="32" font-weight="900" fill="#F5F8FF">三次全球資料庫整合嘗試：<tspan fill="#4D9FFF">全部因治理而非技術失敗</tspan></text>
+
+  <rect x="73.6" y="168" width="1324.8" height="50" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="199" font-size="18" font-weight="700" fill="#F2A33C" text-anchor="middle">資料範圍：Wikipedia「Music ownership databases」條目整理，n=4案（歷史事件，二手彙整資料，原始新聞稿建議另行查核）</text>
+
+  <rect x="73.6" y="236" width="313.2" height="230" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="230.2" y="266" font-size="19" font-weight="800" fill="#8FA1C0" text-anchor="middle">IMJV</text>
+  <text x="230.2" y="290" font-size="16.5" fill="#7E8CA8" text-anchor="middle">1998–2001</text>
+  <text x="230.2" y="326" font-size="17.5" fill="#C7D2E4" text-anchor="middle">BUMA/STEMRA、PRS、</text>
+  <text x="230.2" y="350" font-size="17.5" fill="#C7D2E4" text-anchor="middle">ASCAP共同發起</text>
+  <text x="230.2" y="386" font-size="18" font-weight="700" fill="#4D9FFF" text-anchor="middle">一度代表全球21%音樂版權</text>
+  <text x="230.2" y="418" font-size="17.5" fill="#E5484D" text-anchor="middle">大型CMO不願釋出資料</text>
+  <text x="230.2" y="442" font-size="17.5" fill="#E5484D" text-anchor="middle">2001年解散</text>
+
+  <rect x="410.8" y="236" width="313.2" height="230" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="567.4" y="266" font-size="19" font-weight="800" fill="#8FA1C0" text-anchor="middle">WIPO國際音樂登記</text>
+  <text x="567.4" y="290" font-size="16.5" fill="#7E8CA8" text-anchor="middle">2011– （IMR）</text>
+  <text x="567.4" y="326" font-size="17.5" fill="#C7D2E4" text-anchor="middle">WIPO主導，Google曾</text>
+  <text x="567.4" y="350" font-size="17.5" fill="#C7D2E4" text-anchor="middle">提供早期資金後退出</text>
+  <text x="567.4" y="386" font-size="18" font-weight="700" fill="#4D9FFF" text-anchor="middle">國際組織主導亦未成功</text>
+  <text x="567.4" y="418" font-size="17.5" fill="#E5484D" text-anchor="middle">唱片公司與出版商內鬥</text>
+  <text x="567.4" y="442" font-size="17.5" fill="#E5484D" text-anchor="middle">未能有效運作</text>
+
+  <rect x="748" y="236" width="313.2" height="230" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="904.6" y="266" font-size="19" font-weight="800" fill="#8FA1C0" text-anchor="middle">GRD</text>
+  <text x="904.6" y="290" font-size="16.5" fill="#7E8CA8" text-anchor="middle">2008–2014</text>
+  <text x="904.6" y="326" font-size="17.5" fill="#C7D2E4" text-anchor="middle">PRS發起，13個CMO＋</text>
+  <text x="904.6" y="350" font-size="17.5" fill="#C7D2E4" text-anchor="middle">80＋組織參與</text>
+  <text x="904.6" y="386" font-size="18" font-weight="700" fill="#E5484D" text-anchor="middle">800萬歐元投資胎死腹中</text>
+  <text x="904.6" y="418" font-size="17.5" fill="#E5484D" text-anchor="middle">部分CMO撤回支持</text>
+  <text x="904.6" y="442" font-size="17.5" fill="#E5484D" text-anchor="middle">2014年終止</text>
+
+  <rect x="1085.2" y="236" width="313.2" height="230" rx="12" fill="rgba(53,192,142,.06)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="1241.8" y="266" font-size="19" font-weight="800" fill="#35C08E" text-anchor="middle">ASCAP/BMI聯合資料庫</text>
+  <text x="1241.8" y="290" font-size="16.5" fill="#7E8CA8" text-anchor="middle">2017– （現行運作中）</text>
+  <text x="1241.8" y="326" font-size="17.5" fill="#C7D2E4" text-anchor="middle">美國兩大表演權協會</text>
+  <text x="1241.8" y="350" font-size="17.5" fill="#C7D2E4" text-anchor="middle">2018年Q1第一階段上線</text>
+  <text x="1241.8" y="386" font-size="18" font-weight="700" fill="#35C08E" text-anchor="middle">涵蓋美國約90%音樂</text>
+  <text x="1241.8" y="418" font-size="17.5" fill="#F2A33C" text-anchor="middle">不含SESAC，僅產業自願</text>
+  <text x="1241.8" y="442" font-size="17.5" fill="#F2A33C" text-anchor="middle">協商，無法定強制力</text>
+
+  <rect x="73.6" y="500" width="1324.8" height="110" rx="12" fill="rgba(77,159,255,.08)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="96.6" y="534" font-size="19" font-weight="800" fill="#4D9FFF">台灣現況：著作權集體管理團體條例第27條</text>
+  <text x="96.6" y="566" font-size="18" fill="#C7D2E4">法定強制公示義務，惟採「上網供公眾查閱」之低度技術形式——</text>
+  <text x="96.6" y="594" font-size="18" fill="#C7D2E4">各集管團體各自公示、各自維運，未強制結構化格式或開放API介接</text>
+
+  <text x="73.6" y="638" font-size="17" fill="#7E8CA8">上列四案例均為公開整理之歷史事件；台灣現行公示制度是否曾嘗試機器可讀化，標示【待查補】。</text>
+
+  <rect x="73.6" y="660" width="1324.8" height="120" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="660" width="9.2" height="120" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="702" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：技術從來不是這場未竟事業的瓶頸，制度誘因與治理結構，才是。</text>
+  <text x="110.4" y="738" font-size="18" fill="#8FA1C0">資料範圍：n=4歷史案例（二手彙整）＋台灣現行條文。下一頁把oracle機制拆成六個技術面板逐格檢視。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依Wikipedia「Music ownership databases」條目與著作權集體管理團體條例第27條整理；作者自製（2026-08-05）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">F-2・數據</text>
+</svg>
+<figcaption><b>圖2｜</b>三次全球音樂版權資料庫整合嘗試與台灣現況對照（作者整理，依Wikipedia「Music ownership databases」條目與著作權集體管理團體條例第27條，最後瀏覽日：2026-08-05）。本圖亦為口試簡報 F-2 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-f2-2">
+<div class="lbl">SLIDE F-2・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-05-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>上一頁把oracle的能與不能講清楚；這一頁用四個真實的歷史案例，說明就算不牽涉區塊鏈，整合全球音樂版權資料庫這件事，本身就一直失敗。第一個是一九九八到二〇〇一年的IMJV，由荷蘭、英國、美國三家表演權協會發起，一度代表全球百分之二十一的音樂版權，但因為大型集管團體不願意釋出資料而解散。第二個是二〇一一年由WIPO主導的國際音樂登記，Google一開始有資助，後來退出，最後因為唱片公司跟出版商的內鬥而沒有成功運作。第三個是二〇〇八到二〇一四年的GRD，十三個集管團體、超過八十個組織參與，結果因為部分集管團體臨時撤回支持，八百萬歐元的投資直接告吹。</p>
+<p>唯一還在運作的是二〇一七年ASCAP跟BMI合建的聯合資料庫，涵蓋美國大約九成的音樂，但不包含另一家集管團體SESAC，而且完全是產業自願協商，沒有法律強制力。下方藍色框是台灣現況：著作權集體管理團體條例第二十七條雖然是法定強制的公示義務，但只要求上網供公眾查閱，沒有要求結構化格式或開放API。</p>
+<p class="transition">承接下一頁，把oracle這個機制本身拆成六個技術面板，包括規格原文逐字引用跟法條逐字引用，逐格檢視。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>對於集管資料庫能否作為智慧合約鑄造前之oracle驗證來源，學說上或可整理出兩種對立論證路徑。<b>肯定說（oracle樂觀論）</b>主張，集管資料庫依第27條規定所公示之資訊，本質上已屬公開，任何第三方（含oracle營運商）均得以爬蟲或介面轉接方式，將網頁資料轉譯為鏈上可讀格式；此一技術轉譯之門檻，純屬工程問題，非法律問題，不影響oracle作為驗證機制之可行性。且相較於完全無驗證機制之現狀——平台自行宣稱已取得授權，無從查核——縱使oracle僅能確認「資源層級」之登記事實，仍具有實質降低資訊不對稱、使平台無法輕易諉稱「不知情」之制度效益。<b>否定說（oracle懷疑論）</b>則主張，oracle機制所能解決者，僅止於「資訊是否成功由鏈下傳輸至鏈上」此一技術傳輸問題，而無從觸及「該資訊之實體法律意涵為何」此一規範判斷問題。詳言之，縱使oracle正確回傳「某曲目登記於MÜST管理範圍」，此一事實陳述，與「MÜST之概括授權契約是否涵蓋NFT鑄造此一特定利用型態」，分屬兩個不同層次之問題——如F-1所建立，MÜST現行費率規程九大分類，尚未見「NFT鑄造／試聽」之對應類別；換言之，即便集管資料庫之公示內容全數正確、oracle之傳輸過程全無技術瑕疵，智慧合約據以自動放行鑄造之判斷，仍可能建立在「資源已登記」與「利用型態已獲授權」兩者混淆之錯誤推論上。</p>
+
+<p><b>本文以為</b>，應對oracle於此一情境之功能，作二層區分。第一層為「資源層級把關」（resource-level gating）：oracle得據以確認某著作是否登記於集管團體管理範圍內，此一確認具有相當技術可行性與實益，可有效阻卻「完全未登記於任何集管團體」此一高風險情形之鑄造行為；第二層為「範圍層級驗證」（scope-level verification）：oracle無從確認該登記範圍是否涵蓋NFT鑄造此一特定利用型態之授權，此一判斷，仍須回歸集管團體之費率規程分類、個別或概括授權契約之具體約定內容，非純粹資訊傳輸機制所能承載。智慧合約若僅依oracle回傳之「資源層級」訊號即自動執行鑄造，無異於將「查無登記即禁止」之消極防禦，誤用為「查有登記即准許」之積極許可，二者之間，尚有著作權法第37條「約定不明推定未授權」所把守之實體審查關卡，非技術機制所能跨越。</p>
+
+<p>案例整理方面，全球音樂產業於區塊鏈技術出現前，已三度嘗試整合跨集管團體之權利資料庫，其相繼失敗之經驗，對本講之提問極具參照價值：<b>國際音樂聯合企業（International Music Joint Venture, IMJV，1998–2001）</b>——荷蘭BUMA/STEMRA、英國PRS、美國ASCAP共同發起之首個跨CMO資料庫整合計畫，鼎盛時期代表全球約21%音樂版權，惟因大型CMO不願釋出資料、部分CMO憂心自身地位不保而陸續退出，2001年無疾而終<sup>6</sup>；<b>WIPO國際音樂登記（International Music Registry, 2011– ）</b>——由世界智慧財產權組織主導發起，Google曾提供早期資金，嗣後因憂慮該聯盟賦予Google過大影響力而終止合作，WIPO自行尋求資金後，仍因唱片公司與出版商間之內部競爭而未能有效運作<sup>6</sup>；<b>全球曲目資料庫（Global Repertoire Database, GRD，2008–2014）</b>——由英國PRS發起，13個CMO與逾80個組織參與，因部分CMO嗣後撤回支持，導致原已承諾之800萬歐元投資胎死腹中<sup>6</sup>；<b>ASCAP／BMI聯合資料庫（2017– ）</b>——美國兩大表演權協會聯手建置，第一階段可查詢系統於2018年第一季上線，涵蓋美國境內約90%音樂，惟不含另一主要CMO SESAC之資料，資料完整性繫於參與者之自願協商，非法定強制<sup>6</sup>。此四案例共同呈現一項規律：<mark>資料整合失敗之根本原因，從未是技術可行性不足，而是CMO間之利益衝突與治理誘因不對等</mark>——此一觀察，直接動搖「引入區塊鏈oracle即可解決資料整合難題」之技術樂觀論，蓋oracle所能突破者僅為資訊傳輸之技術門檻，而三次失敗嘗試所暴露之瓶頸，始終位於治理層而非技術層。</p>
+
+<p>比較法對照方面，台灣、歐盟、美國就集管資料庫之制度設計，展現三種不同模式。<b>台灣</b>採「法定強制公示、技術形式低度化」模式：著作權集體管理團體條例第27條課予集管團體公示義務，惟各集管團體各自公示、各自維運，法律未強制建立統一資料庫，亦未強制結構化格式或開放API介接。<b>歐盟</b>則採集中化模式：就孤兒著作之利用，歐盟以2012/28/EU號指令（Orphan Works Directive）為基礎，指定由歐盟智慧財產局（EUIPO）建置並集中維運跨會員國單一線上孤兒著作資料庫（Orphan Works Database）——此一資料庫經作者2026年8月5日實測，確實線上運作<sup>7</sup>；相較於台灣模式，歐盟採「單一權責機關集中運營」，對於oracle式驗證而言，單一介接窗口顯然更具技術可行性，惟其適用範圍限於孤兒著作，與集管團體管理之著作範圍並不完全重疊。<b>美國</b>則呈現另一種模式：ASCAP/BMI聯合資料庫反映市場力量最大之私部門協會自發協商建立資料庫之路徑，不具法律強制力，資料完整性繫於參與者是否持續配合，此一模式之脆弱性，恰與GRD因ASCAP、BMI等大型協會嗣後抽腿而崩潰之歷史遙相呼應。對台灣而言，其啟示或在於：現行法定公示義務雖已確立CMO應公開資訊之原則性框架，惟技術形式要求之低度化，使集管資料庫距離「可供智慧合約介接之oracle資料來源」仍有相當距離；縱參考歐盟集中化模式或美國產業協商模式，任一路徑均須先克服CMO間資料標準不一、參與誘因不足之治理難題——此一難題，與IMJV、WIPO國際音樂登記、GRD三次失敗嘗試所顯示之根本症結，並無二致。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-f2-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0805c" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0805c" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0805c)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0805c)"/>
+  <text x="57.5" y="51.68" font-size="20.13" letter-spacing="3" fill="#5F79A6">PART F・方向四：集體管理  ›  SLIDE F-2・技術拆解</text>
+  <rect x="55.2" y="68" width="8.05" height="51.68" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="106.08" font-size="32" font-weight="900" fill="#F5F8FF">oracle機制拆解：<tspan fill="#4D9FFF">六個技術層，逐一對照法律要件</tspan></text>
+
+  <rect x="55.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <circle cx="80.5" cy="165.92" r="12.3492" fill="#4D9FFF"/><text x="80.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">1</text>
+  <text x="103.5" y="172.72" font-size="20" font-weight="800" fill="#4D9FFF">機制總覽 Overview</text>
+  <rect x="73.6" y="190.4" width="103.5" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="125.35" y="216.24" font-size="17" fill="#C7D2E4" text-anchor="middle">鑄造請求</text>
+  <line x1="177.1" y1="210.8" x2="209.3" y2="210.8" stroke="#7E8CA8" stroke-width="1.5"/>
+  <rect x="211.6" y="190.4" width="119.6" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="271.4" y="216.24" font-size="16" fill="#C7D2E4" text-anchor="middle">oracle.request()</text>
+  <line x1="331.2" y1="210.8" x2="363.4" y2="210.8" stroke="#7E8CA8" stroke-width="1.5"/>
+  <rect x="365.7" y="190.4" width="103.5" height="40.8" rx="5" fill="#0B0F1A" stroke="#263B5C"/><text x="417.45" y="216.24" font-size="16" fill="#C7D2E4" text-anchor="middle">節點查詢</text>
+  <text x="73.6" y="260.24" font-size="16" fill="#8FA1C0">↓ 節點查詢集管資料庫後回傳</text>
+  <rect x="73.6" y="268.4" width="395.6" height="57.12" rx="5" fill="rgba(53,192,142,.1)" stroke="#35C08E"/>
+  <text x="271.4" y="291.52" font-size="15.5" fill="#35C08E" text-anchor="middle">oracle.fulfill()回傳布林值</text>
+  <text x="271.4" y="312.64" font-size="15.5" fill="#35C08E" text-anchor="middle">＋合約依結果mint()或revert()</text>
+  <text x="73.6" y="350.04" font-size="16.5" fill="#7E8CA8">關鍵：鏈上只存「查詢結果」，查詢與</text>
+  <text x="73.6" y="371.8" font-size="16.5" fill="#7E8CA8">驗證過程本身，皆發生於鏈下。</text>
+
+  <rect x="515.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#F2A33C" stroke-width="1.725"/>
+  <circle cx="540.5" cy="165.92" r="12.3492" fill="#F2A33C"/><text x="540.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">2</text>
+  <text x="563.5" y="172.72" font-size="20" font-weight="800" fill="#F2A33C">規格逐字引用</text>
+  <rect x="533.6" y="190.4" width="404.8" height="174.08" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="547.4" y="212.88" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">"Oracles are applications</text>
+  <text x="547.4" y="232.4" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">that source, verify, and</text>
+  <text x="547.4" y="251.92" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">transmit external information</text>
+  <text x="547.4" y="271.44" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">...to smart contracts"</text>
+  <text x="547.4" y="299.44" font-family="ui-monospace,Menlo,monospace" font-size="13.8" fill="#F2A33C">"...having to 'trust' oracle</text>
+  <text x="547.4" y="318.96" font-family="ui-monospace,Menlo,monospace" font-size="13.8" fill="#F2A33C">operators...undermines the</text>
+  <text x="547.4" y="338.48" font-family="ui-monospace,Menlo,monospace" font-size="13.8" fill="#F2A33C">'trustless' aspect"</text>
+  <text x="547.4" y="358" font-size="14.5" fill="#7E8CA8">——ethereum.org開發者文件</text>
+
+  <rect x="975.2" y="138.72" width="441.6" height="244.8" rx="10" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <circle cx="1000.5" cy="165.92" r="12.3492" fill="#4D9FFF"/><text x="1000.5" y="172.72" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">3</text>
+  <text x="1023.5" y="172.72" font-size="20" font-weight="800" fill="#4D9FFF">觸發機制：驗證虛擬碼</text>
+  <rect x="993.6" y="190.4" width="404.8" height="174.08" rx="6" fill="#0B0F1A" stroke="#2A3140"/>
+  <text x="1007.4" y="214.88" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#F2A33C">function requestMintAuth(</text>
+  <text x="1007.4" y="236.64" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#F5F8FF">  bytes32 workId) external {</text>
+  <text x="1007.4" y="258.4" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#7E8CA8">  oracle.request(JOB_ID, workId,</text>
+  <text x="1007.4" y="280.16" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#7E8CA8">    this.fulfill.selector); }</text>
+  <text x="1007.4" y="308.16" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#F2A33C">function fulfill(bytes32 id,</text>
+  <text x="1007.4" y="329.92" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#F5F8FF">  bool registered) onlyOracle {</text>
+  <text x="1007.4" y="351.68" font-family="ui-monospace,Menlo,monospace" font-size="15.34" fill="#7E8CA8">  registered ? _mint() : revert();}</text>
+
+  <rect x="55.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <circle cx="80.5" cy="429.76" r="12.3492" fill="#E5484D"/><text x="80.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">4</text>
+  <text x="103.5" y="436.56" font-size="20" font-weight="800" fill="#E5484D">法律要件逐字引用</text>
+  <rect x="73.6" y="452" width="395.6" height="140" rx="6" fill="rgba(229,72,77,.06)" stroke="#E5484D"/>
+  <text x="88.6" y="475" font-size="16" fill="#C7D2E4">「集管團體應將其管理範圍內之著作</text>
+  <text x="88.6" y="499" font-size="16" fill="#C7D2E4">相關資訊……上網供公眾查閱，並應</text>
+  <text x="88.6" y="523" font-size="16" fill="#C7D2E4">公眾之申請，於合理範圍內提供</text>
+  <text x="88.6" y="547" font-size="16" fill="#C7D2E4">相關資訊。」</text>
+  <text x="88.6" y="576" font-size="15" fill="#E5484D">——著作權集體管理團體條例§27Ⅰ</text>
+  <text x="73.6" y="618" font-size="16" fill="#7E8CA8">條文僅要求「網頁可查閱」，未要求</text>
+
+  <rect x="515.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <circle cx="540.5" cy="429.76" r="12.3492" fill="#E5484D"/><text x="540.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">5</text>
+  <text x="563.5" y="436.56" font-size="20" font-weight="800" fill="#E5484D">oracle三挑戰 × 資料庫現實</text>
+  <text x="533.6" y="470.28" font-size="17" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">Correctness</tspan>：登載更新無法定期限</text>
+  <text x="533.6" y="500.2" font-size="17" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">Availability</tspan>：查詢系統無可用性擔保</text>
+  <text x="533.6" y="530.12" font-size="17" fill="#C7D2E4"><tspan font-weight="700" fill="#F5F8FF">Incentive</tspan>：CMO無誘因開放機讀介面</text>
+  <text x="533.6" y="573.6" font-size="16" font-weight="700" fill="#F2A33C">→ 三項技術挑戰，現行條例</text>
+  <text x="533.6" y="598.08" font-size="16" font-weight="700" fill="#F2A33C">　 均未見對應之制度擔保。</text>
+
+  <rect x="975.2" y="402.56" width="441.6" height="239.36" rx="10" fill="#131D2E" stroke="#35C08E" stroke-width="1.725"/>
+  <circle cx="1000.5" cy="429.76" r="12.3492" fill="#35C08E"/><text x="1000.5" y="436.56" font-size="21.35" font-weight="900" fill="#0A101C" text-anchor="middle">6</text>
+  <text x="1023.5" y="436.56" font-size="20" font-weight="800" fill="#35C08E">關鍵概念 Key Concepts</text>
+  <text x="993.6" y="470.28" font-size="17" fill="#C7D2E4">・oracle傳遞的是「資訊」，</text>
+  <text x="993.6" y="493.6" font-size="17" fill="#C7D2E4">　不是「法律判斷」</text>
+  <text x="993.6" y="521.6" font-size="17" fill="#C7D2E4">・「資源層級把關」≠</text>
+  <text x="993.6" y="544.92" font-size="17" fill="#C7D2E4">　「範圍層級驗證」（本文核心區分）</text>
+  <text x="993.6" y="572.92" font-size="17" fill="#C7D2E4">・登記事實≠利用型態已獲授權</text>
+  <text x="993.6" y="605.2" font-size="16" font-weight="700" fill="#35C08E">✦ 下一頁：技術鏈五步驟</text>
+  <text x="993.6" y="627.6" font-size="16" font-weight="700" fill="#35C08E">　逐格對照法律評價，做成判斷樹</text>
+
+  <rect x="55.2" y="660.96" width="1361.6" height="95.2" rx="12" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="55.2" y="660.96" width="8.05" height="95.2" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="698.76" font-size="19.5" font-weight="900" fill="#F5F8FF">與論文的連結：規格與法條都逐字對照過——oracle能做的，跟CMO條例要求的，兩邊都停在「查得到」，沒有一邊處理「查到的東西是否夠用」。</text>
+  <text x="80.5" y="730.4" font-size="18" fill="#8FA1C0">六個技術層都拆開了——下一頁把每一步接回法律要件，做成判斷樹。</text>
+
+  <text x="55.2" y="952" font-size="17" fill="#55668A">依ethereum.org開發者文件與著作權集體管理團體條例第27條逐字整理；作者自製（2026-08-05）。</text>
+  <text x="1416.8" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">F-2・技術拆解</text>
+</svg>
+<figcaption><b>圖3｜</b>oracle機制六面板技術分解（作者自製，規格引文依ethereum.org開發者文件、法條引文依著作權集體管理團體條例第27條逐字核對，最後瀏覽日：2026-08-05）。本圖亦為口試簡報 F-2 技術拆解幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-f2-3">
+<div class="lbl">SLIDE F-2・技術拆解 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-05-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前兩頁建立了整體架構跟歷史數據；這一頁把鏡頭拉近，逐一拆解oracle機制本身，六個格子，每一格都放具體內容。第一格是機制總覽：鑄造請求、oracle.request()、節點查詢，三步一路往下，接著oracle.fulfill()回傳布林值，合約依結果決定鑄造或撤回。第二格是規格逐字引用，直接引用以太坊基金會開發者文件對oracle的官方定義，還有oracle problem那段講信任被轉移的原文，這不是我改寫的，是文件上寫的內容。第三格是觸發機制的驗證虛擬碼，展示鑄造前呼叫oracle、拿到結果後才決定要不要執行鑄造函式的邏輯。</p>
+<p>第四格回到法律端，逐字引用著作權集體管理團體條例第二十七條，強調條文只要求網頁可查閱，沒有要求機器可讀介面。第五格把oracle公認的三個技術挑戰，正確性、可用性、誘因相容性，一一對照集管資料庫的現實，三項挑戰現行條例都沒有對應的制度擔保。第六格收斂成關鍵概念：oracle傳遞的是資訊不是法律判斷，資源層級把關不等於範圍層級驗證，登記事實不等於利用型態已經獲得授權。</p>
+<p class="transition">承接下一頁，六個技術層都拆開了；下一頁把每一步技術動作，逐一接回對應的法律評價，做成一張完整的判斷樹。</p>
+</div>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-f2-4').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0805d" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0805d" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+    <marker id="arr0805d" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4D9FFF"/></marker>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0805d)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0805d)"/>
+  <text x="57.5" y="51.68" font-size="20.13" letter-spacing="3" fill="#5F79A6">PART F・方向四：集體管理  ›  SLIDE F-2・判斷樹</text>
+  <rect x="55.2" y="68" width="8.05" height="51.68" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="106.08" font-size="32" font-weight="900" fill="#F5F8FF">技術鏈 × 法律要件：<tspan fill="#4D9FFF">五步驟逐格對照</tspan></text>
+
+  <text x="80.5" y="152.32" font-size="21.35" font-weight="800" fill="#4D9FFF">技術執行鏈</text>
+  <text x="805" y="152.32" font-size="21.35" font-weight="800" fill="#E5484D">法律要件檢驗</text>
+
+  <rect x="55.2" y="168.64" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="201.28" font-size="20" font-weight="700" fill="#F5F8FF">① 部署鑄造前驗證合約</text>
+  <text x="75.9" y="228.48" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">oracle.request(JOB_ID, workId)</text>
+  <text x="75.9" y="255.68" font-size="16" fill="#7E8CA8">技術請求本身尚未觸及實體判斷</text>
+  <line x1="701.5" y1="224.4" x2="775.1" y2="224.4" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arr0805d)"/>
+  <rect x="777.4" y="168.64" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#35C08E"/>
+  <text x="798.1" y="201.28" font-size="20" font-weight="700" fill="#35C08E">✓ 程序啟動，中性</text>
+  <text x="798.1" y="231.2" font-size="18" fill="#C7D2E4">屬技術層之查詢請求，本身不生法律</text>
+  <text x="798.1" y="255.68" font-size="18" fill="#C7D2E4">效果，僅是後續判斷之前置步驟</text>
+
+  <rect x="55.2" y="291.04" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="323.68" font-size="20" font-weight="700" fill="#F5F8FF">② 節點查詢集管資料庫</text>
+  <text x="75.9" y="350.88" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">GET must.org.tw/query?work=id</text>
+  <text x="75.9" y="378.08" font-size="16" fill="#7E8CA8">取得「是否登記於管理範圍」布林值</text>
+  <line x1="701.5" y1="346.8" x2="775.1" y2="346.8" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arr0805d)"/>
+  <rect x="777.4" y="291.04" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#F2A33C"/>
+  <text x="798.1" y="323.68" font-size="20" font-weight="700" fill="#F2A33C">△ 資料正確性未經法定擔保</text>
+  <text x="798.1" y="353.6" font-size="18" fill="#C7D2E4">對應correctness挑戰——條例未強制</text>
+  <text x="798.1" y="378.08" font-size="18" fill="#C7D2E4">即時更新或設錯誤賠償機制</text>
+
+  <rect x="55.2" y="413.44" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="446.08" font-size="20" font-weight="700" fill="#F5F8FF">③ fulfill()回傳並觸發合約</text>
+  <text x="75.9" y="473.28" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">fulfill(workId, true) → mint()</text>
+  <text x="75.9" y="500.48" font-size="16" fill="#7E8CA8">合約依布林值決定放行或阻擋</text>
+  <line x1="701.5" y1="469.2" x2="775.1" y2="469.2" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arr0805d)"/>
+  <rect x="777.4" y="413.44" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#F2A33C"/>
+  <text x="798.1" y="446.08" font-size="20" font-weight="700" fill="#F2A33C">△「已登記」≠「已獲此授權」</text>
+  <text x="798.1" y="476" font-size="18" fill="#C7D2E4">範圍層級問題未解——MÜST費率規程</text>
+  <text x="798.1" y="500.48" font-size="18" fill="#C7D2E4">尚未列NFT鑄造利用型態（參F-1）</text>
+
+  <rect x="55.2" y="535.84" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="568.48" font-size="20" font-weight="700" fill="#F5F8FF">④ 合約執行mint()產生token</text>
+  <text x="75.9" y="595.68" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">_mint(to, tokenId)</text>
+  <text x="75.9" y="622.88" font-size="16" fill="#7E8CA8">鏈上完成鑄造，NFT正式存在</text>
+  <line x1="701.5" y1="591.6" x2="775.1" y2="591.6" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arr0805d)"/>
+  <rect x="777.4" y="535.84" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#E5484D"/>
+  <text x="798.1" y="568.48" font-size="20" font-weight="700" fill="#E5484D">✕ 鑄造行為仍可能構成侵權</text>
+  <text x="798.1" y="598.4" font-size="18" fill="#C7D2E4">若利用型態未獲授權，著作權法§37</text>
+  <text x="798.1" y="622.88" font-size="18" fill="#C7D2E4">「約定不明推定未授權」仍適用</text>
+
+  <rect x="55.2" y="658.24" width="644" height="111.52" rx="8" fill="#131D2E" stroke="#263B5C"/>
+  <text x="75.9" y="690.88" font-size="20" font-weight="700" fill="#F5F8FF">⑤ 爭議發生後追溯資料來源</text>
+  <text x="75.9" y="718.08" font-size="16.5" fill="#8FA1C0" font-family="ui-monospace,Menlo,monospace">auditTrail(workId, response)</text>
+  <text x="75.9" y="745.28" font-size="16" fill="#7E8CA8">查核oracle回傳依據與登載內容</text>
+  <line x1="701.5" y1="714" x2="775.1" y2="714" stroke="#7E8CA8" stroke-width="1.5" marker-end="url(#arr0805d)"/>
+  <rect x="777.4" y="658.24" width="639.4" height="111.52" rx="8" fill="#131D2E" stroke="#E5484D"/>
+  <text x="798.1" y="690.88" font-size="20" font-weight="700" fill="#E5484D">✕ 技術層免責主張無法對抗實體法</text>
+  <text x="798.1" y="720.8" font-size="18" fill="#C7D2E4">誤載或更新遲延之風險，終局仍由</text>
+  <text x="798.1" y="745.28" font-size="18" fill="#C7D2E4">鑄造行為人與集管團體間之關係承擔</text>
+
+  <rect x="55.2" y="783.36" width="1361.6" height="98" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="55.2" y="783.36" width="8.05" height="98" rx="3" fill="#2E6BFF"/>
+  <text x="80.5" y="820.16" font-size="19.5" font-weight="900" fill="#F5F8FF">與論文的連結：五步驟裡，只有④⑤兩步才是實體法律評價的關鍵；①②③即使技術上完美執行，仍解決不了「這個利用型態有沒有授權」。</text>
+  <text x="80.5" y="852.4" font-size="18" fill="#8FA1C0">oracle讓查核更有效率，但無法把著作權法第37條的實體判斷，外包給一段程式碼執行。</text>
+
+  <text x="55.2" y="952" font-size="17" fill="#55668A">依oracle技術架構與著作權法第37條要件拆解；作者自製（2026-08-05）。</text>
+  <text x="1416.8" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">F-2・判斷樹</text>
+</svg>
+<figcaption><b>圖4｜</b>技術執行鏈×法律要件判斷樹（作者自製，依oracle標準技術流程與著作權法第37條要件拆解，最後瀏覽日：2026-08-05）。本圖亦為口試簡報 F-2 判斷樹幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-f2-4">
+<div class="lbl">SLIDE F-2・判斷樹 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-05-4.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前頁拆開六個技術層；這一頁把每一個技術動作，逐一接回對應的法律評價，做成完整的判斷樹，這是本講整體論證的收束。第一步，部署鑄造前驗證合約，呼叫oracle.request()，這只是技術層的查詢請求，本身不生法律效果，打勾。第二步，節點查詢集管資料庫，取得是否登記的布林值，這裡標橙色三角形，因為資料正確性沒有法定擔保，對應前一頁講的correctness挑戰。第三步，fulfill()回傳並觸發合約，同樣是橙色三角形，因為已登記不等於已經就NFT鑄造這個用法取得授權，這就是F-1講過的，MÜST費率規程還沒有列這個利用型態。</p>
+<p>第四步跟第五步，才是真正進入法律評價的關鍵。第四步，合約執行鑄造，產生token，這裡打叉，因為如果利用型態確實沒有獲得授權，著作權法第三十七條約定不明推定未授權的規定，還是照樣適用，oracle的技術確認沒有辦法排除這個風險。第五步，如果爭議發生，回頭追溯資料來源，同樣打叉，因為資料庫本身如果誤載或更新遲延，責任終究還是回到鑄造行為人跟集管團體之間的契約跟法定關係，不是oracle營運者能夠承擔的。</p>
+<p class="transition">承接下一講，本講已經把oracle能做的跟不能做的講清楚；下一講將轉向G-1，處理平台單方變更條款與code-deference條款的定型化契約雙重審查問題。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>集管資料庫理論上得作為智慧合約驗證著作權登記狀態之oracle資料來源，惟其功能應嚴格限縮於「資源層級把關」，無法承載「範圍層級驗證」之實體法律判斷；技術轉譯之門檻縱可克服，歷史上三次全球音樂版權資料庫整合嘗試之相繼失敗，揭示真正之瓶頸始終在於集管團體間之治理誘因，而非資訊技術本身。</mark>下一講將轉向G-1，處理平台單方變更條款與code-deference條款之定型化契約雙重審查問題。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你整篇文章都在講『oracle』，但集管團體的資料庫連公開API都沒有，只是一個給人瀏覽的網頁而已，你把它叫做oracle是不是誇大了，根本還構不成技術意義上的oracle？」</span>
+<span class="hint">👉 這題其實在問：你是不是把一個普通的查詢網頁，硬套上一個很潮的技術名詞？</span>
+<span class="a">怎麼答：這個質疑講得很中肯，我在文章裡其實也承認了這一點——現行集管資料庫確實沒有開放API，第五格那張技術挑戰的表，講的正是誘因相容性這一項，就是在講CMO沒有動機把資料變成機器可以讀的格式。我用oracle這個詞，是為了借用它的分析架構，去問「如果有一天真的有人把它接上oracle網路，會發生什麼事」，而不是主張現在這個資料庫已經是一個技術意義上完整的oracle。如果讀者覺得這個詞用得太早，我認為這是一個合理的用詞保留意見，我可以在論文正式版本裡，把「潛在的oracle資料來源」這個限定講得更清楚。</span></li>
+<li><span class="q">「你整篇文章的法律依據幾乎只靠著作權集體管理團體條例第二十七條一條，一條法條撐得起這麼大的論證嗎？」</span>
+<span class="hint">👉 這題其實在問：你是不是只找到一條法條，就把整篇文章的架構都建立在它上面，太單薄了？</span>
+<span class="a">怎麼答：第二十七條確實是這篇文章的法律骨架，但我不是只靠這一條，還有第四條電子格式檔案的要求、第八條跟第二十四條關於集管團體設立許可跟使用報酬率備查的監督機制，一起說明集管資料庫具有一定的官方監督色彩，也解釋了為什麼它的公示義務只停在網頁可查閱的層次。我同意這個題目目前能找到的直接法條確實不多，這也是為什麼我把重點放在「資源層級」跟「範圍層級」這個分析架構上，而不是單靠條文本身的文義去撐整篇論證。</span></li>
+<li><span class="q">「IMJV、WIPO國際音樂登記、GRD這三個案例都跟區塊鏈完全無關，是傳統資料庫整合的失敗，你把這些歷史案例硬拉來跟oracle的討論放在一起，這樣的類比會不會文不對題？」</span>
+<span class="hint">👉 這題其實在問：三個不相干的舊案例，跟你在講的區塊鏈oracle有什麼關係，你是不是硬湊篇幅？</span>
+<span class="a">怎麼答：我引用這三個案例，目的不是說它們跟區塊鏈有關，而是反過來論證一件事：如果連最基本的「大家把資料放進同一個資料庫」這個治理問題都解決不了，那麼在資料庫外面多接一層oracle技術，並不會讓這個治理問題消失。換句話說，這三個案例是用來反駁「導入區塊鏈就能解決資料整合難題」這種技術樂觀論，証明瓶頸從來不在技術端。我認為這個類比是成立的，但我也承認，這三個案例都是二手資料整理，如果口試委員認為需要查證原始新聞稿或訪談紀錄，我在文章裡也誠實標註了這一點。</span></li>
+<li><span class="q">「『資源層級把關』跟『範圍層級驗證』這兩個詞，是你自己發明的，還是有學者已經這樣講過？」</span>
+<span class="hint">👉 這題其實在問：這組區分是你自己想出來的，還是有文獻根據？</span>
+<span class="a">怎麼答：老實說，這組區分是我自己依照oracle problem的技術定義，跟著作權法第三十七條的實體要求，兩相對照後歸納出來的，不是引用某位學者的既有主張，文章裡也沒有假裝這是通說。我認為這組區分本身邏輯上站得住腳，因為它精確對應了「技術能傳輸資訊」跟「法律要判斷授權範圍」這兩件事的分野，但如果口試委員知道已經有文獻用類似的框架討論過其他領域的oracle應用，例如金融監理的KYC驗證，我很願意進一步查證並補充引用，讓這個概念有更堅實的文獻基礎。</span></li>
+<li><span class="q">「你整篇文章講的都是假設性的技術架構，現實中有沒有任何一個真的在運作、拿集管資料庫當oracle驗證授權的智慧合約案例？如果沒有，這篇文章是不是純粹空想？」</span>
+<span class="hint">👉 這題其實在問：這是真實存在的東西，還是你自己想像出來的情境？</span>
+<span class="a">怎麼答：截至我完成這篇文章為止，確實沒有查到任何一個公開、已知拿集管團體資料庫當oracle驗證來源的實際運作案例，這點我沒有迴避。但我認為這篇文章的價值，正是在市場出現這種嘗試之前，先把技術上可能做到什麼、做不到什麼講清楚——如果哪天真的有平台想這樣做，至少已經有一個分析架構可以套用，知道哪些環節需要另外處理，而不是等到真的出事才發現「查有登記」跟「查有授權」是兩件事。這是風險預警型的研究，不是在描述已經發生的事實，我在文章一開始也是用「制度想像」這個講法，沒有假裝它已經是現實。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>參本站2026年8月4日期刊專題〈集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）〉。</li>
+<li>Ethereum Foundation, <i>ethereum.org</i>, "What is a blockchain oracle?" 及 "What is the oracle problem?"，https://ethereum.org/en/developers/docs/oracles/（最後瀏覽日：2026年8月5日，逐字核對）。</li>
+<li>著作權集體管理團體條例第4條、第27條（全國法規資料庫，https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0070019，最後瀏覽日：2026年8月5日，逐字核對）。</li>
+<li>著作權集體管理團體條例第8條、第24條（同註3，關於集管團體設立許可與使用報酬率備查、審議機制）。</li>
+<li>著作權法第37條（全國法規資料庫，https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0070017，最後瀏覽日：2026年8月5日）。</li>
+<li>Wikipedia contributors, "Music ownership databases," <i>Wikipedia, The Free Encyclopedia</i>，https://en.wikipedia.org/wiki/Music_ownership_databases（最後瀏覽日：2026年8月5日；本條目為二手彙整資料，IMJV、WIPO國際音樂登記、GRD、ASCAP/BMI資料庫等原始新聞稿或訪談紀錄，建議另行查核）。</li>
+<li>European Union Intellectual Property Office (EUIPO), Orphan Works Database，https://euipo.europa.eu/orphanworks/（最後瀏覽日：2026年8月5日，實測上線運作）；法律依據為Directive 2012/28/EU（Orphan Works Directive），指令逐條文字未及當場逐字核對，條號與具體規範內容引用前請另行查核EUR-Lex原文。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-08-04.html"><span class="dir">← 上一篇</span>集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-08-05.html">2026-08-05　集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口（F-2）</a></li>
+<li><a href="2026-08-04.html">2026-08-04　集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）（F-1）</a></li>
+<li><a href="2026-08-02.html">2026-08-02　SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界（E-5）</a></li>
+<li><a href="2026-07-29.html">2026-07-29　自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法（E-4）</a></li>
+<li><a href="2026-07-28.html">2026-07-28　虛擬資產服務法與NFT：納管邊界的解釋論（E-3）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖4為作者依ethereum.org開發者文件、著作權集體管理團體條例第27條與著作權法第37條整理自製；著作權集體管理團體條例第4、8、24、27條與著作權法第37條已於2026年8月5日逐字核對全國法規資料庫原文；Wikipedia「Music ownership databases」條目所載歷史事件為二手彙整資料，原始新聞稿建議另行查核；EUIPO孤兒著作資料庫已實測上線，Directive 2012/28/EU逐條文字標示【待查補】；現實中是否已有拿集管資料庫作為oracle驗證來源之實際運作案例，標示【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

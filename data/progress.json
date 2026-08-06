@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-04",
+ "updated": "2026-08-06",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -218,22 +218,22 @@
    "act": "F",
    "ppt": "F2",
    "title": "集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-08-05",
+   "url": "posts/daily/2026-08-05.html",
+   "q": 5,
+   "slides": 4
   },
   {
    "id": 20,
    "act": "G",
    "ppt": "G1",
    "title": "平台單方變更條款與code-deference條款：定型化契約的雙重審查",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-08-06",
+   "url": "posts/daily/2026-08-06.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 21,

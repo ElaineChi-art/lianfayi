@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-08-06｜平台單方變更條款：雙重審查｜鏈法醫</title>
+<meta name="description" content="OpenSea於2023年8月一則公告，同時撤回書面版稅承諾與Operator Filter程式碼強制工具。本文主張：定型化契約審查若僅及於文字條款，將無從觸及以程式碼運作實現、可隨時撤回之「code-deference條款」，並以台灣消保法第17條、歐盟RWE Vertrieb案、美國Douglas案三法域對照，論證雙重審查之必要。鏈法醫期刊專題，制度設計（G-1）。">
+<meta property="og:title" content="期刊專題 2026-08-06｜平台單方變更條款與code-deference條款：定型化契約的雙重審查｜鏈法醫">
+<meta property="og:description" content="書面文字有法可審，程式碼撤回卻無法可管——這正是雙重審查缺口的所在。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-08-06</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・制度設計（G-1）</div>
+<h1>平台單方變更條款與code-deference條款：<br>定型化契約的雙重審查</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-08-06</span>
+  <span>閱讀約 16 分鐘</span>
+</div>
+
+<p class="dek"><b>2023年8月，OpenSea以一則部落格公告，同時撤回書面服務條款所承諾之版稅精神與Operator Filter程式碼強制工具；此一操作顯示，定型化契約審查若僅止於文字條款，將無從觸及以程式碼運作實現、可隨時撤回之「code-deference條款」，形成一處亟待正視之雙重審查缺口。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>OpenSea在2023年8月發了一篇公告，把原本用程式碼工具（Operator Filter）強制執行的NFT轉售版稅，改成「選擇性」——买家可以自己決定要不要付。這篇文章要講的重點是：OpenSea的服務條款裡本來就寫著「我們可以隨時、完全照自己的意思修改這份條款」，這種條款台灣消保法第17條其實明文禁止。但更麻煩的是，OpenSea這次連契約文字都沒改，只是把背後那段程式碼關掉——形式上不算「修改條款」，法律現在拿它一點辦法都沒有。這篇文章主張，法律不能只審查白紙黑字的條款，也要審查「程式碼要不要繼續執行」這件事本身。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>F軸最後一講，已將集管資料庫能否作為鏈上授權驗證之oracle一事，定性為「資源層級把關」與「範圍層級驗證」兩個不可互換之問題層次；本講轉入G軸，處理另一組同樣涉及「文字承諾」與「技術執行」錯位之制度問題——平台之定型化契約，是否得以單方變更權條款，配合可隨時撤除之程式碼工具，架空原本應受消費者保護法審查之契約權利？一份定型化契約若載明「本公司得隨時且完全依自身裁量變更本條款內容」，此一文字本身是否已該當消費者保護法所稱之顯失公平？倘若答案為肯定，現行規範是否已備妥宣告其無效之工具？進一步追問——倘若平台並未將某項商業承諾（例如：轉售版稅將受強制執行）明文寫入契約文字，而係透過一段可隨時關閉、修改或棄用之程式碼機制加以實現，此種「以程式碼運作之有無，取代文字條款效力之有無」之操作設計，是否仍落於既有定型化契約審查框架之射程範圍內？此等問題，構成本講之核心提問。本文將此類權利義務內容實質繫諸於平台是否選擇部署、維持或撤除特定程式碼機制，而非繫諸於契約文字本身之安排，稱為「code-deference條款」——意即契約義務之存否，「遞延」（deference）予程式碼執行狀態決定，而非直接由文字約定。2023年8月，全球最大NFT交易平台OpenSea一次公告，恰好同時觸及書面條款單方變更與程式碼工具單方撤回兩個層次，為本講提供一組具體且可驗證之分析素材。</p>
+
+<h2><span class="no">貳</span>背景：從版稅戰爭到Operator Filter之興衰</h2>
+
+<p>要理解此一問題之全貌，須先回顧NFT轉售版稅（creator／resale royalty）機制之發展脈絡。音樂與藝術類NFT興起之初，多數交易平台即已提供創作者設定「轉售版稅」比例之功能——每當NFT於次級市場轉手，賣方須支付約定比例予原始創作者。惟此一機制之技術本質，並非契約法上之強制執行力，而係平台自願配合之商業慣例：版稅資訊雖可依循EIP-2981等資訊揭露標準予以宣告，然該資訊本身並不具備強制扣繳能力，是否於交易時實際扣繳，端視交易發生所在之市場是否選擇配合查詢並執行——此即業界所稱之「軟性版稅」（soft royalty），本質上仍是市場自願遵循，而非鏈上不可迴避之強制機制。</p>
+
+<p>2022年前後，隨著X2Y2、LooksRare等新興交易平台以零版稅或選擇性版稅作為市場策略，吸引賣方轉移交易量，既有創作者版稅收入受到嚴重侵蝕，業界稱此現象為「版稅戰爭」（royalty war）。為回應此一壓力，OpenSea於2022年11月推出「Operator Filter」（操作者過濾器）：此係一項技術工具，容許創作者將其收藏集之轉售行為，限制於承諾強制執行創作者版稅之市場，換言之，凡未配合執行版稅之交易平台，其智慧合約即無法完成該收藏集之轉售操作，形成一種以程式碼實現之准入門檻，理論上使版稅承諾自「市場自願配合」提升至「技術上難以規避」之等級<sup>3</sup>。此一工具之推出，一度被創作者社群視為版稅保衛戰之技術解方，亦有不少創作者因此將既有收藏集遷移至啟用Operator Filter之設定。</p>
+
+<p>然而，此一技術性強制執行機制之穩定性，終究繫於OpenSea作為平台方是否持續維護與啟用該工具。2023年8月17日，OpenSea共同創辦人暨執行長Devin Finzer於官方部落格發布公告《Changes to creator fees on OpenSea》，宣布自2023年8月31日起，新上架之收藏集，其創作者版稅將全面轉為「選擇性」（optional）——即由買方自行決定是否支付；至於既有已啟用Operator Filter之收藏集，OpenSea承諾延續強制執行至2024年2月29日，屆期後同樣轉為選擇性<sup>3</sup>。申言之，一項原先被創作者社群理解為已透過程式碼技術性鎖定之版稅承諾，最終仍因平台一紙公告，而在約半年之過渡期後歸於消滅——此一發展，正是本講欲深入剖析之制度現象：技術執行力終究無法脫離平台之單方營運裁量，而此一裁量權，又進一步受到書面服務條款中單方變更權條款之保障。此一觀察意味著，若僅檢視契約文字，將無從掌握此次政策變更之全貌。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g1-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0806a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0806a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0806a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0806a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-1</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">書面條款＋程式碼工具：<tspan fill="#4D9FFF">雙重審查為什麼「雙重」？</tspan></text>
+  <text x="103.5" y="167" font-size="18.3" fill="#7E8CA8">G-1：F軸集體管理系列後，轉向制度設計，處理平台單方變更權與code-deference條款</text>
+
+  <rect x="73.6" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="98.9" y="234" font-size="23" font-weight="800" fill="#4D9FFF">書面條款：ToS單方變更權</text>
+  <text x="98.9" y="272" font-size="19.5" fill="#C7D2E4">OpenSea服務條款明文：公司得隨時、</text>
+  <text x="98.9" y="302" font-size="19.5" fill="#C7D2E4">完全依自身裁量變更條款內容</text>
+  <text x="98.9" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 消保法§17Ⅲ①明文列為不得記載事項</text>
+
+  <rect x="753.4" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="778.7" y="234" font-size="23" font-weight="800" fill="#4D9FFF">程式碼工具：Operator Filter</text>
+  <text x="778.7" y="272" font-size="19.5" fill="#C7D2E4">2022年11月上線，限制轉售市場</text>
+  <text x="778.7" y="302" font-size="19.5" fill="#C7D2E4">以強制執行創作者版稅</text>
+  <text x="778.7" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 現行規範文義射程，未必及於技術工具</text>
+
+  <text x="736" y="297" font-size="40" font-weight="700" fill="#4D9FFF" text-anchor="middle">≈</text>
+
+  <rect x="73.6" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="98.9" y="424" font-size="23" font-weight="800" fill="#35C08E">書面條款：已有審查工具</text>
+  <text x="98.9" y="462" font-size="19.5" fill="#C7D2E4">民法§247-1、消保法§12、§17</text>
+  <text x="98.9" y="492" font-size="19.5" fill="#C7D2E4">法院／主管機關得逕予認定顯失公平</text>
+  <text x="98.9" y="534" font-size="19.5" font-weight="700" fill="#35C08E">→ 有明文依據可資審查</text>
+
+  <rect x="753.4" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="778.7" y="424" font-size="23" font-weight="800" fill="#E5484D">程式碼工具：欠缺審查工具</text>
+  <text x="778.7" y="462" font-size="19.5" fill="#C7D2E4">撤除工具形式上不構成條款變更，</text>
+  <text x="778.7" y="492" font-size="19.5" fill="#C7D2E4">卻實質改變創作者之版稅權利</text>
+  <text x="778.7" y="534" font-size="19.5" font-weight="700" fill="#E5484D">→ 現行審查框架文義未觸及</text>
+
+  <text x="736" y="487" font-size="40" font-weight="700" fill="#F2A33C" text-anchor="middle">≈</text>
+
+  <rect x="73.6" y="580" width="1324.8" height="60" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="618" font-size="20" font-weight="700" fill="#F2A33C" text-anchor="middle">書面文字有法可審，程式碼撤回卻無法可管——這正是「雙重審查」缺口的所在</text>
+
+  <rect x="73.6" y="660" width="1324.8" height="140" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="660" width="9.2" height="140" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="706" font-size="22" font-weight="900" fill="#F5F8FF">與論文的連結：code-deference條款讓平台得以用「撤除程式碼」規避「變更契約」的審查。</text>
+  <text x="110.4" y="744" font-size="19.5" fill="#8FA1C0">下一頁把OpenSea這兩層變更的完整時間軸，跟服務條款逐字引用，放進同一張圖裡看。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依OpenSea官方公告、服務條款與消保法第17條整理；作者自製（2026-08-06）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-1</text>
+</svg>
+<figcaption><b>圖1｜</b>書面條款與程式碼工具之雙重結構（作者自製，依OpenSea官方部落格公告、服務條款與消費者保護法第17條整理，最後瀏覽日：2026-08-06）。本圖亦為口試簡報 G-1 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g1-1">
+<div class="lbl">SLIDE G-1 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-06-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>F軸最後一講處理了集管資料庫能不能作為oracle驗證來源；這一講轉入G軸，處理平台單方變更條款與code-deference條款的定型化契約雙重審查問題。左上角這格是書面條款的層面：OpenSea服務條款明文寫著，公司得隨時且完全依自身裁量變更條款內容，只要繼續使用服務，就視為同意變更後的條款。右上角是程式碼工具的層面：OpenSea二〇二二年十一月推出Operator Filter，透過限制轉售可以在哪些市場交易，強制執行創作者版稅。</p>
+<p>下半部才是這一講的核心。左下角是書面條款目前已經有的審查工具：消保法第十七條第三項第一款，明文把企業經營者保留契約內容或期限之變更權，列為不得記載事項。右下角則是程式碼工具目前欠缺的審查工具：撤回一段程式碼，形式上不構成契約文字變更，卻實質改變了創作者的版稅權利，現行規範的文義射程未必觸及。</p>
+<p class="transition">承接下一頁，把OpenSea這兩層變更的完整時間軸，跟服務條款的逐字引用，放進同一張圖裡看。</p>
+</div>
+
+<h2><span class="no">參</span>法制與技術說明：單方變更權條款與code-deference之界定</h2>
+
+<p>現行台灣法制對定型化契約之單方變更權條款，並非毫無節制。民法第247條之1明文規定：「依照當事人一方預定用於同類契約之條款而訂定之契約，為左列各款之約定，按其情形顯失公平者，該部分約定無效：一、免除或減輕預定契約條款之當事人之責任者。二、加重他方當事人之責任者。三、使他方當事人拋棄權利或限制其行使權利者。四、其他於他方當事人有重大不利益者。」<sup>1</sup>此一概括條款，賦予法院於個案中依「顯失公平」之判準，宣告定型化契約特定約定無效之權限。消費者保護法則進一步就消費關係中之定型化契約，設有更細緻之審查層次：第11條規定，企業經營者於定型化契約所用條款應本平等互惠原則，條款如有疑義，應為有利於消費者之解釋；第11條之1課予企業經營者提供合理審閱期間之義務；第12條明定，定型化契約條款違反誠信原則，對消費者顯失公平者，無效，並列舉三款推定顯失公平之情形——違反平等互惠原則者、條款與其排除適用之任意規定之立法意旨顯相矛盾者，以及契約之主要權利義務因受條款限制致契約目的難以達成者；第17條則授權中央主管機關針對特定行業，公告定型化契約之應記載或不得記載事項，其中第3項明文列舉之不得記載事項，第1款即為「企業經營者保留契約內容或期限之變更權或解釋權」<sup>2</sup>。此一款規定，文義上高度貼合本講所欲檢視之OpenSea服務條款類型條款。</p>
+
+<p>以OpenSea服務條款（Terms of Service，最後更新日期：2023年4月4日）為例，其明文規定：「OpenSea reserves the right to change or modify these Terms at any time and in our sole discretion.」（OpenSea保留隨時且完全依自身裁量變更或修改本條款之權利），並進一步規定：「By continuing to access or use the Service, you confirm your acceptance of the revised Terms.」（繼續使用服務即視為同意經修訂之條款）<sup>4</sup>。此一條款結構，其一，賦予平台不附任何「正當理由」限制之單方變更權；其二，以「繼續使用即視為同意」取代使用者對變更內容之實質審閱與磋商機會——此二項特徵，恰與消保法第17條第3項第1款所欲防杜之「企業經營者保留契約內容之變更權」高度吻合。</p>
+
+<p>惟本講之提問核心，尚不止於前述書面條款之審查可能性，而在於：Operator Filter此一技術工具本身，並非契約文字，其存廢完全繫於OpenSea單方之產品營運決策——2023年8月之公告，形式上並未修改任何一條書面契約條款，卻實質上使原本近乎技術性鎖定之版稅權利，於過渡期屆滿後歸於消滅。<mark>本文將此種權利義務內容實質繫諸於程式碼機制之部署、維持或撤除，而非繫諸於契約文字本身之設計，稱為「code-deference條款」——其特徵在於：其一，使用者對於此一技術工具之存續，並無任何契約上之請求權基礎，蓋工具之維運本非契約文字所承諾之義務；其二，此一工具之撤除，形式上不構成「條款變更」，自無從援引消保法第17條第3項第1款之文義逕行涵攝；其三，然而其對使用者權利義務之實質影響，與變更書面條款並無二致，甚或因其原先技術上難以規避之外觀，使使用者產生更高程度之信賴。</mark>此一區分，正是本講評析部分申論之核心。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g1-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0806b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0806b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0806b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0806b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-1・數據</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="32" font-weight="900" fill="#F5F8FF">OpenSea版稅政策時間軸：<tspan fill="#4D9FFF">兩層變更，同一份公告</tspan></text>
+
+  <rect x="73.6" y="168" width="1324.8" height="50" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="199" font-size="18" font-weight="700" fill="#F2A33C" text-anchor="middle">資料範圍：OpenSea官方部落格公告與服務條款，經Internet Archive Wayback Machine存檔驗證，n=4時程節點＋1條款逐字引用，均一手來源可回查</text>
+
+  <text x="73.6" y="258" font-size="21" font-weight="800" fill="#4D9FFF">OpenSea版稅政策時程</text>
+  <line x1="170" y1="340" x2="1370" y2="340" stroke="#7E8CA8" stroke-width="2"/>
+
+  <circle cx="170" cy="340" r="12" fill="#8FA1C0"/>
+  <text x="170" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2022.11</text>
+  <text x="170" y="378" font-size="17.5" fill="#C7D2E4" text-anchor="middle">Operator Filter上線</text>
+  <text x="170" y="402" font-size="16.5" fill="#8FA1C0" text-anchor="middle">創作者可限制轉售市場</text>
+
+  <circle cx="570" cy="340" r="12" fill="#4D9FFF"/>
+  <text x="570" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2023.08.17</text>
+  <text x="570" y="378" font-size="17.5" fill="#4D9FFF" text-anchor="middle">公告發布</text>
+  <text x="570" y="402" font-size="16.5" fill="#4D9FFF" text-anchor="middle">Finzer：版稅全面轉選擇性</text>
+
+  <circle cx="970" cy="340" r="12" fill="#F2A33C"/>
+  <text x="970" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2023.08.31</text>
+  <text x="970" y="378" font-size="17.5" fill="#F2A33C" text-anchor="middle">新政策生效</text>
+  <text x="970" y="402" font-size="16.5" fill="#F2A33C" text-anchor="middle">新收藏集版稅即為選擇性</text>
+
+  <circle cx="1370" cy="340" r="12" fill="#E5484D"/>
+  <text x="1370" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2024.02.29</text>
+  <text x="1370" y="378" font-size="17.5" fill="#E5484D" text-anchor="middle">過渡期屆滿</text>
+  <text x="1370" y="402" font-size="16.5" fill="#E5484D" text-anchor="middle">既有收藏集版稅亦轉選擇性</text>
+
+  <text x="73.6" y="435" font-size="18" fill="#8FA1C0">同一則公告，同時觸動書面條款「單方變更」與程式碼工具「單方撤回」兩個層次。</text>
+
+  <rect x="73.6" y="470" width="642" height="180" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="500" font-size="19" font-weight="800" fill="#35C08E">OpenSea服務條款逐字引用（Last Updated: 2023.04.04）</text>
+  <text x="96.6" y="533" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#C7D2E4">"OpenSea reserves the right to change or</text>
+  <text x="96.6" y="555" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#C7D2E4">modify these Terms at any time and in our</text>
+  <text x="96.6" y="577" font-family="ui-monospace,Menlo,monospace" font-size="15" fill="#C7D2E4">sole discretion."</text>
+  <text x="96.6" y="608" font-size="16.5" fill="#8FA1C0">→「公司保留隨時且完全依自身裁量變更之權利」</text>
+  <text x="96.6" y="634" font-size="16.5" fill="#8FA1C0">「繼續使用服務即視為同意經修訂之條款」</text>
+
+  <rect x="755.6" y="470" width="642.8" height="180" rx="12" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="778.6" y="500" font-size="19" font-weight="800" fill="#E5484D">對應台灣消保法§17Ⅲ①</text>
+  <text x="778.6" y="536" font-size="18" fill="#C7D2E4">不得記載事項第一款：</text>
+  <text x="778.6" y="566" font-size="18" fill="#F5F8FF" font-weight="700">「企業經營者保留契約內容或</text>
+  <text x="778.6" y="592" font-size="18" fill="#F5F8FF" font-weight="700">期限之變更權或解釋權」</text>
+  <text x="778.6" y="626" font-size="16.5" fill="#8FA1C0">文字條款高度貼合，惟程式碼工具未必涵蓋</text>
+
+  <text x="73.6" y="678" font-size="17" fill="#7E8CA8">時程與條款文字均經Wayback Machine存檔逐字核對；OpenSea是否曾就此政策變更與創作者進行實質磋商，標示【待查補】。</text>
+
+  <rect x="73.6" y="700" width="1324.8" height="112" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="700" width="9.2" height="112" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="740" font-size="20" font-weight="900" fill="#F5F8FF">與論文的連結：一則公告，同時撤回書面版稅承諾與程式碼強制工具——兩層變更，卻只需要一次單方裁量。</text>
+  <text x="110.4" y="774" font-size="18" fill="#8FA1C0">資料範圍：OpenSea一手來源，n=4時程節點。下一頁把台灣、歐盟、美國三個法域的審查工具整理成比較矩陣。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依OpenSea官方公告與服務條款（Wayback Machine存檔）整理；作者自製（2026-08-06）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-1・數據</text>
+</svg>
+<figcaption><b>圖2｜</b>OpenSea版稅政策時間軸與服務條款逐字引用（作者整理，依OpenSea官方部落格公告與服務條款之Internet Archive Wayback Machine存檔，最後瀏覽日：2026-08-06）。本圖亦為口試簡報 G-1 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g1-2">
+<div class="lbl">SLIDE G-1・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-06-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>上一頁把書面條款跟程式碼工具兩層結構攤開；這一頁用OpenSea真實的時間軸跟逐字引用，把這兩層變更放進同一張圖。二〇二二年十一月，OpenSea推出Operator Filter，讓創作者可以限制自己的收藏集只能在有強制執行版稅的市場交易。二〇二三年八月十七日，OpenSea執行長Devin Finzer發布公告，宣布版稅將全面轉為選擇性：新收藏集從八月三十一日起版稅即為選擇性，已經使用Operator Filter的既有收藏集，則只會被強制執行到二〇二四年二月二十九日為止，之後同樣轉為選擇性。</p>
+<p>下方的引文卡片，是OpenSea服務條款逐字引用的內容：公司保留隨時且完全依自身裁量變更條款的權利，只要求盡合理努力通知，繼續使用服務就視為同意。這段文字，正好對應台灣消保法第十七條第三項第一款明文禁止的不得記載事項類型。</p>
+<p class="transition">承接下一頁，把台灣、歐盟、美國三個法域，在單方變更權審查上的制度成熟度，整理成一張比較矩陣。</p>
+</div>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>關於前述法制缺口是否確有填補之必要，學說上或可整理出兩種對立立場。<b>肯定說（技術中性論）</b>主張，Operator Filter終究只是平台提供之附加產品功能，並非契約文字所明定之法定義務，創作者使用該工具本非基於契約請求權，而係基於平台單方之技術性優惠；平台基於市場競爭考量（如版稅戰爭導致交易量流失）而調整技術策略，屬正常商業裁量之範疇，若強令平台永久維持特定技術工具之運作，將扭曲市場競爭機制，甚至阻礙技術創新，其結果未必真正有利於創作者整體利益。<b>否定說（實質對等論）</b>則主張，創作者社群當初選擇啟用Operator Filter並遷移收藏集，正是基於「此一版稅承諾已透過技術手段獲得較契約文字更高之確定性保障」之信賴而為；平台若得以毫無過渡期正當性審查、毫無實質協商空間之方式，逕行撤除此一技術保障，其實質效果與片面修改契約文字並無二致，僅係以「技術工具」之外觀，規避消保法第17條第3項第1款之文義射程，構成對消費者保護規範目的之實質架空。<b>本文以為</b>，此二說之對立，根源在於現行法制對「契約義務」之理解，仍以文字條款為預設載體，尚未充分回應「以程式碼運作實現契約功能」此一新興技術現實；較為妥適之處理方式，或可透過「功能性等同」（functional equivalence）之解釋方法，將消保法第17條第3項第1款所稱之「契約內容之變更權」，實質延伸涵蓋「決定性影響契約權利義務內容之技術工具之部署、維持與撤除權」——申言之，凡平台單方掌握、得隨時撤除且將實質改變使用者權利義務內容之技術機制，不論其形式係文字條款抑或程式碼工具，均應納入消保法既有審查框架之射程，此即本講所稱「雙重審查」之核心主張：一重審查書面條款本身是否顯失公平，另一重審查以程式碼實現之功能性條款是否同樣構成單方變更權之實質行使。惟本文亦誠實指出，此一「功能性等同」解釋方法，截至本文完稿，尚未見台灣消保法主管機關或法院就此類技術工具撤除案例作成函釋或判決，此一延伸適用，仍屬本文倡議層次之解釋論主張，非既有實務見解，相關本土案例標示【待查補】。</p>
+
+<p>案例整理方面，除前述OpenSea之政策沿革外，比較法上已有數則案例，處理「單方變更契約條款」此一相近問題，可資借鏡。<b>Douglas v. Talk America, Inc.</b>——美國聯邦第九巡迴上訴法院於2007年就一件電信服務消費糾紛作成判決，案號495 F.3d 1062，法院認定：企業經營者若僅將修訂後之服務條款張貼於自身網站，而未實際通知消費者，尚不足以使繼續使用服務之消費者，構成對變更後條款之默示同意<sup>7</sup>——此一見解，對本講所討論之「繼續使用即視為同意」條款設計，具有直接之對照意義，惟本文提醒讀者，該案完整判決論理段落本次未及逐字核對原文，僅透過官方案例資料庫確認案號、法院與判決日期，引用前請另行查證。<b>Case C-92/11, RWE Vertrieb AG v Verbraucherzentrale Nordrhein-Westfalen eV</b>——歐盟法院第一庭於2013年3月21日就一件天然氣供應契約之單方調價條款作成判決，認定依歐盟第93/13/EEC號指令及第2003/55/EC號指令，供應商保留單方變更收費之定型化契約條款，須以透明方式載明變更之理由與計算方式，使消費者得依明確、可理解之判準預見可能之變更，若締約前未提供此等資訊，尚不能僅以「消費者於履約期間獲通知並得行使終止權」為由補正其欠缺；法院並要求終止權須於個案情形下確得實際行使<sup>6</sup>——此一判準，將審查重心自「是否賦予變更權」本身，推進至「變更權之行使是否透明可預見」，較我國消保法第17條之「一律禁止保留變更權」模式更為細緻。</p>
+
+<p>比較法對照方面，台灣、歐盟、美國就單方變更條款之規範模式，呈現三種不同路徑。<b>台灣</b>採「原則禁止」模式：消保法第17條第3項第1款，明文將「企業經營者保留契約內容或期限之變更權或解釋權」列為中央主管機關得公告禁止記載之事項類型，法制設計上具有相當之防禦力度；惟其運作前提，繫諸主管機關就特定行業「公告」應記載或不得記載事項，截至本文完稿，尚未查得主管機關已就NFT交易平台或web3服務業，作成相關公告，此一現況，構成本講評析之重要觀察。<b>歐盟</b>採「透明性審查」模式：不公平契約條款指令並未一律禁止單方變更條款，而係將「未附正當理由之單方變更」列為附件所載之示例性不公平條款<sup>5</sup>，並透過RWE Vertrieb案之判準，要求變更權之行使須符合透明、可預見之要求，賦予法院於個案中依契約全部情狀為實質審查之空間，較台灣模式更具彈性，惟同時亦考驗司法資源與個案審查能力。<b>美國</b>則呈現「通知實質性」模式：欠缺聯邦層級之定型化契約專門立法，主要仰賴普通法上之契約成立與變更原則，如Douglas案所示，法院關注之重心在於「消費者是否具備實際知悉」，而非條款文字本身是否記載變更權。三種模式對台灣之啟示或在於：消保法第17條雖已備有全球少見之明文禁止工具，然若欠缺主管機關依產業特性積極公告應記載或不得記載事項之後續行政作為，此一制度優勢終將流於具文；而歐盟RWE Vertrieb案之透明性審查框架，或可作為台灣未來若欲將「code-deference條款」納入既有審查框架時，可資參照之個案審查判準——尤其係要求平台就技術工具之撤除，負擔理由揭露與合理過渡期之義務，而非僅止於形式上之事後通知。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g1-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0806c" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0806c" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0806c)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0806c)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-1・比較</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">台灣、歐盟、美國：<tspan fill="#4D9FFF">單方變更權，三種審查模式</tspan></text>
+
+  <rect x="73.6" y="176.8" width="230" height="59.84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="188.6" y="214.88" font-size="20" font-weight="800" fill="#8FA1C0" text-anchor="middle">判斷項目</text>
+  <rect x="318" y="176.8" width="344" height="59.84" rx="10" fill="rgba(77,159,255,.10)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="490" y="214.88" font-size="20" font-weight="800" fill="#4D9FFF" text-anchor="middle">台灣（消保法）</text>
+  <rect x="676.4" y="176.8" width="344" height="59.84" rx="10" fill="rgba(53,192,142,.10)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="848.4" y="214.88" font-size="20" font-weight="800" fill="#35C08E" text-anchor="middle">歐盟（93/13/EEC）</text>
+  <rect x="1034.8" y="176.8" width="363.6" height="59.84" rx="10" fill="rgba(242,163,60,.10)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="1216.6" y="214.88" font-size="20" font-weight="800" fill="#F2A33C" text-anchor="middle">美國（普通法）</text>
+
+  <rect x="73.6" y="247.52" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="288.32" font-size="19.5" font-weight="700" fill="#F5F8FF">規範方式</text>
+  <text x="96.6" y="318.24" font-size="17" fill="#7E8CA8">有無專門立法</text>
+  <text x="341" y="293.76" font-size="17.5" font-weight="700" fill="#4D9FFF">明文禁止特定</text>
+  <text x="341" y="320.96" font-size="17.5" fill="#C7D2E4">不得記載事項（§17Ⅲ①）</text>
+  <text x="699.4" y="293.76" font-size="17.5" fill="#C7D2E4">示例性不公平條款</text>
+  <text x="699.4" y="320.96" font-size="17.5" fill="#C7D2E4">列舉（附件1(j)(k)）</text>
+  <text x="1057.8" y="293.76" font-size="17.5" fill="#C7D2E4">無專門立法，</text>
+  <text x="1057.8" y="320.96" font-size="17.5" fill="#C7D2E4">依普通法契約原則</text>
+
+  <rect x="73.6" y="384.32" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="425.12" font-size="19.5" font-weight="700" fill="#F5F8FF">審查判準</text>
+  <text x="96.6" y="455.04" font-size="17" fill="#7E8CA8">審查重心</text>
+  <text x="341" y="430.56" font-size="17.5" fill="#C7D2E4">一律禁止保留</text>
+  <text x="341" y="457.76" font-size="17.5" fill="#C7D2E4">變更權之文字</text>
+  <text x="699.4" y="430.56" font-size="17.5" font-weight="700" fill="#35C08E">要求透明揭露理由</text>
+  <text x="699.4" y="457.76" font-size="17.5" fill="#C7D2E4">與計算方式（C-92/11）</text>
+  <text x="1057.8" y="430.56" font-size="17.5" font-weight="700" fill="#F2A33C">要求消費者具備</text>
+  <text x="1057.8" y="457.76" font-size="17.5" fill="#C7D2E4">實際知悉（Douglas案）</text>
+
+  <rect x="73.6" y="521.12" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="561.92" font-size="19.5" font-weight="700" fill="#F5F8FF">代表案例／工具</text>
+  <text x="96.6" y="591.84" font-size="17" fill="#7E8CA8">已知先例</text>
+  <text x="341" y="567.36" font-size="17.5" fill="#E5484D">尚未見主管機關對</text>
+  <text x="341" y="594.56" font-size="17.5" fill="#C7D2E4">web3／NFT產業公告</text>
+  <text x="699.4" y="567.36" font-size="17.5" fill="#C7D2E4">RWE Vertrieb</text>
+  <text x="699.4" y="594.56" font-size="17.5" fill="#C7D2E4">（天然氣調價案，2013）</text>
+  <text x="1057.8" y="567.36" font-size="17.5" fill="#C7D2E4">Douglas v. Talk America</text>
+  <text x="1057.8" y="594.56" font-size="17.5" fill="#C7D2E4">（電信條款案，2007）</text>
+
+  <rect x="73.6" y="657.92" width="1324.8" height="122.4" rx="10" fill="rgba(46,107,255,.06)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <text x="96.6" y="698.72" font-size="19.5" font-weight="700" fill="#4D9FFF">對台灣之啟示</text>
+  <text x="96.6" y="728.64" font-size="17" fill="#7E8CA8">可借鏡什麼</text>
+  <text x="341" y="704.16" font-size="17.5" font-weight="700" fill="#4D9FFF">有法卻未實際公告</text>
+  <text x="341" y="731.36" font-size="17.5" fill="#C7D2E4">適用於新興產業</text>
+  <text x="699.4" y="704.16" font-size="17.5" fill="#C7D2E4">透明性審查可補</text>
+  <text x="699.4" y="731.36" font-size="17.5" fill="#C7D2E4">code-deference條款之空白</text>
+  <text x="1057.8" y="704.16" font-size="17.5" fill="#C7D2E4">通知實質性可作</text>
+  <text x="1057.8" y="731.36" font-size="17.5" fill="#C7D2E4">個案審查之輔助判準</text>
+
+  <rect x="73.6" y="798.4" width="1324.8" height="98" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="798.4" width="9.2" height="98" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="836" font-size="19.5" font-weight="900" fill="#F5F8FF">與論文的連結：台灣消保法第17條的禁止工具全球少見地明確，卻從未真正扣下扳機——這正是G軸制度設計系列要處理的起點。</text>
+  <text x="110.4" y="866.4" font-size="18" fill="#8FA1C0">資料範圍：三法域，n=3。下一講進入G-2，處理追及權引進論的批判。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依消保法第17條、Directive 93/13/EEC與Douglas、RWE Vertrieb兩案整理；作者自製（2026-08-06）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-1・比較</text>
+</svg>
+<figcaption><b>圖3｜</b>台灣、歐盟、美國單方變更權審查模式比較矩陣（作者整理，依消保法第17條、Directive 93/13/EEC與RWE Vertrieb、Douglas兩案，最後瀏覽日：2026-08-06）。本圖亦為口試簡報 G-1 比較幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g1-3">
+<div class="lbl">SLIDE G-1・比較 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-06-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前一頁攤開了時間軸跟服務條款逐字引用；這一頁把台灣、歐盟、美國三個法域放進同一張矩陣比較。台灣消保法第十七條，明文可以由主管機關公告特定行業不得記載保留變更權的條款，但目前尚未見到針對NFT或web3平台公告的應記載不得記載事項。歐盟的方式不太一樣：一九九三年的不公平契約條款指令附件，把未附正當理由的單方變更條款列為示例性的不公平條款，二〇一三年的RWE Vertrieb案更進一步要求，變更條款必須清楚揭露變更的理由跟計算方式，讓消費者可以預見。美國則沒有專門的法定文字禁令，主要靠普通法上的判決先例，二〇〇七年第九巡迴上訴法院在Douglas案裡認定，企業單純把修改後的條款貼在網站上，還不足以拘束沒有實際知悉的消費者。</p>
+<p>或有論者以為，台灣消保法第十七條的公告機制，理論上最直接有力，但至今從未真正用在web3或NFT產業；本講認為，這正是台灣模式看得到武器、卻從未扣下扳機的寫照。</p>
+<p class="transition">承接下一講，這一講已經把書面條款的審查工具講清楚；下一講將處理追及權引進論的批判，看立法為什麼補不上場外交易這個問題。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>OpenSea透過書面服務條款之單方變更權，配合Operator Filter此一可隨時撤除之程式碼工具，於2023年8月同步收回創作者原先信賴之版稅保障，暴露現行消保法審查框架僅及於文字條款、未及於「code-deference條款」之制度缺口；此一缺口之填補，或可透過「功能性等同」解釋方法，將消保法第17條第3項第1款延伸適用於決定性影響契約權利義務之技術工具本身，構成本講所稱之「雙重審查」。</mark>下一講將轉向G-2，處理追及權（droit de suite）引進論之批判，檢視立法為何始終補不上場外交易此一結構性問題。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你把OpenSea 2022年11月推出Operator Filter，跟2023年8月收回這件事，講成一個『code-deference條款』的案例，但Operator Filter從頭到尾都只是OpenSea自己的產品功能，創作者從來沒有跟OpenSea簽過任何寫明『這個工具會一直開著』的契約，你憑什麼說這是一種『條款』？」</span>
+<span class="hint">👉 這題其實在問：你講的這個「code-deference條款」，是不是根本沒有契約基礎，只是你自己幫一個產品功能加了個法律名詞？</span>
+<span class="a">怎麼答：這個質疑點出了我這篇文章最核心的理論賭注。我承認，Operator Filter確實不是任何一份契約明文承諾的內容，創作者也沒有一份寫著「這個工具會持續運作」的書面條款。但我想論證的正是這一點：正因為它沒有被寫進契約文字，才會完全落在消保法既有審查框架之外——如果它是明文條款，我根本不需要造「code-deference條款」這個詞，直接引消保法第十七條就可以處理了。我用這個詞，是想指出一種介於「有契約基礎」跟「純粹產品功能」之間的灰色地帶：它雖然沒有契約文字支撐，但它實質上決定了創作者的版稅權利有沒有辦法落實，效果跟修改契約條款一樣重大。這是我提出的一個解釋論倡議，不是現有法律已經承認的類型，我在文章裡也誠實承認這一點。</span></li>
+<li><span class="q">「你舉的Douglas案，你自己都承認完整判決全文沒有逐字核對過，只確認了案號、法院跟日期，那你憑什麼把它拿來當作美國法比較法的代表案例，這樣的引用方式不是太隨便了嗎？」</span>
+<span class="hint">👉 這題其實在問：你自己承認判決全文沒讀過，這樣還敢拿來當比較法的證據，會不會太不嚴謹？</span>
+<span class="a">怎麼答：這是一個很合理的質疑，我必須誠實面對。我這次確實只透過官方案例資料庫確認了案號、法院跟判決日期，沒有辦法逐字核對完整判決全文的論理段落，這是我這篇文章目前最大的方法論弱點之一，我也在註釋裡明白標註了這件事。我會這樣處理，是因為Douglas案在美國網路服務條款單方變更的討論裡，是被廣泛引用的一個標竿案例，它的核心見解——單純把修改後條款貼在網站上不足以拘束沒有實際知悉的消費者——在許多既有文獻中反覆出現。但我同意，在正式投稿版本定稿之前，我必須找到管道取得完整判決全文，逐字核對法院的論理過程，否則這個引用只能算是暫時性的、需要進一步查證的參考，不能當作確定的論證基礎。</span></li>
+<li><span class="q">「你說消保法第十七條第三項第一款的『企業經營者保留契約內容或期限之變更權』，應該延伸解釋到程式碼工具的撤除，但這完全是你自己的解釋論主張，台灣從來沒有任何函釋或判決這樣認定過，你這樣講會不會太超前了？」</span>
+<span class="hint">👉 這題其實在問：你自己發明的這個法律解釋，有沒有任何官方或法院真的這樣認定過？</span>
+<span class="a">怎麼答：目前確實沒有，我在文章裡也很清楚地把這個部分定位成「本文倡議層次之解釋論主張」，不是既有實務見解，我沒有假裝這已經是通說或有函釋支持。我提出「功能性等同」這個解釋方法，是因為我觀察到現行消保法的文字設計，預設契約義務都是用文字條款表現的，但像Operator Filter這種用程式碼實現、由平台單方決定要不要繼續運作的機制，正好鑽了這個預設的漏洞。我認為這個解釋方向在邏輯上站得住腳，因為它精準對應了消保法第十七條想要防止的核心風險——企業片面決定契約權利義務內容，只是換了一個技術外觀而已。但我完全同意，這需要主管機關或法院實際採納，才能從我的主張變成有效的法律，這正是這篇文章希望拋出來，讓學界或實務界進一步檢驗的問題。</span></li>
+<li><span class="q">「OpenSea在公告裡明明說，這是因為版稅戰爭導致交易量流失、市場競爭壓力才做的商業決定，你為什麼要把一個正常的商業決策，硬要往『規避法律審查』這個方向去解讀？」</span>
+<span class="hint">👉 這題其實在問：人家明明說是因為生意競爭才這樣做，你為什麼硬要說這是在鑽法律漏洞？</span>
+<span class="a">怎麼答：我完全同意，OpenSea公告裡講的商業理由是真實存在的競爭壓力，我在文章的背景段落也如實描述了這個脈絡，並沒有否認這一點。我這篇文章要問的不是「OpenSea的商業動機是不是不良」，而是「不管動機是什麼，這樣的操作在現行法律框架底下，到底有沒有辦法被審查」。換句話說，就算OpenSea完全是基於正當的商業考量做這個決定，只要它撤除工具的方式，實質上跟片面修改契約條款造成的效果一樣，我認為法律就應該有能力去檢視這個決定的過程是不是符合透明、合理過渡期這些要求，而不是因為它披著「產品功能調整」的外衣，就完全逃脫審查。動機是否良善，跟該不該受到審查，是兩個層次的問題。</span></li>
+<li><span class="q">「你在跨法域比較的地方說台灣消保法第十七條『有法無用』，但你也承認，到現在都還沒有任何一個真實案例去測試這個問題，你怎麼知道台灣的主管機關真的不會用這條處理這種情況，會不會只是還沒遇到而已？」</span>
+<span class="hint">👉 這題其實在問：你怎麼確定台灣的法律工具是「沒用」，而不是「還沒輪到用」？</span>
+<span class="a">怎麼答：這是一個很公平的提醒，我用「有法無用」這個講法，確實比較強烈，我願意把它修正得更精確一點：目前為止，主管機關還沒有針對web3或NFT產業，依消保法第十七條公告任何應記載或不得記載事項，這是可以查證到的制度現況，但這不代表未來永遠不會用，也不代表現在遇到爭議時法院不能援引民法第二百四十七條之一或消保法第十二條的一般條款去處理。我這篇文章真正想強調的，是台灣現在明明已經有全球少見、寫得很明確的禁止工具，卻還沒有被實際動用在這類新興的技術場景上，這中間的落差，我認為值得記錄下來，提醒未來可能需要更積極的行政作為，而不是斷言這個工具永遠不會被使用。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>民法第247條之1（全國法規資料庫，https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&flno=247-1，最後瀏覽日：2026年8月6日，逐字核對）。</li>
+<li>消費者保護法第11條、第11條之1、第12條、第17條（全國法規資料庫，https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0170001，最後瀏覽日：2026年8月6日，逐字核對）。</li>
+<li>OpenSea, "Changes to creator fees on OpenSea," written by Devin Finzer, opensea.io/blog/announcements/on-creator-fees/（Internet Archive Wayback Machine存檔，存檔時間：2023年8月22日；最後瀏覽日：2026年8月6日，逐字核對）。</li>
+<li>OpenSea, Terms of Service（Last Updated: April 4, 2023），opensea.io/tos（Internet Archive Wayback Machine存檔，存檔時間：2023年8月17日；最後瀏覽日：2026年8月6日，逐字核對）。</li>
+<li>Council Directive 93/13/EEC of 5 April 1993 on unfair terms in consumer contracts, Annex, paragraph 1(j)(k)（EUR-Lex，最後瀏覽日：2026年8月6日，逐字核對）。</li>
+<li>Case C-92/11, RWE Vertrieb AG v Verbraucherzentrale Nordrhein-Westfalen eV, Judgment of the Court (First Chamber), 21 March 2013（EUR-Lex，最後瀏覽日：2026年8月6日，逐字核對操作性判決主文）。</li>
+<li>Douglas v. Talk America, Inc., 495 F.3d 1062 (9th Cir. 2007)（案號、法院、判決日期經CourtListener案例資料庫確認，最後瀏覽日：2026年8月6日；完整判決論理段落本次未及逐字核對，引用前請另行查證原文）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-08-05.html"><span class="dir">← 上一篇</span>集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-08-06.html">2026-08-06　平台單方變更條款與code-deference條款：定型化契約的雙重審查（G-1）</a></li>
+<li><a href="2026-08-05.html">2026-08-05　集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口（F-2）</a></li>
+<li><a href="2026-08-04.html">2026-08-04　集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）（F-1）</a></li>
+<li><a href="2026-08-02.html">2026-08-02　SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界（E-5）</a></li>
+<li><a href="2026-07-29.html">2026-07-29　自動分潤遇上凍結義務：不可暫停的程式碼與必須可凍結的洗防法（E-4）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖3為作者依OpenSea官方部落格公告、服務條款（均經Internet Archive Wayback Machine存檔驗證）與消費者保護法第17條整理自製；民法第247條之1、消費者保護法第11、11-1、12、17條已於2026年8月6日逐字核對全國法規資料庫原文；Council Directive 93/13/EEC與Case C-92/11已於2026年8月6日逐字核對EUR-Lex原文；Douglas v. Talk America, Inc., 495 F.3d 1062 (9th Cir. 2007)之案號、法院與判決日期已於2026年8月6日經CourtListener案例資料庫確認，惟完整判決論理段落本次未及逐字核對，引用前請另行查證；台灣是否已有涉及web3或NFT產業之消保法第17條應記載或不得記載事項公告，以及是否已有本土案例援引「code-deference條款」概念，均標示【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>
