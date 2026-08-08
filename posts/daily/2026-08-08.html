@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>期刊專題 2026-08-08｜追及權引進論的批判｜鏈法醫</title>
+<meta name="description" content="歐盟《2001/84/EC號轉售權指令》將追及權之適用限於藝術品市場專業人士介入之交易，美國加州CRRA立法更兩度敗訴於商業條款與著作權法優占；本文以此制度史為據，主張追及權引進論若未正視「場外交易」之結構性缺口，恐難真正回應NFT去中心化轉手情境下的分潤缺位問題。鏈法醫期刊專題，制度設計（G-2）。">
+<meta property="og:title" content="期刊專題 2026-08-08｜追及權（droit de suite）引進論的批判：立法為何補不上場外交易｜鏈法醫">
+<meta property="og:description" content="市場專業人士是鑰匙孔，場外交易永遠配不到那把鑰匙——追及權的射程邊界，是設計，不是意外。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<div class="masthead"><div class="masthead-inner">
+  <span class="brand"><a href="../../index.html">鏈法醫</a></span>
+  <span class="brand-en">Chain Forensics</span>
+  <a href="https://elainechi-art.github.io/" style="font-size:.78rem;color:var(--muted);text-decoration:none">🏠 學習中心</a>
+  <span class="tagline">用數據和程式碼，驗屍每一個區塊鏈承諾。</span>
+</div></div>
+
+<div class="crumbs"><button class="back" onclick="history.length>1?history.back():location.href='../../index.html'">← 上一頁</button>
+  <a href="../../index.html">鏈法醫</a> ›
+  <a href="latest.html">期刊專題日更</a> ›
+  <span>2026-08-08</span>
+</div>
+<main>
+<article>
+
+<div class="kicker">期刊專題日更・制度設計（G-2）</div>
+<h1>追及權（droit de suite）引進論的批判：<br>立法為何補不上場外交易</h1>
+
+<div class="byline">
+  <span><b>鏈法醫</b>・期刊專題</span>
+  <span>2026-08-08</span>
+  <span>閱讀約 15 分鐘</span>
+</div>
+
+<p class="dek"><b>歐盟《2001/84/EC號轉售權指令》將追及權之適用限於藝術品市場專業人士介入之交易，美國加州CRRA立法更兩度敗訴於商業條款與著作權法優占；此一制度史顯示，追及權引進論若未正視「場外交易」之結構性缺口，恐難真正回應去中心化轉手情境下的分潤缺位問題。</b></p>
+
+<div class="quick"><div class="qa-label">⚡ 30秒白話版</div>
+<p>追及權，白話講就是畫作或音樂作品增值轉售時，讓創作者也能分一杯羹的權利。這篇文章要講的是：不管歐盟還是美國加州，這個權利長期以來都有一個共同的死角——只要交易不經過拍賣行、畫廊這種「市場中介」，直接私下轉手，這個權利就抓不到人。放到NFT的世界，錢包對錢包的直接轉手，正好完全符合這個死角的條件。本文主張：光是把追及權寫進台灣著作權法，並不會自動解決NFT轉售版稅落實不了的問題，除非先處理場外交易這個結構性缺口。</p>
+</div>
+
+<h2><span class="no">壹</span>問題提出</h2>
+
+<p>上一講已經指出，OpenSea透過書面服務條款之單方變更權，配合Operator Filter此一可隨時撤除之程式碼工具，暴露現行消保法審查框架僅及於文字條款、未及於「code-deference條款」之制度缺口。本講轉向另一條時常被提出、用以填補NFT轉售版稅強制力不足之制度化路徑——於著作權法中明文引進「追及權」（droit de suite），使音樂與藝術創作者，得就其著作原件其後之每一次轉售增值，依法請求一定比例之報酬。此一立法倡議，是否確能填補C軸與G-1所反覆論證之「軟性版稅」（soft royalty）困境，使創作者版稅之落實，自「平台自願配合」提升至「法律上不可迴避」之等級？倘若ERC-2981此一資訊揭露標準，終究無法課予任何一方強制執行之義務，法定追及權是否即為理想解方？進一步追問——法定追及權之規範射程，是否確能涵蓋所有型態之轉售交易，抑或其本身即存在結構性之射程邊界，而此一邊界，恰好與NFT轉售最常見之交易型態（點對點、無中介之鏈上轉手）重疊？此等問題，構成本講之核心提問。</p>
+
+<h2><span class="no">貳</span>背景：追及權之制度理念與台灣引進論之興起</h2>
+
+<p>追及權作為大陸法系著作權傳統下之制度性設計，其規範理念，依歐盟指令前言第3點之揭示：「追及權旨在確保平面與立體藝術著作之作者，得分享其原創作品之經濟上成功；此一權利有助於矯正平面與立體藝術著作作者，與得益於其著作後續利用之其他創作者間，經濟地位失衡之現象」<sup>1</sup>。換言之，此一制度所欲處理者，係著作首次移轉後，該著作物之市場價值若因作者聲譽累積或市場評價提升而顯著增值，該增值利益理應由作者本人分享一部分，而非悉數歸於居間轉手之收藏家或經銷商——指令前言第1點並進一步將追及權定性為「不可讓與、不可拋棄之權利」（unassignable and inalienable right）<sup>1</sup>，此一定性，使追及權於性質上，與著作財產權中得自由讓與、拋棄之財產權能，有所區隔，反而更貼近著作人格權之不可拋棄特徵。
+
+自始，此一制度即係為因應實體藝術市場（原創畫作、雕塑等）之交易結構而設計；惟延伸至音樂與NFT脈絡，本站C軸與G-1講已反覆論證：現行NFT轉售版稅機制（ERC-2981等資訊揭露標準），其本質為市場自願配合之「軟性版稅」，不具備契約法或著作權法上之強制執行力，一旦交易市場選擇不配合查詢執行，或買賣雙方選擇於未部署此一查詢機制之場域完成轉手，創作者即無從主張任何報酬請求權。在此背景下，援引已具百年歷史、且已為多數已開發國家立法承認之追及權制度，將其明文引進台灣著作權法，遂成為部分論者所主張、用以填補此一軟性版稅缺口之制度化路徑——其論證邏輯在於：與其寄望平台自願配合執行ERC-2981之資訊揭露，不如直接於著作權法中創設一項具強制執行力、不可拋棄之法定報酬請求權，使創作者版稅之落實，不再繫諸於平台之商業裁量。惟此一立論是否經得起檢驗，仍須自追及權制度本身之規範射程，仔細審視——此一觀察意味著，制度移植之可行性，不能僅憑其立法史悠久或比較法上已獲多數承認，即逕行推定其能有效回應全然不同之技術脈絡。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g2-1').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0808a" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0808a" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0808a)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0808a)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-2</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="32" font-weight="900" fill="#F5F8FF">在場交易 vs 場外交易：<tspan fill="#4D9FFF">追及權的射程畫在哪裡？</tspan></text>
+  <text x="103.5" y="167" font-size="18.3" fill="#7E8CA8">G-2：延續G-1雙重審查缺口，檢視法定追及權能否填補NFT轉售之強制力空白</text>
+
+  <rect x="73.6" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="98.9" y="234" font-size="22" font-weight="800" fill="#4D9FFF">法律要件：市場專業人士介入</text>
+  <text x="98.9" y="272" font-size="19.5" fill="#C7D2E4">歐盟指令§1⑵：拍賣場所、藝廊、</text>
+  <text x="98.9" y="302" font-size="19.5" fill="#C7D2E4">經銷商為賣方、買方或中介</text>
+  <text x="98.9" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 追及權射程所及（在場交易）</text>
+
+  <rect x="753.4" y="200" width="645" height="170" rx="14" fill="#131D2E" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="778.7" y="234" font-size="22" font-weight="800" fill="#4D9FFF">NFT對應：中心化平台撮合</text>
+  <text x="778.7" y="272" font-size="19.5" fill="#C7D2E4">OpenSea等平台前端撮合、</text>
+  <text x="778.7" y="302" font-size="19.5" fill="#C7D2E4">集中化交易介面完成轉手</text>
+  <text x="778.7" y="344" font-size="19.5" font-weight="700" fill="#4D9FFF">→ 或可解為市場專業人士之數位型態</text>
+
+  <text x="736" y="297" font-size="40" font-weight="700" fill="#4D9FFF" text-anchor="middle">≈</text>
+
+  <rect x="73.6" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="98.9" y="424" font-size="22" font-weight="800" fill="#E5484D">法律要件：無市場專業人士</text>
+  <text x="98.9" y="462" font-size="19.5" fill="#C7D2E4">私人直接轉手，無拍賣商、</text>
+  <text x="98.9" y="492" font-size="19.5" fill="#C7D2E4">藝廊等專業人士居間</text>
+  <text x="98.9" y="534" font-size="19.5" font-weight="700" fill="#E5484D">→ 追及權射程未及（場外交易）</text>
+
+  <rect x="753.4" y="390" width="645" height="170" rx="14" fill="#131D2E" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="778.7" y="424" font-size="22" font-weight="800" fill="#E5484D">NFT對應：點對點／去中心化協議</text>
+  <text x="778.7" y="462" font-size="19.5" fill="#C7D2E4">錢包對錢包直接轉帳、</text>
+  <text x="778.7" y="492" font-size="19.5" fill="#C7D2E4">去中心化協議完成鏈上結算</text>
+  <text x="778.7" y="534" font-size="19.5" font-weight="700" fill="#E5484D">→ 結構性落於射程之外</text>
+
+  <text x="736" y="487" font-size="40" font-weight="700" fill="#F2A33C" text-anchor="middle">≈</text>
+
+  <rect x="73.6" y="580" width="1324.8" height="60" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="618" font-size="19" font-weight="700" fill="#F2A33C" text-anchor="middle">「市場專業人士」是鑰匙孔，場外交易永遠配不到那把鑰匙——這是設計，不是意外</text>
+
+  <rect x="73.6" y="660" width="1324.8" height="140" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="660" width="9.2" height="140" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="706" font-size="21" font-weight="900" fill="#F5F8FF">與論文的連結：法定追及權若逕行移植既有立法模式，恐怕重演軟性版稅的強制力缺口，只是換了一套法條外衣。</text>
+  <text x="110.4" y="744" font-size="19.5" fill="#8FA1C0">下一頁把美國加州CRRA歷經兩階段司法挑戰、幾近失效的完整時間軸攤開來看。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依Directive 2001/84/EC第1條整理；作者自製（2026-08-08）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-2</text>
+</svg>
+<figcaption><b>圖1｜</b>在場交易與場外交易之射程邊界（作者自製，依Directive 2001/84/EC第1條第1、2項整理，最後瀏覽日：2026-08-08）。本圖亦為口試簡報 G-2 幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g2-1">
+<div class="lbl">SLIDE G-2 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-08-1.mp3"></audio>
+<p><span class="cue">承接上一講，</span>G-1已經指出，OpenSea透過書面條款與程式碼工具的雙重操作，暴露定型化契約審查僅止於文字條款的制度缺口。這一頁進入G-2，檢視另一條時常被提出的填補路徑——法定追及權，能不能解決同樣的強制力問題。左上角是歐盟轉售權指令的法律要件：追及權適用於拍賣場所、畫廊等藝術品市場專業人士介入的轉售，右上角對應NFT情境下，透過OpenSea等平台撮合的交易，或可解為市場專業人士的數位型態。</p>
+<p>下半部才是這一頁的關鍵。左下角是指令文義排除的部分：私人直接轉手、無市場專業人士居間的交易，追及權射程本就未及；右下角對應NFT最常見的點對點轉手、去中心化協議鏈上結算，結構性地落在射程之外。或有論者以為，只要修正市場專業人士的定義即可解決，這一點下一講會進一步處理。</p>
+<p class="transition">承接下一頁，把美國加州CRRA歷經四十年、兩階段司法挑戰後幾近失效的完整時間軸攤開來看。</p>
+</div>
+
+<h2><span class="no">參</span>法制說明：歐盟指令之射程設計與台灣現行法之空白</h2>
+
+<p>歐盟現行規範追及權最詳盡之法律文件，為《2001/84/EC號指令》（Directive on the resale right for the benefit of the author of an original work of art，2001年9月27日），其第1條第1項明文：「會員國應為原創圖形或立體藝術著作之作者，提供追及權之利益，該權利定義為不可讓與、縱使事前拋棄亦屬無效之權利，使作者就該著作首次移轉後之任何一次轉售，得依售價受領報酬」<sup>2</sup>。惟其規範射程，第1條第2項設有一項對本講至關重要之限制：追及權「適用於一切以藝術品市場專業人士（如拍賣場所、藝廊，以及一般而言任何藝術品經銷商）作為賣方、買方或中介之轉售行為」<sup>3</sup>。換言之，指令之文義本身，即已將完全不涉及藝術品市場專業人士居間之私下轉售（即本講所稱之「場外交易」），排除於追及權射程之外——此一限制，並非執行層面之疏漏，而係立法設計之明文選擇。指令另於第3條授權會員國自行設定「最低售價門檻」，該門檻不得超過3,000歐元，售價低於門檻者，不生追及權<sup>4</sup>；第4條則設有累進費率結構，售價5萬歐元以下部分適用4%（會員國得選擇性調升至5%），逾5萬至20萬歐元部分降為3%，其後費率遞減，總費率上限為12,500歐元<sup>5</sup>。此一累進遞減結構，反映立法者對高價藝術品交易與一般性交易之差別考量，惟其設計前提，仍是該交易確實發生於受監管、可課予扣繳義務之市場專業人士介入之場域。</p>
+
+<p>反觀台灣現行著作權法，經本文於2026年8月8日逐字檢索全國法規資料庫著作權法全文，全文並無任何「追及」或與轉售報酬請求權相關之條文<sup>6</sup>——申言之，台灣著作權法現行架構下，創作者就其著作原件或著作重製物之後續轉售增值，並無任何法定報酬請求權可資主張，此一立法空白，構成引進論之制度背景。惟此一空白之填補，倘若逕行參照歐盟模式引進，本講認為，仍須正視前述「藝術品市場專業人士」要件所劃定之射程邊界——蓋此一要件，設計之初本即以實體藝術市場之交易結構為預設藍本，而NFT轉售最常見之交易型態，恰好可能完全落於此一射程邊界之外，此一觀察，構成下節評析之核心關切。</p>
+
+<h2><span class="no">肆</span>評析：學說對立、案例整理與比較法對照</h2>
+
+<p>關於追及權引進論是否確能填補NFT轉售版稅之強制力缺口，學說上或可整理出兩種對立立場。<b>肯定論</b>主張，即便追及權之射程存在市場專業人士要件之限制，其立法本身仍具有宣示性與補充性之價值——蓋現行NFT交易，絕大多數仍透過OpenSea、Blur等具備集中化交易介面之平台完成，此等平台本身即可能被解釋為藝術品市場專業人士之數位化型態，若著作權法明文承認追及權，至少可對此類平台課予法定、不可迴避之報酬扣繳義務，較現行僅能仰賴ERC-2981自願遵循之軟性版稅機制，更具強制力；縱使無法涵蓋點對點之場外交易，亦可先行填補「平台內轉售」此一子集合之強制力缺口，屬漸進式立法之合理選擇。<b>否定論</b>則主張，NFT交易之技術本質，正是要繞開集中化中介、實現點對點價值移轉，隨著去中心化交易協議之普及，愈來愈高比例之NFT轉售，實質上已不需要透過任何中心化平台作為交易之相對人或居間者完成撮合；若追及權之立法設計，未能明確界定何種鏈上交易型態該當「市場專業人士介入」，該立法將面臨與歐盟指令相同之射程窘境，甚至因NFT交易之去中心化程度更甚於傳統藝術市場，其實際涵蓋率可能更低於指令於實體藝術市場之涵蓋率，淪為看得到、用不到之具文。<b>本文以為</b>，二說之分歧，實質上取決於一項尚待實證檢驗之經驗性前提——現行音樂與藝術類NFT之轉售交易，究竟有多高比例，係透過具備集中化撮合功能、可資課予扣繳義務之平台完成，又有多高比例，係透過真正去中心化、無從特定義務主體之點對點協議完成；此一比例分布，本文尚未查得可靠之實證數據，標示【待查補】。惟本文傾向認為，即便現行比例仍以平台撮合為主，立法者仍應正視此一比例可能隨去中心化交易協議之技術成熟而持續下降之趨勢，若立法設計未能預留因應此一趨勢之彈性（例如：以「是否存在可特定之報酬扣繳義務人」作為射程判準，而非以「是否存在市場專業人士」為唯一判準），該立法縱使通過，亦可能於施行未久即面臨適用率持續萎縮之窘境。</p>
+
+<p>比較法上，美國加州之立法經驗，提供一則追及權立法遭遇結構性挫敗之具體案例整理。加州於1976年制定《加州轉售版稅法》（California Resale Royalties Act, CRRA），要求藝術品出售人或其代理人，就藝術品轉售價金扣繳5%予原創作者，法條原文：「If a seller or the seller's agent fails to pay an artist the amount equal to 5 percent of the sale of a work of fine art by the artist... the artist may bring an action for damages」<sup>7</sup>。惟此一立法，其後歷經兩階段之司法挑戰，最終幾近全面失去實效。<b>Sam Francis Foundation v. Christie's, Inc., 784 F.3d 1320 (9th Cir. 2015) (en banc)</b>——美國聯邦第九巡迴上訴法院採聯席審理，就CRRA是否得適用於「賣方位於加州境外」之轉售交易，認定：CRRA未區分交易是否發生於加州境內，逕行課予任何涉及加州居民之藝術品轉售一律扣繳義務，構成對州際商業之過度規制，違反美國憲法商業條款之消極面向（dormant Commerce Clause），該部分規定應屬無效；美國聯邦最高法院其後於2016年1月11日拒絕受理上訴（136 S. Ct. 795），該判決遂告確定<sup>8</sup>。<b>Close v. Sotheby's, Inc., 894 F.3d 1061 (9th Cir. 2018)</b>——同一系列訴訟之後續判決，第九巡迴上訴法院進一步認定：CRRA就1978年1月1日（1976年聯邦著作權法生效日）之後所發生之藝術品轉售，其報酬請求權主張，已為聯邦著作權法第301條a項之明示優占條款所排除，法院僅保留CRRA就1977年1月1日（CRRA生效日）至1978年1月1日間所發生轉售交易之適用效力<sup>9</sup>。至此，加州歷時逾四十年之追及權立法實驗，經兩階段司法程序後，其實際可主張之範圍，幾近歸零——此一制度史顯示，即便一部立法之文義本身，未如歐盟指令般明文將場外交易排除於射程之外，其規範射程仍可能因憲法上之管轄權限制與體系性之權利衝突，而事實上萎縮至幾近無法適用之地步。</p>
+
+<p>綜合台灣、歐盟、美國三法域之現況，可整理出三種不同之制度處境。台灣現行著作權法並無追及權之規定，屬於立法空白階段，引進論仍停留於倡議層次。歐盟則屬「射程受限之在場立法」——指令明文承認追及權，惟以市場專業人士介入為要件，結構性地排除場外私下交易，此一限制係立法之初即已設計之選擇，而非事後之司法挫敗。美國加州則屬「射程萎縮之在場立法」——CRRA之立法文義本身，並未如歐盟指令設有市場專業人士要件之限制，然其後歷經商業條款與著作權法優占之雙重司法挑戰，實際可主張範圍幾近歸零，構成事後之司法性挫敗。三種處境對台灣引進論之啟示或在於：無論立法設計於制定之初，是否已明文設限，或是否留待司法挑戰後始行限縮，追及權此一制度，於實體藝術市場之脈絡下，均已展現出難以涵蓋場外或域外交易之結構性傾向；倘若台灣立法者於未來考慮引進追及權，並期待其亦能填補NFT轉售版稅之強制力缺口，除須正視此一結構性傾向外，更須進一步處理NFT交易去中心化程度較實體藝術市場更甚此一額外變數——否則，即便完成立法，亦可能重蹈歐盟或加州之覆轍，於最需要規範力的去中心化轉手情境中，恰恰失去規範效力。</p>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g2-2').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0808b" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0808b" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0808b)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0808b)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-2・數據</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="32" font-weight="900" fill="#F5F8FF">加州CRRA四十年：<tspan fill="#4D9FFF">一部立法，兩次挫敗</tspan></text>
+
+  <rect x="73.6" y="168" width="1324.8" height="50" rx="19" fill="rgba(242,163,60,.12)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="736" y="199" font-size="17.5" font-weight="700" fill="#F2A33C" text-anchor="middle">資料範圍：加州民法典§986條文＋美國聯邦第九巡迴上訴法院兩案判決，經CourtListener案例資料庫核對，n=2案＋1條文逐字引用，均一手來源可回查</text>
+
+  <text x="73.6" y="258" font-size="21" font-weight="800" fill="#4D9FFF">加州CRRA立法與訴訟時程</text>
+  <line x1="170" y1="340" x2="1370" y2="340" stroke="#7E8CA8" stroke-width="2"/>
+
+  <circle cx="170" cy="340" r="12" fill="#8FA1C0"/>
+  <text x="170" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">1976</text>
+  <text x="170" y="378" font-size="16.5" fill="#C7D2E4" text-anchor="middle">CRRA制定</text>
+  <text x="170" y="402" font-size="15.5" fill="#8FA1C0" text-anchor="middle">扣繳售價5%予作者</text>
+
+  <circle cx="470" cy="340" r="12" fill="#8FA1C0"/>
+  <text x="470" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2011</text>
+  <text x="470" y="378" font-size="16.5" fill="#C7D2E4" text-anchor="middle">集體訴訟提起</text>
+  <text x="470" y="402" font-size="15.5" fill="#8FA1C0" text-anchor="middle">對蘇富比、佳士得、eBay</text>
+
+  <circle cx="870" cy="340" r="12" fill="#F2A33C"/>
+  <text x="870" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2015.05.05</text>
+  <text x="870" y="378" font-size="16.5" fill="#F2A33C" text-anchor="middle">Sam Francis Foundation案</text>
+  <text x="870" y="402" font-size="15.5" fill="#F2A33C" text-anchor="middle">域外交易違反商業條款</text>
+
+  <circle cx="1170" cy="340" r="12" fill="#E5484D"/>
+  <text x="1170" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">2018.07.06</text>
+  <text x="1170" y="378" font-size="16.5" fill="#E5484D" text-anchor="middle">Close v. Sotheby's案</text>
+  <text x="1170" y="402" font-size="15.5" fill="#E5484D" text-anchor="middle">1978後交易遭著作權法優占</text>
+
+  <circle cx="1370" cy="340" r="12" fill="#E5484D"/>
+  <text x="1370" y="300" font-size="17" font-weight="700" fill="#F5F8FF" text-anchor="middle">迄今</text>
+  <text x="1370" y="378" font-size="16.5" fill="#E5484D" text-anchor="middle">可主張範圍</text>
+  <text x="1370" y="402" font-size="15.5" fill="#E5484D" text-anchor="middle">僅餘1977-78境內交易</text>
+
+  <text x="73.6" y="435" font-size="18" fill="#8FA1C0">兩階段司法挑戰，分別以憲法管轄權限制與聯邦體系衝突，先後削去CRRA之實際射程。</text>
+
+  <rect x="73.6" y="470" width="642" height="180" rx="12" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="500" font-size="19" font-weight="800" fill="#35C08E">加州民法典§986(a)(3)逐字引用</text>
+  <text x="96.6" y="533" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">"If a seller...fails to pay an artist</text>
+  <text x="96.6" y="555" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">the amount equal to 5 percent of the</text>
+  <text x="96.6" y="577" font-family="ui-monospace,Menlo,monospace" font-size="14.5" fill="#C7D2E4">sale...the artist may bring an action"</text>
+  <text x="96.6" y="608" font-size="16.5" fill="#8FA1C0">→「出售人未給付5%價金者，藝術家得提起訴訟」</text>
+  <text x="96.6" y="634" font-size="16.5" fill="#8FA1C0">文義本身未設市場專業人士要件</text>
+
+  <rect x="755.6" y="470" width="642.8" height="180" rx="12" fill="rgba(229,72,77,.06)" stroke="#E5484D" stroke-width="1.725"/>
+  <text x="778.6" y="500" font-size="19" font-weight="800" fill="#E5484D">兩階段挫敗之結果疊加</text>
+  <text x="778.6" y="536" font-size="17.5" fill="#C7D2E4">域外交易：違憲排除（2015）</text>
+  <text x="778.6" y="566" font-size="17.5" fill="#C7D2E4">1978年後境內交易：優占排除（2018）</text>
+  <text x="778.6" y="602" font-size="17.5" font-weight="700" fill="#E5484D">僅餘1977.01-1978.01間境內交易</text>
+  <text x="778.6" y="628" font-size="16.5" fill="#8FA1C0">實際可主張範圍幾近歸零</text>
+
+  <text x="73.6" y="678" font-size="17" fill="#7E8CA8">CRRA施行後之實際請求件數與金額統計，本文未查得官方或學術彙整數據，標示【待查補】。</text>
+
+  <rect x="73.6" y="700" width="1324.8" height="112" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="700" width="9.2" height="112" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="740" font-size="19.5" font-weight="900" fill="#F5F8FF">與論文的連結：即便立法文字未設限，射程仍可能因憲法管轄權與體系衝突，於事後萎縮至幾近失效。</text>
+  <text x="110.4" y="774" font-size="18" fill="#8FA1C0">資料範圍：兩案判決＋1條文，n=2。下一頁把台灣、歐盟、美國三法域的處境整理成比較矩陣。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依Cal. Civ. Code §986與Sam Francis Foundation、Close兩案整理；作者自製（2026-08-08）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-2・數據</text>
+</svg>
+<figcaption><b>圖2｜</b>加州CRRA立法與訴訟時間軸（作者整理，依加州民法典§986與Sam Francis Foundation v. Christie's、Close v. Sotheby's兩案判決，經CourtListener案例資料庫核對，最後瀏覽日：2026-08-08）。本圖亦為口試簡報 G-2 數據幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g2-2">
+<div class="lbl">SLIDE G-2・數據 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-08-2.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>上一頁攤開了追及權射程的結構性邊界；這一頁用美國加州的真實立法史，看這道邊界如何在事後透過訴訟萎縮。加州轉售版稅法於一九七六年制定，一九七七年一月一日生效，要求出售人扣繳售價百分之五交付原創作者。二零一一年，藝術家對蘇富比、佳士得與eBay提起集體訴訟。</p>
+<p>二零一五年五月五日，第九巡迴上訴法院以聯席審理方式認定，法律未區分交易是否發生於加州境內，逕行課予域外交易扣繳義務，違反美國憲法商業條款的消極面向，域外交易部分因此無效。二零一八年七月六日，同一系列訴訟的後續判決，進一步認定一九七八年後的交易，已遭聯邦著作權法明示優占排除。兩次挫敗疊加，可主張範圍幾近歸零。</p>
+<p class="transition">承接下一頁，把台灣、歐盟、美國三個法域，在追及權射程設計上的處境，整理成一張比較矩陣。</p>
+</div>
+
+<figure>
+<button class="script-btn" onclick="this.classList.toggle('open');document.getElementById('sp-g2-3').classList.toggle('open')" aria-label="這一頁的簡報講解">🎤</button>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1472 980" font-family="'PingFang TC','Noto Sans TC',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bg0808c" x1="0" y1="0" x2="1.15" y2="1.36"><stop offset="0" stop-color="#111C2E"/><stop offset="1" stop-color="#0A101C"/></linearGradient>
+    <linearGradient id="topbar0808c" x1="0" y1="0" x2="1.15" y2="0"><stop offset="0" stop-color="#2E6BFF"/><stop offset="1" stop-color="#6FBBFF"/></linearGradient>
+  </defs>
+  <rect width="1472" height="979.2" fill="url(#bg0808c)"/>
+  <rect width="1472" height="8.16" fill="url(#topbar0808c)"/>
+  <text x="75.9" y="59.84" font-size="19.52" letter-spacing="3" fill="#5F79A6">PART G・制度設計  ›  SLIDE G-2・比較</text>
+  <rect x="73.6" y="81.6" width="9.2" height="68" rx="4" fill="#2E6BFF"/>
+  <text x="103.5" y="133.28" font-size="34" font-weight="900" fill="#F5F8FF">台灣、歐盟、美國：<tspan fill="#4D9FFF">追及權的三種處境</tspan></text>
+
+  <rect x="73.6" y="176.8" width="230" height="59.84" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="188.6" y="214.88" font-size="20" font-weight="800" fill="#8FA1C0" text-anchor="middle">判斷項目</text>
+  <rect x="318" y="176.8" width="344" height="59.84" rx="10" fill="rgba(77,159,255,.10)" stroke="#4D9FFF" stroke-width="1.725"/>
+  <text x="490" y="214.88" font-size="20" font-weight="800" fill="#4D9FFF" text-anchor="middle">台灣（著作權法）</text>
+  <rect x="676.4" y="176.8" width="344" height="59.84" rx="10" fill="rgba(53,192,142,.10)" stroke="#35C08E" stroke-width="1.725"/>
+  <text x="848.4" y="214.88" font-size="20" font-weight="800" fill="#35C08E" text-anchor="middle">歐盟（2001/84/EC）</text>
+  <rect x="1034.8" y="176.8" width="363.6" height="59.84" rx="10" fill="rgba(242,163,60,.10)" stroke="#F2A33C" stroke-width="1.725"/>
+  <text x="1216.6" y="214.88" font-size="20" font-weight="800" fill="#F2A33C" text-anchor="middle">美國（加州CRRA）</text>
+
+  <rect x="73.6" y="247.52" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="288.32" font-size="19.5" font-weight="700" fill="#F5F8FF">立法狀態</text>
+  <text x="96.6" y="318.24" font-size="17" fill="#7E8CA8">有無明文規定</text>
+  <text x="341" y="293.76" font-size="17.5" font-weight="700" fill="#4D9FFF">無明文規定，</text>
+  <text x="341" y="320.96" font-size="17.5" fill="#C7D2E4">屬立法空白階段</text>
+  <text x="699.4" y="293.76" font-size="17.5" fill="#C7D2E4">指令明文承認</text>
+  <text x="699.4" y="320.96" font-size="17.5" fill="#C7D2E4">（2001年制定）</text>
+  <text x="1057.8" y="293.76" font-size="17.5" fill="#C7D2E4">CRRA制定於</text>
+  <text x="1057.8" y="320.96" font-size="17.5" fill="#C7D2E4">1976年，早於歐盟</text>
+
+  <rect x="73.6" y="384.32" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="425.12" font-size="19.5" font-weight="700" fill="#F5F8FF">射程限制之性質</text>
+  <text x="96.6" y="455.04" font-size="17" fill="#7E8CA8">限制從何而來</text>
+  <text x="341" y="430.56" font-size="17.5" fill="#C7D2E4">尚無射程</text>
+  <text x="341" y="457.76" font-size="17.5" fill="#C7D2E4">可資討論</text>
+  <text x="699.4" y="430.56" font-size="17.5" font-weight="700" fill="#35C08E">立法設計之初即</text>
+  <text x="699.4" y="457.76" font-size="17.5" fill="#C7D2E4">已限定（§1⑵要件）</text>
+  <text x="1057.8" y="430.56" font-size="17.5" font-weight="700" fill="#F2A33C">文義未設限，</text>
+  <text x="1057.8" y="457.76" font-size="17.5" fill="#C7D2E4">事後經司法挫敗</text>
+
+  <rect x="73.6" y="521.12" width="1324.8" height="122.4" rx="10" fill="#131D2E" stroke="#263B5C" stroke-width="1.15"/>
+  <text x="96.6" y="561.92" font-size="19.5" font-weight="700" fill="#F5F8FF">對場外／域外交易之涵蓋</text>
+  <text x="96.6" y="591.84" font-size="17" fill="#7E8CA8">已知先例</text>
+  <text x="341" y="567.36" font-size="17.5" fill="#E5484D">【待查補：</text>
+  <text x="341" y="594.56" font-size="17.5" fill="#C7D2E4">無本土案例】</text>
+  <text x="699.4" y="567.36" font-size="17.5" fill="#C7D2E4">明文排除場外交易</text>
+  <text x="699.4" y="594.56" font-size="17.5" fill="#C7D2E4">（§1⑵市場專業人士要件）</text>
+  <text x="1057.8" y="567.36" font-size="17.5" fill="#C7D2E4">域外交易違憲排除，</text>
+  <text x="1057.8" y="594.56" font-size="17.5" fill="#C7D2E4">境內1978後交易遭優占排除</text>
+
+  <rect x="73.6" y="657.92" width="1324.8" height="122.4" rx="10" fill="rgba(46,107,255,.06)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <text x="96.6" y="698.72" font-size="19.5" font-weight="700" fill="#4D9FFF">對台灣之啟示</text>
+  <text x="96.6" y="728.64" font-size="17" fill="#7E8CA8">可借鏡什麼</text>
+  <text x="341" y="704.16" font-size="17.5" font-weight="700" fill="#4D9FFF">引進論須先處理</text>
+  <text x="341" y="731.36" font-size="17.5" fill="#C7D2E4">NFT去中心化程度之射程設計</text>
+  <text x="699.4" y="704.16" font-size="17.5" fill="#C7D2E4">可參照明確射程界定，</text>
+  <text x="699.4" y="731.36" font-size="17.5" fill="#C7D2E4">惟需檢討是否納入平台撮合</text>
+  <text x="1057.8" y="704.16" font-size="17.5" fill="#C7D2E4">警示：文義未設限，</text>
+  <text x="1057.8" y="731.36" font-size="17.5" fill="#C7D2E4">仍可能因體系衝突事後萎縮</text>
+
+  <rect x="73.6" y="798.4" width="1324.8" height="98" rx="14" fill="rgba(46,107,255,.10)" stroke="#2E6BFF" stroke-width="1.725"/>
+  <rect x="73.6" y="798.4" width="9.2" height="98" rx="4" fill="#2E6BFF"/>
+  <text x="110.4" y="836" font-size="19.5" font-weight="900" fill="#F5F8FF">與論文的連結：無論射程於制定之初即已限定，或留待司法挑戰後才萎縮，場外交易的涵蓋難題是這個制度與生俱來的特徵，不是意外。</text>
+  <text x="110.4" y="866.4" font-size="18" fill="#8FA1C0">資料範圍：三法域，n=3。下一講進入G-3，處理音樂NFT發行揭露清單的實務checklist。</text>
+
+  <text x="73.6" y="952" font-size="17" fill="#55668A">依台灣著作權法（全國法規資料庫）、Directive 2001/84/EC與加州CRRA訴訟史整理；作者自製（2026-08-08）。</text>
+  <text x="1398.4" y="952" font-size="18.3" font-weight="800" letter-spacing="2" fill="#33415C" text-anchor="end">G-2・比較</text>
+</svg>
+<figcaption><b>圖3｜</b>台灣、歐盟、美國追及權處境比較矩陣（作者整理，依台灣著作權法全文檢索、Directive 2001/84/EC與加州CRRA訴訟史，最後瀏覽日：2026-08-08）。本圖亦為口試簡報 G-2 比較幕。</figcaption>
+</figure>
+<div class="script-panel" id="sp-g2-3">
+<div class="lbl">SLIDE G-2・比較 簡報講解</div>
+<audio controls preload="none" src="../../assets/script-2026-08-08-3.mp3"></audio>
+<p><span class="cue">承接上一頁，</span>前一頁用加州的訴訟史，展示了立法文義即使未設限，射程仍可能因憲法與體系衝突事後萎縮；這一頁把台灣、歐盟、美國放進同一張矩陣比較。台灣著作權法現行全文，經逐字檢索，並無任何追及權相關規定，引進論目前仍停留於倡議層次。歐盟指令明文承認追及權，但在立法之初，即以市場專業人士介入為要件，將場外私下交易排除於外。美國加州的立法文義本身並未設限，卻歷經商業條款與著作權法優占的雙重司法挑戰，境內外的可主張範圍近乎歸零。</p>
+<p>或有論者以為，只要台灣立法時把NFT平台明文納入市場專業人士的定義，就能解決這個問題；本文以為，這確實是可行的設計選項之一，但仍無法涵蓋真正點對點、無平台介入的鏈上轉手，殘餘缺口需要誠實面對。</p>
+<p class="transition">承接下一講，這一講已經把追及權引進論的結構性侷限講清楚；下一講進入G-3，處理音樂NFT發行揭露清單，從虛擬資產服務法的規範精神推導實務checklist。</p>
+</div>
+
+<h2><span class="no">伍</span>小結</h2>
+
+<p>一句話帶走：<mark>追及權雖係已具百年歷史、多數已開發國家承認之制度化解方，惟歐盟指令之市場專業人士要件與美國加州CRRA之雙重司法挫敗，均顯示此一制度對「場外交易」存在結構性之射程缺口，此一缺口於去中心化程度更甚之NFT轉售情境中，恐將被進一步放大；台灣若考慮引進追及權以填補軟性版稅之強制力不足，仍須正面處理此一射程邊界問題，而非逕行移植既有立法模式。</mark>下一講將轉向G-3，處理音樂NFT發行揭露清單，自虛擬資產服務法之規範精神推導實務checklist。</p>
+
+<div class="oralq">
+<b>🎤 口委可能怎麼問（每日累積，8月彙整成口試攻防清單）</b>
+<ol>
+<li><span class="q">「你花了一半篇幅在講美國加州CRRA因為商業條款、聯邦著作權優占這兩個純美國聯邦制度特有的理由被打掉，但台灣是單一國家，根本沒有這種州際商業或中央地方分權的問題，你舉這個案例是不是搞錯重點，對台灣根本沒有參考價值？」</span>
+<span class="hint">👉 這題其實在問：美國加州那個案子被打掉，是因為美國特有的聯邦制度問題，跟台灣的情況根本不一樣，你為什麼還要拿來講？</span>
+<span class="a">怎麼答：這是一個很精準的提醒，我必須先承認，讓CRRA失效的兩個具體法律機制——商業條款的域外效力限制、聯邦著作權法對地方立法的優先地位——確實是美國聯邦制度特有的產物，台灣作為單一國家，沒有州與聯邦的分權問題，這兩個具體法律工具沒辦法直接套用到台灣身上。但我想論證的不是這兩個具體工具本身，而是它們共同呈現出的一個更深層的樣式：不管是歐盟用文字明講「只管市場專業人士介入的交易」，還是美國加州被憲法機制事後打回「只剩境內一年多的交易」，結果都是同一件事——立法者原本想畫的那條保護線，最後總是會在某個邊界外面失效，差別只在於這條邊界是「國界」還是「有沒有專業中介」。我引用美國案例，是為了說明這個「邊界外失效」的樣式在不同法律體系裡都會重複出現，不是說美國的具體法律工具可以直接搬到台灣用。我同意，如果台灣真的要立法，比較直接相關的參照對象會是歐盟模式，而不是美國聯邦制度的細節，這點我在正式投稿版本裡會更清楚地把兩種類比的層次分開講。</span></li>
+<li><span class="q">「你說追及權在NFT場外交易『結構性』失靈，但你自己也在文章裡承認，你根本不知道現在NFT轉售裡面有多少比例是透過平台、多少比例是純粹點對點——沒有這個數字，你憑什麼講得這麼肯定這是結構性問題？」</span>
+<span class="hint">👉 這題其實在問：你根本沒有數據支持「大部分NFT轉手都是場外交易」這件事，你這樣講不是在瞎猜嗎？</span>
+<span class="a">怎麼答：這個質疑點出了我用詞上需要更精確的地方。我確實沒有查到現在NFT轉售裡面平台撮合跟純粹點對點各佔多少比例的可靠數字，這一點我在文章裡也誠實標示了待查補，不是隱瞞。我說的「結構性」，指的不是「現在大部分交易都發生在場外」這種市場現況的判斷，而是「不管現在的比例是多少，只要法律的定義是用『有沒有市場專業人士介入』來畫線，就一定會有一部分交易，因為定義上的關係，永遠拿不到保護」，這是法律設計本身的性質，跟目前市場上實際發生多少筆這種交易是兩回事。但我同意，如果我要進一步主張這件事在政策上很重要、值得優先處理，我確實需要拿到實際的交易比例數據，才能說服人這不只是理論上存在、而是實務上真的會咬人的問題，這正是我接下來要補的功課。</span></li>
+<li><span class="q">「你自己造了『在場交易』跟『場外交易』這組講法，這不是歐盟指令或美國判決自己用的詞，你這樣硬套會不會扭曲了原本的法律爭點？」</span>
+<span class="hint">👉 這題其實在問：這兩個詞是你自己想的，不是法律文件裡原本的用語，這樣算不算你自己在偷換概念？</span>
+<span class="a">怎麼答：我承認，「在場交易」跟「場外交易」這組講法，完全是我自己為了方便比較而設計的用語，不是歐盟指令或美國判決裡的既有法律術語，我在文章裡也沒有假裝這是官方用語。我這樣做的目的，是想把兩個用完全不同法律技術達成類似效果的機制——歐盟用契約法上的定義要件、美國用憲法上的管轄權限制——放進同一個分析架構裡比較，如果我不用一組共通的講法，讀者會很難看出這兩個機制其實在處理同一種問題。但我同意，這樣做確實有把兩件事情過度簡化、混為一談的風險，尤其歐盟是立法設計上的主動選擇，美國是司法挑戰後的被動結果，性質並不完全相同，我在文章裡也有特別區分「射程受限之在場立法」跟「射程萎縮之在場立法」這兩種不同處境，正是為了不要讓讀者誤以為這兩者是同一回事。正式投稿版本，我會再更謹慎地把我自創的分析框架，跟每個法域原本的法律術語分開標示清楚。</span></li>
+<li><span class="q">「如果問題只是歐盟指令把『藝術品市場專業人士』定義得太窄，那答案不是應該去主張把NFT平台明文納入這個定義就好了嗎？為什麼你要整個否定引進論，而不是修正這個定義？」</span>
+<span class="hint">👉 這題其實在問：如果只是定義卡住了，那把定義改寬一點不就解決了，為什麼要整篇文章唱反調？</span>
+<span class="a">怎麼答：我要先澄清一點，我這篇文章的立場不是「反對引進追及權」，而是「反對不假思索地直接移植既有立法模式，卻不處理殘餘的缺口」。你說的這個做法——把NFT平台明文寫進市場專業人士的定義裡——我完全同意這是一個可行、而且應該被認真考慮的設計選項，我在文章的口委答問跟評析段落裡也有承認這一點。但我想強調的是，就算把定義修改到明確涵蓋像OpenSea這樣的中心化平台，還是完全涵蓋不到真正點對點、沒有任何平台介入的錢包對錢包轉手，或是透過完全去中心化協議完成的鏈上結算——這部分不是把定義寫寬一點就能解決的，因為它從頭到尾就沒有一個可以被要求扣繳版稅的中介角色存在。我這篇文章想做的，是誠實把這個修不好的殘餘缺口攤出來，讓立法者知道，就算採納了「擴大定義」這個補救方案，還是要正視這個更根本的技術限制，而不是修完定義就以為問題已經解決了。</span></li>
+<li><span class="q">「台灣到現在有沒有真的發生過，因為沒有追及權，導致音樂人或藝術家在NFT轉手中完全拿不到錢的具體本土案例？如果沒有，這篇文章是不是純粹理論推演？」</span>
+<span class="hint">👉 這題其實在問：有沒有台灣真實發生過的案例，證明這真的是個問題，不是你想像出來的？</span>
+<span class="a">怎麼答：老實說，我沒有查到任何一個台灣本土案例，具體證明某位音樂人或藝術家，因為台灣沒有追及權這個法律工具，導致他在NFT轉手中完全拿不到應得的錢，這一點我在圖3的比較矩陣裡也直接標示了待查補，沒有迴避。我認為這是合理的，因為台灣現在根本還沒有追及權這個法律工具，自然不可能有「因為沒有這個工具而受害」的個案，能觀察到的，只會是我在G-1講處理過的那種情況——像OpenSea把版稅執行機制從強制改成選擇性，創作者因此拿不到轉售分潤，但這是軟性版稅機制本身的問題，還沒有跟追及權直接掛勾。我這篇文章的定位，是在台灣立法者真正認真考慮引進追及權之前，先把可預見的設計缺陷講清楚，屬於往前看的政策分析，而不是描述一件已經發生、正在爭訟中的個案，這點我在文章裡也是用「若考慮引進」這種假設語氣處理，沒有假裝這已經是既成的社會問題。</span></li>
+</ol>
+<p class="note">本板塊為作者口試準備用之自問自答，非任何個案之法律意見。</p>
+</div>
+
+<div class="sources">
+<b>註釋</b>
+<ol style="font-size:.8rem;color:var(--ink-2);padding-left:22px">
+<li>Directive 2001/84/EC of the European Parliament and of the Council of 27 September 2001 on the resale right for the benefit of the author of an original work of art, Recitals (1)(3)（EUR-Lex，最後瀏覽日：2026年8月8日，逐字核對）。</li>
+<li>同上, Article 1(1)（EUR-Lex，最後瀏覽日：2026年8月8日，逐字核對）。</li>
+<li>同上, Article 1(2)（EUR-Lex，最後瀏覽日：2026年8月8日，逐字核對）。</li>
+<li>同上, Article 3（EUR-Lex，最後瀏覽日：2026年8月8日，逐字核對）。</li>
+<li>同上, Article 4（EUR-Lex，最後瀏覽日：2026年8月8日，逐字核對）。</li>
+<li>著作權法（全國法規資料庫，https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0070017，最後瀏覽日：2026年8月8日；經全文檢索「追及」一詞，查無相關條文）。</li>
+<li>California Civil Code § 986(a)(3)（經Close v. Sotheby's, Inc., 909 F.3d 1204, 1204-05 (9th Cir. 2018) (en banc order)判決文逐字引用核對，最後瀏覽日：2026年8月8日）。</li>
+<li>Sam Francis Foundation v. Christie's, Inc., 784 F.3d 1320 (9th Cir. 2015) (en banc)；cert. denied, 136 S. Ct. 795 (2016)（案號、法院、判決日期經CourtListener案例資料庫確認，最後瀏覽日：2026年8月8日；完整判決論理段落本次未及逐字核對，引用前請另行查證原文）。</li>
+<li>Close v. Sotheby's, Inc., 894 F.3d 1061 (9th Cir. 2018)（案號、法院、判決日期經CourtListener案例資料庫確認，並經909 F.3d 1204 (9th Cir. 2018) (en banc order)判決文引用其論理摘要核對，最後瀏覽日：2026年8月8日；894 F.3d 1061完整判決論理段落本次未及逐字核對，引用前請另行查證原文）。</li>
+</ol>
+</div>
+
+<div class="postnav">
+  <a href="2026-08-06.html"><span class="dir">← 上一篇</span>平台單方變更條款與code-deference條款：定型化契約的雙重審查</a>
+  <a href="../../index.html"><span class="dir">📚 所有文章</span>回鏈法醫首頁</a>
+</div>
+
+<div class="sources"><b>近期專題</b>
+<ul style="font-size:.8rem">
+<li><a href="2026-08-08.html">2026-08-08　追及權（droit de suite）引進論的批判：立法為何補不上場外交易（G-2）</a></li>
+<li><a href="2026-08-06.html">2026-08-06　平台單方變更條款與code-deference條款：定型化契約的雙重審查（G-1）</a></li>
+<li><a href="2026-08-05.html">2026-08-05　集管資料庫作為權利驗證的oracle：鏈上授權驗證的制度接口（F-2）</a></li>
+<li><a href="2026-08-04.html">2026-08-04　集體管理團體與NFT平台試聽：公開傳輸的授權盲點（JASRAC對照）（F-1）</a></li>
+<li><a href="2026-08-02.html">2026-08-02　SCSP（智慧合約服務提供者）的監理定位：純技術工具與資產控制力的分界（E-5）</a></li>
+</ul></div>
+
+<div class="disclaimer">⚖️ 本文為資訊整理與學術分析，不構成法律意見。本篇由自動化流程產出初稿，引用前請核對來源。圖1–圖3為作者依Directive 2001/84/EC、台灣著作權法全文檢索與加州CRRA訴訟史整理自製；Directive 2001/84/EC前言與第1、3、4條已於2026年8月8日逐字核對EUR-Lex原文；台灣著作權法全文已於2026年8月8日經全國法規資料庫逐字檢索，查無「追及」相關條文；California Civil Code § 986(a)(3)已於2026年8月8日經Close v. Sotheby's, Inc., 909 F.3d 1204 (9th Cir. 2018) (en banc order)判決文逐字引用核對；Sam Francis Foundation v. Christie's, Inc., 784 F.3d 1320 (9th Cir. 2015) (en banc)與Close v. Sotheby's, Inc., 894 F.3d 1061 (9th Cir. 2018)之案號、法院與判決日期已於2026年8月8日經CourtListener案例資料庫確認，惟894 F.3d 1061完整判決論理段落本次未及逐字核對，引用前請另行查證；現行NFT轉售交易中平台撮合與純粹點對點之比例分布、台灣是否已有本土案例涉及追及權引進論，均標示【待查補】。</div>
+
+</article>
+</main>
+
+<footer class="site"><div class="inner">
+鏈法醫 Chain Forensics © 2026 姬政妤 · 用數據和程式碼，驗屍每一個區塊鏈承諾 · <a href="../../index.html">回首頁</a>
+</div></footer>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-06",
+ "updated": "2026-08-08",
  "defense": "2026-09-10",
  "ppt": "2026-08-14",
  "exam": "2026-08-08",
@@ -240,11 +240,11 @@
    "act": "G",
    "ppt": "G2",
    "title": "追及權（droit de suite）引進論的批判：立法為何補不上場外交易",
-   "status": "todo",
-   "date": null,
-   "url": null,
-   "q": 0,
-   "slides": 0
+   "status": "done",
+   "date": "2026-08-08",
+   "url": "posts/daily/2026-08-08.html",
+   "q": 5,
+   "slides": 3
   },
   {
    "id": 22,
